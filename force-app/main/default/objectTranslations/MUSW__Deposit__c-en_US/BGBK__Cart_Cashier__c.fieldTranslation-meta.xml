@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Cart Cashier --></label>
+    <name>BGBK__Cart_Cashier__c</name>
+    <relationshipLabel><!-- Deposits (Cart Cashier) --></relationshipLabel>
+</CustomFieldTranslation>

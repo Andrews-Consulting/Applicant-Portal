@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- eg Custom44 (Permit&apos;s Tab style) --></help>
+    <label><!-- Style --></label>
+    <name>MUSW__Style__c</name>
+</CustomFieldTranslation>

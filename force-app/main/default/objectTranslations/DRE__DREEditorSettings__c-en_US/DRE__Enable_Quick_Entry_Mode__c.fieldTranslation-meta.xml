@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- If selected the Editors will switch to a data entry based layout. For example the field dropdown list no longer shows --></help>
+    <label><!-- Enable Quick Entry Mode --></label>
+    <name>DRE__Enable_Quick_Entry_Mode__c</name>
+</CustomFieldTranslation>

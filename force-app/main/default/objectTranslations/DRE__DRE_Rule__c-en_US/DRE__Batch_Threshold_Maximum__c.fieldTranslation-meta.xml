@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Maximum number of records this Batch Rule can process --></help>
+    <label><!-- Batch Threshold Maximum --></label>
+    <name>DRE__Batch_Threshold_Maximum__c</name>
+</CustomFieldTranslation>

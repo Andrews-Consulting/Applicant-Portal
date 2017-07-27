@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Issue Permit No. and the Permit itself (status = Issued, Issued Date = Today) --></help>
+    <label><!-- Iss Permit No. --></label>
+    <name>Iss_Track_No__c</name>
+</CustomFieldTranslation>

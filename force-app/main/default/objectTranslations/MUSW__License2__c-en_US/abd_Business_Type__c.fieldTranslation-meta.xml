@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Business Type --></label>
+    <name>abd_Business_Type__c</name>
+    <picklistValues>
+        <masterLabel>General Partnership</masterLabel>
+        <translation><!-- General Partnership --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Limited Liability Company</masterLabel>
+        <translation><!-- Limited Liability Company --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Limited Partnership</masterLabel>
+        <translation><!-- Limited Partnership --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Municipality</masterLabel>
+        <translation><!-- Municipality --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Municipality General Partnership</masterLabel>
+        <translation><!-- Municipality General Partnership --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Non-profit</masterLabel>
+        <translation><!-- Non-profit --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Privately-Held Corporation</masterLabel>
+        <translation><!-- Privately-Held Corporation --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Publicly Traded Corporation</masterLabel>
+        <translation><!-- Publicly Traded Corporation --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Sole Proprietorship</masterLabel>
+        <translation><!-- Sole Proprietorship --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

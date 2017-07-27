@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Included_Add_On_Privileges__c</fullName>
+    <description>These are the add ons and privileges that are included for this license type</description>
+    <externalId>false</externalId>
+    <label>Included Add On &amp; Privileges</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>abd_License_Type</valueSetName>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

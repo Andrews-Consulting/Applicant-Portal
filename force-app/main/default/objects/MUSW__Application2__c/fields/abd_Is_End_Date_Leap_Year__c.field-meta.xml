@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>abd_Is_End_Date_Leap_Year__c</fullName>
+    <description>Field is true if effective end date is in a leap year</description>
+    <externalId>false</externalId>
+    <formula>OR( 
+  MOD( YEAR(  abd_Effective_End_Date__c  ), 400 ) = 0, 
+  AND( 
+   MOD( YEAR(  abd_Effective_End_Date__c  ), 4 ) = 0,
+    MOD( YEAR(  abd_Effective_End_Date__c  ), 100 ) != 0
+  )
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Is End Date Leap Year</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

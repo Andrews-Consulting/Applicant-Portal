@@ -1,0 +1,3 @@
+<aura:event type="COMPONENT" description="Fired from the record view component, handled by it&apos;s direct parent to open the form for editing this record" >
+	<aura:attribute name="recordId" type="String" description="The id of the record to be edited." />
+</aura:event>

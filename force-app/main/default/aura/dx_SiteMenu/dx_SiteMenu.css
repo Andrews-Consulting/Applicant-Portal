@@ -1,0 +1,104 @@
+.THIS #topnav {
+    width: 100%;
+    height: 28px;
+    text-align: center;
+    background: #FF9800;
+    display: inline;
+}
+
+.THIS #menu {
+    margin: 0;
+    padding: 0;
+}
+
+.THIS ul {
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 10px;
+    -webkit-padding-end: 10px;    
+}
+
+.THIS ul li {
+    list-style: none;
+    display: inline;
+    float: none;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+
+.THIS ul li a {
+    display: block;
+    float: none;
+    padding: 1em 1.5em;
+    background-color: #fff;
+    color: #8a1300;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.THIS .IowaLogo {
+   cursor: pointer; 
+    /*height: 30px;*/
+/*    width: 182px;*/
+    margin-left: 0em;
+    margin-right: .25em;
+    margin-bottom: .25em;
+    padding-left: 0em;
+    padding-right: 0em;  
+}
+
+.THIS .MenuNote {
+    display: block;
+    border: 0;
+    border-top: 2px solid #ccc;
+    margin: 0;
+    padding: 10px;
+    background-color: white;
+    font-size: smaller;
+}
+
+.THIS .TallButton {
+    height: 30px;
+    width: 182px;
+    margin-left: 0em;
+    margin-right: .25em;
+    margin-bottom: .25em;
+    padding-left: 0em;
+    padding-right: 0em;
+}
+
+.THIS .RightDropDownMenu {
+    max-width: 600px;
+    min-width: 200px;
+}
+
+.THIS .LeftAlign {
+    text-align: left;
+}
+
+@media only screen and (max-width: 768px){
+    .THIS #MasterMenu, .THIS #ABDIconNotSmall {
+        display: none;
+    }
+
+    .THIS #ButtonMaster1, .THIS #ButtonMaster2, .THIS #ButtonMaster3, .THIS #ABDIconSmall {
+        display: block;
+    }
+  }
+@media only screen and (min-width: 769px) {
+    .THIS #MasterMenu, .THIS #ABDIconNotSmall {
+        display: block;
+   }
+
+    .THIS #ButtonMaster1, .THIS #ButtonMaster2, .THIS #ButtonMaster3, .THIS #ABDIconSmall {
+        display: none;
+    }
+
+    .THIS .rightAlign {
+        text-align: right;
+    }
+}

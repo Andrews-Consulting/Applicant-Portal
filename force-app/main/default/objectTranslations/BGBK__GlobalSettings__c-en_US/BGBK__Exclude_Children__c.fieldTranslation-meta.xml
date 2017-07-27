@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Comma-delimited list of child relationship names to be excluded from DRE DataContext. For example, MUSW__Fees__r,CustomObjects__r (notice, use &apos;__r&apos;) --></help>
+    <label><!-- Exclude Children --></label>
+    <name>BGBK__Exclude_Children__c</name>
+</CustomFieldTranslation>

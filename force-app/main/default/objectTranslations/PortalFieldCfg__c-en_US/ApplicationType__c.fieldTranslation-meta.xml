@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- ApplicationType --></label>
+    <name>ApplicationType__c</name>
+    <picklistValues>
+        <masterLabel>Add Privileges</masterLabel>
+        <translation><!-- Add Privileges --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Additional Locations</masterLabel>
+        <translation><!-- Additional Locations --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Appeal</masterLabel>
+        <translation><!-- Appeal --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Auction</masterLabel>
+        <translation><!-- Auction --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Close</masterLabel>
+        <translation><!-- Close --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Dram Shop Change</masterLabel>
+        <translation><!-- Dram Shop Change --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Keg Registration Stickers</masterLabel>
+        <translation><!-- Keg Registration Stickers --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Label Approval</masterLabel>
+        <translation><!-- Label Approval --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>New</masterLabel>
+        <translation><!-- New --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Office Update</masterLabel>
+        <translation><!-- Office Update --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Premise Update</masterLabel>
+        <translation><!-- Premise Update --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Refund</masterLabel>
+        <translation><!-- Refund --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Renew</masterLabel>
+        <translation><!-- Renew --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Tax Reporting</masterLabel>
+        <translation><!-- Tax Reporting --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Temporary</masterLabel>
+        <translation><!-- Temporary --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Transfer License</masterLabel>
+        <translation><!-- Transfer License --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

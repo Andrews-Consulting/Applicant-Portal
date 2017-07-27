@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DRE__Display_Rules</fullName>
+    <columns>NAME</columns>
+    <columns>DRE__Object_Name__c</columns>
+    <columns>DRE__IsActive__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>DRE__Type__c</field>
+        <operation>equals</operation>
+        <value>Display</value>
+    </filters>
+    <label>Display Rules</label>
+</ListView>

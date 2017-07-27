@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- z-Application Type --></label>
+    <name>abd_Application_Type_old__c</name>
+    <picklistValues>
+        <masterLabel>New License</masterLabel>
+        <translation><!-- New License --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Renew License</masterLabel>
+        <translation><!-- Renew License --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Keg Booklet</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Keg Booklets</value>
+    </caseValues>
+    <layouts>
+        <layout>Keg Booklet Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Booklet id needs to be in A000001-A000025 format
+Second number needs to be 24 larger than the second number --></errorMessage>
+        <name>Booklet_Id_Format</name>
+    </validationRules>
+</CustomObjectTranslation>

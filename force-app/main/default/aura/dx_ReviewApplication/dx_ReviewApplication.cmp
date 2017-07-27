@@ -1,0 +1,711 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" controller="DX_ReviewApplication" access="global">
+	
+	<!-- Data being displayed or edited as a record or list of records -->
+    <aura:attribute name="licenses" type="MUSW__License2__c[]"/>
+	<aura:attribute name="reviewApplication" type="Object"/>
+	<aura:attribute name="review" type="MUSW__Review__c" default="{'sobjectType':'MUSW__Review__c'}" />
+	<aura:attribute name="showBond" type="Boolean" required="true" default="false"/>
+    <aura:attribute name="showOcc" type="Boolean" required="true" default="false"/>
+    <aura:attribute name="showLE" type="Boolean" required="true" default="false"/>
+    <aura:attribute name="showSQBC" type="Boolean" required="true" default="false"/>
+    <aura:attribute name="showDram" type="Boolean" required="true" default="false"/>
+    <aura:attribute name="showVO" type="Boolean" required="true" default="false"/>
+    <aura:attribute name="showLD" type="Boolean" required="true" default="false"/>
+    
+	<aura:attribute name="showError" type="Boolean" />
+    <aura:attribute name="errorMessage" type="string" />
+    
+	<!-- Event Registration -->
+    <aura:registerevent name="SaveCompleted" type="c:dx_actionComplete" />
+    <aura:registerevent name="EmptyComponent" type="c:dx_actionComplete" />
+    
+    <aura:method name="PerformSave" action="{!c.save}" />
+    <aura:method name="PerformInit" action="{!c.doInit}" />
+
+	
+	<!-- Main Content -->
+	<div class="slds-grid slds-wrap padded">
+        <div class="slds-col slds-size--1-of-1">
+			<div aura:id="Application" class="slds-section">
+				<h3 class="slds-section__title" >
+					<lightning:button label="Application" class="slds-button slds-section__title-action" onclick="{!c.ClickButton}" >
+						<lightning:icon iconName="utility:switch" size="small" class="slds-section__title-action-icon slds-button__icon slds-button__icon--left"  />&nbsp;Application
+					</lightning:button>
+				</h3>
+				<div class="slds-section__content" >
+					<div class="slds-grid slds-wrap slds-grid--pull-padded">
+		                <div class="slds-col slds-small-size--1-of-1 slds-medium-size--1-of-7" />
+		                <div class="slds-col slds-small-size--1-of-1 slds-medium-size--2-of-7 padded">
+		                    <div id="slds-form-element" class="slds-container--small">
+		                        <label class="slds-form-element__label" for="lItems">Primary License Type: </label>
+		                        <ui:outputText value="{!v.reviewApplication.application.abd_Primary_License__r.MUSW__Class__c}"/>
+			                </div>
+		                    <div id="slds-form-element" class="slds-container--small">
+		                        <label class="slds-form-element__label" for="licLengths">Length of License: </label>
+		                        <ui:outputText value="{!v.reviewApplication.application.abd_Length__c}"/>
+		                    </div>
+		                </div>
+		                <div class="slds-col slds-small-size--1-of-1 slds-medium-size--1-of-7" />
+		            </div>		
+				</div>
+			</div>
+	
+			<div aura:id="Contact and Corporation" class="slds-section">
+				<h3 class="slds-section__title" >
+					<lightning:button label="Contact and Corporation" class="slds-button slds-section__title-action" onclick="{!c.ClickButton}" >
+						<lightning:icon iconName="utility:switch" size="small" class="slds-section__title-action-icon slds-button__icon slds-button__icon--left"  />&nbsp;Contact and Corporation
+					</lightning:button>
+				</h3>
+				<div class="slds-section__content" >
+					<div class="slds-grid slds-wrap padded">
+				        <div class="slds-col slds-size--1-of-1">
+				        	<div class="slds-grid slds-wrap padded">
+				                <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-7" />
+				                <div class="slds-col slds-size--1-of-1 slds-medium-size--6-of-7">
+				                    <h1>Contact Information</h1>
+				                </div>
+				            </div>
+				            <div class="slds-grid slds-wrap padded">
+				                <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-7" />
+				                <div class="slds-col slds-size--1-of-1 slds-medium-size--2-of-7">
+				                    <div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">
+				                    	<label class="slds-form-element__label">First Name: </label>
+				                        <ui:outputText value="{!v.reviewApplication.applicant.FirstName}"/>
+				                    </div>
+				                    <div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">
+				                    	<label class="slds-form-element__label">Last Name: </label>
+				                        <ui:outputText value="{!v.reviewApplication.applicant.LastName}"/>
+				                    </div>
+				                </div>
+				                <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-7" />
+				                <div class="slds-col slds-size--1-of-1 slds-medium-size--2-of-7">
+				                    <div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">
+				                    	<label class="slds-form-element__label">Phone: </label>
+				                        <ui:outputPhone value="{!v.reviewApplication.applicant.Phone}"/>
+				                    </div>
+				                    <div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">
+				                        <label class="slds-form-element__label">Email: </label>
+				                        <ui:outputEmail value="{!v.reviewApplication.applicant.Email}"/>
+				                    </div>
+				                </div>
+				                <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-7" />
+				            </div>
+				            <div class="slds-grid slds-wrap padded">
+				                <div class="slds-col slds-size--1-of-1">&nbsp;</div>
+				            </div>
+				            <div class="slds-grid slds-wrap padded">
+				                <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-7" />
+				                <div class="slds-col slds-size--1-of-1 slds-medium-size--6-of-7">
+				                    <h1>Licensee (Corporation) Information</h1>
+				                </div>
+				            </div>
+				            <div class="slds-grid slds-wrap padded">
+				                <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-7" />
+				                <div class="slds-col slds-size--1-of-1 slds-medium-size--2-of-7">
+				                    <div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">
+				                        <label class="slds-form-element__label">Legal Name: </label>
+				                        <ui:outputText value="{!v.reviewApplication.licensee.Name}"/>
+				                    </div>
+				                    <div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">
+				                    	<label class="slds-form-element__label">Phone:</label>
+				                        <ui:outputPhone value="{!v.reviewApplication.licensee.Phone}"/>
+				                    </div>
+				                    <div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">
+				                        <label class="slds-form-element__label">Email: </label>
+				                        <ui:outputEmail value="{!v.reviewApplication.licensee.abd_Account_Email_Address__c}"/>
+				                    </div>
+				                    <div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">
+				                        <label class="slds-form-element__label">Business Type: </label>
+				                        <ui:outputText value="{!v.reviewApplication.licensee.Business_Type__c}"/>
+				                    </div>
+				                </div>
+			                	<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-7" />
+				                <div class="slds-col slds-size--1-of-1 slds-medium-size--2-of-7">
+				                    <div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">
+				                    	<label class="slds-form-element__label">Mailing Address: </label>
+					                    <ui:outputText value="{!v.reviewApplication.licensee.BillingStreet}"/>
+				                    </div>
+				                    <div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">
+				                    	<label class="slds-form-element__label">Mailing City: </label>
+					                    <ui:outputText value="{!v.reviewApplication.licensee.BillingCity}"/>
+				                    </div>
+				                    <div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">
+				                    	<label class="slds-form-element__label">Mailing State: </label>
+					                    <ui:outputText value="{!v.reviewApplication.licensee.BillingState}"/>
+				                    </div>
+				                    <div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">
+				                    	<label class="slds-form-element__label">Mailing Zip: </label>
+					                    <ui:outputText value="{!v.reviewApplication.licensee.BillingPostalCode}"/>
+				                    </div>
+				                    <div aura:id="dependent" class="slds-container--center slds-container--small slds-hide">
+				                        <label class="slds-form-element__label">Business ID: </label>
+					                    <ui:outputText value="{!v.reviewApplication.licensee.abd_Corporate_ID_Number__c}"/>
+					                </div>
+				                </div>
+				                <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-7" />
+				            </div>
+						</div>
+				    </div>
+				</div>
+			</div>
+	
+			<div aura:id="Premises" class="slds-section">
+				<h3 class="slds-section__title" >
+					<lightning:button label="Premises" class="slds-button slds-section__title-action" onclick="{!c.ClickButton}" >
+						<lightning:icon iconName="utility:switch" size="small" class="slds-section__title-action-icon slds-button__icon slds-button__icon--left"  />&nbsp;Premises
+					</lightning:button>
+				</h3>
+				<div class="slds-section__content" >
+					<div class="slds-grid slds-wrap padded">
+						<div class="slds-col slds-size--1-of-1">
+							<div class="slds-grid slds-wrap padded">
+								<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-7" >&nbsp;</div>
+								<div class="slds-col slds-size--1-of-1 slds-medium-size--6-of-7">
+									<h1>Premise/Event Information</h1>
+								</div>
+							</div>
+							<div class="slds-grid slds-wrap padded">
+								<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-7" >&nbsp;</div>
+								<div class="slds-col slds-size--1-of-1 slds-medium-size--2-of-7">
+									<div id="slds-form-element" class="slds-container--left slds-container--small">
+										<label class="slds-form-element__label" for="lItems">Premises Address: </label>
+										<ui:outputText value="{!v.reviewApplication.application.abd_Premise_Address__c}"/>
+									</div>
+									<div id="slds-form-element" class="slds-container--left slds-container--small">
+										<label class="slds-form-element__label" for="lItems">Premises Address Line 2: </label>
+										<ui:outputText value="{!v.reviewApplication.application.abd_Premise_Address_2__c}"/>
+									</div>
+									<div id="slds-form-element" class="slds-container--left slds-container--small">
+										<label class="slds-form-element__label" for="lItems">Premises City: </label>
+										<ui:outputText value="{!v.reviewApplication.application.abd_Premise_City__c}"/>
+									</div>
+									<div id="slds-form-element" class="slds-container--left slds-container--small">
+										<label class="slds-form-element__label" for="lItems">Premises State: </label>
+										<ui:outputText value="{!v.reviewApplication.application.abd_Premise_State__c}"/>
+									</div>
+									<div id="slds-form-element" class="slds-container--left slds-container--small">
+										<label class="slds-form-element__label" for="lItems">Premises Zip: </label>
+										<ui:outputText value="{!v.reviewApplication.application.abd_Premise_Zip_Code__c}"/>
+									</div>
+									<div id="slds-form-element" class="slds-container--left slds-container--small">
+										<label class="slds-form-element__label" for="lItems">Premises County: </label>
+										<ui:outputText value="{!v.reviewApplication.application.abd_Premise_County__c}"/>
+									</div>
+								</div>
+								<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-7" >&nbsp;</div>
+								<div class="slds-col slds-size--1-of-1 slds-medium-size--2-of-7">
+									<div id="slds-form-element" class="slds-container--left slds-container--small">
+										<label class="slds-form-element__label" for="lItems">Doing Business As: </label>
+										<ui:outputText value="{!v.reviewApplication.application.abd_DBA__c}"/>
+									</div>
+									<div id="slds-form-element" class="slds-container--left slds-container--small">
+										<label class="slds-form-element__label" for="lItems">Premises Type: </label>
+										<ui:outputText value="{!v.reviewApplication.application.Premises_Type__c}"/>
+									</div>
+									<div id="slds-form-element" class="slds-container--left slds-container--small">
+										<label class="slds-form-element__label" for="lItems">Start Date: </label>
+										<ui:outputDate value="{!v.reviewApplication.application.abd_Effective_Date__c}" format="MM/dd/yyyy"/>
+									</div>
+									<div id="slds-form-element" class="slds-container--left slds-container--small">
+										<label class="slds-form-element__label" for="lItems">End Date: </label>
+										<ui:outputDate value="{!v.reviewApplication.application.abd_Effective_End_Date__c}" format="MM/dd/yyyy"/>
+									</div>
+								</div>
+								<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-7" >&nbsp;</div>
+							</div>
+							<div class="slds-grid padded">
+								<div class="slds-col slds-size--1-of-1">&nbsp;</div>
+							</div>
+							<div class="slds-grid slds-wrap padded">
+								<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-7">&nbsp;</div>
+								<div class="slds-col slds-size--1-of-1 slds-medium-size--6-of-7">
+									<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--large">
+										<label class="slds-form-element__label" for="lItems">Outdoor Service Area Boundaries: </label>
+										<ui:outputTextArea value="{!v.reviewApplication.application.abd_Outdoor_Service_Area_Boundary_Info__c}"/>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>					
+				</div>
+			</div>
+	
+			<div aura:id="PremiseQuestions" class="slds-section">
+				<h3 class="slds-section__title" >
+					<lightning:button label="PremiseQuestions" class="slds-button slds-section__title-action" onclick="{!c.ClickButton}" >
+						<lightning:icon iconName="utility:switch" size="small" class="slds-section__title-action-icon slds-button__icon slds-button__icon--left"  />&nbsp;Premises Questions
+					</lightning:button>
+				</h3>
+				<div class="slds-section__content" >
+					<div class="slds-grid slds-wrap padded">
+						<div class="slds-col slds-size--1-of-1">
+							<aura:renderIf isTrue="{!v.showLE}">
+								<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--medium">
+									<label class="slds-form-element__label uiLabel-left">Square footage of the entire interior area of the building: </label>
+									<ui:outputText value="{!v.reviewApplication.application.abd_Square_Footage__c}"/>
+								</div>
+							</aura:renderIf>
+							<aura:renderIf isTrue="{!v.showSQBC}">
+								<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--medium">
+									<label class="slds-form-element__label uiLabel-left">Square footage of the entire retail sales area of the business: </label>
+									<ui:outputText value="{!v.reviewApplication.application.Square_Footage_Retail_Area__c}"/>
+								</div>
+							</aura:renderIf>
+							<aura:renderIf isTrue="{!v.showBond}">
+								<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--medium">
+									<label class="slds-form-element__label uiLabel-left">Bond Company: </label>
+									<ui:outputText value="{!v.reviewApplication.application.abd_Bond_Company__c}" />
+								</div>
+							</aura:renderIf>
+							<aura:renderIf isTrue="{!v.showDram}">
+								<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--medium">
+									<label class="slds-form-element__label uiLabel-left">DRAM Insurer: </label>
+									<ui:outputText value="{!v.reviewApplication.application.abd_DRAM_shop__r.Name}" />
+								</div>
+							</aura:renderIf>
+						    <aura:renderIf isTrue="{!v.showVO}">
+								<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--medium">
+									<label class="slds-form-element__label">Veterans Organizations: </label>
+									<ui:outputText value="{!v.reviewApplication.application.abd_Veterans_Organization__c}" />
+								</div>
+							</aura:renderIf>
+							<aura:renderIf isTrue="{!v.reviewApplication.application.abd_Veterans_Organization__c=='No'}">
+								<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--medium">
+									<label class="slds-form-element__label">Non-profit corporation or association of individuals: </label>
+									<ui:outputText value="{!v.reviewApplication.application.abd_Non_profit__c}" />
+								</div>
+							</aura:renderIf>
+							<aura:renderIf isTrue="{!v.reviewApplication.application.abd_Non_profit__c=='Yes'}">
+								<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--medium">
+									<label class="slds-form-element__label uiLabel-left">Number of Dues Paying Members: </label>
+									<ui:outputText value="{!v.reviewApplication.application.abd_Dues_Member_Number__c}" />
+								</div>
+							</aura:renderIf>
+						    <aura:renderIf isTrue="{!v.showLE}">
+								<label class="slds-form-element__label">Do you sell gasoline?</label>
+								<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--medium">
+									<ui:outputText value="{!v.reviewApplication.application.abd_Sell_Gasoline__c}" />
+								</div>
+							</aura:renderIf>
+						    <aura:renderIf isTrue="{!v.showLD}">
+								<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--medium">
+									<label class="slds-form-element__label uiLabel-left">Premises Vehicle Type: </label>
+									<ui:outputText value="{!v.reviewApplication.application.abd_Premises_Vehicle_Type__c}" />
+								</div>
+							</aura:renderIf>
+							<aura:renderIf isTrue="{!v.reviewApplication.application.abd_Premises_Vehicle_Type__c=='Boat'}">
+								<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--medium">
+									<label class="slds-form-element__label uiLabel-left">Name of the River/Lake: </label>
+									<ui:outputText value="{!v.reviewApplication.application.abd_Name_of_River_Lake__c}" />
+								</div>
+							</aura:renderIf>
+							<aura:renderIf isTrue="{!v.showOcc}">
+								<label class="slds-form-element__label">Is the occupancy rate of your establishment over 200?</label>
+								<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--medium">
+									<ui:outputText value="{!v.reviewApplication.application.abd_Occupancy_Over_200__c}" />
+								</div>
+							</aura:renderIf>
+							<aura:renderIf isTrue="{!v.reviewApplication.application.abd_Occupancy_Over_200__c=='No'}">
+								<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--medium">
+									<label class="slds-form-element__label uiLabel-left">Occupancy Explanation: </label>
+									<ui:outputText value="{!v.reviewApplication.application.abd_Occupancy_Explination__c}" />
+								</div>
+							</aura:renderIf>    
+						</div>
+						<div class="slds-col slds-size--1-of-1">
+							<aura:renderIf isTrue="{!v.reviewApplication.premiseQuestions1.length>0}">
+								<hr/>
+								<div class="slds-grid slds-wrap padded">
+									<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-12" >&nbsp;</div>
+									<div class="slds-col slds-size--1-of-1 slds-medium-size--11-of-12">
+										<h1>Premises Information</h1>
+									</div>
+								</div>
+								<div class="slds-grid slds-wrap padded">
+									<div class="slds-col slds-size--1-of-1">
+										<aura:iteration items="{!v.reviewApplication.premiseQuestions1}" var="ans">
+											<ui:outputRichText value="{!ans.q}"/>
+											<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--medium">
+												<div class="slds-grid slds-wrap">
+													<ui:outputText value="{!'ANSWER: '+ans.response}" />
+												</div>
+											</div>
+										</aura:iteration>
+									</div>
+								</div>
+							</aura:renderIf>
+							<aura:renderIf isTrue="{!v.reviewApplication.premiseQuestions2.length>0}">
+								<aura:renderIf isTrue="{!v.reviewApplication.premiseQuestions1.length>0}">
+									<hr/>
+								</aura:renderIf>
+								<div class="slds-grid slds-wrap padded">
+									<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-12" >&nbsp;</div>
+									<div class="slds-col slds-size--1-of-1 slds-medium-size--11-of-12">
+										<h1>General Premises Information</h1>
+									</div>
+								</div>
+								<div class="slds-grid slds-wrap padded">
+									<div class="slds-col slds-size--1-of-1">
+										<aura:iteration items="{!v.reviewApplication.premiseQuestions2}" var="ans">
+											<ui:outputRichText value="{!ans.q}"/>
+											<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--medium">
+												<div class="slds-grid slds-wrap">
+													<ui:outputText value="{!ans.response}" />
+												</div>
+											</div>
+										</aura:iteration>
+									</div>
+								</div>
+							</aura:renderIf>
+						</div>
+					</div>
+				</div>
+			</div>
+	
+			<div aura:id="Auction" class="slds-section">
+				<h3 class="slds-section__title" >
+					<lightning:button label="Auction" class="slds-button slds-section__title-action" onclick="{!c.ClickButton}" disabled="{!!v.reviewApplication.auctionQuestions.length>0}">
+						<aura:renderIf isTrue="{!v.reviewApplication.auctionQuestions.length>0}">
+							<lightning:icon iconName="utility:switch" size="small" class="slds-section__title-action-icon slds-button__icon slds-button__icon--left"  />&nbsp;
+						</aura:renderIf>
+						Auction Information{!(v.reviewApplication.auctionQuestions.length>0)?'':'  --- Does not apply ---'}
+					</lightning:button>
+				</h3>
+				<div class="slds-section__content" >
+					<div class="slds-grid slds-wrap padded">
+						<div class="slds-col slds-size--1-of-1">
+							<aura:renderIf isTrue="{!v.reviewApplication.auctionQuestions.length>0}">
+								<hr/>
+								<div class="slds-grid slds-wrap padded">
+									<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-12" >&nbsp;</div>
+									<div class="slds-col slds-size--1-of-1 slds-medium-size--11-of-12">
+										<h1>Auction Information</h1>
+									</div>
+								</div>
+								<div class="slds-grid slds-wrap padded">
+									<div class="slds-col slds-size--1-of-1">
+										<aura:iteration items="{!v.reviewApplication.auctionQuestions}" var="ans">
+											<ui:outputRichText value="{!ans.q}"/>
+											<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--medium">
+												<div class="slds-grid slds-wrap">
+													<ui:outputText value="{!ans.response}" />
+												</div>
+											</div>
+										</aura:iteration>
+									</div>
+								</div>
+							</aura:renderIf>
+						</div>
+					</div>
+				</div>
+			</div>
+	
+			<div aura:id="Owners" class="slds-section">
+				<h3 class="slds-section__title" >
+					<lightning:button label="Owners" class="slds-button slds-section__title-action" onclick="{!c.ClickButton}" >
+						<aura:renderIf isTrue="{!v.reviewApplication.owners.length>0}">
+							<lightning:icon iconName="utility:switch" size="small" class="slds-section__title-action-icon slds-button__icon slds-button__icon--left"  />&nbsp;
+						</aura:renderIf>
+						Owners{!(v.reviewApplication.owners.length>0)?'':'  --- No Owner Records Found ---'}
+					</lightning:button>
+				</h3>
+				<div class="slds-section__content" >
+					<div class="slds-grid slds-wrap padded">
+						<div class="slds-col slds-size--1-of-1">
+							<div class="slds-grid slds-wrap padded">
+								<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-12" />
+								<div class="slds-col slds-size--1-of-1 slds-medium-size--11-of-12">
+									<h1>Owner Information</h1>
+								</div>
+							</div>
+							<aura:iteration items="{!v.reviewApplication.owners}" var="owner">
+								<hr/>
+								<div class="slds-grid slds-wrap padded">
+									<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-12" />
+									<div class="slds-col slds-size--1-of-1 slds-medium-size--6-of-12">
+										<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small">
+											<label class="slds-form-element__label">Corporation Name: </label>
+											<ui:outputText value="{!owner.Business_Name__c}"/>
+										</div>
+										<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small">
+											<label class="slds-form-element__label">First Name: </label>
+											<ui:outputText value="{!owner.First_Name__c}"/>
+										</div>
+										<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small">
+											<label class="slds-form-element__label">Last Name: </label>
+											<ui:outputText value="{!owner.Last_Name__c}"/>
+										</div>
+										<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--medium">
+											<label class="slds-form-element__label">Address Line 1: </label>
+											<ui:outputText value="{!owner.Address__c}"/>
+										</div>
+										<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--medium">
+											<label class="slds-form-element__label">Address Line 2: </label>
+											<ui:outputText value="{!owner.Address_2__c}"/>
+										</div>
+										<div class="slds-grid slds-wrap slds-container--medium">
+											<div class="slds-col slds-size--1-of-1 slds-medium-size--5-of-12">
+												<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small">
+													<label class="slds-form-element__label">City: </label>
+													<ui:outputText value="{!owner.City__c}"/>
+												</div>
+											</div>
+											<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-12" />
+											<div class="slds-col slds-size--1-of-1 slds-medium-size--2-of-12">
+												<label class="slds-form-element__label">State: </label>
+												<ui:outputText value="{!owner.State__c}"/>
+											</div>
+											<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-12" />
+											<div class="slds-col slds-size--1-of-1 slds-medium-size--3-of-12">
+												<label class="slds-form-element__label">Zip: </label>
+												<ui:outputText value="{!owner.Zip_Code__c}"/>
+											</div>
+										</div>
+									</div>
+									<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-12" />
+									<div class="slds-col slds-size--1-of-1 slds-medium-size--3-of-12">
+										<aura:renderIf isTrue="{!!v.showSSN}">
+											<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--x-small">
+												<label class="slds-form-element__label">State of Incorporation: </label>
+												<ui:outputText value="{!owner.abd_State_of_Incorporation__c}"/>
+											</div>
+											<div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">&nbsp;</div>
+											<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small">
+												<label class="slds-form-element__label">Primary Owner: </label>
+												<ui:outputCheckbox value="{!owner.abd_Primary_Owner__c}"/>
+											</div>
+										</aura:renderIf>
+								   </div>
+									<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-12" />
+								</div>
+								<div class="slds-grid slds-wrap padded">
+									<div class="customHr">&nbsp;</div>
+								</div>
+								<div class="slds-grid slds-wrap padded">
+									<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-12" />
+									<div class="slds-col slds-size--1-of-1 slds-medium-size--10-of-12">
+										<div class="slds-grid slds-wrap padded">
+											<div class="slds-col slds-size--1-of-1 slds-medium-size--2-of-8">
+												<div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">
+													<label class="slds-form-element__label">Position: </label>
+													<ui:outputText value="{!owner.Position__c}"/>
+												</div>
+												<div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">
+													<label class="slds-form-element__label">SSN: </label>
+													<ui:outputText value="{!owner.SSN__c}"/>
+												</div>
+											</div>
+											<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-8" />
+											<div class="slds-col slds-size--1-of-1 slds-medium-size--2-of-8">
+												<div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">
+													<label class="slds-form-element__label">Date of Birth: </label>
+													<ui:outputDate value="{!owner.Date_of_Birth__c}"/>
+												</div>
+												<div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">
+													<label class="slds-form-element__label">US Citizen: </label>
+													<ui:outputText value="{!owner.U_S_Citizen__c}"/>
+												</div>
+											</div>
+											<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-8" />
+											<div class="slds-col slds-size--1-of-1 slds-medium-size--2-of-8">
+												<aura:renderIf isTrue="{!!v.showSSN}">
+													<div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">
+														<label class="slds-form-element__label">% Ownership: </label>
+														<ui:outputText value="{!owner.of_Ownership__c}"/>
+													</div>
+												</aura:renderIf>
+											</div>
+											
+										</div>
+									</div>
+									<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-12" />
+								</div>
+							</aura:iteration>
+						</div>
+					</div>
+					<div class="slds-grid slds-wrap padded">
+						<div class="slds-col slds-size--1-of-1">
+							<aura:renderIf isTrue="{!v.reviewApplication.owners.length>0}">
+								<hr/>
+							</aura:renderIf>
+							<aura:renderIf isTrue="{!v.reviewApplication.ownerQuestions.length>0}">
+								<div class="slds-grid slds-wrap padded">
+									<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-12" >&nbsp;</div>
+									<div class="slds-col slds-size--1-of-1 slds-medium-size--11-of-12">
+										<h1>Ownership Information</h1>
+									</div>
+								</div>
+								<div class="slds-grid slds-wrap padded">
+									<div class="slds-col slds-size--1-of-1">
+										<aura:iteration items="{!v.reviewApplication.ownerQuestions}" var="ans">
+											<ui:outputRichText value="{!ans.q}"/>
+											<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--medium">
+												<div class="slds-grid slds-wrap">
+													<ui:outputText value="{!ans.response}" />
+												</div>
+											</div>
+										</aura:iteration>
+									</div>
+								</div>
+							</aura:renderIf>
+							<aura:renderIf isTrue="{!v.reviewApplication.chQuestions.length>0}">
+								<aura:renderIf isTrue="{!v.reviewApplication.ownerQuestions.length>0}">
+									<hr/>
+								</aura:renderIf>
+								<div class="slds-grid slds-wrap padded">
+									<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-12" >&nbsp;</div>
+									<div class="slds-col slds-size--1-of-1 slds-medium-size--11-of-12">
+										<h1>Criminal History</h1>
+									</div>
+								</div>
+								<div class="slds-grid slds-wrap padded">
+									<div class="slds-col slds-size--1-of-1">
+										<aura:iteration items="{!v.reviewApplication.chQuestions}" var="ans">
+											<ui:outputRichText value="{!ans.q}"/>
+											<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--medium">
+												<div class="slds-grid slds-wrap">
+													<ui:outputText value="{!ans.response}" />
+												</div>
+											</div>
+										</aura:iteration>
+									</div>
+								</div>
+							</aura:renderIf>
+						</div>
+					</div>
+				</div>
+			</div>
+	
+			<div aura:id="AuthorizedAgent" class="slds-section">
+				<h3 class="slds-section__title" >
+					<lightning:button label="AuthorizedAgent" class="slds-button slds-section__title-action" onclick="{!c.ClickButton}" >
+						<aura:renderIf isTrue="{!v.reviewApplication.agents.length>0}">
+							<lightning:icon iconName="utility:switch" size="small" class="slds-section__title-action-icon slds-button__icon slds-button__icon--left"  />&nbsp;
+						</aura:renderIf>
+						Authorized Agents{!(v.reviewApplication.agents.length>0)?'':'  --- No Authorized Agent Records Found ---'}
+					</lightning:button>
+				</h3>
+				<div class="slds-section__content" >
+					<aura:iteration items="{!v.reviewApplication.agents}" var="agent">
+						<div class="slds-grid slds-wrap padded">
+					        <div class="slds-col slds-size--1-of-1">
+					            <div class="slds-grid slds-wrap padded">
+					                <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-12" />
+					                <div class="slds-col slds-size--1-of-1 slds-medium-size--11-of-12">
+					                    <h1>Authorized Agent Information</h1>
+					                </div>
+					            </div>
+					            <div class="slds-grid slds-wrap padded">
+					                <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-12" />
+					                <div class="slds-col slds-size--1-of-1 slds-medium-size--10-of-12">
+					                    <div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small">
+					                        <label class="slds-form-element__label">Name: </label>
+											<ui:outputText value="{!agent.abd_Auth_Agent_Name__c}"/>
+										</div>
+					                    <div id="slds-form-element slds-is-required" class="slds-container--left slds-container--medium">
+					                        <label class="slds-form-element__label">Address Line 1: </label>
+											<ui:outputText value="{!agent.abd_Auth_Agent_Address__c}"/>
+										</div>
+					                    <div id="slds-form-element slds-is-required" class="slds-container--left slds-container--medium">
+					                        <label class="slds-form-element__label">Address Line 2: </label>
+											<ui:outputText value="{!agent.abd_Auth_Agent_Address_2__c}"/>
+										</div>
+					                    <div class="slds-grid slds-wrap slds-container--medium">
+					                        <div class="slds-col slds-size--1-of-1 slds-medium-size--5-of-12">
+					                            <div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small">
+					                                <label class="slds-form-element__label">City: </label>
+													<ui:outputText value="{!agent.abd_Auth_Agent_City__c}"/>
+												</div>
+					                        </div>
+					                        <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-12" />
+					                        <div class="slds-col slds-size--1-of-1 slds-medium-size--2-of-12">
+					                            <div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">
+					                                <label class="slds-form-element__label">State: </label>
+													<ui:outputText value="{!agent.abd_Auth_Agent_State__c}"/>
+												</div>
+					                        </div>
+					                        <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-12" />
+					                        <div class="slds-col slds-size--1-of-1 slds-medium-size--3-of-12">
+					                            <div id="slds-form-element slds-is-required" class="slds-container--right slds-container--small">
+					                                <label class="slds-form-element__label">Zip: </label>
+													<ui:outputText value="{!agent.abd_Auth_Agent_Zip__c}"/>
+												</div>
+					                        </div>
+					                    </div>
+					                    <div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small">
+					                        <label class="slds-form-element__label">Phone: </label>
+											<ui:outputPhone value="{!agent.abd_Auth_Agent_Phone__c}"/>
+										</div>
+					                </div>
+					                <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-12" />
+					            </div>
+					        </div>
+						</div>
+					</aura:iteration>
+				</div>
+			</div>
+		</div>
+	</div>
+	<hr/>
+	<div class="slds-grid slds-wrap padded">
+		<div class="slds-col slds-size--1-of-1">
+			<div class="slds-grid slds-wrap padded">
+				<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-7" >
+					<div id="slds-form-element" class="slds-container--left slds-container--small">
+						<h1>Reviewer Decision</h1>
+					</div>
+				</div>
+				<div class="slds-col slds-size--1-of-1 slds-medium-size--6-of-7" >
+					<div id="slds-form-element" class="slds-container--left slds-container--medium">
+						<lightning:input type="checkbox" label="Return Application for more Information (clears approvals/denials)" name="return" onchange="{!c.selectChange}"  checked="{!v.review.MUSW__Status__c=='Additional Information Required'}"/>
+					</div>
+				</div>
+			</div>
+			<br/>
+			<hr/>
+			<div class="slds-grid slds-wrap padded">
+				<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-7" >&nbsp;</div>
+				<div class="slds-col slds-size--1-of-1 slds-medium-size--6-of-7" >
+					<aura:iteration items="{!v.licenses}" var="l">
+						<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--large">
+			    			<c:dx_LicenseListItem license="{!l}" page="Review" shouldDisable="{!v.review.MUSW__Status__c=='Additional Information Required'}"/>
+		    			</div>
+			  		</aura:iteration>
+			  	</div>
+	  		</div>
+	  		<br/>
+	  		<hr/>
+			<div class="slds-grid slds-wrap padded">
+				<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-7" >&nbsp;</div>
+				<div class="slds-col slds-size--1-of-1 slds-medium-size--6-of-7" >
+			  		<div class="slds-grid slds-wrap padded">
+						<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-2" >&nbsp;</div>
+						<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-2" >
+							<div class="slds-grid slds-wrap padded">
+								<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-2" >
+									<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small">
+										<lightning:input label="Reviewer's Name" name="reviewer" value="{!v.review.ABD_Reviewer_Name__c}"/>
+									</div>
+								</div>
+								<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-2" >
+									<div id="slds-form-element slds-is-required" class="slds-container--right slds-container--small">
+										<ui:inputDate label="Decision Date" value="{!v.review.MUSW__Completed_DateTime__c}" displayDatePicker="true" labelClass="slds-form-element__label"/>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="slds-grid slds-wrap padded">
+						<div class="slds-col slds-size--1-of-1" >
+							<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--large">
+								<lightning:textarea label="Comments" name="comments" value="{!v.review.Comments__c}" maxlength="32768"/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>	
+	
+
+</aura:component>

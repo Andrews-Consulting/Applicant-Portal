@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Field is only used by Trigger and Batch Automation Rules --></help>
+    <label><!-- DRE Only --></label>
+    <name>MUSW__DRE_Only__c</name>
+</CustomFieldTranslation>

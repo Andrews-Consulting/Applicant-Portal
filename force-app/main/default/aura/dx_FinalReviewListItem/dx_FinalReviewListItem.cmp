@@ -1,0 +1,5 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,force:appHostable" access="global">
+    <aura:attribute name="item" type="dx_ProgressAndReview_Helper.MissingField"/>
+    <aura:attribute name="recordId" type="Id"/>
+    <li class="slds-item" onclick="{!c.goToPage}"><ui:outputText value="{!v.item.Name}"/></li>
+</aura:component>

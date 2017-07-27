@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Assigned_To__c</fullName>
+    <externalId>false</externalId>
+    <label>Assigned To</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Ann VanSant</fullName>
+                <default>false</default>
+                <label>Ann VanSant</label>
+            </value>
+            <value>
+                <fullName>Bruce Fleming</fullName>
+                <default>false</default>
+                <label>Bruce Fleming</label>
+            </value>
+            <value>
+                <fullName>Chris Andrews</fullName>
+                <default>false</default>
+                <label>Chris Andrews</label>
+            </value>
+            <value>
+                <fullName>Debbie Tarantino</fullName>
+                <default>false</default>
+                <label>Debbie Tarantino</label>
+            </value>
+            <value>
+                <fullName>Renee Cue</fullName>
+                <default>false</default>
+                <label>Renee Cue</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

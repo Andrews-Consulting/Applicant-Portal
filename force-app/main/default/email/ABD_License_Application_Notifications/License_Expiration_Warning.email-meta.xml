@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>License Expiration Warning</name>
+    <style>none</style>
+    <subject>Notice - License {!MUSW__License2__c.Name} Expires on {!MUSW__License2__c.abd_Effective_End_Date__c}</subject>
+    <type>text</type>
+</EmailTemplate>

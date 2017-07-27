@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MUSW__Set_ParcelName_As_Address_And_Number__c</fullName>
+    <defaultValue>true</defaultValue>
+    <deprecated>false</deprecated>
+    <description>If checked, the parcel name is update with the parcel's address and number</description>
+    <externalId>false</externalId>
+    <inlineHelpText>If checked, the parcel name is update with the parcel's address and number</inlineHelpText>
+    <label>Set Parcel Name with Address and Number</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

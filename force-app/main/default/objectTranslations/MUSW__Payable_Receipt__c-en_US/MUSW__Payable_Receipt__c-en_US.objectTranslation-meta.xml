@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <webLinks>
+        <label><!-- Adjust_Deposit_Collection --></label>
+        <name>BGBK__Adjust_Deposit_Collection</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Refund --></label>
+        <name>BGBK__Refund</name>
+    </webLinks>
+</CustomObjectTranslation>

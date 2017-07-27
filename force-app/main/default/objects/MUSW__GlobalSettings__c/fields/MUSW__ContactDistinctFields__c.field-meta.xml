@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MUSW__ContactDistinctFields__c</fullName>
+    <defaultValue>'lastname, mailingstreet'</defaultValue>
+    <deprecated>false</deprecated>
+    <description>Determines which loaded contacts already exist in BG so no duplicates occur</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Contact fields determining record uniqueness. Fieldname list (comma delimited)
+eg. lastname, mailingstreet</inlineHelpText>
+    <label>ContactDistinctFields</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

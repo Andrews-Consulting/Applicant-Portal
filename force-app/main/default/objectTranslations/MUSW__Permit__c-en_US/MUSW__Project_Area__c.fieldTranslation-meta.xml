@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Square Area - Total area calculated from area work items (eg. SQ FT) contributing to Permit Valuation --></help>
+    <label><!-- Project Area --></label>
+    <name>MUSW__Project_Area__c</name>
+</CustomFieldTranslation>

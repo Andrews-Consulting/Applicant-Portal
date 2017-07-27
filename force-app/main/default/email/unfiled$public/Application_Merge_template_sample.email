@@ -1,0 +1,5 @@
+This is your application number {!MUSW__Application2__c.Name}
+
+Received on  {!MUSW__Application2__c.CreatedDate}.
+
+Thank you for your application.

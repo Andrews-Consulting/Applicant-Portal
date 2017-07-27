@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlexiPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <flexiPageRegions>
+        <name>header</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>ButtonText</name>
+                <value>I agree</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>DisclaimerText</name>
+                <value>The State of Iowa is not liable for any claims, damages, or injury of any kind you may sustain arising out of or relating in any way to your use of this site. The State of Iowa will not, under any circumstances, be liable for any direct, indirect, incidental, special, consequential or punitive damages of any kind, even if the State of Iowa has been advised of the possibility of such damages arising out of: (1) your use of or inability to use this site or the information, products, or services made available on it; (2) your reliance on any information available on this site; or (3) any other matter related to this site or the information, products, or services made available on it. These limitations of liability, and any other limitations of liability in this policy, shall apply regardless of any legal or equitable theory of liability, including, without limitation, theories of tort, contract or otherwise, and shall not be limited to third party claims.&lt;br /&gt;&lt;br /&gt; The State of Iowa and its agencies, officials and employees make no warranty, representation or guarantee as to the content, accuracy, timeliness or completeness of the information provided herein. The State of Iowa expressly disclaims any and all liability for any loss or injury caused, in whole or in part, by its actions, omissions, or negligence in procuring, compiling or providing the information contained in this site, including without limitation, liability with respect to any use of this site, or the information contained herein. Reliance on the information contained on this site, is done solely at your own risk. The information may change or be altered at any time. &lt;br /&gt;&lt;br /&gt;  The State of Iowa has no obligation to detect the presence of any malicious programming. When a user downloads any software or other materials or make use of any other information on this site, the user does so at their own risk and are advised to take adequate precautions (including use of anti-virus software and file backup procedures) to minimize any loss to their system caused by malicious programming. The State of Iowa assumes no responsibility and shall not be liable for any damage to a user’s system, computer equipment, data, or other property resulting from access to or use of this site, downloading of any information from the site, or from any malicious programming contained on this site. &lt;br /&gt;&lt;br /&gt;  You agree to hold harmless and indemnify the State of Iowa and its agencies, officials, and employees from and against any claims, actions, suits, liabilities, damages, losses, settlements, demands, deficiencies, judgments, fines, penalties, costs and expenses (including, without limitation, the reasonable value of time of the Iowa Attorney General’s Office and the costs, expenses and attorney fees of other counsel retained by any Indemnitee) suffered by, incurred by, accrued against, charged to, or recoverable by the State, its agents, officers, or employees that arise out of or are related in any way to your use of this site or to any external links you post on this site to other sites or any content posted on them.</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Heading</name>
+                <value>Terms and Conditions</value>
+            </componentInstanceProperties>
+            <componentName>dx_Entry_Notice</componentName>
+        </componentInstances>
+        <name>content</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <name>footer</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <masterLabel>DX_Legal_Disclaimer</masterLabel>
+    <template>
+        <name>siteforce:sldsOneColLayout</name>
+    </template>
+    <type>CommAppPage</type>
+</FlexiPage>

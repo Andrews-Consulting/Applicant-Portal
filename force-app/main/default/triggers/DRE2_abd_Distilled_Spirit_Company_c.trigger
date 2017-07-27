@@ -1,0 +1,1 @@
+trigger DRE2_abd_Distilled_Spirit_Company_c on abd_Distilled_Spirit_Company__c (after insert, before update, before delete, after undelete) { DRE.DREManager.runTrigger(); }

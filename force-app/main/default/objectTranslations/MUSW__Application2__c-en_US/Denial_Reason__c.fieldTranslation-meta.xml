@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Denial Reason --></label>
+    <name>Denial_Reason__c</name>
+    <picklistValues>
+        <masterLabel>Deleted Corp</masterLabel>
+        <translation><!-- Deleted Corp --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Deleted LLC</masterLabel>
+        <translation><!-- Deleted LLC --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Denied by Local Authority</masterLabel>
+        <translation><!-- Denied by Local Authority --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Other</masterLabel>
+        <translation><!-- Other --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Unpaid Taxes</masterLabel>
+        <translation><!-- Unpaid Taxes --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

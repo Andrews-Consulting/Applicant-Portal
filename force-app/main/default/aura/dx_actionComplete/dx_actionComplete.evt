@@ -1,0 +1,7 @@
+<aura:event type="COMPONENT" description="Save Event for the current page" >
+	<!-- parameters are the component that is firing the event and the action completed --> 
+	<aura:attribute name="Component" type="String"  />
+	<aura:attribute name="Action" type="String"  />
+	<aura:attribute name="AppId" type="String"  />
+	<aura:attribute name="Other" type="String"  />
+</aura:event>

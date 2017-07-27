@@ -1,0 +1,11 @@
+<design:component >
+    
+   	<design:attribute name="serveBeerWithWineCoolers_URL" />
+	<design:attribute name="serveBeerWineOnly_URL" />
+	<design:attribute name="serveNativeWine_URL" />
+	<design:attribute name="serveLiquorClub_URL" />
+	<design:attribute name="serveLiquorHotel_URL" />
+	<design:attribute name="serveLiquorVehicle_URL" />
+	<design:attribute name="serveBeerWineLiquor_URL" />	
+
+</design:component>

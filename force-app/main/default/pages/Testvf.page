@@ -1,0 +1,33 @@
+<apex:page id="changePassword" showHeader="false" controller="dx_ChangePasswordController" title="{!$Label.site.change_password}">
+  <apex:includeLightning />
+
+
+   <div id="theme" />
+
+   <script>
+  $Lightning.use("c:DX_ChangePassword_VF", function() {
+  	  $Lightning.createComponent("c:ABDTheme" ,{},"theme",function(themecmp) {
+          // now that theme is created, let's create the body and the footer
+          $A.createComponent("c:Iowa_ABD_Footer" ,{ },
+              function(footercmp) {
+                var footer = themecmp.get("v.footer");
+                footer.push(footercmp);
+                themecmp.set("v.footer", footer);
+              });
+          $A.createComponent("c:dx_changePassword" ,{ "nextPageUrl" : "/s/dx-login" },
+              function(bodycmp) {
+                var body = themecmp.get("v.body");
+                body.push(bodycmp);
+                themecmp.set("v.body", body);
+             });
+        });
+   });
+  </script>
+
+<!-- <apex:page controller="testvfcontroller">
+    <apex:form >
+        <apex:commandButton id="Button1" action="{!testone}" value="button1"/>
+    </apex:form>
+    -->
+
+</apex:page>

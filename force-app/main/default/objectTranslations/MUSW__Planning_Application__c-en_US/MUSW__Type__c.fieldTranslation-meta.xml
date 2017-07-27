@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Type --></label>
+    <name>MUSW__Type__c</name>
+    <picklistValues>
+        <masterLabel>Conditional Use Permit</masterLabel>
+        <translation><!-- Conditional Use Permit --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Environmental Review</masterLabel>
+        <translation><!-- Environmental Review --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Other</masterLabel>
+        <translation><!-- Other --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Variance</masterLabel>
+        <translation><!-- Variance --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

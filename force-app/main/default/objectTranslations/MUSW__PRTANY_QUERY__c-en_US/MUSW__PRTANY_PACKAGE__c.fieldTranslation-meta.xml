@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Printer Package --></label>
+    <name>MUSW__PRTANY_PACKAGE__c</name>
+    <relationshipLabel><!-- Printer Queries --></relationshipLabel>
+</CustomFieldTranslation>

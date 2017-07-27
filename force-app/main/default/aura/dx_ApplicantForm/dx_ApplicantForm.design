@@ -1,0 +1,6 @@
+<design:component label="Doextra Applicant Form">
+ 	<design:attribute name="NextPageURL" default="/dx-licenseeinfo"/>
+ 	<design:attribute name="prevPageURL" default="/dx-auth-home"/>
+ 	<design:attribute name="submitButtonLabel" default="Save and Exit"/>
+ 	<design:attribute name="cancelButtonLabel" default="Exit without Saving"/>
+</design:component>

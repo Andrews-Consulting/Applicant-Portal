@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pay_Fund</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>Pay Fund</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>{!URLFOR($Action.MUSW__Receipt__c.New,null)} + "&amp;00NF000000BHoA2=" + {!MUSW__Fund__c.MUSW__Original_Full_Amount__c } + "&amp;CF00NF000000BHoA8=" + {! MUSW__Fund__c.MUSW__Application__c } + "&amp;00NF000000BHoA4=" + {!MUSW__Fund__c.MUSW__Type__c}
++ "&amp;CF00NF000000BHoA7=" + {!MUSW__Fund__c.MUSW__Permit__c} 
++ "&amp;CF00NF000000BHoCD=" + {!MUSW__Fund__c.Name} 
++ "&amp;retURL=" + {!URLFOR($Action.MUSW__Fund__c.View, MUSW__Fund__c.Id)}</url>
+</WebLink>

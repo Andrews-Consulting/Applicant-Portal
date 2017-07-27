@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Available Actions --></label>
+    <name>abd_Available_Actions__c</name>
+    <picklistValues>
+        <masterLabel>Add Privilege</masterLabel>
+        <translation><!-- Add Privilege --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Additional Locations</masterLabel>
+        <translation><!-- Additional Locations --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Appeal</masterLabel>
+        <translation><!-- Appeal --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Change Dram Carrier</masterLabel>
+        <translation><!-- Change Dram Carrier --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Label Approval</masterLabel>
+        <translation><!-- Label Approval --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>New</masterLabel>
+        <translation><!-- New --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Order Keg Registration booklet</masterLabel>
+        <translation><!-- Order Keg Registration booklet --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Refund</masterLabel>
+        <translation><!-- Refund --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Renew</masterLabel>
+        <translation><!-- Renew --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Transfer a License</masterLabel>
+        <translation><!-- Transfer a License --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Update Officer</masterLabel>
+        <translation><!-- Update Officer --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Update Owner</masterLabel>
+        <translation><!-- Update Owner --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Update Premises</masterLabel>
+        <translation><!-- Update Premises --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

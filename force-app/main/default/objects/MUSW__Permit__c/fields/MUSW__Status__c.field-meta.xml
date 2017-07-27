@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MUSW__Status__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <formula>IF(ISPICKVAL( MUSW__Current_Status__c , "Cancelled"), "Cancelled",
+IF(ISPICKVAL(MUSW__Current_Status__c , "Finaled"), "Finaled",
+IF(ISPICKVAL(MUSW__Current_Status__c , "In Plan Check"), "In Plan Check",
+IF(ISPICKVAL(MUSW__Current_Status__c , "Issued"), "Issued",
+IF(ISPICKVAL(MUSW__Current_Status__c , "Outstanding"), "Outstanding",
+IF(ISPICKVAL(MUSW__Current_Status__c , "Pending"), "Pending",
+IF(ISPICKVAL(MUSW__Current_Status__c , "Resolved"), "Resolved",
+IF(ISPICKVAL(MUSW__Current_Status__c , "Under Review"), "Under Review",
+IF(ISPICKVAL(MUSW__Current_Status__c , "Denied"), "Denied",
+IF(ISPICKVAL(MUSW__Current_Status__c , "Approved"), "Approved",
+IF(ISPICKVAL(MUSW__Current_Status__c , "Closed"), "Closed",
+"Not Set - Please Use Controls Below")))))))))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Status</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

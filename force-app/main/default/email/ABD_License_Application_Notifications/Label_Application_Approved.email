@@ -1,0 +1,9 @@
+Application {!MUSW__Application2__c.Name} has been {!MUSW__Application2__c.MUSW__Status__c}.
+
+Product Name: {!MUSW__Application2__c.abd_Product_name__c}
+ABV (Alcohol BY Volume): {!MUSW__Application2__c.abd_ABV_Alcohol_BY_Volume__c}
+TTB ID #: {!MUSW__Application2__c.TTB_ID__c}
+
+{Link TBD}
+
+Iowa Alcoholic Beverages Division

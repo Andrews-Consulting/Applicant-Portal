@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- The field API for Account lookup (e.g. MUSW__Account__c) --></help>
+    <label><!-- Account Field Name --></label>
+    <name>BGBK__Account_Field_Name__c</name>
+</CustomFieldTranslation>

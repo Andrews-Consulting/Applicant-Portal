@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <webLinks>
+        <label><!-- Refresh_Financials --></label>
+        <name>BGBK__Refresh_Financials</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- AttachApplicationLetter --></label>
+        <name>MUSW__AttachApplicationLetter</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Link_Attachment --></label>
+        <name>MUSW__Link_Attachment</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Refresh_Financials --></label>
+        <name>MUSW__Refresh_Financials</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- RunApplicationAutomation --></label>
+        <name>MUSW__RunApplicationAutomation</name>
+    </webLinks>
+</CustomObjectTranslation>

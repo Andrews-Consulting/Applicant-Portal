@@ -1,0 +1,5 @@
+<aura:event type="COMPONENT" description="Save Event for the current page" >
+	<!-- context is who fired the component, and nextAction holds info for the handlers... -->
+	<aura:attribute name="Context" type="String"  />
+	<aura:attribute name="NextAction" type="String"  />   
+</aura:event>

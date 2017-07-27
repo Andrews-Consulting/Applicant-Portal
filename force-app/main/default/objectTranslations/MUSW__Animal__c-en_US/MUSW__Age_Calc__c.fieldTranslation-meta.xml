@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Current Age as determined by Date of Birth to Today --></help>
+    <label><!-- Current Age --></label>
+    <name>MUSW__Age_Calc__c</name>
+</CustomFieldTranslation>

@@ -1,0 +1,33 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,force:appHostable,force:hasRecordId" controller="DX_ChangeDramCarrier" access="global">
+
+	<aura:attribute name="showError" type="Boolean"  />
+	<aura:attribute name="errorMessage" type="string" />
+	<aura:attribute name="app" type="MUSW__Application2__c" default="{'sobjectType':'MUSW__Application2__c'}" />
+
+	<aura:registerevent name="SaveCompleted" type="c:dx_actionComplete" />
+	<aura:registerevent name="EmptyComponent" type="c:dx_actionComplete" />
+
+	<aura:method name="PerformSave" action="{!c.save}"  />
+    <aura:method name="PerformInit" action="{!c.doInit}"  />
+	
+
+	<div class="slds-grid slds-wrap padded">
+		<div class="slds-col slds-size--1-of-1">
+			<div class="slds-grid slds-wrap padded">
+				<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-7" >&nbsp;</div>
+				<div class="slds-col slds-size--1-of-1 slds-medium-size--6-of-7">
+					<h1>Update Dram Carrier Application</h1>
+				</div>
+<!-- new row -->
+				<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-7" >&nbsp;</div>
+				<div class="slds-col slds-size--1-of-1 slds-medium-size--6-of-7">
+					<div id="slds-form-element slds-is-required" class="slds-container--left">
+	                    <label class="slds-form-element__label" for="dramins"><abbr class="slds-required">*</abbr>Please select the name of your New DRAM Insurer</label>
+	                    <ui:inputSelect aura:id="dramins" value="{!v.app.abd_DRAM_shop__c}"/>
+	                </div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</aura:component>

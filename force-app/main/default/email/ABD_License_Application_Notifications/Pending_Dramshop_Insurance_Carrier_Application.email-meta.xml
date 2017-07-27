@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Pending Dramshop Insurance Carrier application email (this version to Dramshop Insurance Carrier and Local Authority)</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Pending Dramshop Insurance Carrier Application</name>
+    <style>none</style>
+    <subject>{!MUSW__Application2__c.abd_Application_Type__c} - Application Awaiting Dramshop Liability Insurance Endorsement</subject>
+    <textOnly>The following license/permit application ({!MUSW__Application2__c.abd_Application_Type__c}) is submitted and awaiting endorsement of Dramshop Liability Insurance coverage by the insurance carrier. After the insurance carrier has certified coverage, the application will be forwarded to the local authority for review.
+
+NumberStatusBusiness Name
+{!MUSW__Application2__c.abd_Number_for_Communication__c} {!MUSW__Application2__c.MUSW__Status__c} {!MUSW__Application2__c.MUSW__Account__c}
+{!MUSW__Application2__c.abd_DBA__c}
+
+
+To check the status, log on here.</textOnly>
+    <type>custom</type>
+</EmailTemplate>

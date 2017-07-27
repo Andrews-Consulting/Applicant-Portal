@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Status --></label>
+    <name>MUSW__Status__c</name>
+    <picklistValues>
+        <masterLabel>Addendum</masterLabel>
+        <translation><!-- Addendum --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Approved</masterLabel>
+        <translation><!-- Approved --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Backcheck</masterLabel>
+        <translation><!-- Backcheck --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Cancelled</masterLabel>
+        <translation><!-- Cancelled --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Corrections Required</masterLabel>
+        <translation><!-- Corrections Required --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>New Proposal</masterLabel>
+        <translation><!-- New Proposal --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Waiting</masterLabel>
+        <translation><!-- Waiting --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>abd_License_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>License Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>MUSW__Class__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetName>abd_License_Type</valueSetName>
+        <valueSettings>
+            <controllingFieldValue>Native Wine Manufacturer</controllingFieldValue>
+            <valueName>WAN</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Liquor Manufacturer</controllingFieldValue>
+            <valueName>CM</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Brewer's Certificate of Compliance</controllingFieldValue>
+            <valueName>CB</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Distiller's Certificate of Compliance</controllingFieldValue>
+            <valueName>CD</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vintner's Certificate of Compliance</controllingFieldValue>
+            <valueName>CV</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Broker's Permit</controllingFieldValue>
+            <valueName>SP</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Shipper License</controllingFieldValue>
+            <valueName>DS</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Micro-Distilled Spirits Permit</controllingFieldValue>
+            <valueName>MD</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Carrier Permit</controllingFieldValue>
+            <valueName>AC</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Brew Pub</controllingFieldValue>
+            <valueName>P-BP</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Class C Native Wine</controllingFieldValue>
+            <valueName>WCN</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Catering</controllingFieldValue>
+            <valueName>P-C</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Class C Beer Permit</controllingFieldValue>
+            <valueName>BC</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>High Proof Brew Pub</controllingFieldValue>
+            <valueName>P-HPBP</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Class B Beer Permit</controllingFieldValue>
+            <valueName>BB</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Living Quarters</controllingFieldValue>
+            <valueName>P-LQ</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Class B Wine Permit</controllingFieldValue>
+            <valueName>WB</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Outdoor Service</controllingFieldValue>
+            <valueName>P-OS</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Class B Native Wine Permit</controllingFieldValue>
+            <valueName>WBN</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Sunday Sales</controllingFieldValue>
+            <valueName>P-SS</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Charity Beer Wine and Liquor Auction Permit</controllingFieldValue>
+            <valueName>CP</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Class E Liquor License</controllingFieldValue>
+            <valueName>LE</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>High Proof Native Wholesale Beer Distributor</controllingFieldValue>
+            <valueName>BAAN</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Native Wholesale Beer Distributor</controllingFieldValue>
+            <valueName>BAN</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>High Proof Wholesale Beer Distributor</controllingFieldValue>
+            <valueName>BAA</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Class A Liquor License</controllingFieldValue>
+            <valueName>LA</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Class B Liquor License</controllingFieldValue>
+            <valueName>LB</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Class C Liquor License</controllingFieldValue>
+            <valueName>LC</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Class D Liquor License</controllingFieldValue>
+            <valueName>LD</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Special Class C Liquor</controllingFieldValue>
+            <valueName>BW</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Wholesale Beer Distributor</controllingFieldValue>
+            <valueName>BA</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Wholesale Wine Distributor</controllingFieldValue>
+            <valueName>WA</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

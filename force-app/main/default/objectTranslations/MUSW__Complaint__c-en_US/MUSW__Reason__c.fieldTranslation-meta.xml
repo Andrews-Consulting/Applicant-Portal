@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Reason --></label>
+    <name>MUSW__Reason__c</name>
+    <picklistValues>
+        <masterLabel>Abandonment</masterLabel>
+        <translation><!-- Abandonment --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>As Built</masterLabel>
+        <translation><!-- As Built --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Change of Use</masterLabel>
+        <translation><!-- Change of Use --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Community Feedback</masterLabel>
+        <translation><!-- Community Feedback --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Concealment</masterLabel>
+        <translation><!-- Concealment --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Disposal</masterLabel>
+        <translation><!-- Disposal --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Excessive</masterLabel>
+        <translation><!-- Excessive --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Exposure</masterLabel>
+        <translation><!-- Exposure --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Maintenance</masterLabel>
+        <translation><!-- Maintenance --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Neglect</masterLabel>
+        <translation><!-- Neglect --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Obstruction</masterLabel>
+        <translation><!-- Obstruction --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Other</masterLabel>
+        <translation><!-- Other --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Over-growth</masterLabel>
+        <translation><!-- Over-growth --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Plan Design</masterLabel>
+        <translation><!-- Plan Design --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Propogation</masterLabel>
+        <translation><!-- Propogation --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Unrestrained</masterLabel>
+        <translation><!-- Unrestrained --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Vandalism</masterLabel>
+        <translation><!-- Vandalism --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

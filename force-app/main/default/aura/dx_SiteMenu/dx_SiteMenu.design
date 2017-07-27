@@ -1,0 +1,4 @@
+<design:component label="dx_SiteMenu">
+	<design:attribute name="backgroundColor" default="#FFFFFF" />	
+    <design:attribute name="isAuthenticated" default="false" />
+</design:component>

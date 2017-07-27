@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Fee Schedule</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Fee Schedules</value>
+    </caseValues>
+    <layouts>
+        <layout>Fee Schedule Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Fee Dollars --></label>
+            <section>Fee Dollars</section>
+        </sections>
+        <sections>
+            <label><!-- Pop &amp; Sq Ft --></label>
+            <section>Pop &amp; Sq Ft</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

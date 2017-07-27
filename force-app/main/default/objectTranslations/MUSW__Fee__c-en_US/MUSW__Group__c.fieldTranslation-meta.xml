@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Group --></label>
+    <name>MUSW__Group__c</name>
+    <picklistValues>
+        <masterLabel>Group 1</masterLabel>
+        <translation><!-- Group 1 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Group 2</masterLabel>
+        <translation><!-- Group 2 --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

@@ -1,0 +1,4 @@
+<apex:page controller="testCon">
+    {!s1}<br/>
+    {!s2}
+</apex:page>

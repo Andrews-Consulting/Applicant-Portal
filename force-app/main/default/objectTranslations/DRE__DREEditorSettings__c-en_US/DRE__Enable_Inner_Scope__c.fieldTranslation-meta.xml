@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- If selected the DRE Rule Editor will show a secondary scoping method under Actions by which you can perform nested repeats over children or global records --></help>
+    <label><!-- Enable Inner Scope --></label>
+    <name>DRE__Enable_Inner_Scope__c</name>
+</CustomFieldTranslation>

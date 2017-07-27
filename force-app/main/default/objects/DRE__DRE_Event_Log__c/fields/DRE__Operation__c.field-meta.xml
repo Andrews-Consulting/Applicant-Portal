@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DRE__Operation__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <label>Operation</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>APPLY</fullName>
+                <default>false</default>
+                <label>APPLY</label>
+            </value>
+            <value>
+                <fullName>EVALUATE</fullName>
+                <default>false</default>
+                <label>EVALUATE</label>
+            </value>
+            <value>
+                <fullName>START</fullName>
+                <default>false</default>
+                <label>START</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

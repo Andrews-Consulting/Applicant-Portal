@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Keg Registration Booklet</label>
+    <protected>false</protected>
+    <values>
+        <field>AltText__c</field>
+        <value xsi:type="xsd:string">Request a booklet of Keg Registration stickers</value>
+    </values>
+    <values>
+        <field>IconFileName__c</field>
+        <value xsi:type="xsd:string">NavigationIcon\KegRegistrationBooklet.png</value>
+    </values>
+    <values>
+        <field>Page_URL__c</field>
+        <value xsi:type="xsd:string">dx-pc-kegregistrationbooklet</value>
+    </values>
+    <values>
+        <field>Title__c</field>
+        <value xsi:type="xsd:string">Request a booklet of Keg registration stickers</value>
+    </values>
+</CustomMetadata>

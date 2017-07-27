@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BGBL__Request_Objects_Additional__c</fullName>
+    <deprecated>false</deprecated>
+    <description>only needed when Attach Letter button refers to the letterAttach scontrol (as opposed to the LetterRequest VF page)</description>
+    <externalId>false</externalId>
+    <inlineHelpText>when including Attach Letter button to an object, add object API name to this list. comma-delimited. no spaces. do not include Permit2, License2, Application2. The shorter this list, the quicker the page loads.</inlineHelpText>
+    <label>Single Man. Reqst Objects - Additional</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

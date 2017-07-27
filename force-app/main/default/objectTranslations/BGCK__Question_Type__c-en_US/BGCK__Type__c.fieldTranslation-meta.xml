@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Type --></label>
+    <name>BGCK__Type__c</name>
+    <picklistValues>
+        <masterLabel>Checkbox - Horizontal</masterLabel>
+        <translation><!-- Checkbox - Horizontal --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Checkbox - Vertical</masterLabel>
+        <translation><!-- Checkbox - Vertical --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Date</masterLabel>
+        <translation><!-- Date --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Label</masterLabel>
+        <translation><!-- Label --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Number - Currency</masterLabel>
+        <translation><!-- Number - Currency --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Number - Decimal</masterLabel>
+        <translation><!-- Number - Decimal --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Number - Integer</masterLabel>
+        <translation><!-- Number - Integer --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Number - Percent</masterLabel>
+        <translation><!-- Number - Percent --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Phone Number</masterLabel>
+        <translation><!-- Phone Number --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Picklist</masterLabel>
+        <translation><!-- Picklist --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Radio Button</masterLabel>
+        <translation><!-- Radio Button --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Record List</masterLabel>
+        <translation><!-- Record List --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Text</masterLabel>
+        <translation><!-- Text --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Text Area</masterLabel>
+        <translation><!-- Text Area --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

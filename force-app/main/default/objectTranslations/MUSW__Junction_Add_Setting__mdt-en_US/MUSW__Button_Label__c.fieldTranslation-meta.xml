@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Determines what text the action button will say in the list view or in the portal. Left blank blank it will read “Done.” --></help>
+    <label><!-- Button Label --></label>
+    <name>MUSW__Button_Label__c</name>
+</CustomFieldTranslation>

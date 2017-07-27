@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <webLinks>
+        <label><!-- Clear_Test_Results --></label>
+        <name>DRE__Clear_Test_Results</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Deploy_Download --></label>
+        <name>DRE__Deploy_Download</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Deploy_Upload_All --></label>
+        <name>DRE__Deploy_Upload_All</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Deploy_Upload_Selected --></label>
+        <name>DRE__Deploy_Upload_Selected</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Run_All --></label>
+        <name>DRE__Run_All</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Run_Selected --></label>
+        <name>DRE__Run_Selected</name>
+    </webLinks>
+</CustomObjectTranslation>

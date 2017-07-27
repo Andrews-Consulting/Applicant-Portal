@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Limit the maximum number of results returned  eg. 100 --></help>
+    <label><!-- LIMIT --></label>
+    <name>BGBL__LIMIT_Filter__c</name>
+</CustomFieldTranslation>

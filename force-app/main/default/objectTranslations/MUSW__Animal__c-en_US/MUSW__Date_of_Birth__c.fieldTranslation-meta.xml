@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- If not known exactly, enter 01/01/YYYY for year only age. --></help>
+    <label><!-- Date of Birth --></label>
+    <name>MUSW__Date_of_Birth__c</name>
+</CustomFieldTranslation>

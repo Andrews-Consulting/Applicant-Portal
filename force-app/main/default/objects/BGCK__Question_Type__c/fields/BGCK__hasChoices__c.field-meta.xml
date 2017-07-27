@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BGCK__hasChoices__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <formula>IF( ISPICKVAL(BGCK__Type__c, "Radio Button"), true, (IF( ISPICKVAL(BGCK__Type__c, "Picklist"), true, (IF( ISPICKVAL(BGCK__Type__c, "Checkbox - Horizontal"), true, (IF( ISPICKVAL(BGCK__Type__c, "Checkbox - Vertical"), true, false)))))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Has Choices</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

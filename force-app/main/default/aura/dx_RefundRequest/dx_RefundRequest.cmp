@@ -1,0 +1,51 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,force:appHostable,force:hasRecordId" controller="DX_PremiseForm" access="global">
+
+	<aura:attribute name="showError" type="Boolean"  />
+	<aura:attribute name="errorMessage" type="string" />
+
+	<aura:attribute name="app" type="MUSW__Application2__c" default="{'sobjectType':'MUSW__Application2__c'}" />
+	<aura:attribute name="applicant" type="Contact" default="{'sobjectType':'Contact'}" />
+	<aura:attribute name="licensee" type="Account" default="{'sobjectType':'Account'}" />
+
+	<!-- <aura:handler name="init" value="{!this}" action="{!c.doInit}" /> -->
+	<aura:registerevent name="SaveCompleted" type="c:dx_actionComplete" />
+	<aura:registerevent name="EmptyComponent" type="c:dx_actionComplete" />
+	<aura:method name="PerformSave" action="{!c.save}"  />
+    <aura:method name="PerformInit" action="{!c.doInit}"  />
+	
+
+	<div class="slds-grid slds-wrap padded">
+		<div class="slds-col slds-size--1-of-1">
+			<div class="slds-grid slds-wrap padded">
+				<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-7" >&nbsp;</div>
+				<div class="slds-col slds-size--1-of-1 slds-medium-size--6-of-7">
+					<h1>Application for Refund</h1>
+				</div>
+			</div>
+			<div class="slds-grid slds-wrap padded">
+				<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-7" >&nbsp;</div>
+				<div class="slds-col slds-size--1-of-1 slds-medium-size--6-of-7">
+					<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small">
+						<label class="slds-form-element__label" for="reason">
+							<abbr class="slds-required">*</abbr>Please select the reason for requesting a refund
+						</label>
+						<ui:inputSelect aura:id="States" value="{!v.app.abd_Premise_State__c}" disabled="{!v.stateOnly}" change="{!c.countyChange}"/>
+					</div>
+					<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-2">
+						<aura:renderIf isTrue="{!v.app.abd_Temporary_or_Permanent__c=='Temporary'}">
+							<div id="slds-form-element slds-is-required" class="slds-container--right slds-container--small">
+								<ui:inputDate label="Effective End Date for License" required="true" value="{!v.app.abd_Effective_End_Date__c}" displayDatePicker="true" />
+							</div>
+						</aura:renderIf>
+					</div>
+					<div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">
+                        <lightning:input label="Amount of Refund Requested" type="number" name="loan" required="true" value="{!v.owner.abd_Credit_Gift_Loan_Amount__c}" formatter="currency" step="0.01" messageWhenValueMissing="This field will be required to submit the application, but can be completed later." />
+                    </div>
+		            <div id="slds-form-element slds-is-required" class="slds-container--left slds-container--large">
+						<lightning:textarea label="Reason for Refund Request" name="refundReason" required="true" value="{!v.app.abd_Outdoor_Service_Area_Boundary_Info__c}" maxlength="32768" messageWhenValueMissing="This field will be required to submit the application, but can be completed later." />
+					</div>        
+				</div>
+			</div>
+		</div>
+	</div>
+</aura:component>

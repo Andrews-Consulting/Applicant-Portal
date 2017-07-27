@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Prem_Update_Temp_End_DateReq</fullName>
+    <active>true</active>
+    <description>For Temp Premise Update Applications, an End Date is required</description>
+    <errorConditionFormula>AND( 
+TEXT(abd_Application_Type__c) = 'Premise Update', TEXT(abd_Temporary_or_Permanent__c ) = 'Temporary',
+ISBLANK( abd_Premise_To__c ))</errorConditionFormula>
+    <errorDisplayField>abd_Premise_To__c</errorDisplayField>
+    <errorMessage>For Temp Premise Update Applications, an End Date is required</errorMessage>
+</ValidationRule>

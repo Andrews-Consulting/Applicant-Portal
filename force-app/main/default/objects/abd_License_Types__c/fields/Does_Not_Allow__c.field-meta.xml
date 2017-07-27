@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Does_Not_Allow__c</fullName>
+    <description>For this license type, these are the license types that can't coexist and must be removed from the package of licenses available.</description>
+    <externalId>false</externalId>
+    <label>Does Not Allow</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>abd_License_Type</valueSetName>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

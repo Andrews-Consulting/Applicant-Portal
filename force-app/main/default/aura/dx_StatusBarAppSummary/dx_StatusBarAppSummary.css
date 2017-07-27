@@ -1,0 +1,67 @@
+@media only screen and (max-width: 768px) {
+    .THIS #LargeItems {
+        display: none;
+    }
+
+    .THIS #SmallItems {
+        display: block;
+    }
+}
+
+@media only screen and (min-width: 769px) {
+    .THIS #LargeItems {
+        display: block;
+   }
+
+    .THIS #SmallItems {
+        display: none;
+    }
+}
+
+.THIS .titleClassLarge {
+    font-weight: bold;
+    color: black;
+    text-decoration: underline;
+}
+
+.THIS .titleClassSmall {
+    font-weight: bold;
+    color: black;
+}
+
+.THIS.div.progressContainer {
+    width:100%;
+    position:relative;
+    height:30px;
+}
+.THIS div.progressBar{
+	list-style: none;
+    display: table;
+    table-layout: fixed;
+    overflow: hidden;
+    width:100%;
+    padding: 0px 0px 10px 0px;
+    margin: 10px 0px 5px 0px;
+    counter-reset: step;
+}
+.THIS div.progressBar>span{
+    display: inline-block;
+    text-align:center;
+    margin:0px 1px;
+    word-wrap:none;
+    border: solid 1px #000000;
+    padding: 1px 3px;
+}
+
+.THIS div.progressBar span.InProgress{
+  	background:#909090;
+    color:#000000;
+}
+
+
+
+
+.THIS div.progressBar span.Complete{
+  	background:#000000;
+    color:#FFFFFF;
+}

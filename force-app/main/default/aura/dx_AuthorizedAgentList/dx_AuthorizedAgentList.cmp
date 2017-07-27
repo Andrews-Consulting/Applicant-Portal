@@ -1,0 +1,82 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" controller="DX_AuthorizedAgentList" access="global">
+    
+    <aura:attribute name="agentlist" type="object[]" default="" />
+    
+	<aura:attribute name="showError" type="Boolean"  />
+    <aura:attribute name="errorMessage" type="string" />
+    <aura:Attribute name="RecordIdIsApplication" type="Boolean" /> 
+    <aura:Attribute name="ShowCommit" type="Boolean" default="false" />
+	
+	<!-- Event Registration -->
+    <aura:registerevent name="SaveCompleted" type="c:dx_actionComplete" />
+    <aura:registerevent name="EmptyComponent" type="c:dx_actionComplete" />
+    <aura:registerevent name="NextOnlyEvent" type="c:dx_actionComplete" />
+    <aura:registerevent name="CommitChange" type="c:dx_actionComplete" />
+    
+    <!-- Method definitions -->
+    <aura:method name="PerformSave" action="{!c.save}"  />
+    <aura:method name="PerformInit" action="{!c.doInit}"  />
+
+
+    <!-- Handler definitions -->
+    <!-- <aura:handler name="init" value="{!this}" action="{!c.doInit}" /> -->
+	
+	<!-- Main Content -->
+    <div class="slds-grid slds-wrap padded">
+        <div class="slds-col slds-size--1-of-1">
+            <div class="slds-grid slds-wrap padded slds-grid--vertical-align-center">
+                <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-12" />
+                <div class="slds-col slds-size--1-of-1 slds-medium-size--8-of-12">
+                    <h1>Authorized Agents</h1>
+                </div>
+                <div class="slds-col slds-size--1-of-1 slds-medium-size--2-of-12 slds-grid--vertical-align-start">
+                	<div class="slds-container--left slds-container--small inner">
+                		<ui:button aura:id="newAgentButton" label="Add New Agent" press="{!c.addNew}" class="stdButton" />
+               		</div>
+                </div>
+                <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-12" />
+            </div>
+            <div class="slds-grid slds-wrap padded">
+                <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-12" />
+                <div class="slds-col slds-size--1-of-1 slds-medium-size--10-of-12 slds-container--center">
+                    <table class="slds-table slds-table--bordered slds-table--cell-buffer">
+			            <thead>
+			                <tr class="slds-text-title--caps">
+			                	<th scope="col">&nbsp;</th>
+			                    <th scope="col">
+			                        <div class="slds-truncate" title="Agent Name">Agent Name</div>
+			                    </th>
+			                    <th scope="col">
+			                        <div class="slds-truncate" title="City">City</div>
+			                    </th>
+			                    <th scope="col">
+			                        <div class="slds-truncate" title="State">State</div>
+			                    </th>
+			                    <th scope="col">
+			                        <div class="slds-truncate" title="Phone">Phone</div>
+			                    </th>
+			                    <th scope="col">&nbsp;</th>
+			                </tr>
+			            </thead>
+			            <tbody>
+			                <aura:iteration items="{!v.agentlist}" var="al">
+		                		<c:dx_AuthorizedAgentListItem agent="{!al.agent}" delete="{!al.needDelete}" ShowCommit="{!v.ShowCommit}" />
+		                   	</aura:iteration>
+						</tbody>
+					</table>
+				</div>
+				<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-12" />
+			</div>
+            <aura:if isTrue="{!v.ShowCommit}" >
+            <div> &nbsp; </div>
+			<div class="slds-grid slds-wrap padded slds-grid--vertical-align-center">
+                <div class="slds-col slds-size--1-of-1 slds-medium-size--8-of-12" />
+                <div class="slds-col slds-size--1-of-1 slds-medium-size--3-of-12">			
+                    <ui:button aura:id="CommitButton" label="Confirm changes" press="{!c.CommitButtonPressed}" class="slds-button slds-button--brand MyFooterButtons" />
+				</div>
+				<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-12" />
+			</div>                 
+            </aura:if>
+		</div>
+    </div>
+</aura:component>

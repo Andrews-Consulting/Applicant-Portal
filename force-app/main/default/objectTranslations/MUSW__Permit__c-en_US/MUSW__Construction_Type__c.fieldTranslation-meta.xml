@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Construction Type --></label>
+    <name>MUSW__Construction_Type__c</name>
+    <picklistValues>
+        <masterLabel>I</masterLabel>
+        <translation><!-- I --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>IA</masterLabel>
+        <translation><!-- IA --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>IB</masterLabel>
+        <translation><!-- IB --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>IIA</masterLabel>
+        <translation><!-- IIA --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>IIB</masterLabel>
+        <translation><!-- IIB --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>IIIA</masterLabel>
+        <translation><!-- IIIA --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>IIIB</masterLabel>
+        <translation><!-- IIIB --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>IV</masterLabel>
+        <translation><!-- IV --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>VA</masterLabel>
+        <translation><!-- VA --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>VB</masterLabel>
+        <translation><!-- VB --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

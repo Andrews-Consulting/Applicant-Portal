@@ -1,0 +1,306 @@
+/* iowa sliver styles */
+.THIS {
+    position: relative;
+    z-index: 1;
+    background-color: #FFFFCC;
+}
+.THIS .sliver {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.THIS .menu {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+
+.THIS .footer {
+
+}
+
+.THIS    .sliver-container {
+      background:#2f5e8c;
+      background: -moz-linear-gradient(top, #1b4472 0%, #2d5c90 53%, #2d5c90 100%);
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #1b4472), color-stop(53%, #2d5c90), color-stop(100%, #2d5c90));
+      background: -webkit-linear-gradient(top, #1b4472 0%, #2d5c90 53%, #2d5c90 100%);
+      background: -o-linear-gradient(top, #1b4472 0%, #2d5c90 53%, #2d5c90 100%);
+      background: -ms-linear-gradient(top, #1b4472 0%, #2d5c90 53%, #2d5c90 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1b4472', endColorstr='#2d5c90', GradientType=0);
+      background: linear-gradient(top, #1b4472 0%, #2d5c90 53%, #2d5c90 100%);
+      font: normal 13px/20px Helvetica, Arial, sans-serif !important;
+      word-wrap: break-word;
+      border: 0;
+      outline: 0;
+      border-top: 5px solid;
+      min-height: 41px;
+      width: 100%;
+      padding: 3px 0;
+      color: #fff;
+      text-align: right;
+}
+
+.THIS    #iowa_sliver_bar a,
+.THIS    #iowa_sliver_bar a:visited {
+      color: #fff;
+      text-decoration: none;
+    }
+.THIS    #iowa_sliver_bar a:hover {
+      text-decoration: underline;
+    }
+
+.THIS    #iowa_sliver_links {
+      float: left;
+      position: relative;
+      z-index: 500;
+      box-sizing: content-box;
+    }
+.THIS .IowaLinks {
+      margin: 3px 0 0 1px;
+      padding: 0;
+      text-align: left;
+
+}    
+.THIS    #iowa_sliver_links ul {
+      margin: 3px 0 0 1px;
+      padding: 0;
+      text-align: left;
+    }
+.THIS    #iowa_sliver_links ul li {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      float: left;
+      display: inline;
+    }
+.THIS    #iowa_sliver_links ul li a,
+.THIS    #iowa_sliver_links ul li a:visited {
+      display: block;
+      float: left;
+      padding: 6px 10px 2px;
+      opacity: .7;
+      -webkit-transition: opacity 0.3s ease-out;
+      -moz-transition: opacity 0.3s ease-out;
+    }
+.THIS    #iowa_sliver_links ul li a:hover {
+      opacity: 1;
+  }
+
+.THIS    #iowa_sliver_links ul li#iowa_sliver_agencies a {
+      background: url("https://iowa.gov/sliver/img/icons/listing.png") no-repeat 4px 10px;
+      padding-left: 22px;
+    }
+.THIS    #iowa_sliver_links ul li#iowa_sliver_services a {
+      background: url("https://iowa.gov/sliver/img/icons/services.png") no-repeat 5px 10px;
+      padding-left: 22px;
+    }
+.THIS  .iowa_sliver_logo {
+      width: 95px;
+      min-height: 30px;
+      padding: 3px 10px;
+      margin-top: -2px;
+      overflow: hidden;
+      text-indent: -1000px;
+      opacity: 1;
+      background: url("https://iowa.gov/sliver/img/iowa-logo-small-white.png") no-repeat 10px 0;
+      box-sizing: content-box;
+    }
+.THIS    #iowa_sliver_links ul li#iowa_sliver_logo a:hover,
+.THIS    #iowa_sliver_links ul li#iowa_sliver_logo a:focus {
+      background-position: 10px -40px;
+    }
+
+.THIS .iowa-sliver-search {
+      margin: 3px 10px 0 0;
+      position: relative;
+  }
+.THIS .iowa-sliver-search-a {
+      display: inline-block;
+      padding: 2px 8px 2px 26px;
+      margin: 3px 0;
+      border: 1px solid #819dbc;
+      font-size: 12px;
+      line-height: 20px;
+      color: #bfcddd;
+      background: url("https://iowa.gov/sliver/img/icons/search-icon.png") no-repeat 8px 6px;
+      box-sizing: content-box;
+      -webkit-transition: color 0.3s ease-out;
+      -moz-transition: color 0.3s ease-out;
+    }
+.THIS  .iowa-sliver-search a:hover {
+      color: #ffffff;
+    }
+
+
+.THIS .HideSearchForm {
+  display: none;
+}
+
+.THIS  .search-form-title {
+      font-style: italic;
+      font-size: 14px;
+      margin: 0 0 10px;
+    }
+ 
+ 
+ 
+ .THIS  .iowa-sliver-search-form {
+      margin: 0;
+      padding: 0 10px 0 0;
+      position: absolute;
+      top: 42px;
+      right: 10px;
+      padding: 10px;
+      background-color: #b7c7d9;
+      -moz-border-radius: 3px;
+      -webkit-border-radius: 3px;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+      text-align: left;
+      color: #204a7a;
+      z-index: 5000;
+    }
+
+.THIS  .iowa-sliver-search-form:before {
+      content: ".";
+      position: absolute;
+      top: -10px;
+      right: 10px;
+      width: 0;
+      height: 0;
+      overflow: hidden;
+      border-style: solid;
+      border-width: 0 10px 10px;
+      border-color: transparent transparent #b7c7d9 transparent;
+    }
+
+.THIS  .close {
+      display: block;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      padding: 3px 5px;
+      background-color: #acbed2;
+      text-align: center;
+      font-size: 11px;
+      line-height: 10px;
+      color: #fff;
+      text-decoration: none;
+    }
+.THIS  .close:hover {
+      background-color: #a0b5cb;
+    }
+
+.THIS     .iowa-sliver-search-form form input:-moz-placeholder,
+.THIS     .iowa-sliver-search-form form input::-webkit-input-placeholder,
+.THIS .iowa-sliver-q.placeholder {
+      color: #dce4ed;
+    }
+.THIS .iowa-sliver-q:focus {
+      background-color: #dce4ed;
+      color: #204a7a;
+    }
+  .THIS  .iowa-sliver-q {
+      padding: 2px;
+      margin: 0;
+      width: 160px;
+      font-size: 13px;
+      line-height: 13px;
+      background-color: #819dbc;
+      color: #dce4ed;
+      border: 1px inset #255182;
+      -webkit-transition: all 0.5s ease-out;
+      -moz-transition: all 0.5s ease-out;
+    }
+
+.THIS .iowa-sliver-search-submit {
+      padding: 2px 6px;
+      font-size: 13px;
+      line-height: 1em;
+      overflow: visible;
+      margin: 0;
+      color: #444;
+      text-shadow: 1px 1px 1px #e6e6e6;
+      border: 1px outset #999;
+      cursor: pointer;
+      background: #ccc;
+      background: -moz-linear-gradient(top, #b2b2b2 0%, #c9c9c9 45%, #d6d6d6 62%, #d6d6d6 100%);
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #b2b2b2), color-stop(45%, #c9c9c9), color-stop(62%, #d6d6d6), color-stop(100%, #d6d6d6));
+      background: -webkit-linear-gradient(top, #b2b2b2 0%, #c9c9c9 45%, #d6d6d6 62%, #d6d6d6 100%);
+      background: -o-linear-gradient(top, #b2b2b2 0%, #c9c9c9 45%, #d6d6d6 62%, #d6d6d6 100%);
+      background: -ms-linear-gradient(top, #b2b2b2 0%, #c9c9c9 45%, #d6d6d6 62%, #d6d6d6 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b2b2b2', endColorstr='#d6d6d6', GradientType=0);
+      background: linear-gradient(top, #b2b2b2 0%, #c9c9c9 45%, #d6d6d6 62%, #d6d6d6 100%);
+    }
+
+.THIS div.ui-widget>div.forceCommunityUserSettings div.row:nth-of-type(n+3),
+.THIS li.profile,
+.THIS li.myAccount,
+.THIS li.CommunityManageConsole,
+.THIS li.CommunityBuilder,
+.THIS li.CommunitySetup,
+.THIS li.contactSupport,
+.THIS div.login,
+.THIS div.row div.message:nth-of-type(3){
+    	display:none;	
+	}
+.THIS img.profileIcon{
+    	visibility:hidden;
+	}
+.THIS .stdButton{
+	min-width:100%;
+	max-width:100%;
+	font-size: 1rem;
+	background-color: #1b4472;
+	color:rgb(217, 217, 217);
+	white-space: normal;
+	word-break: normal;
+	word-wrap: break-word;
+	min-height: 100%;
+}
+.THIS div.inner{
+	padding-top:20px;
+}
+.THIS div.link{
+	text-align: center;
+}
+.THIS  #error {
+    text-align: center;
+    color:#FF0000;
+}
+.THIS .checkImg {
+    background: url(/sfsites/c/resource/sldsSvg/utility/success_60.png);
+}
+.THIS .imgBox{
+	display: inline-block;
+    width: 52px;
+    position: relative;
+    white-space: nowrap;
+    vertical-align:bottom;
+}
+.THIS .border{
+	border-style: solid;
+    border-width: 1px;
+    padding: 25px;	
+}
+.THIS .padded{
+	padding: 0px 25px 0px 25px;	
+}
+.THIS .lbtnDiv{
+	padding-left:100px;
+}
+.THIS .rbtnDiv{
+	padding-right:100px;
+}
+
+.THIS .mainContentArea .ui-widget {
+  margin: 5px;
+}
+
+@media only screen and (min-width: 769px) {
+  .THIS .mainContentArea{
+    min-height: 570px; 
+  }
+}
+
+@media only screen and (max-width: 768px){
+  .THIS .mainContentArea{  }    
+}

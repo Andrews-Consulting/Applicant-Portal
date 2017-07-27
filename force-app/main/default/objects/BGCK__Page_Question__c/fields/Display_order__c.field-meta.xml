@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Display_order__c</fullName>
+    <externalId>false</externalId>
+    <formula>If( abd_Page_order__c  >9, text(abd_Page_order__c),"0" &amp;text(abd_Page_order__c)) &amp; " - "&amp; If( BGCK__Order__c  >9, text(BGCK__Order__c),"0" &amp;text(BGCK__Order__c))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Display order</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

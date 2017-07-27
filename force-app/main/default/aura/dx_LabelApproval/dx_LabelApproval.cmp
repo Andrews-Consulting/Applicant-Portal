@@ -1,0 +1,40 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,force:appHostable,force:hasRecordId" controller="DX_PremiseForm" access="global">
+
+	<aura:attribute name="showError" type="Boolean"  />
+	<aura:attribute name="errorMessage" type="string" />
+
+	<aura:attribute name="app" type="MUSW__Application2__c" default="{'sobjectType':'MUSW__Application2__c','abd_Number_of_Booklets__c':1}" />
+	
+	<!-- <aura:handler name="init" value="{!this}" action="{!c.doInit}" /> -->
+	<aura:registerevent name="SaveCompleted" type="c:dx_actionComplete" />
+	<aura:registerevent name="EmptyComponent" type="c:dx_actionComplete" />
+	<aura:method name="PerformSave" action="{!c.save}"  />
+    <aura:method name="PerformInit" action="{!c.doInit}"  />
+	
+
+	<div class="slds-grid slds-wrap padded">
+		<div class="slds-col slds-size--1-of-1">
+			<div class="slds-grid slds-wrap padded">
+				<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-7" >&nbsp;</div>
+				<div class="slds-col slds-size--1-of-1 slds-medium-size--6-of-7">
+					<h1>Application for Label Approval</h1>
+					<p>On the next screen, please upload the label for approval</p><br/>
+				</div>
+			</div>
+			<div class="slds-grid slds-wrap padded">
+				<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-7" >&nbsp;</div>
+				<div class="slds-col slds-size--1-of-1 slds-medium-size--6-of-7">
+					<div id="slds-form-element" class="slds-container--left slds-container--small">
+                        <lightning:input label="Product Name" name="name" required="true" value="{!v.app.abd_Product_name__c}"/>
+                    </div>
+                    <div id="slds-form-element" class="slds-container--left slds-container--small">
+                        <lightning:input label="Alcohol BY Volume" name="abv" required="true" value="{!v.app.abd_ABV_Alcohol_BY_Volume__c}" type="number" step="0.1" min="0.1" max="100"/>
+                    </div>
+                    <div id="slds-form-element" class="slds-container--left slds-container--small">
+                        <lightning:input label="TTB ID #" name="ttbId" required="true" value="{!v.app.TTB_ID__c}"/>
+                    </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</aura:component>

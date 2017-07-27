@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BGCK__All_Draft</fullName>
+    <columns>Display_order__c</columns>
+    <columns>BGCK__Page__c</columns>
+    <columns>NAME</columns>
+    <columns>Application_Type__c</columns>
+    <columns>License_Type__c</columns>
+    <columns>BGCK__Parent_Page_Question__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>BGCK__Checklist_Version_Status__c</field>
+        <operation>equals</operation>
+        <value>Draft</value>
+    </filters>
+    <label>All Draft</label>
+</ListView>

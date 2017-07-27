@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DRE__Event__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <label>Event</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>DRE__Type__c</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Created</fullName>
+                <default>false</default>
+                <label>Created</label>
+            </value>
+            <value>
+                <fullName>Edited</fullName>
+                <default>false</default>
+                <label>Edited</label>
+            </value>
+            <value>
+                <fullName>Created or Edited</fullName>
+                <default>false</default>
+                <label>Created or Edited</label>
+            </value>
+            <value>
+                <fullName>Deleted</fullName>
+                <default>false</default>
+                <label>Deleted</label>
+            </value>
+            <value>
+                <fullName>However Impacted</fullName>
+                <default>false</default>
+                <label>However Impacted</label>
+            </value>
+            <value>
+                <fullName>Viewed</fullName>
+                <default>false</default>
+                <label>Viewed</label>
+            </value>
+            <value>
+                <fullName>Unit Test Event A</fullName>
+                <default>false</default>
+                <label>Unit Test Event A</label>
+            </value>
+            <value>
+                <fullName>Unit Test Event B</fullName>
+                <default>false</default>
+                <label>Unit Test Event B</label>
+            </value>
+            <value>
+                <fullName>Batched</fullName>
+                <default>false</default>
+                <label>Batched</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Automation</controllingFieldValue>
+            <valueName>Created</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Automation</controllingFieldValue>
+            <controllingFieldValue>Validation</controllingFieldValue>
+            <valueName>Edited</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Automation</controllingFieldValue>
+            <valueName>Created or Edited</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Automation</controllingFieldValue>
+            <controllingFieldValue>Validation</controllingFieldValue>
+            <valueName>Deleted</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Automation</controllingFieldValue>
+            <valueName>However Impacted</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Display</controllingFieldValue>
+            <valueName>Viewed</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

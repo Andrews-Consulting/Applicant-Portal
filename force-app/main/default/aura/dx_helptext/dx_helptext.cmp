@@ -1,0 +1,18 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" controller="DX_HelpTextController" access="global" >
+<aura:attribute name="HelpText" type="string" required="false" description="sample" access="global"/>
+<aura:attribute name="StyleWidth" type="string" required="false" access="global"/>
+<aura:attribute name="StyleHeight" type="string" required="false" access="global"/>
+
+<aura:handler name="init" value="{!this}" action="{!c.init}" /> 
+
+<aura:handler event="c:setHelpText" action="{!c.setHelpText}" />
+ 
+<!-- the css can set the value for the default presentation size -->
+<div id="DefaultPresentation" >
+
+<!-- allow the code to update a new max width and length -->
+		<div style="{! v.StyleWidth + v.StyleHeight}" >
+			<ui:outputRichText value="{!v.HelpText}" />
+		</div>
+</div>
+</aura:component>

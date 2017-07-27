@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>License-Application</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>License-Applications</value>
+    </caseValues>
+    <layouts>
+        <layout>License-Application Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Temporary Display Fields --></label>
+            <section>Temporary Display Fields</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- Add_License --></label>
+        <name>Add_License</name>
+    </webLinks>
+</CustomObjectTranslation>

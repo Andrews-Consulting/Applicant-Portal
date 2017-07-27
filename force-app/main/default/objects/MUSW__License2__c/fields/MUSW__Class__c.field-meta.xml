@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MUSW__Class__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <inlineHelpText>classification or function/business/privilege permitted   And I helped with this!</inlineHelpText>
+    <label>Class</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Brewer's Certificate of Compliance</fullName>
+                <default>false</default>
+                <label>Brewer's Certificate of Compliance</label>
+            </value>
+            <value>
+                <fullName>Broker's Permit</fullName>
+                <default>false</default>
+                <label>Broker's Permit</label>
+            </value>
+            <value>
+                <fullName>Carrier Permit</fullName>
+                <default>false</default>
+                <label>Carrier Permit</label>
+            </value>
+            <value>
+                <fullName>Charity Beer Wine and Liquor Auction Permit</fullName>
+                <default>false</default>
+                <label>Charity Beer Wine and Liquor Auction Permit</label>
+            </value>
+            <value>
+                <fullName>Class A Liquor License</fullName>
+                <default>false</default>
+                <label>Class A Liquor License</label>
+            </value>
+            <value>
+                <fullName>Class B Beer Permit</fullName>
+                <default>false</default>
+                <label>Class B Beer Permit</label>
+            </value>
+            <value>
+                <fullName>Class B Liquor License</fullName>
+                <default>false</default>
+                <label>Class B Liquor License</label>
+            </value>
+            <value>
+                <fullName>Class B Native Wine Permit</fullName>
+                <default>false</default>
+                <label>Class B Native Wine Permit</label>
+            </value>
+            <value>
+                <fullName>Class B Wine Permit</fullName>
+                <default>false</default>
+                <label>Class B Wine Permit</label>
+            </value>
+            <value>
+                <fullName>Class C Beer Permit</fullName>
+                <default>false</default>
+                <label>Class C Beer Permit</label>
+            </value>
+            <value>
+                <fullName>Class C Liquor License</fullName>
+                <default>false</default>
+                <label>Class C Liquor License</label>
+            </value>
+            <value>
+                <fullName>Class C Native Wine</fullName>
+                <default>false</default>
+                <label>Class C Native Wine</label>
+            </value>
+            <value>
+                <fullName>Class D Liquor License</fullName>
+                <default>false</default>
+                <label>Class D Liquor License</label>
+            </value>
+            <value>
+                <fullName>Class E Liquor License</fullName>
+                <default>false</default>
+                <label>Class E Liquor License</label>
+            </value>
+            <value>
+                <fullName>Direct Shipper License</fullName>
+                <default>false</default>
+                <label>Direct Shipper License</label>
+            </value>
+            <value>
+                <fullName>Distiller's Certificate of Compliance</fullName>
+                <default>false</default>
+                <label>Distiller's Certificate of Compliance</label>
+            </value>
+            <value>
+                <fullName>High Proof Native Wholesale Beer Distributor</fullName>
+                <default>false</default>
+                <label>High Proof Native Wholesale Beer Distributor</label>
+            </value>
+            <value>
+                <fullName>High Proof Wholesale Beer Distributor</fullName>
+                <default>false</default>
+                <label>High Proof Wholesale Beer Distributor</label>
+            </value>
+            <value>
+                <fullName>Liquor Manufacturer</fullName>
+                <default>false</default>
+                <label>Liquor Manufacturer</label>
+            </value>
+            <value>
+                <fullName>Micro-Distilled Spirits Permit</fullName>
+                <default>false</default>
+                <label>Micro-Distilled Spirits Permit</label>
+            </value>
+            <value>
+                <fullName>Native Wholesale Beer Distributor</fullName>
+                <default>false</default>
+                <label>Native Wholesale Beer Distributor</label>
+            </value>
+            <value>
+                <fullName>Native Wine Manufacturer</fullName>
+                <default>false</default>
+                <label>Native Wine Manufacturer</label>
+            </value>
+            <value>
+                <fullName>Special Class C Liquor</fullName>
+                <default>false</default>
+                <label>Special Class C Liquor</label>
+            </value>
+            <value>
+                <fullName>Vintner's Certificate of Compliance</fullName>
+                <default>false</default>
+                <label>Vintner's Certificate of Compliance</label>
+            </value>
+            <value>
+                <fullName>Wholesale Beer Distributor</fullName>
+                <default>false</default>
+                <label>Wholesale Beer Distributor</label>
+            </value>
+            <value>
+                <fullName>Wholesale Wine Distributor</fullName>
+                <default>false</default>
+                <label>Wholesale Wine Distributor</label>
+            </value>
+            <value>
+                <fullName>Brew Pub</fullName>
+                <default>false</default>
+                <label>Brew Pub</label>
+            </value>
+            <value>
+                <fullName>Catering</fullName>
+                <default>false</default>
+                <label>Catering</label>
+            </value>
+            <value>
+                <fullName>High Proof Brew Pub</fullName>
+                <default>false</default>
+                <label>High Proof Brew Pub</label>
+            </value>
+            <value>
+                <fullName>Living Quarters</fullName>
+                <default>false</default>
+                <label>Living Quarters</label>
+            </value>
+            <value>
+                <fullName>Outdoor Service</fullName>
+                <default>false</default>
+                <label>Outdoor Service</label>
+            </value>
+            <value>
+                <fullName>Sunday Sales</fullName>
+                <default>false</default>
+                <label>Sunday Sales</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

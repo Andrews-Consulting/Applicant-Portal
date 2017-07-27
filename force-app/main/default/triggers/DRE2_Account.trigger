@@ -1,0 +1,1 @@
+trigger DRE2_Account on Account (after insert, before update, before delete, after undelete) { DRE.DREManager.runTrigger(); }

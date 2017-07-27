@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BGBK__Payable_Parents__c</fullName>
+    <deprecated>false</deprecated>
+    <description>List of object API names whose Fees can be paid (e.g. Lien__c, Obj1__c). Super parents and Invoices need not be included.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>List of object API names whose Fees can be paid (e.g. Lien__c, Obj1__c). Super parents and Invoices need not be included.</inlineHelpText>
+    <label>Payable Parents</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+</CustomField>

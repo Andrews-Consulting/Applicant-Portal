@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TargetIsObject__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Unsupported currently - If this box is checked, then instead of displaying a field, we display an object and populate the object.</description>
+    <externalId>false</externalId>
+    <label>TargetIsObject</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

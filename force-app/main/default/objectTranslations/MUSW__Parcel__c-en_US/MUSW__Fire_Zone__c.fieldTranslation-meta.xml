@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Fire District --></label>
+    <name>MUSW__Fire_Zone__c</name>
+    <picklistValues>
+        <masterLabel>Fire Zone 1</masterLabel>
+        <translation><!-- Fire Zone 1 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Fire Zone 2</masterLabel>
+        <translation><!-- Fire Zone 2 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Fire Zone 3</masterLabel>
+        <translation><!-- Fire Zone 3 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Fire Zone 4</masterLabel>
+        <translation><!-- Fire Zone 4 --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

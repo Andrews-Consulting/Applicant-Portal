@@ -1,0 +1,8 @@
+<design:component >
+
+    <design:attribute name="sellBeerOptionalWine_URL" />
+	<design:attribute name="sellWineOptionalBeer_URL" />
+	<design:attribute name="sellLiquorOptionalMore_URL" />
+	<design:attribute name="sellNativeWineOptionalBeer_URL" />	
+
+</design:component>

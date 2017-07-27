@@ -1,0 +1,5 @@
+<design:component >
+	<design:attribute name="ComponentName" required="true" />
+	<design:attribute name="ComponentParms" />
+	<design:attribute name="NavigationName" required="true" />
+</design:component>

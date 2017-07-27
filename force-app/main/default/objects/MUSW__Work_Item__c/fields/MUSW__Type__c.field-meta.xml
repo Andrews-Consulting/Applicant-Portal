@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MUSW__Type__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <label>Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>MUSW__Group__c</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>FURNACE</fullName>
+                <default>false</default>
+                <label>FURNACE</label>
+            </value>
+            <value>
+                <fullName>SEWER CONNECTION</fullName>
+                <default>false</default>
+                <label>SEWER CONNECTION</label>
+            </value>
+            <value>
+                <fullName>LIVING SPACE</fullName>
+                <default>false</default>
+                <label>LIVING SPACE</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Building</controllingFieldValue>
+            <controllingFieldValue>Mechanical</controllingFieldValue>
+            <controllingFieldValue>Plumbing</controllingFieldValue>
+            <controllingFieldValue>All</controllingFieldValue>
+            <valueName>FURNACE</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Electrical</controllingFieldValue>
+            <controllingFieldValue>Mechanical</controllingFieldValue>
+            <controllingFieldValue>All</controllingFieldValue>
+            <valueName>SEWER CONNECTION</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Plumbing</controllingFieldValue>
+            <controllingFieldValue>All</controllingFieldValue>
+            <valueName>LIVING SPACE</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

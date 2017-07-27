@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MUSW__Test_Query</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Test Query</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!requireScript("/soap/ajax/17.0/connection.js")}
+
+var qs = "SELECT  {!MUSW__Query__c.MUSW__Fields__c} FROM {!MUSW__Query__c.MUSW__Object_Name__c}"; 
+//where
+qs += ("{!MUSW__Query__c.MUSW__WHERE_Filter__c}" != "") ? " WHERE {!MUSW__Query__c.MUSW__WHERE_Filter__c} ":"";
+//order by
+qs += ("{!MUSW__Query__c.MUSW__ORDER_BY_Filter__c}" != "") ? " ORDER BY " + "{!MUSW__Query__c.MUSW__ORDER_BY_Filter__c} " + "{!MUSW__Query__c.MUSW__ORDER_BY_Direction__c}":"";
+//limit
+qs += ("{!MUSW__Query__c.MUSW__LIMIT_Filter__c}" != "") ? " LIMIT " + "{!MUSW__Query__c.MUSW__LIMIT_Filter__c}": "";
+
+
+try
+{
+result = sforce.connection.query(qs);
+records = result.getArray("records");
+alert("successfully returned " + records.length + " record(s)");
+}
+catch(e)
+{
+alert("Error: " + e);
+}</url>
+</WebLink>

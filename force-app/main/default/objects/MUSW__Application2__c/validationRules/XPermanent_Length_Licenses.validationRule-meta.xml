@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>XPermanent_Length_Licenses</fullName>
+    <active>true</active>
+    <description>Validates that the length of the license is Permanent for certain License types</description>
+    <errorConditionFormula>AND(
+NOT(TEXT( abd_Application_Type__c ) = "Additional Locations"),
+IF(TEXT( abd_Length__c )="Permanent",False,True),
+NOT(TEXT( MUSW__Status__c )= "Pending"),
+TEXT( abd_Primary_License__r.abd_License_Type__c )="AC"  
+)</errorConditionFormula>
+    <errorDisplayField>abd_Length__c</errorDisplayField>
+    <errorMessage>This license type must have a length of Permanent.</errorMessage>
+</ValidationRule>

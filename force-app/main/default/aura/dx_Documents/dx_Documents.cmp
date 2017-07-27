@@ -1,0 +1,15 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" controller="dx_StdPageAbstraction" access="global">
+    <aura:attribute name="showError" type="Boolean"  />
+    <aura:attribute name="errorMessage" type="string" />
+    <aura:Attribute name="RecordIdIsApplication" type="Boolean" />
+
+    <aura:registerevent name="SaveCompleted" type="c:dx_actionComplete" />
+    <aura:registerevent name="EmptyComponent" type="c:dx_actionComplete" /> 
+    <aura:method name="PerformSave" action="{!c.save}"  />
+    <aura:method name="PerformInit" action="{!c.doInit}"  />
+    
+
+    <div class="slds-grid slds-wrap padded">
+DX_DOCUMENTS    
+    </div>
+</aura:component>

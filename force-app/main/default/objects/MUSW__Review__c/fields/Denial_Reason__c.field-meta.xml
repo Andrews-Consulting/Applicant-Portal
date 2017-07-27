@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Denial_Reason__c</fullName>
+    <externalId>false</externalId>
+    <label>Denial Reason</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>MUSW__Status__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Deleted Corp</fullName>
+                <default>false</default>
+                <label>Deleted Corp</label>
+            </value>
+            <value>
+                <fullName>Deleted LLC</fullName>
+                <default>false</default>
+                <label>Deleted LLC</label>
+            </value>
+            <value>
+                <fullName>Local Authority</fullName>
+                <default>false</default>
+                <label>Local Authority</label>
+            </value>
+            <value>
+                <fullName>Unpaid Taxes</fullName>
+                <default>false</default>
+                <label>Unpaid Taxes</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Denied</controllingFieldValue>
+            <valueName>Deleted Corp</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Denied</controllingFieldValue>
+            <valueName>Deleted LLC</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Denied</controllingFieldValue>
+            <valueName>Local Authority</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Denied</controllingFieldValue>
+            <valueName>Unpaid Taxes</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <validationRules>
+        <errorMessage><!-- Payment Amount must be positive. Cancel or correct amount to &gt;= 0 --></errorMessage>
+        <name>BGBK__Amount_less_than_0</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- cannot adjust Payment Amount below amount Available. --></errorMessage>
+        <name>BGBK__Payment_Amount_less_than_Available</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Cannot Refund more than the Available Payment Amount. --></errorMessage>
+        <name>BGBK__Payment_Refund_greater_than_Available</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Cannot Reject more than the Available Payment Amount. --></errorMessage>
+        <name>BGBK__Payment_Reject_greater_than_Available</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Cannot Use (pay) more than Payment Amount (minus any Refunds) --></errorMessage>
+        <name>BGBK__Payment_Used_greater_than_Amount</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Cannot increase Payment Amount greater than what is available on Receipt. Reduce Amount or cancel change. --></errorMessage>
+        <name>BGBK__Payment_change_more_than_Receipt_avail</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- AdjustPayments --></label>
+        <name>BGBK__AdjustPayments</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Allocate --></label>
+        <name>BGBK__Allocate</name>
+    </webLinks>
+</CustomObjectTranslation>

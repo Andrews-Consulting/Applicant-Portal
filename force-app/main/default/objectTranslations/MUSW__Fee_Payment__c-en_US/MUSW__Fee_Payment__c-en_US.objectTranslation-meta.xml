@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <validationRules>
+        <errorMessage><!-- Applied Payment amount must be less than or equal to the Fee Amount --></errorMessage>
+        <name>BGBK__Payment_greater_than_Fee_Amount</name>
+    </validationRules>
+</CustomObjectTranslation>

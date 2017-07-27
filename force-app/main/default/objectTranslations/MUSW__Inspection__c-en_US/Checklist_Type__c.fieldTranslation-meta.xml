@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Checklist Type --></label>
+    <name>Checklist_Type__c</name>
+    <picklistValues>
+        <masterLabel>Business - Other Checklist</masterLabel>
+        <translation><!-- Business - Other Checklist --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Business Checklist</masterLabel>
+        <translation><!-- Business Checklist --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Helen Checklist</masterLabel>
+        <translation><!-- Helen Checklist --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Lodging Checklist</masterLabel>
+        <translation><!-- Lodging Checklist --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Optional Questions</masterLabel>
+        <translation><!-- Optional Questions --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Restaurant Checklist</masterLabel>
+        <translation><!-- Restaurant Checklist --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Subquestions Checklist</masterLabel>
+        <translation><!-- Subquestions Checklist --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>{MUSW__Inspection__c.Checklist_Type__c}</masterLabel>
+        <translation><!-- {MUSW__Inspection__c.Checklist_Type__c} --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

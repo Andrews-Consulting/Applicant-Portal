@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- This is the help text for the Primary Licensee --></help>
+    <label><!-- Licensee --></label>
+    <name>MUSW__Primary_Licensee__c</name>
+    <relationshipLabel><!-- Licenses (Licensee) --></relationshipLabel>
+</CustomFieldTranslation>

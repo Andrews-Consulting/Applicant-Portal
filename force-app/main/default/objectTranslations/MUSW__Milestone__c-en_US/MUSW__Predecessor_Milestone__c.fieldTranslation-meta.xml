@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Predecessor Milestone --></label>
+    <name>MUSW__Predecessor_Milestone__c</name>
+    <relationshipLabel><!-- Milestones --></relationshipLabel>
+</CustomFieldTranslation>

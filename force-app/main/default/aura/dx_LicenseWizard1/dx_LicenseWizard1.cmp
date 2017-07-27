@@ -1,0 +1,86 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global"  controller="DX_LicenseType">
+    
+	<aura:attribute name="barClubRestaurant_URL" type="String"  />
+	<aura:attribute name="retailStore_URL" type="String" />
+	<aura:attribute name="charityAuction_URL" type="String" />
+	<aura:attribute name="wholesalerOrCarrier_URL" type="String" />
+	<aura:attribute name="importerOrManufacturer_URL" type="String" />
+
+	<aura:attribute name="charityAuction_Code" type="String" required="true" />
+	<aura:attribute name="tempClassName" type="String" />
+
+	<div class="slds-grid slds-wrap">
+  		<div class="slds-col slds-size--1-of-1 slds-large-size--1-of-1">
+		    <div id="slds-form-element" class="slds-container--center slds-container--small link titleClass">
+		    	Selecting the Right License
+		    	<br/>
+		    	&nbsp;
+		    	<br/>
+		    </div>
+		</div>
+	</div>
+
+	<div class="slds-grid slds-wrap">
+  		<div class="slds-col slds-size--1-of-1 slds-large-size--1-of-3">
+		    <div id="slds-form-element" class="slds-container--center slds-container--small link licenseOption">
+		    	<aura:if isTrue="{! not(empty(v.barClubRestaurant_URL))}" >
+		    		<a href="" onclick="{!c.navigateBar}" data-URL="{!v.barClubRestaurant_URL}" role="" class="licenseOption">
+		    			I want to start a<br/>
+		    			<img src="{!$Resource.DX_GraphicLibrary + '/licenseWizard/bar.png'}" title="I want to start a bar, club or restaurant." alt="I want to start a bar, club or restaurant." /><br/>
+		    			Bar, Club, or Restaurant
+		    		</a>
+		    	</aura:if>
+		    </div>
+		</div>
+  		<div class="slds-col slds-size--1-of-1 slds-large-size--1-of-3">
+		    <div id="slds-form-element" class="slds-container--center slds-container--small link licenseOption">
+		    	<aura:if isTrue="{! not(empty(v.retailStore_URL))}" >
+		    		<a href="" onclick="{!c.navigateRetail}" data-URL="{!v.retailStore_URL}" role=""  class="licenseOption">
+		    			I want to sell at a<br/>
+		    			<img src="{!$Resource.DX_GraphicLibrary + '/licenseWizard/store.png'}" title="I want to sell at a retail store." alt="I want to sell at a retail store." /><br/>
+		    			Retail Store
+		    		</a>
+		        </aura:if>
+		    </div>
+		</div>
+  		<div class="slds-col slds-size--1-of-1 slds-large-size--1-of-3" style="height: 100%">
+		    <div id="slds-form-element" class="slds-container--center slds-container--small link licenseOption">
+		    	<aura:if isTrue="{! not(empty(v.charityAuction_URL))}" >
+		    		<a href="" onclick="{!c.navigateCharity}" data-URL="{!v.charityAuction_URL}" role="" class="licenseOption">
+		    			I want to auction liquor at a<br/>
+		    			<img src="{!$Resource.DX_GraphicLibrary + '/licenseWizard/auction.png'}" title="I want to auction liquor at a charity auction." alt="I want to auction liquor at a charity auction." /><br/>
+		    			Charity Auction
+		    		</a>
+		        </aura:if>
+		    </div>
+		</div>
+	</div>
+
+	<p>&nbsp;</p>
+
+	<div class="slds-grid slds-wrap">
+  		<div class="slds-col slds-size--1-of-1 slds-large-size--1-of-2">
+		    <div id="slds-form-element" class="slds-container--center slds-container--small link licenseOption">
+		    	<aura:if isTrue="{! not(empty(v.wholesalerOrCarrier_URL))}" >
+		    		<a href="" onclick="{!c.navigateWholesale}" data-URL="{!v.wholesalerOrCarrier_URL}" role="" class="licenseOption">
+		    			I want to be a<br/>
+		    			<img src="{!$Resource.DX_GraphicLibrary + '/licenseWizard/wholesaler.png'}" title="I want to be a wholesaler or carrier." alt="I want to be a wholesaler or carrier." /><br/>
+		    			Wholesaler or Carrier
+		    		</a>
+		    	</aura:if>
+		    </div>
+		</div>
+  		<div class="slds-col slds-size--1-of-1 slds-large-size--1-of-2">
+		    <div id="slds-form-element" class="slds-container--center slds-container--small link licenseOption">
+		    	<aura:if isTrue="{! not(empty(v.importerOrManufacturer_URL))}" >
+		    		<a href="" onclick="{!c.navigateImporter}" data-URL="{!v.importerOrManufacturer_URL}" role="" class="licenseOption">
+		    			I want to be an<br/>
+		    			<img src="{!$Resource.DX_GraphicLibrary + '/licenseWizard/importer.png'}" title="I want to be an importer or manufacturer." alt="I want to be an importer or manufacturer." /><br/>
+		    			Importer or Manufacturer
+		    		</a>
+		        </aura:if>
+		    </div>
+		</div>
+	</div>	
+		
+</aura:component>

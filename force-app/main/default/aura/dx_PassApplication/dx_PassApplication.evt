@@ -1,0 +1,4 @@
+<aura:event type="APPLICATION">
+    <aura:attribute name="Pass_App" type="MUSW__Application2__c"/>
+    <aura:attribute name="Pass_Visibility" type="map"/>
+</aura:event>

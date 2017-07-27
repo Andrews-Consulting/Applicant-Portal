@@ -1,0 +1,26 @@
+.THIS .slds-form-element__label{
+	display:none;
+	visibility : hidden;
+}
+.THIS .delete{
+	background: url(/sfsites/c/resource/sldsSvg/utility/delete_60.png) no-repeat;
+	display:inline-block;
+	width: 32px;
+    height: 32px;
+    border:0px;
+    fill: #aaaaaa;
+    border-radius: .25rem;
+}
+.THIS tbody{
+	background:transparent;
+
+}
+.THIS .MyFooterButtons {
+    height: 30px;
+    width: 182px;
+    margin-left: 0em;
+    margin-right: .25em;
+    margin-bottom: .25em;
+    padding-left: 0em;
+    padding-right: 0em;
+}

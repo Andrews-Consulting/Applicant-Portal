@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>MUSW__BasicGov_Correspondence</letterhead>
+    <name>Login - New User Created</name>
+    <style>freeForm</style>
+    <subject>Welcome to BasicGov</subject>
+    <textOnly>Your user profile has been created in BasicGov. 
+ 
+Your temporary password is: {!MUSW__User_LoginInfo__c.MUSW__TempPassword__c} 
+Your username is: {!MUSW__Wser_LoginInfo__c.MUSW__Email__c} 
+ 
+Please change your password by clicking this link: 
+ https://www.basicgov.com/login?un={!MUSW__User_LoginInfo__c.MUSW__Email__c}&amp;tmp_pw={!MUSW__User_LoginInfo__c.MUSW__TempPassword__c}&amp;orgId={!Organization.Id}
+ 
+Enter your temporary password above, into the &apos;Old Password&apos; field.
+If the above link does not work, copy and paste the above link to the browser from which you would like to access BasicGov.
+
+
+Please bookmark the following page for all future logins: 
+ 
+https://www.basicgov.com/login
+ 
+Welcome to BasicGov!</textOnly>
+    <type>html</type>
+</EmailTemplate>

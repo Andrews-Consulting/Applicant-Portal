@@ -1,0 +1,16 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" controller="DX_DynamicChecklistQuestions" access="global">
+
+    <aura:attribute name="record" type="Object" />
+    <aura:attribute name="page" type="string" />
+    <aura:attribute name="relatedId" type="id" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    
+        <div class="slds-grid slds-wrap slds-grid--pull-padded">
+            <div class="slds-truncate" title="{!v.record.section.Name}"><a href="javascript:void(0);">{!v.record.section.Name}</a></div>
+            <aura:iteration items="{!v.record.questionBlocks}" var="qb">
+                <c:dx_ChecklistQuestions questionBlock="{!qb}" />
+            </aura:iteration>
+        </div>
+
+</aura:component>

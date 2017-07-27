@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- If selected DRE will automatically process records in separate batches. Doing so can increase system robustness at the cost of losing real-time feedback. Enable this setting if your organization contains complex automation processes --></help>
+    <label><!-- Enable Auto-Bulk --></label>
+    <name>DRE__IsAutoBulk__c</name>
+</CustomFieldTranslation>

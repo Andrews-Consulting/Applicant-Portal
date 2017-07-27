@@ -1,0 +1,20 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" >
+    
+    <!-- The status of this particular entry.  Not set on the design, but set programmatically -->
+    <!-- Values here are still TBD, but probably include:  COMPLETE, IN_PROGRESS, NOT_STARTED, CURRENT_SCREEN -->
+    <aura:attribute name="status" type="String" />
+
+    <!-- The text/title displayed on the screen -->
+    <aura:attribute name="title" type="String" default="???"/>
+
+    <!-- The URL that the user will be sent to if it is clicked. -->
+    <aura:attribute name="navURL" type="String" default="/dx-login" />
+
+    <div id="slds-form-element" class="slds-container--small link">
+    	<a href="" onclick="{!c.navigate}" data-url="{!navURL}" class="navAesthetics">
+    		{!v.title}
+    	</a>
+    </div>
+
+
+</aura:component>

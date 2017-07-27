@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Update Premise</label>
+    <protected>false</protected>
+    <values>
+        <field>AltText__c</field>
+        <value xsi:type="xsd:string">Apply to update your premise</value>
+    </values>
+    <values>
+        <field>IconFileName__c</field>
+        <value xsi:type="xsd:string">NavigationIcon\UpdatePremise.png</value>
+    </values>
+    <values>
+        <field>Page_URL__c</field>
+        <value xsi:type="xsd:string">dx-pc-updatepremiseapplication</value>
+    </values>
+    <values>
+        <field>Title__c</field>
+        <value xsi:type="xsd:string">Apply to make changes to your premise</value>
+    </values>
+</CustomMetadata>

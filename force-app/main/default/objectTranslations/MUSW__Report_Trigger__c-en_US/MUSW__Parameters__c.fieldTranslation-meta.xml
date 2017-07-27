@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- pv0=xyz&amp;pv1=abc&amp;... --></help>
+    <label><!-- Report Parameters --></label>
+    <name>MUSW__Parameters__c</name>
+</CustomFieldTranslation>

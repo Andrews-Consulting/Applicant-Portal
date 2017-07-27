@@ -1,0 +1,30 @@
+.THIS .heading {
+	font-size: 20px;
+	padding-top: 10px;
+    padding-bottom: 5px;
+    display:inline-block;
+}
+.THIS .slds-spinner_container {
+	background-color: rgba(255, 255, 255, 0.25);
+}
+
+.THIS .dx_StatusBarAppSummary {
+	padding-top: 10px;
+	padding-bottom: 30px;
+}
+
+
+@media only screen and (min-width: 769px) {
+  .THIS .stdPageAbs{
+    min-height: 495px; 
+    height: inherit;
+    width: inherit;
+  }
+}
+
+@media only screen and (max-width: 768px){
+	.THIS #stdPageAbs {
+	height: inherit;
+    width: inherit;
+	}
+}

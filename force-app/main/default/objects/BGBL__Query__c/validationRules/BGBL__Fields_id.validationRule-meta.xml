@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BGBL__Fields_id</fullName>
+    <active>true</active>
+    <errorConditionFormula>NOT(OR(CONTAINS(SUBSTITUTE(UPPER(BGBL__Object_Fields__c) , " ",""), ",ID,"),BEGINS(SUBSTITUTE(UPPER(BGBL__Object_Fields__c) , " ",""), "ID,"),CONTAINS(SUBSTITUTE(UPPER(BGBL__Object_Fields__c) , " ",""), ",ID")))</errorConditionFormula>
+    <errorMessage>Query fields must include id field in list</errorMessage>
+</ValidationRule>

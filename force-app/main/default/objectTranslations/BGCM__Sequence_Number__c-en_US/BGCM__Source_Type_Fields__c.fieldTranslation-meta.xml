@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- The field(s) containing the Source Type value. Required in Auto mode if Source Type is not DEFAULT. Note: Source Type Values are case sensitive. --></help>
+    <label><!-- Source Type Fields --></label>
+    <name>BGCM__Source_Type_Fields__c</name>
+    <picklistValues>
+        <masterLabel>BGCM__Status__c</masterLabel>
+        <translation><!-- BGCM__Status__c --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>BGCM__Type__c</masterLabel>
+        <translation><!-- BGCM__Type__c --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>MUSW__Action_Type__c</masterLabel>
+        <translation><!-- MUSW__Action_Type__c --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>MUSW__Current_Status__c</masterLabel>
+        <translation><!-- MUSW__Current_Status__c --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>MUSW__Permit_Type__c</masterLabel>
+        <translation><!-- MUSW__Permit_Type__c --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>MUSW__Status__c</masterLabel>
+        <translation><!-- MUSW__Status__c --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>MUSW__Type__c</masterLabel>
+        <translation><!-- MUSW__Type__c --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

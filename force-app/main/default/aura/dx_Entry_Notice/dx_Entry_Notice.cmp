@@ -1,0 +1,30 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" controller="DX_EntryNoticeController" access="global" >
+	<aura:attribute name="DisclaimerText" type="String" default="You are entering a State of Iowa website. Access is limited to authorized use only. Users consent to monitoring" access="global" />
+	<aura:Attribute name="Heading" type="String" default="Notice" access="global" />
+	<aura:Attribute name="ButtonText" type="String" default="I agree" access="global" />
+	<aura:attribute name="NextPage" type="String" default="d" access="global" />
+	
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+	<aura:if isTrue="{!v.NextPage != d}">
+		<div role="alertdialog" tabindex="-1" aria-labelledby="prompt-heading-id" aria-describedby="prompt-message-wrapper" class="slds-modal slds-fade-in-open slds-modal--prompt">
+			<div class="slds-modal__container">
+				<div class="slds-modal__header slds-theme--error slds-theme--alert-texture">
+					<lightning:buttonIcon class="slds-modal__close" variant="bare" iconName="utility:close" size="large" onclick="{!c.CloseWindow}" alternativeText="Close window" />
+					<h2 class="slds-text-heading--medium" id="prompt-heading-id">{!v.Heading}</h2>
+				</div>
+				<div class="slds-modal__content slds-p-around--medium">
+					<div>
+						<aura:unescapedHTML value="{!v.DisclaimerText}"/>
+						<div class="slds-align--absolute-center slds-p-around--medium">
+							<lightning:button aura:id="AgreeButton" class="slds-button slds-button--neutral" label="{!v.ButtonText}" onclick="{!c.CloseWindow}" value="{!v.NextPage}"></lightning:button>
+						</div>
+					</div>
+				</div>
+				<div class="slds-modal__footer slds-theme--error" > <!-- change the word error to default to remove the red at the bottom -->
+					Scroll to the bottom of text to Agree and Proceed
+				</div>
+			</div>
+		</div>
+		<div class="slds-backdrop slds-backdrop--open"></div>
+	</aura:if>
+</aura:component>

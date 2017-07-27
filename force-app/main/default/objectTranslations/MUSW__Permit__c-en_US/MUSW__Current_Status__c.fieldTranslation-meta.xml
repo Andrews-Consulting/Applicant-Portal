@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Current Status --></label>
+    <name>MUSW__Current_Status__c</name>
+    <picklistValues>
+        <masterLabel>Approved</masterLabel>
+        <translation><!-- Approved --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Cancelled</masterLabel>
+        <translation><!-- Cancelled --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Finaled</masterLabel>
+        <translation><!-- Finaled --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>In Plan Check</masterLabel>
+        <translation><!-- In Plan Check --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Issued</masterLabel>
+        <translation><!-- Issued --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Pending</masterLabel>
+        <translation><!-- Pending --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

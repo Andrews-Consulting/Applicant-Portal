@@ -1,0 +1,101 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,force:appHostable" controller="DX_ApplicantForm" access="global">
+    <aura:attribute name="submitButtonLabel" type="String" required="false" default="Save" />
+    <aura:attribute name="cancelButtonLabel" type="String" required="false" default="Exit without Saving" />
+    <aura:attribute name="NextPageURL" type="string" required="false" />
+    <aura:attribute name="prevPageURL" type="string" required="false" />
+    <aura:attribute name="showError" type="Boolean" required="true" description="" default="false" access="private" />
+    <aura:attribute name="exit" type="Boolean" required="true" description="" default="false" access="private" />
+    <aura:attribute name="errorMessage" type="string" required="false" description="" access="private" />
+    <aura:attribute name="applicant" type="Contact" default="{'sobjectType':'Contact'}" />
+    <aura:attribute name="records" type="Contact[]"/>
+    <aura:attribute name="citizenType" type="string[]" default="" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <div>
+        <aura:renderIf isTrue="{!v.showError}">
+            <div id="error">
+                <ui:outputRichText value="{!v.errorMessage}" />
+            </div>
+        </aura:renderIf>
+        <div class="slds-grid slds-wrap slds-grid--pull-padded">
+	        <div class="slds-col slds-small-size--1-of-1 slds-medium-size--1-of-7" />
+	        <div class="slds-col slds-small-size--1-of-1 slds-medium-size--2-of-7">
+	            <div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">
+	                <label class="slds-form-element__label" for="fName">First Name<abbr class="required" title="required">*</abbr></label>
+	                <force:inputField value="{!v.applicant.FirstName}" aura:id="fName" required="true" />
+	            </div>
+	            <div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">
+	                <label class="slds-form-element__label" for="lName">Last Name<abbr class="required" title="required">*</abbr></label>
+	                <force:inputField value="{!v.applicant.LastName}" aura:id="lName" required="true" />
+	            </div>
+	            <div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">
+	                <label class="slds-form-element__label" for="Street">Address<abbr class="required" title="required">*</abbr></label>
+	                <force:inputField value="{!v.applicant.MailingStreet}" aura:id="Street" required="true" />
+	            </div>
+	            <div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">
+	                <label class="slds-form-element__label" for="City">City<abbr class="required" title="required">*</abbr></label>
+	                <force:inputField value="{!v.applicant.MailingCity}" aura:id="City" required="true" />
+	            </div>
+	            <div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">
+	                <label class="slds-form-element__label" for="State">State<abbr class="required" title="required">*</abbr></label>
+	                <force:inputField value="{!v.applicant.MailingState}" aura:id="State" required="true" />
+	            </div>
+	            <div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">
+	                <label class="slds-form-element__label" for="County">County<abbr class="required" title="required">*</abbr></label>
+	                <force:inputField value="{!v.applicant.abd_Mailing_County__c}" aura:id="County" required="true" />
+	            </div>
+	        </div>
+	        <div class="slds-col slds-small-size--1-of-1 slds-medium-size--1-of-7" />
+	        <div class="slds-col slds-small-size--1-of-1 slds-medium-size--2-of-7">
+	            <div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">
+	                <label class="slds-form-element__label" for="Mobile">Mobile<abbr class="required" title="required">*</abbr></label>
+	                <force:inputField value="{!v.applicant.MobilePhone}" aura:id="Mobile" required="true" />
+	            </div>
+	            <div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">
+	                <label class="slds-form-element__label" for="email">Email<abbr class="required" title="required">*</abbr></label>
+	                <force:inputField value="{!v.applicant.Email}" aura:id="email" required="true" />
+	            </div>
+			</div>
+			<div class="slds-col slds-small-size--1-of-1 slds-medium-size--1-of-7" />
+		</div>
+		
+		<!-- Dynamic Question Section Currently not displayed  -->
+		<aura:renderIf isTrue="false">
+            <div class="slds-grid slds-wrap slds-grid--pull-padded inner" id="div_topContainer">
+            	<div class="slds-col slds-small-size--1-of-1 slds-medium-size--1-of-7" />
+	            <div class="slds-col slds-small-size--1-of-1 slds-medium-size--5-of-7">
+	                <aura:iteration items="{!v.records}" var="record">
+	                	<!-- <c:DX_ChecklistSection relatedId="{!record.Id}" page="Criminal History"/> -->
+	                </aura:iteration>
+	            </div>
+	            <div class="slds-col slds-small-size--1-of-1 slds-medium-size--1-of-7" />
+            </div>
+        </aura:renderIf>
+        <!-- END of Dynamic Question Section -->
+        
+		<div class="slds-grid inner">
+            <div class="slds-col slds-small-size--1-of-1 slds-medium-size--1-of-9" />
+            <div class="slds-col slds-small-size--1-of-1 slds-medium-size--2-of-9">
+                <div class="slds-container--center slds-container--small inner">
+                    <ui:button aura:id="nextButton" label="Next" press="{!c.handleCreate}" class="sfdc_button" />
+                </div>
+            </div>
+            <div class="slds-col slds-small-size--1-of-1 slds-medium-size--2-of-9" />
+            <div class="slds-col slds-small-size--1-of-1 slds-medium-size--1-of-9">
+                <div class="slds-container--center slds-container--small inner">
+                    <ui:button aura:id="submitButton" label="{!v.submitButtonLabel}" press="{!c.handleCreate}" class="sfdc_button" />
+                </div>
+            </div>
+	        <div class="slds-col slds-small-size--1-of-1 slds-medium-size--1-of-9" />
+	        <div class="slds-col slds-small-size--1-of-1 slds-medium-size--1-of-9">
+	            <div class="slds-container--center slds-container--small inner">
+	                <ui:button aura:id="cancelButton" label="{!v.cancelButtonLabel}" press="{!c.handleCancel}" class="sfdc_button" />
+	            </div>
+	        </div>
+	        <div class="slds-col slds-small-size--1-of-1 slds-medium-size--1-of-9" />
+    	</div>
+    	<div class="slds-spinner_container slds-hide slds-is-fixed" aura:id="spinner">
+			<lightning:spinner variant="brand" size="large"/>
+		</div>
+    </div>
+</aura:component>

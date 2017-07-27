@@ -1,0 +1,69 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,force:appHostable" access="global">
+    <aura:attribute name="leftButtonLabel" type="string" required="true" default="Hidden" />
+    <aura:attribute name="centerButtonLabel" type="string" description="" default="Hidden" />
+    <aura:attribute name="rightButtonLabel" type="string" description="" default="Hidden" />
+    <aura:attribute name="leftButtonUrl" type="string" description="" default="./dx-login" />
+    <aura:attribute name="centerButtonUrl" type="string" description="" default="/" />
+    <aura:attribute name="rightButtonUrl" type="string" description="" default="/" />
+	
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+	
+	<div class="slds-grid">
+  		<div class="slds-col slds-size--1-of-10">
+		</div>
+  		<div class="slds-col slds-size--2-of-10">
+		    <div id="slds-form-element" class="slds-container--center slds-container--small link">
+		    	<aura:renderIf isTrue="{!v.leftButtonLabel!='Hidden'}">
+		    		{!v.leftButtonLabel}
+		    	</aura:renderIf>
+		    </div>
+		</div>
+		<div class="slds-col slds-size--1-of-10">
+		</div>
+  		<div class="slds-col slds-size--2-of-10">
+		    <div id="slds-form-element" class="slds-container--center slds-container--small link">
+		        <aura:renderIf isTrue="{!v.centerButtonLabel!='Hidden'}">
+		        	{!v.centerButtonLabel}
+		        </aura:renderIf>
+		    </div>
+		</div>
+		<div class="slds-col slds-size--1-of-10">
+		</div>
+  		<div class="slds-col slds-size--2-of-10" style="height: 100%">
+		    <div id="slds-form-element" class="slds-container--center slds-container--small link">
+		        <aura:renderIf isTrue="{!v.rightButtonLabel!='Hidden'}">
+		        	{!v.rightButtonLabel}
+		        </aura:renderIf>
+		    </div>
+		</div>
+		<div class="slds-col slds-size--1-of-10">
+		</div>
+  		
+	</div>
+	<p>&nbsp;</p>
+	<div class="slds-grid">
+  		<div class="slds-col slds-size--4-of-10">
+		    <div id="slds-form-element" class="slds-container--center slds-container--small">
+		    	<aura:renderIf isTrue="{!v.leftButtonLabel!='Hidden'}">
+		    		<center><a href="{!v.leftButtonUrl}"><lightning:icon iconName="action:check" size="large" alternativeText="Application Portal Login"/></a></center>
+		        </aura:renderIf>
+		    </div>
+		</div>
+		<div class="slds-col slds-size--4-of-10">
+		    <div id="slds-form-element" class="slds-container--center slds-container--small">
+		        <aura:renderIf isTrue="{!v.centerButtonLabel!='Hidden'}">
+		        	<center><a href="{!v.centerButtonUrl}"><lightning:icon iconName="action:check" size="large" alternativeText="Reviewer" /></a></center>
+		        </aura:renderIf>
+		    </div>
+		</div>
+		<div class="slds-col slds-size--4-of-10" style="height: 100%">
+		    <div id="slds-form-element" class="slds-container--center slds-container--small">
+		        <aura:renderIf isTrue="{!v.rightButtonLabel!='Hidden'}">
+		        	<center><a href="{!v.rightButtonUrl}"><lightning:icon iconName="action:check" size="large" alternativeText="Public" /></a></center>
+		        </aura:renderIf>
+		    </div>
+		</div>
+		
+	</div>
+	
+</aura:component>

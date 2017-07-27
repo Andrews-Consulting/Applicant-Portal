@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>Platform__c</columns>
+    <columns>Business_Area__c</columns>
+    <columns>Summary__c</columns>
+    <columns>Script__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Sourse__c</field>
+        <operation>equals</operation>
+        <value>UAT1</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>New</value>
+    </filters>
+    <label>New Issues</label>
+</ListView>

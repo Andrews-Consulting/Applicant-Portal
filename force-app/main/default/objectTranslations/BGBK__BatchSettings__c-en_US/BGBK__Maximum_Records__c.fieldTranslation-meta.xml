@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- If the number of records returned by the Batch is greater than the Maximum they get capped --></help>
+    <label><!-- Maximum Records --></label>
+    <name>BGBK__Maximum_Records__c</name>
+</CustomFieldTranslation>

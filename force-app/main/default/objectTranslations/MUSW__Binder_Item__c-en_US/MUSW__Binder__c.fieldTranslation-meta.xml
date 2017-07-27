@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Binder --></label>
+    <name>MUSW__Binder__c</name>
+    <relationshipLabel><!-- Items --></relationshipLabel>
+</CustomFieldTranslation>

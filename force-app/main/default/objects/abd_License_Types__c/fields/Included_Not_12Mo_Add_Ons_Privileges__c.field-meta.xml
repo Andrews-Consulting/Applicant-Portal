@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Included_Not_12Mo_Add_Ons_Privileges__c</fullName>
+    <description>These are addons that are included on licenses that aren't 12 months in length.</description>
+    <externalId>false</externalId>
+    <label>Included Not 12Mo Add Ons &amp; Privileges</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>abd_License_Type</valueSetName>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

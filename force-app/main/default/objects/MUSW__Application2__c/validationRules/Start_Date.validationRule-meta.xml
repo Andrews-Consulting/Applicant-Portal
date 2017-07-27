@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Start_Date</fullName>
+    <active>true</active>
+    <description>The Start date of the application cannot be before that of the current license starte date</description>
+    <errorConditionFormula>abd_Effective_Date__c  &lt;  abd_Effective_Date_of_Current_License__c</errorConditionFormula>
+    <errorDisplayField>abd_Effective_Date__c</errorDisplayField>
+    <errorMessage>The Start date of the application cannot be before that of the current/primary license starte date</errorMessage>
+</ValidationRule>

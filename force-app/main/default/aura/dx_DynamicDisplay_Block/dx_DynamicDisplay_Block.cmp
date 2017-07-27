@@ -1,0 +1,36 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" controller="DX_DynamicDisplay" access="global">
+	<aura:attribute name="recordId" type="Id" description="The Id of the record" required="true" default="a0335000001kcYk"/>
+    <aura:attribute name="fsName" type="String" default="BB"/>
+    <aura:attribute name="typeName" type="String" default="MUSW__Application2__c"/>
+    <aura:attribute name="detailRecord" type="SObject" description="The detail record to display values" access="PUBLIC" default="{'sobjectType':'sObject'}"/>
+    <aura:attribute name="colNum" type="String" default="1"/>
+    <aura:attribute name="showError" type="Boolean" required="true" description="" default="false" access="private"/>
+    <aura:attribute name="errorMessage" type="string" required="false" description="" access="private"/>
+    <aura:attribute name="fields" type="Object[]"/>
+    <aura:attribute name="form" type="Aura.Component[]"/>
+    <aura:attribute name="inputToField" type="Map"/>
+    <aura:handler event="c:dx_PassApplication" action="{!c.setObject}"/> 
+    
+    <aura:method name="dynamicSave" action="{!c.save}" access="PUBLIC"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    
+    <div>
+        <aura:renderIf isTrue="{!v.showError}">
+            <div id="error">
+                <ui:outputRichText value="{!v.errorMessage}"/>
+            </div>
+        </aura:renderIf>
+        <aura:renderIf isTrue="{!v.detailRecord.Id!=null}">
+            <div class="slds-grid slds-grid--pull-padded" id="div_topContainer">
+                {!v.form}
+            </div>
+        </aura:renderIf>
+        <!--<div class="sfdc" >
+        	<ui:button aura:id="submitButton" label="Save" press="{!c.save}" class="sfdc_button"/>
+				<div class="slds-spinner_container slds-hide slds-is-fixed" aura:id="spinner">
+					<lightning:spinner variant="brand" size="large"/>
+                </div>
+        </div>-->
+    </div>
+</aura:component>

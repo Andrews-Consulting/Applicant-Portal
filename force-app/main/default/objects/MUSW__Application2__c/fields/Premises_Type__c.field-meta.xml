@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Premises_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Premises Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Bar/Tavern</fullName>
+                <default>false</default>
+                <label>Bar/Tavern</label>
+            </value>
+            <value>
+                <fullName>Beer Wholesaler</fullName>
+                <default>false</default>
+                <label>Beer Wholesaler</label>
+            </value>
+            <value>
+                <fullName>Book Store</fullName>
+                <default>false</default>
+                <label>Book Store</label>
+            </value>
+            <value>
+                <fullName>Bowling Alley</fullName>
+                <default>false</default>
+                <label>Bowling Alley</label>
+            </value>
+            <value>
+                <fullName>Brewer</fullName>
+                <default>false</default>
+                <label>Brewer</label>
+            </value>
+            <value>
+                <fullName>Broker</fullName>
+                <default>false</default>
+                <label>Broker</label>
+            </value>
+            <value>
+                <fullName>Casino</fullName>
+                <default>false</default>
+                <label>Casino</label>
+            </value>
+            <value>
+                <fullName>Chamber of Commerce</fullName>
+                <default>false</default>
+                <label>Chamber of Commerce</label>
+            </value>
+            <value>
+                <fullName>Church</fullName>
+                <default>false</default>
+                <label>Church</label>
+            </value>
+            <value>
+                <fullName>Coffee Shop</fullName>
+                <default>false</default>
+                <label>Coffee Shop</label>
+            </value>
+            <value>
+                <fullName>Concession stand</fullName>
+                <default>false</default>
+                <label>Concession stand</label>
+            </value>
+            <value>
+                <fullName>Convenience Store</fullName>
+                <default>false</default>
+                <label>Convenience Store</label>
+            </value>
+            <value>
+                <fullName>Convention Center/Hall</fullName>
+                <default>false</default>
+                <label>Convention Center/Hall</label>
+            </value>
+            <value>
+                <fullName>Discount Store</fullName>
+                <default>false</default>
+                <label>Discount Store</label>
+            </value>
+            <value>
+                <fullName>Distiller</fullName>
+                <default>false</default>
+                <label>Distiller</label>
+            </value>
+            <value>
+                <fullName>Excursion Boat (Non Gambling)</fullName>
+                <default>false</default>
+                <label>Excursion Boat (Non Gambling)</label>
+            </value>
+            <value>
+                <fullName>Excursion Gambling Boat</fullName>
+                <default>false</default>
+                <label>Excursion Gambling Boat</label>
+            </value>
+            <value>
+                <fullName>Fairgrounds</fullName>
+                <default>false</default>
+                <label>Fairgrounds</label>
+            </value>
+            <value>
+                <fullName>Fire Station</fullName>
+                <default>false</default>
+                <label>Fire Station</label>
+            </value>
+            <value>
+                <fullName>Golf Course</fullName>
+                <default>false</default>
+                <label>Golf Course</label>
+            </value>
+            <value>
+                <fullName>Grocery Store</fullName>
+                <default>false</default>
+                <label>Grocery Store</label>
+            </value>
+            <value>
+                <fullName>Hotel/Motel</fullName>
+                <default>false</default>
+                <label>Hotel/Motel</label>
+            </value>
+            <value>
+                <fullName>Laundromat</fullName>
+                <default>false</default>
+                <label>Laundromat</label>
+            </value>
+            <value>
+                <fullName>Liquor Store</fullName>
+                <default>false</default>
+                <label>Liquor Store</label>
+            </value>
+            <value>
+                <fullName>Manufacturer</fullName>
+                <default>false</default>
+                <label>Manufacturer</label>
+            </value>
+            <value>
+                <fullName>Museum/Arts Center</fullName>
+                <default>false</default>
+                <label>Museum/Arts Center</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Pharmacy</fullName>
+                <default>false</default>
+                <label>Pharmacy</label>
+            </value>
+            <value>
+                <fullName>Planes</fullName>
+                <default>false</default>
+                <label>Planes</label>
+            </value>
+            <value>
+                <fullName>Private Club</fullName>
+                <default>false</default>
+                <label>Private Club</label>
+            </value>
+            <value>
+                <fullName>RAGBRAI</fullName>
+                <default>false</default>
+                <label>RAGBRAI</label>
+            </value>
+            <value>
+                <fullName>Redemption Center</fullName>
+                <default>false</default>
+                <label>Redemption Center</label>
+            </value>
+            <value>
+                <fullName>Restaurant</fullName>
+                <default>false</default>
+                <label>Restaurant</label>
+            </value>
+            <value>
+                <fullName>School</fullName>
+                <default>false</default>
+                <label>School</label>
+            </value>
+            <value>
+                <fullName>Spa/salon</fullName>
+                <default>false</default>
+                <label>Spa/salon</label>
+            </value>
+            <value>
+                <fullName>Special Event</fullName>
+                <default>false</default>
+                <label>Special Event</label>
+            </value>
+            <value>
+                <fullName>Specialty Shop</fullName>
+                <default>false</default>
+                <label>Specialty Shop</label>
+            </value>
+            <value>
+                <fullName>Sports Complex</fullName>
+                <default>false</default>
+                <label>Sports Complex</label>
+            </value>
+            <value>
+                <fullName>Theater</fullName>
+                <default>false</default>
+                <label>Theater</label>
+            </value>
+            <value>
+                <fullName>Trains</fullName>
+                <default>false</default>
+                <label>Trains</label>
+            </value>
+            <value>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+                <label>Unknown</label>
+            </value>
+            <value>
+                <fullName>Veterans Organization</fullName>
+                <default>false</default>
+                <label>Veterans Organization</label>
+            </value>
+            <value>
+                <fullName>Vintner</fullName>
+                <default>false</default>
+                <label>Vintner</label>
+            </value>
+            <value>
+                <fullName>Wine Wholesaler</fullName>
+                <default>false</default>
+                <label>Wine Wholesaler</label>
+            </value>
+            <value>
+                <fullName>Boat</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Boat</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

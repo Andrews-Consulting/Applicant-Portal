@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Type --></label>
+    <name>DRE__Type__c</name>
+    <picklistValues>
+        <masterLabel>Automation</masterLabel>
+        <translation><!-- Automation --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Batch</masterLabel>
+        <translation><!-- Batch --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Display</masterLabel>
+        <translation><!-- Display --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Validation</masterLabel>
+        <translation><!-- Validation --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

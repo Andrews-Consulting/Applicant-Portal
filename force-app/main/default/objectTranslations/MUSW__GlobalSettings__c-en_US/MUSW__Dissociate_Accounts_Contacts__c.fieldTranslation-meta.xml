@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- If checked, new Accounts won&apos;t have Contacts created for them --></help>
+    <label><!-- Accounts dont create matching Contacts --></label>
+    <name>MUSW__Dissociate_Accounts_Contacts__c</name>
+</CustomFieldTranslation>

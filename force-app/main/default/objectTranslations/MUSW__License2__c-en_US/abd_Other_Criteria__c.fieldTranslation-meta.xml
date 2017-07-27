@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Other Criteria --></label>
+    <name>abd_Other_Criteria__c</name>
+    <picklistValues>
+        <masterLabel>Boat</masterLabel>
+        <translation><!-- Boat --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Club has less than 250 members</masterLabel>
+        <translation><!-- Club has less than 250 members --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Club has more than 250 members</masterLabel>
+        <translation><!-- Club has more than 250 members --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>No Gas</masterLabel>
+        <translation><!-- No Gas --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Plane</masterLabel>
+        <translation><!-- Plane --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Sells Gas</masterLabel>
+        <translation><!-- Sells Gas --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Train</masterLabel>
+        <translation><!-- Train --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Veteran’s organization open one day per week or 52 days or less per year</masterLabel>
+        <translation><!-- Veteran’s organization open one day per week or 52 days or less per year --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

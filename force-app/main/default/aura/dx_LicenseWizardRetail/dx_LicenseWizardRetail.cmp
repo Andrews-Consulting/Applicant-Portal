@@ -1,0 +1,76 @@
+<!-- <aura:component implements="forceCommunity:availableForAllPageTypes,force:appHostable" access="global" controller="TBD"> -->
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" controller="DX_LicenseType">
+    
+    <aura:attribute name="sellBeerOptionalWine_URL" type="String" />
+	<aura:attribute name="sellWineOptionalBeer_URL" type="String" />
+	<aura:attribute name="sellLiquorOptionalMore_URL" type="String" />
+	<aura:attribute name="sellNativeWineOptionalBeer_URL" type="String" />	
+
+    <aura:attribute name="sellBeerOptionalWine_Code" type="String" required="true" />
+	<aura:attribute name="sellWineOptionalBeer_Code" type="String" required="true" />
+	<aura:attribute name="sellLiquorOptionalMore_Code" type="String" required="true" />
+	<aura:attribute name="sellNativeWineOptionalBeer_Code" type="String" required="true" />		
+
+	<div class="slds-grid slds-wrap">
+  		<div class="slds-col slds-size--1-of-1 slds-large-size--1-of-1">
+		    <div id="slds-form-element" class="slds-container--center slds-container--small link titleClass">
+		    	Selecting the Right License
+		    	<br/>
+		    	Retail Store
+		    	<br/><br/><br/>
+		    	For grocery, liquor and convenience stores, etc, I want to<br/><br/>
+		    </div>
+		</div>
+	</div>
+
+	<div class="slds-grid slds-wrap">
+  		<div class="slds-col slds-size--1-of-1 slds-large-size--1-of-2">
+		    <div id="slds-form-element" class="slds-container--center slds-container--small link licenseOption">
+		    	<aura:if isTrue="{! not(empty(v.sellBeerOptionalWine_URL))}" >
+		    		<a href="" onclick="{!c.navigateBeerOptionalWine}" data-URL="{!v.sellBeerOptionalWine_URL}" role="" class="licenseOption">
+		    			<img src="{!$Resource.DX_GraphicLibrary + '/licenseWizard/store_BeerOptionalWine.png'}" title="Sell Beer and optionally Wine and Native Wine" alt="Sell Beer and optionally Wine and Native Wine" /><br/>
+		    			Sell Beer and optionally Wine and Native Wine
+		    		</a>
+		    	</aura:if>
+		    </div>
+		</div>
+  		<div class="slds-col slds-size--1-of-1 slds-large-size--1-of-2">
+		    <div id="slds-form-element" class="slds-container--center slds-container--small link licenseOption">
+		        <aura:if isTrue="{! not(empty(v.sellWineOptionalBeer_URL))}" >
+		    		<a href="" onclick="{!c.navigateWineOptionalBeer}" data-URL="{!v.sellWineOptionalBeer_URL}" role="" class="licenseOption">
+		    			<img src="{!$Resource.DX_GraphicLibrary + '/licenseWizard/store_WineOptionalBeer.png'}" title="Sell Wine Only and optionally Beer" alt="Sell Wine Only and optionally Beer" /><br/>
+		    			Sell Wine Only and optionally Beer
+		    		</a>
+		        </aura:if>
+		    </div>
+		</div>
+	</div>
+
+	<p>&nbsp;</p>
+
+	<div class="slds-grid slds-wrap">
+
+  		<div class="slds-col slds-size--1-of-1 slds-large-size--1-of-2" style="height: 100%">
+		    <div id="slds-form-element" class="slds-container--center slds-container--small link licenseOption">
+		        <aura:if isTrue="{! not(empty(v.sellLiquorOptionalMore_URL))}" >
+		    		<a href="" onclick="{!c.navigateLiquorOptionalMore}" data-URL="{!v.sellLiquorOptionalMore_URL}" role="" class="licenseOption">
+		    			<img src="{!$Resource.DX_GraphicLibrary + '/licenseWizard/store_LiquorOptionalMore.png'}" title="Sell Liquor and optionally Wine, Native Wine, and Beer" alt="Sell Liquor and optionally Wine, Native Wine, and Beer" /><br/>
+		    			Sell Liquor and optionally Wine, Native Wine, and Beer
+		    		</a>
+		        </aura:if>
+		    </div>
+		</div>
+
+  		<div class="slds-col slds-size--1-of-1 slds-large-size--1-of-2">
+		    <div id="slds-form-element" class="slds-container--center slds-container--small link licenseOption">
+		    	<aura:if isTrue="{! not(empty(v.sellNativeWineOptionalBeer_URL))}" >
+		    		<a href="" onclick="{!c.navigateNativeWine}" data-URL="{!v.sellNativeWineOptionalBeer_URL}" role="" class="licenseOption">
+		    			<img src="{!$Resource.DX_GraphicLibrary + '/licenseWizard/store_NativeWineOptionalBeer.png'}" title="Sell Native Wine and optionally Beer" alt="Sell Native Wine and optionally Beer" /><br/>
+		    			Sell Native Wine and optionally Beer
+		    		</a>
+		    	</aura:if>
+		    </div>
+		</div>
+	</div>	
+		
+</aura:component>

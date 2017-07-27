@@ -1,0 +1,97 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" access="global"  controller="dx_StatusBarAppSummaryController">
+    
+    <aura:attribute name="AppName" type="String" />
+    <aura:attribute name="AppId" type="String" />    
+    <aura:attribute name="AppClass" type="String" />
+    <aura:attribute name="AppStatus" type="String" />        
+    <aura:attribute name="AppDate" type="String" />  
+    <aura:attribute name="DateLabel" type="String" default="Application" />  
+    <aura:attribute name="AppSectionStatus" type="dx_ProgressAndReview_helper.SectionStatus[]"/>
+    <aura:attribute name="barVisibility" type="string" default="slds-hide"/>
+    <aura:attribute name="statusVisibility" type="string" default="slds-hide"/>    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <div class="{!v.barVisibility}">
+        <div class="progressContainer">
+            <div class="progressBar">
+                <!-- <span>Progress</span> -->
+                <!-- <aura:iteration items="{!v.thisStatus}" var="statusItem"> -->
+                    <!-- <span class="{!statusItem.Status}" > -->
+                        <!-- <ui:outputText value="{!statusItem.Name}"/> -->
+                        <!--c:SC_ProgressItem label="{!pageItem}" target="{!pageItem}"/-->
+                    <!-- </span> -->
+                <!-- </aura:iteration> -->
+                
+            </div>
+        </div>
+    </div>
+    <div class="{!v.statusVisibility}">    
+        <div class="slds-grid slds-wrap">		
+            <!-- Begin Large items... -->
+            <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4" aura:id="LargeItems" id="LargeItems">
+                <div id="slds-form-element" class="slds-container--center slds-container--small">
+                        <div class="slds-text-title slds-text-align--center titleClassLarge">Primary License</div>
+                        <div class="slds-text-title slds-text-align--center">
+                            <ui:outputText value="{!v.AppClass}" />
+                        </div>
+                </div>
+            </div>
+            
+            <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4" aura:id="LargeItems" id="LargeItems">
+                <div id="slds-form-element" class="slds-container--center slds-container--small">
+                        <div class="slds-text-title slds-text-align--center titleClassLarge">Application Number</div>
+                        <div class="slds-text-title slds-text-align--center">
+                            <ui:outputText value="{!v.AppName}" />
+                        </div>
+                </div>
+            </div>
+            
+            <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4" aura:id="LargeItems" id="LargeItems">
+                <div id="slds-form-element" class="slds-container--center slds-container--small">
+                        <div class="slds-text-title slds-text-align--center titleClassLarge">Status</div>
+                        <div class="slds-text-title slds-text-align--center">					
+                            <ui:outputText value="{!v.AppStatus}" />
+                        </div>
+                </div>
+            </div>
+            
+            <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4" aura:id="LargeItems" id="LargeItems">
+                <div id="slds-form-element" class="slds-container--center slds-container--small">
+                        <div class="slds-text-title slds-text-align--center titleClassLarge">{!v.DateLabel} Started On</div>
+                        <div class="slds-text-title slds-text-align--center">
+                            <ui:outputDate value="{!v.AppDate}" />
+                        </div>
+                </div>
+            </div>
+            <!-- End Large items... -->
+            
+            <!-- Begin Small items... -->		
+            <div class="slds-col slds-size--1-of-1" aura:id="SmallItems" id="SmallItems">
+                <div id="slds-form-element" class="slds-container--center slds-container--small">
+                        <span class="slds-text-title titleClassSmall">Primary License:</span>&nbsp;&nbsp;<ui:outputText value="{!v.AppClass}" class="slds-text-title" />
+                  </div>
+            </div>
+            
+            <div class="slds-col slds-size--1-of-1" aura:id="SmallItems" id="SmallItems">
+                <div id="slds-form-element" class="slds-container--center slds-container--small">
+                        <span class="slds-text-title titleClassSmall">Application Number:</span>&nbsp;&nbsp;<ui:outputText value="{!v.AppName}" class="slds-text-title" />
+                </div>
+            </div>
+            
+            <div class="slds-col slds-size--1-of-1" aura:id="SmallItems" id="SmallItems">
+                <div id="slds-form-element" class="slds-container--center slds-container--small">
+                        <span class="slds-text-title titleClassSmall">Status:</span>&nbsp;&nbsp;<ui:outputText value="{!v.AppStatus}" class="slds-text-title" />
+
+                </div>
+            </div>
+            
+            <div class="slds-col slds-size--1-of-1" aura:id="SmallItems" id="SmallItems">
+                <div id="slds-form-element" class="slds-container--center slds-container--small">
+                        <span class="slds-text-title titleClassSmall">{!v.DateLabel} Started On:</span>&nbsp;&nbsp;<ui:outputDate value="{!v.AppDate}" class="slds-text-title" />
+                </div>
+            </div>
+            <!-- End Small items... -->
+            
+        </div>
+    </div>
+</aura:component>

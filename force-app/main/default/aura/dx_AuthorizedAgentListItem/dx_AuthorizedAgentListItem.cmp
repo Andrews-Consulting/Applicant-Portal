@@ -1,0 +1,39 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" controller="DX_AuthorizedAgentList" access="global">
+
+ 	<aura:registerevent name="NextOnlyEvent" type="c:dx_actionComplete" />
+    
+    <aura:attribute name="agent" type="abd_Authorized_Agent__c" default="{'sobjectType':'abd_Authorized_Agent__c'}" />
+	<aura:attribute name="delete" type="boolean" default="false"/>
+	<aura:attribute name="ShowCommit" type="boolean" default="false"/>
+		
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+	
+	<aura:renderIf isTrue="{!v.delete!=true}">
+		<tr>
+	        <td>
+	            <a onclick="{!c.navigateToAuthorizedagent}" >
+	                <lightning:icon iconName="utility:edit" size="medium" />
+	            </a>
+	        </td>
+	        <td>
+	            <lightning:input label="name" value="{!v.agent.abd_Auth_Agent_Name__c}" aura:id="name" name="abd_Auth_Agent_Name__c" readonly="true" />
+	        </td>
+	        <td>
+	            <lightning:input label="city" value="{!v.agent.abd_Auth_Agent_City__c}" aura:id="city" name="abd_Auth_Agent_City__c"  readonly="true" />
+	        </td>
+	        <td>
+	            <ui:inputSelect aura:id="state" value="{!v.agent.abd_Auth_Agent_State__c}" disabled="true" />
+	        </td>
+	        <td>
+	            <lightning:input label="phone" type="tel" value="{!v.agent.abd_Auth_Agent_Phone__c}" aura:id="phone" name="abd_Auth_Agent_Phone__c" readonly="true" />
+	        </td>
+	        <td>
+	        	<a onclick="{!c.removeAgent}">
+	                <lightning:icon iconName="utility:delete" size="medium" />
+	            </a>
+	        </td>
+	    </tr>
+    </aura:renderIf>
+
+</aura:component>

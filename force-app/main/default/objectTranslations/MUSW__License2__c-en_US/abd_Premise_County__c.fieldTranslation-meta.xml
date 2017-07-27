@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Premises County --></label>
+    <name>abd_Premise_County__c</name>
+    <picklistValues>
+        <masterLabel>Adair</masterLabel>
+        <translation><!-- Adair --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Adams</masterLabel>
+        <translation><!-- Adams --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Allamakee</masterLabel>
+        <translation><!-- Allamakee --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Appanoose</masterLabel>
+        <translation><!-- Appanoose --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Audubon</masterLabel>
+        <translation><!-- Audubon --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Benton</masterLabel>
+        <translation><!-- Benton --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Black Hawk</masterLabel>
+        <translation><!-- Black Hawk --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Boone</masterLabel>
+        <translation><!-- Boone --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Bremer</masterLabel>
+        <translation><!-- Bremer --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Buchanan</masterLabel>
+        <translation><!-- Buchanan --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Buena Vista</masterLabel>
+        <translation><!-- Buena Vista --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Butler</masterLabel>
+        <translation><!-- Butler --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Calhoun</masterLabel>
+        <translation><!-- Calhoun --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Carroll</masterLabel>
+        <translation><!-- Carroll --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Cass</masterLabel>
+        <translation><!-- Cass --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Cedar</masterLabel>
+        <translation><!-- Cedar --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Cerro Gordo</masterLabel>
+        <translation><!-- Cerro Gordo --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Cherokee</masterLabel>
+        <translation><!-- Cherokee --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Chickasaw</masterLabel>
+        <translation><!-- Chickasaw --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Clarke</masterLabel>
+        <translation><!-- Clarke --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Clay</masterLabel>
+        <translation><!-- Clay --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Clayton</masterLabel>
+        <translation><!-- Clayton --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Clinton</masterLabel>
+        <translation><!-- Clinton --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Crawford</masterLabel>
+        <translation><!-- Crawford --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Dallas</masterLabel>
+        <translation><!-- Dallas --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Davis</masterLabel>
+        <translation><!-- Davis --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Decatur</masterLabel>
+        <translation><!-- Decatur --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Delaware</masterLabel>
+        <translation><!-- Delaware --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Des Moines</masterLabel>
+        <translation><!-- Des Moines --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Dickinson</masterLabel>
+        <translation><!-- Dickinson --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Dubuque</masterLabel>
+        <translation><!-- Dubuque --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Emmet</masterLabel>
+        <translation><!-- Emmet --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Fayette</masterLabel>
+        <translation><!-- Fayette --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Floyd</masterLabel>
+        <translation><!-- Floyd --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Franklin</masterLabel>
+        <translation><!-- Franklin --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Fremont</masterLabel>
+        <translation><!-- Fremont --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Greene</masterLabel>
+        <translation><!-- Greene --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Grundy</masterLabel>
+        <translation><!-- Grundy --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Guthrie</masterLabel>
+        <translation><!-- Guthrie --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Hamilton</masterLabel>
+        <translation><!-- Hamilton --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Hancock</masterLabel>
+        <translation><!-- Hancock --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Hardin</masterLabel>
+        <translation><!-- Hardin --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Harrison</masterLabel>
+        <translation><!-- Harrison --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Henry</masterLabel>
+        <translation><!-- Henry --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Howard</masterLabel>
+        <translation><!-- Howard --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Humboldt</masterLabel>
+        <translation><!-- Humboldt --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Ida</masterLabel>
+        <translation><!-- Ida --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Iowa</masterLabel>
+        <translation><!-- Iowa --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Jackson</masterLabel>
+        <translation><!-- Jackson --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Jasper</masterLabel>
+        <translation><!-- Jasper --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Jefferson</masterLabel>
+        <translation><!-- Jefferson --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Johnson</masterLabel>
+        <translation><!-- Johnson --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Jones</masterLabel>
+        <translation><!-- Jones --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Keokuk</masterLabel>
+        <translation><!-- Keokuk --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Kossuth</masterLabel>
+        <translation><!-- Kossuth --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Lee</masterLabel>
+        <translation><!-- Lee --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Linn</masterLabel>
+        <translation><!-- Linn --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Louisa</masterLabel>
+        <translation><!-- Louisa --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Lucas</masterLabel>
+        <translation><!-- Lucas --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Lyon</masterLabel>
+        <translation><!-- Lyon --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Madison</masterLabel>
+        <translation><!-- Madison --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Mahaska</masterLabel>
+        <translation><!-- Mahaska --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Marion</masterLabel>
+        <translation><!-- Marion --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Marshall</masterLabel>
+        <translation><!-- Marshall --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Mills</masterLabel>
+        <translation><!-- Mills --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Mitchell</masterLabel>
+        <translation><!-- Mitchell --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Monona</masterLabel>
+        <translation><!-- Monona --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Monroe</masterLabel>
+        <translation><!-- Monroe --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Montgomery</masterLabel>
+        <translation><!-- Montgomery --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Muscatine</masterLabel>
+        <translation><!-- Muscatine --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>O'Brien</masterLabel>
+        <translation><!-- O&apos;Brien --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Osceola</masterLabel>
+        <translation><!-- Osceola --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Page</masterLabel>
+        <translation><!-- Page --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Palo Alto</masterLabel>
+        <translation><!-- Palo Alto --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Plymouth</masterLabel>
+        <translation><!-- Plymouth --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Pocahontas</masterLabel>
+        <translation><!-- Pocahontas --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Polk</masterLabel>
+        <translation><!-- Polk --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Pottawattamie</masterLabel>
+        <translation><!-- Pottawattamie --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Poweshiek</masterLabel>
+        <translation><!-- Poweshiek --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Ringgold</masterLabel>
+        <translation><!-- Ringgold --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Sac</masterLabel>
+        <translation><!-- Sac --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Scott</masterLabel>
+        <translation><!-- Scott --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Shelby</masterLabel>
+        <translation><!-- Shelby --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Sioux</masterLabel>
+        <translation><!-- Sioux --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Story</masterLabel>
+        <translation><!-- Story --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Tama</masterLabel>
+        <translation><!-- Tama --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Taylor</masterLabel>
+        <translation><!-- Taylor --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Union</masterLabel>
+        <translation><!-- Union --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Van Buren</masterLabel>
+        <translation><!-- Van Buren --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Wapello</masterLabel>
+        <translation><!-- Wapello --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Warren</masterLabel>
+        <translation><!-- Warren --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Washington</masterLabel>
+        <translation><!-- Washington --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Wayne</masterLabel>
+        <translation><!-- Wayne --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Webster</masterLabel>
+        <translation><!-- Webster --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Winnebago</masterLabel>
+        <translation><!-- Winnebago --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Winneshiek</masterLabel>
+        <translation><!-- Winneshiek --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Woodbury</masterLabel>
+        <translation><!-- Woodbury --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Worth</masterLabel>
+        <translation><!-- Worth --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Wright</masterLabel>
+        <translation><!-- Wright --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

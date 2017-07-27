@@ -1,0 +1,39 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" controller="DX_DynamicChecklistQuestions" access="global">
+	<aura:attribute name="checklistVersion" type="Id" required="true" default="a1T350000000c9e"/>
+    <aura:attribute name="application" type="Id" description="The Id of the record" required="true" default="a0335000001kaeq"/>
+    <aura:attribute name="licenseType" type="String" default="CP"/>
+    <aura:attribute name="records" type="Object[]"/>
+    <aura:attribute name="applicationType" type="String" default="New License"/>
+    <aura:attribute name="showError" type="Boolean" required="true" description="" default="false" access="private"/>
+    <aura:attribute name="errorMessage" type="string" required="false" description="" access="private"/>
+    <aura:attribute name="fields" type="Object[]"/>
+    <aura:attribute name="form" type="Aura.Component[]"/>
+    <aura:attribute name="questionTypes" type="Map"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    <aura:method name="saveChecklist" action="{!c.save}" access="PUBLIC"/>
+    
+    <div>
+        <aura:renderIf isTrue="{!v.showError}">
+            <div id="error">
+                <ui:outputRichText value="{!v.errorMessage}"/>
+            </div>
+        </aura:renderIf>
+        <aura:renderIf isTrue="{!v.checklistVersion!=null}">
+            <div class="slds-grid slds-wrap slds-grid--pull-padded" id="div_topContainer">
+                <aura:iteration items="{!v.records}" var="record">
+                	<c:DX_ChecklistSection record="{!record}"/>
+                </aura:iteration>
+            </div>
+        </aura:renderIf>
+        <div class="sfdc" >
+        	<p>&nbsp;</p>
+        	<!-- <center>
+        		<ui:button aura:id="submitButton" label="Save" press="{!c.save}" class="sfdc_button"/>
+			</center>
+			<div class="slds-spinner_container slds-hide slds-is-fixed" aura:id="spinner">
+				<lightning:spinner variant="brand" size="large"/>
+			</div> -->
+        </div>
+    </div>
+</aura:component>

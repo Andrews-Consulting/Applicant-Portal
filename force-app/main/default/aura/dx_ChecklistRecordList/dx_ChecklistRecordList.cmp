@@ -1,0 +1,72 @@
+<aura:component controller="DX_DynamicChecklistQuestions" implements="forceCommunity:availableForAllPageTypes"  access="global">
+	
+	<!--ATTRIBUTES -->
+    <aura:attribute name="APIName" type="String" description="The API name for the type of child records being viewed and created."/>
+    <aura:attribute name="fieldsetAPI" type="String" description="API name of the fieldset" />
+    <aura:attribute name="viewLength" type="Integer" description="Number of fields from the fieldset to show in the view" />
+    <aura:attribute name="response" type="Object" />
+    <aura:attribute name="fullFieldset" type="Object[]" description="Array of all fieldset members" />
+    <aura:attribute name="viewFieldset" type="Object[]" description="Truncated array of fieldset members" />
+    <aura:attribute name="childRecords" type="Object[]" default="[]" />
+    <aura:attribute name="renderForm" type="Boolean" default="false" description="Set to true when user first wants to use this form, preventing it from rendering until ready."/>
+    <aura:attribute name="formMode" type="String" description="Can be either EDIT or CREATE." />
+   	<aura:attribute name="isReadMode" type="Boolean" description="Boolean of whether or not the app has been opened in read mode. Sets the questions and buttons all to deactivated" access="global"/>
+   	<aura:attribute name="isRendered" type="Boolean" required="true" default="false"/>
+    
+    
+    <!--HANDLERS -->
+    
+   <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+   <aura:handler event="aura:waiting" action="{!c.toggleSpinner}" />
+   <aura:handler event="aura:doneWaiting" action="{!c.toggleSpinner}" />
+   <aura:handler event="c:dx_ChecklistSaveSectionEvent" action="{!c.saveAnswer}" description="Called when the user clicks the section's save button." />
+   <aura:handler name="createEdit" event="c:dx_ChecklistCreateEditEvent" action="{!c.saveRecord}" />
+   <aura:handler name="editRecord" event="c:dx_ChecklistRecordEditEvent" action="{!c.editRecord}" />
+   <aura:handler name="deleteRecord" event="c:dx_ChecklistRecordDeleteEvent" action="{!c.deleteRecordById}" />
+
+    <!-- START MARKUP -->
+
+
+        <!-- <lightning:spinner class="slds-hide record" size="small" aura:id="record-spinner" alternativeText="Working..."/> -->
+        <aura:if isTrue="{!v.childRecords}"> <!-- Render a table of child records only if there are child records-->
+
+            <table class="slds-table slds-table--bordered slds-table--cell-buffer slds-hide slds-m-bottom--small" aura:id="bgck-table">
+
+                <!-- creates header row for the table by iterating through the fieldset -->
+                <thead>
+                    <tr class="slds-text-title--caps">
+                        <aura:iteration items="{!v.viewFieldset}" var="item">
+                            <th scope="col">
+                                <div class="slds-truncate" title="{!item.label}">
+                                    {!item.label}
+                                </div>
+                            </th>
+
+                        </aura:iteration>
+                        <th scope="col" class="slds-cell-shrink"></th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <!-- Iterate through array of records here, passing view fieldset and record item to the record view-->
+                    <aura:iteration items="{!v.childRecords}" var="item">
+                        <c:dx_ChecklistRecordView record="{!item}" fieldset="{!v.viewFieldset}" isReadMode="{!v.isReadMode}"/>
+                    </aura:iteration>
+
+                </tbody>
+            </table>
+        </aura:if>
+        <div>
+            <button class="slds-button slds-button--brand" onclick="{!c.addNewRecord}" disabled="{!v.isReadMode}">
+        		Add Record
+        	</button>
+        </div>
+        <aura:if isTrue="{!v.renderForm}">
+			<!-- START MODAL iframe -->
+            <c:dx_ChecklistRecordEditCreate APIName="{!v.APIName}"
+                    mode="{!v.formMode}"
+                    fieldset="{!v.fullFieldset}"
+                    aura:id="bgck-record-form" 
+                    isVisible="false"/>
+		</aura:if>
+</aura:component>

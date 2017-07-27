@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <validationRules>
+        <errorMessage><!-- Cannot adjust Receipt Amount greater than what is Remaining. Increase Receipt or reduce Rejected Amount or increase Available Amount (delete payments) --></errorMessage>
+        <name>MUSW__Amount_Available_less_than_Remaining</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Cannot refund more than Remaining Amount --></errorMessage>
+        <name>MUSW__Cannot_refund_more_than_available_amount</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Cannot use more than the Available Deposit --></errorMessage>
+        <name>MUSW__Insufficient_deposit_to_use</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Cannot Reject more than the Remaining Amount of Receipts --></errorMessage>
+        <name>MUSW__Rejected_more_than_Available</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- AdjustReceipts --></label>
+        <name>BGBK__AdjustReceipts</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Print_Receipt --></label>
+        <name>BGBK__Print_Receipt</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Print_Receipt_Invoice --></label>
+        <name>BGBK__Print_Receipt_Invoice</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Print_Receipt_Complaint --></label>
+        <name>MUSW__Print_Receipt_Complaint</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Print_Receipt_License --></label>
+        <name>MUSW__Print_Receipt_License</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Print_Receipt_Permit --></label>
+        <name>MUSW__Print_Receipt_Permit</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Print_Receipt_Planning --></label>
+        <name>MUSW__Print_Receipt_Planning</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Void_Receipt --></label>
+        <name>Void_Receipt</name>
+    </webLinks>
+</CustomObjectTranslation>

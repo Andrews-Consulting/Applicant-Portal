@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Business Entity Type --></label>
+    <name>abd_Business_Type__c</name>
+    <picklistValues>
+        <masterLabel>Foreign corporation as defined in section 504.141</masterLabel>
+        <translation><!-- Foreign corporation as defined in section 504.141 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>General Partnership</masterLabel>
+        <translation><!-- General Partnership --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Limited Liability Company</masterLabel>
+        <translation><!-- Limited Liability Company --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Limited Partnership</masterLabel>
+        <translation><!-- Limited Partnership --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Municipality</masterLabel>
+        <translation><!-- Municipality --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Non-Profit Association</masterLabel>
+        <translation><!-- Non-Profit Association --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Nonprofit corporation organized under chapter 504</masterLabel>
+        <translation><!-- Nonprofit corporation organized under chapter 504 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Nonprofit entity which has a principal office in the State of Iowa</masterLabel>
+        <translation><!-- Nonprofit entity which has a principal office in the State of Iowa --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Privately Held Corporation</masterLabel>
+        <translation><!-- Privately Held Corporation --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Publicly Traded Corporation</masterLabel>
+        <translation><!-- Publicly Traded Corporation --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Sole Proprietorship</masterLabel>
+        <translation><!-- Sole Proprietorship --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

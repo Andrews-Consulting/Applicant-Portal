@@ -1,0 +1,116 @@
+<!-- <aura:component implements="forceCommunity:availableForAllPageTypes,force:appHostable" access="global" controller="TBD"> -->
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" controller="DX_LicenseType">
+    
+    <!-- Boolean attributes so that options may be quickly disabled by the client without editing code (probably not really necessary, but you never know...) -->
+   	<aura:attribute name="serveBeerWithWineCoolers_URL" type="String" />
+	<aura:attribute name="serveBeerWineOnly_URL" type="String" />
+	<aura:attribute name="serveNativeWine_URL" type="String" />
+	<aura:attribute name="serveLiquorClub_URL" type="String" />
+	<aura:attribute name="serveLiquorHotel_URL" type="String" />
+	<aura:attribute name="serveLiquorVehicle_URL" type="String" />
+	<aura:attribute name="serveBeerWineLiquor_URL" type="String" />	
+
+	<aura:attribute name="beerWithWineCoolers_Code" type="String" required="true" />	
+	<aura:attribute name="serveBeerWineOnly_Code" type="String" required="true" />
+	<aura:attribute name="serveNativeWine_Code" type="String" required="true" />
+	<aura:attribute name="serveLiquorClub_Code" type="String" required="true" />
+	<aura:attribute name="serveLiquorHotel_Code" type="String" required="true" />
+	<aura:attribute name="serveLiquorVehicle_Code" type="String" required="true" />
+	<aura:attribute name="serveBeerWineLiquor_Code" type="String" required="true" />		
+
+	<div class="slds-grid slds-wrap">
+  		<div class="slds-col slds-size--1-of-1 slds-large-size--1-of-1">
+		    <div id="slds-form-element" class="slds-container--center slds-container--small link titleClass">
+		    	Selecting the Right License
+		    	<br/>
+		    	Bar, Club, or Restaurant
+		    	<br/><br/><br/>
+		    	At my establishment, I want to<br/><br/>
+		    </div>
+		</div>
+	</div>
+
+	<div class="slds-grid slds-wrap">
+  		<div class="slds-col slds-size--1-of-1 slds-large-size--1-of-3">
+		    <div id="slds-form-element" class="slds-container--center slds-container--small link licenseOption">
+		    	<aura:if isTrue="{! not(empty(v.serveBeerWithWineCoolers_URL))}" >
+		    		<a href="" onclick="{!c.navigateBeerWithWineCoolers}" data-URL="{!v.serveBeerWithWineCoolers_URL}" role="" class="licenseOption">
+		    			<img src="{!$Resource.DX_GraphicLibrary + '/licenseWizard/beerandWineCoolers.png'}" title="Serve Beer (includes Wine Coolers)" alt="Serve Beer (includes Wine Coolers)" /><br/>
+		    			Serve Beer (includes Wine Coolers)
+		    		</a>
+		    	</aura:if>
+		    </div>
+		</div>
+  		<div class="slds-col slds-size--1-of-1 slds-large-size--1-of-3">
+		    <div id="slds-form-element" class="slds-container--center slds-container--small link licenseOption">
+		        <aura:if isTrue="{! not(empty(v.serveBeerWineOnly_URL))}" >
+		    		<a href="" onclick="{!c.navigateBeerWineOnly}" data-URL="{!v.serveBeerWineOnly_URL}" role="" class="licenseOption">
+		    			<img src="{!$Resource.DX_GraphicLibrary + '/licenseWizard/beerandWineOnly.png'}" title="Serve Beer and Wine Only" alt="Serve Beer and Wine Only" /><br/>
+		    			Serve Beer and Wine Only
+		    		</a>
+		        </aura:if>
+		    </div>
+		</div>
+  		<div class="slds-col slds-size--1-of-1 slds-large-size--1-of-3" style="height: 100%">
+		    <div id="slds-form-element" class="slds-container--center slds-container--small link licenseOption">
+		        <aura:if isTrue="{! not(empty(v.serveNativeWine_URL))}" >
+		    		<a href="" onclick="{!c.navigateNativeWine}" data-URL="{!v.serveNativeWine_URL}" role="" class="licenseOption">
+		    			<img src="{!$Resource.DX_GraphicLibrary + '/licenseWizard/nativeWine.png'}" title="Serve Native Wine Only" alt="Serve Native Wine Only" /><br/>
+		    			Serve Native Wine Only
+		    		</a>
+		        </aura:if>
+		    </div>
+		</div>
+	</div>
+
+	<p>&nbsp;</p>
+
+	<div class="slds-grid slds-wrap">
+  		<div class="slds-col slds-size--1-of-1 slds-large-size--1-of-3">
+		    <div id="slds-form-element" class="slds-container--center slds-container--small link licenseOption">
+		    	<aura:if isTrue="{! not(empty(v.serveLiquorClub_URL))}" >
+		    		<a href="" onclick="{!c.navigateLiquorClub}" data-URL="{!v.serveLiquorClub_URL}" role="" class="licenseOption">
+		    			<img src="{!$Resource.DX_GraphicLibrary + '/licenseWizard/serveLiquorClub.png'}" title="Serve Liquor at a Private Club" alt="Serve Liquor at a Private Club" /><br/>
+		    			Serve Liquor at a Private Club
+		    		</a>
+		    	</aura:if>
+		    </div>
+		</div>
+  		<div class="slds-col slds-size--1-of-1 slds-large-size--1-of-3">
+		    <div id="slds-form-element" class="slds-container--center slds-container--small link licenseOption">
+		        <aura:if isTrue="{! not(empty(v.serveLiquorHotel_URL))}" >
+		    		<a href="" onclick="{!c.navigateLiquorHotel}" data-URL="{!v.serveLiquorHotel_URL}" role="" class="licenseOption">
+		    			<img src="{!$Resource.DX_GraphicLibrary + '/licenseWizard/serverLiquorAtHotel.png'}" title="Serve Liquor, Wine, and Beer at a Hotel or Motel" alt="Serve Liquor, Wine, and Beer at a Hotel or Motel" /><br/>
+		    			Serve Liquor, Wine, and Beer at a Hotel or Motel
+		    		</a>
+		        </aura:if>
+		    </div>
+		</div>
+  		<div class="slds-col slds-size--1-of-1 slds-large-size--1-of-3">
+		    <div id="slds-form-element" class="slds-container--center slds-container--small link licenseOption">
+		        <aura:if isTrue="{! not(empty(v.serveLiquorVehicle_URL))}" >
+		    		<a href="" onclick="{!c.navigateLiquorVehicle}" data-URL="{!v.serveLiquorVehicle_URL}" role="" class="licenseOption">
+		    			<img src="{!$Resource.DX_GraphicLibrary + '/licenseWizard/serverLiquorOnVehicle.png'}" title="Serve Liquor, Wine and Beer on a Train, Plain or Boat" alt="Serve Liquor, Wine and Beer on a Train, Plain or Boat" /><br/>
+		    			Serve Liquor, Wine and Beer on a Train, Plain or Boat
+		    		</a>
+		        </aura:if>
+		    </div>
+		</div>		
+	</div>	
+
+	<p>&nbsp;</p>
+
+	<div class="slds-grid slds-wrap">
+  		<div class="slds-col slds-size--1-of-1 slds-large-size--1-of-1">
+		    <div id="slds-form-element" class="slds-container--center slds-container--small link licenseOption">
+		    	<aura:if isTrue="{! not(empty(v.serveBeerWineLiquor_URL))}" >
+		    		<a href="" onclick="{!c.navigateBeerWineLiquor}" data-URL="{!v.serveBeerWineLiquor_URL}" role="" class="licenseOption">
+		    			<img src="{!$Resource.DX_GraphicLibrary + '/licenseWizard/serveLiquorWineBeer.png'}" title="Serve Beer, Wine, and Liquor" alt="Serve Beer, Wine, and Liquor" /><br/>
+		    			Serve Beer, Wine, and Liquor
+		    		</a>
+		    	</aura:if>
+		    </div>
+		</div>	
+	</div>		
+		
+</aura:component>

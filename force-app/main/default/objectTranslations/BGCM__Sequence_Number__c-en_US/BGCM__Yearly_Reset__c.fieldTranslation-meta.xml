@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Reset the next number count back to 1 the first time a sequence number is requested after the last year issued (new year has occured). Good practice to have this true when the number format includes YY or YYYY. --></help>
+    <label><!-- Yearly Reset --></label>
+    <name>BGCM__Yearly_Reset__c</name>
+</CustomFieldTranslation>

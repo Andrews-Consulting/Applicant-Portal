@@ -1,0 +1,115 @@
+<!-- <aura:component implements="forceCommunity:availableForAllPageTypes,force:appHostable" access="global" controller="TBD"> -->
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" controller="DX_LicenseType">
+    
+	<aura:attribute name="shipBeerIntoIA_URL" type="String" />
+	<aura:attribute name="shipWineIntoIA_URL" type="String" />
+	<aura:attribute name="shipSpiritsIntoIA_URL" type="String" />
+	<aura:attribute name="distillSpiritsAndSampleInIA_URL" type="String" />
+	<aura:attribute name="distillSpiritsAndSellOutsideIA_URL" type="String" />
+	<aura:attribute name="shipWineToPersonalAddress_URL" type="String" />
+	<aura:attribute name="promoteLiquorInIA_URL" type="String" />	
+
+	<aura:attribute name="shipBeerIntoIA_Code" type="String" required="true" />
+	<aura:attribute name="shipWineIntoIA_Code" type="String" required="true" />
+	<aura:attribute name="shipSpiritsIntoIA_Code" type="String" required="true" />
+	<aura:attribute name="distillSpiritsAndSampleInIA_Code" type="String" required="true" />
+	<aura:attribute name="distillSpiritsAndSellOutsideIA_Code" type="String" required="true" />
+	<aura:attribute name="shipWineToPersonalAddress_Code" type="String" required="true" />
+	<aura:attribute name="promoteLiquorInIA_Code" type="String" required="true" />		
+
+	<div class="slds-grid slds-wrap">
+  		<div class="slds-col slds-size--1-of-1 slds-large-size--1-of-1">
+		    <div id="slds-form-element" class="slds-container--center slds-container--small link titleClass">
+		    	Selecting the Right License
+		    	<br/>
+		    	Importer or Manufacturer
+		    	<br/><br/><br/>
+		    	&nbsp;<br/><br/>
+		    </div>
+		</div>
+	</div>
+
+	<div class="slds-grid slds-wrap">
+  		<div class="slds-col slds-size--1-of-1 slds-large-size--1-of-3">
+		    <div id="slds-form-element" class="slds-container--center slds-container--small link licenseOption">
+		    	<aura:if isTrue="{! not(empty(v.shipBeerIntoIA_URL))}" >
+		    		<a href="" onclick="{!c.navigateShipBeerIntoIA}" data-URL="{!v.shipBeerIntoIA_URL}" role="" class="licenseOption">
+		    			<img src="{!$Resource.DX_GraphicLibrary + '/licenseWizard/import_BeerIntoIowa.png'}" title="I want to ship my beer into Iowa for resale" alt="I want to ship my beer into Iowa for resale" /><br/>
+		    			I want to ship my beer into Iowa for resale
+		    		</a>
+		    	</aura:if>
+		    </div>
+		</div>
+  		<div class="slds-col slds-size--1-of-1 slds-large-size--1-of-3">
+		    <div id="slds-form-element" class="slds-container--center slds-container--small link licenseOption">
+		        <aura:if isTrue="{! not(empty(v.shipWineIntoIA_URL))}" >
+		    		<a href="" onclick="{!c.navigateShipWineIntoIA}" data-URL="{!v.shipWineIntoIA_URL}" role="" class="licenseOption">
+		    			<img src="{!$Resource.DX_GraphicLibrary + '/licenseWizard/import_WineIntoIowa.png'}" title="I want to ship my Wine into Iowa for resale" alt="I want to ship my Wine into Iowa for resale" /><br/>
+		    			I want to ship my Wine into Iowa for resale
+		    		</a>
+		        </aura:if>
+		    </div>
+		</div>
+  		<div class="slds-col slds-size--1-of-1 slds-large-size--1-of-3" style="height: 100%">
+		    <div id="slds-form-element" class="slds-container--center slds-container--small link licenseOption">
+		        <aura:if isTrue="{! not(empty(v.shipSpiritsIntoIA_URL))}" >
+		    		<a href="" onclick="{!c.navigateShipSpiritsIntoIA}" data-URL="{!v.shipSpiritsIntoIA_URL}" role="" class="licenseOption">
+		    			<img src="{!$Resource.DX_GraphicLibrary + '/licenseWizard/import_SpiritsIntoIowa.png'}" title="I want to ship my Distilled Spirits into Iowa for resale" alt="I want to ship my Distilled Spirits into Iowa for resale" /><br/>
+		    			I want to ship my Distilled Spirits into Iowa for resale
+		    		</a>
+		        </aura:if>
+		    </div>
+		</div>
+	</div>
+
+	<p>&nbsp;</p>
+
+	<div class="slds-grid slds-wrap">
+  		<div class="slds-col slds-size--1-of-1 slds-large-size--1-of-3">
+		    <div id="slds-form-element" class="slds-container--center slds-container--small link licenseOption">
+		    	<aura:if isTrue="{! not(empty(v.distillSpiritsAndSampleInIA_URL))}" >
+		    		<a href="" onclick="{!c.navigateDistillSpiritsAndSampleInIA}" data-URL="{!v.distillSpiritsAndSampleInIA_URL}" role="" class="licenseOption">
+		    			<img src="{!$Resource.DX_GraphicLibrary + '/licenseWizard/import_MakeSpiritsLocalSamples.png'}" title="As a micro-distiller in Iowa, I want to manufacture distilled spirits to sell to the ABD and provide samples at my distillery" alt="As a micro-distiller in Iowa, I want to manufacture distilled spirits to sell to the ABD and provide samples at my distillery" /><br/>
+		    			As a micro-distiller in Iowa, I want to manufacture distilled spirits to sell to the ABD and provide samples at my distillery
+		    		</a>
+		    	</aura:if>
+		    </div>
+		</div>
+  		<div class="slds-col slds-size--1-of-1 slds-large-size--1-of-3">
+		    <div id="slds-form-element" class="slds-container--center slds-container--small link licenseOption">
+		        <aura:if isTrue="{! not(empty(v.distillSpiritsAndSellOutsideIA_URL))}" >
+		    		<a href="" onclick="{!c.navigateDistillSpiritsAndSellOutsideIA}" data-URL="{!v.distillSpiritsAndSellOutsideIA_URL}" role="" class="licenseOption">
+		    			<img src="{!$Resource.DX_GraphicLibrary + '/licenseWizard/import_MakeSpiritsSellOutsideIA.png'}" title="I want to manufacture and sell distilled spirits to the ABD and outside of Iowa" alt="I want to manufacture and sell distilled spirits to the ABD and outside of Iowa" /><br/>
+		    			I want to manufacture and sell distilled spirits to the ABD and outside of Iowa
+		    		</a>
+		        </aura:if>
+		    </div>
+		</div>
+  		<div class="slds-col slds-size--1-of-1 slds-large-size--1-of-3">
+		    <div id="slds-form-element" class="slds-container--center slds-container--small link licenseOption">
+		        <aura:if isTrue="{! not(empty(v.shipWineToPersonalAddress_URL))}" >
+		    		<a href="" onclick="{!c.navigateShipWineToPersonalAddress}" data-URL="{!v.shipWineToPersonalAddress_URL}" role="" class="licenseOption">
+		    			<img src="{!$Resource.DX_GraphicLibrary + '/licenseWizard/import_ShipWine.png'}" title="As a Wine manufacturer, I want to ship wine directly to a personal address" alt="As a Wine manufacturer, I want to ship wine directly to a personal address" /><br/>
+		    			As a Wine manufacturer, I want to ship wine directly to a personal address
+		    		</a>
+		        </aura:if>
+		    </div>
+		</div>		
+	</div>	
+
+	<p>&nbsp;</p>
+
+	<div class="slds-grid slds-wrap">
+  		<div class="slds-col slds-size--1-of-1 slds-large-size--1-of-1">
+		    <div id="slds-form-element" class="slds-container--center slds-container--small link licenseOption">
+		    	<aura:if isTrue="{! not(empty(v.promoteLiquorInIA_URL))}" >
+		    		<a href="" onclick="{!c.navigatePromoteLiquorInIA}" data-URL="{!v.promoteLiquorInIA_URL}" role="" class="licenseOption">
+		    			<img src="{!$Resource.DX_GraphicLibrary + '/licenseWizard/import_PromoteLiquor.png'}" title="Present and Promote Liquor in Iowa (Broker's License)" alt="Present and Promote Liquor in Iowa (Broker's License)" /><br/>
+		    			Present and Promote Liquor in Iowa (Broker's License)
+		    		</a>
+		    	</aura:if>
+		    </div>
+		</div>	
+	</div>		
+		
+</aura:component>

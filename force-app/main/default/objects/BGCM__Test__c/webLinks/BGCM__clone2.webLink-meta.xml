@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BGCM__clone2</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>clone2</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
+var result = sforce.apex.execute("BGCM.UtilitySObject","getFieldIdFromJs",{objName:'BGCM__Test__c',fieldName:'BGCM__Geolocation__c'});
+//alert(result);
+//e?clone=1&amp;retURL=/a00o000000LXM2T
+window.location.href = '/{!BGCM__Test__c.Id}/e?clone=1&amp;retURL=/{!BGCM__Test__c.Id}&amp;' + result + '=';
+//window.location.reload();</url>
+</WebLink>

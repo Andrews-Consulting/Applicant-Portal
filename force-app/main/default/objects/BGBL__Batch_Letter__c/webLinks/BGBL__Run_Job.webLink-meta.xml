@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BGBL__Run_Job</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Run Batch Job</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!REQUIRESCRIPT("/soap/ajax/17.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/17.0/apex.js")} 
+
+var job = new sforce.SObject("BGBL__Batch_Letter_Job__c");
+job.BGBL__Batch_Letter__c = "{!BGBL__Batch_Letter__c.Id}";
+var result = sforce.connection.create([job]);
+ 
+if (result[0].getBoolean("success")) 
+{
+alert("Your Job has been placed in the queue.\nYou will receive an email when completed.");
+//top.window.location.reload();
+} else {
+alert("An error occurred in creating and running this Job.\nPlease contact your system administrator.\n\nError: " + result[0]);
+}</url>
+</WebLink>

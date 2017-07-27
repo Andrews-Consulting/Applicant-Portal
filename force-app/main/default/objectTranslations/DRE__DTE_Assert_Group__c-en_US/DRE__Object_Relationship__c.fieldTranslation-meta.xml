@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Object Relationship --></label>
+    <name>DRE__Object_Relationship__c</name>
+    <picklistValues>
+        <masterLabel>Children</masterLabel>
+        <translation><!-- Children --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Lookup</masterLabel>
+        <translation><!-- Lookup --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Record</masterLabel>
+        <translation><!-- Record --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

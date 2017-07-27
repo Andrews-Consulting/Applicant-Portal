@@ -1,0 +1,197 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" controller="DX_PremiseForm" access="global">
+	<aura:attribute name="showError" type="Boolean"  />
+	<aura:attribute name="errorMessage" type="string" />
+	<aura:Attribute name="RecordIdIsApplication" type="Boolean" />
+
+	<aura:attribute name="stateOnly" type="Boolean" required="true" default="false"/>
+	<aura:attribute name="showOutdoor" type="Boolean" required="true" default="false"/>
+	<aura:attribute name="app" type="MUSW__Application2__c" default="{'sobjectType':'MUSW__Application2__c'}" />
+	<aura:attribute name="lictype" type="abd_License_Types__c" default="{'sobjectType':'abd_License_Types__c'}" />
+	<aura:attribute name="applicant" type="Contact" default="{'sobjectType':'Contact'}" />
+	<aura:attribute name="licensee" type="Account" default="{'sobjectType':'Account'}" />
+	<aura:attribute name="cityLA" type="string" />
+	<aura:attribute name="countyLA" type="string" />
+	<aura:attribute name="renderPremiseTypeList" type="Boolean" default="true" />
+
+	<aura:attribute name="LAChoiceIsLocked" type="Boolean" default="false" />
+	
+	<aura:registerevent name="SaveCompleted" type="c:dx_actionComplete" />
+	<aura:registerevent name="EmptyComponent" type="c:dx_actionComplete" />
+	
+	<!-- <aura:handler name="change"  action="{! c.onAdjustAuctionDates }" value="{! v.app }" /> -->
+	<aura:handler name="change"  action="{! c.onAdjustAuctionDates }" value="{! v.app.abd_Effective_Date__c }" />
+  	<aura:handler name="change"  action="{! c.onAdjustAuctionDates }"  value="{! v.app.abd_Time_of_Auction_Beginning__c }" /> 
+
+	<aura:method name="PerformSave" action="{!c.save}"  />
+	<aura:method name="PerformInit" action="{!c.doInit}"  />
+
+
+	<div class="slds-grid slds-wrap padded">
+		<div class="slds-col slds-size--1-of-1">
+			<div class="slds-grid slds-wrap padded">
+				<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-7" >&nbsp;</div>
+				<div class="slds-col slds-size--1-of-1 slds-medium-size--6-of-7">
+					<h1>Premises/Event Information</h1>
+				</div>
+			</div>
+			<div class="slds-grid slds-wrap padded">
+				<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-7" >&nbsp;</div>
+				<div class="slds-col slds-size--1-of-1 slds-medium-size--2-of-7">
+					<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small" >
+						<ui:button aura:id="UseMailingButton" label="My Mailing Address is the same as my Premises Address" press="{!c.setMailing}" class="stdButton" />
+					</div>
+					<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small" aura:id="pAdd">
+						<lightning:input label="Premises Address" name="Street" required="true" value="{!v.app.abd_Premise_Address__c}" messageWhenValueMissing="This field will be required to submit the application, but can be completed later." />
+					</div>
+					<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small" aura:id="pAdd">
+						<lightning:input label="Premises Address Line 2" name="Street2" required="false" value="{!v.app.abd_Premise_Address_2__c}"/>
+					</div>
+					<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small" aura:id="pAdd">
+						<lightning:input label="Premises City" name="City" value="{!v.app.abd_Premise_City__c}" disabled="{!v.app.abd_Premise_State__c =='IA'}"/>
+					</div>
+					<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small" aura:id="pAdd">
+						<label class="slds-form-element__label" for="States">
+							<abbr class="slds-required">*</abbr>Premises State
+						</label>
+						<ui:inputSelect aura:id="States" value="{!v.app.abd_Premise_State__c}" disabled="{!v.stateOnly}" change="{!c.countyChange}"/>
+					</div>
+					<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small" aura:id="pAdd">
+						<lightning:input label="Premises Zip" name="Zip" required="true" value="{!v.app.abd_Premise_Zip_Code__c}" maxlength="5" messageWhenValueMissing="This field will be required to submit the application, but can be completed later." onchange="{!c.zipChange}"/>
+					</div>
+					<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small">
+						<label class="slds-form-element__label" for="Counties">
+							<abbr class="slds-required">*</abbr>Premises County
+						</label>
+						<ui:inputSelect aura:id="Counties" value="{!v.app.abd_Premise_County__c}" change="{!c.countyChange}" disabled="true"/>
+						<!-- {!(v.app.abd_Premise_State__c==null || v.app.abd_Premise_State__c !='IA')}"/>-->
+					</div>
+				</div>
+				<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-7" >&nbsp;</div>
+				<div class="slds-col slds-size--1-of-1 slds-medium-size--2-of-7">
+					<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small">&nbsp;</div>
+					<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small">
+						<lightning:input label="Doing Business As" name="abd_DBA__c" value="{!v.app.abd_DBA__c}" required="true"  messageWhenValueMissing="This field will be required to submit the application, but can be completed later."  />
+					</div>
+					<aura:if isTrue="{! v.renderPremiseTypeList}" >
+						<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small">
+							<label class="slds-form-element__label" for="pType">
+								<abbr class="slds-required">*</abbr>Premises Type
+							</label>
+							<ui:inputSelect aura:id="pType" value="{!v.app.Premises_Type__c}"/>
+						</div>
+					</aura:if>
+					<aura:renderIf isTrue="{!v.app.Primary_Lic_Type__c != 'CP'}">
+						<aura:renderIf isTrue="{!v.lictype.abd_Available_as_temporary_license__c}">
+							<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small padded" aura:id="port">
+								<div class="slds-grid slds-wrap">
+									<lightning:input type="radio" label="Permanent" value="Permanent" name="port" checked="true" onchange="{!c.radioChange}"/>
+									<lightning:input type="radio" label="Temporary" value="Temporary" name="port" onchange="{!c.radioChange}"/>
+								</div>
+							</div>
+						</aura:renderIf>
+						<div class="slds-grid slds-wrap">
+							<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-2">
+								<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small">
+									<ui:inputDate label="Start Date" required="true" value="{!v.app.abd_Effective_Date__c}" displayDatePicker="true" />
+								</div>
+							</div>
+							<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-2">
+								<aura:renderIf isTrue="{!v.app.abd_Temporary_or_Permanent__c=='Temporary'}">
+									<div id="slds-form-element slds-is-required" class="slds-container--right slds-container--small">
+										<ui:inputDate label="End Date" required="true" value="{!v.app.abd_Effective_End_Date__c}" displayDatePicker="true" />
+									</div>
+								</aura:renderIf>
+							</div>
+						</div>
+					</aura:renderIf>
+					<aura:renderIf isTrue="{!v.app.Primary_Lic_Type__c=='CP'}">
+						<div class="slds-grid slds-wrap">
+							<div class="slds-col slds-size--1-of-1" >&nbsp;</div>
+							<div class="slds-col slds-size--1-of-1">
+								<h1>Date and Time of the Auction</h1>
+							</div>
+							<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-2">
+								<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small">
+									<ui:inputDate label="Start Date" required="true" value="{!v.app.abd_Effective_Date__c}" displayDatePicker="true" />
+								</div>
+							</div>
+							<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-2">
+								<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small">
+									<label class="slds-form-element__label" for="localAuthority">Start Time</label>
+									<ui:inputSelect aura:id="auctionStart" value="{!v.app.abd_Time_of_Auction_Beginning__c}" />
+								</div>
+							</div>
+							<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-2">
+								<div id="slds-form-element" class="slds-container--left slds-container--small">
+									<ui:inputDate label="End Date" value="{!v.app.abd_Effective_End_Date__c}" displayDatePicker="true" disabled="true"/>
+								</div>
+							</div>
+
+							<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-2">
+								<div id="slds-form-element " class="slds-container--left slds-container--small">
+									<label class="slds-form-element__label" for="auctionEnd">End Time</label>
+									<ui:inputSelect aura:id="auctionEnd" value="{!v.app.abd_Time_of_Auction_Ending__c}" disabled="true"/>
+								</div>
+							</div>
+							<div class="slds-col slds-size--1-of-1" >&nbsp;</div>
+							<div class="slds-col slds-size--1-of-1" >
+								<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small">
+									<label class="slds-form-element__label" for="cbType">
+										<abbr class="slds-required">*</abbr>Charity Business Type
+									</label>
+									<ui:inputSelect aura:id="cbType" value="{!v.app.abd_Charity_Business_Type__c}"/>
+								</div>							
+							</div>
+						</div>
+					</aura:renderIf>
+					<div class="slds-grid slds-wrap">
+						<div class="slds-col slds-size--1-of-1" >&nbsp;</div>
+						<div class="slds-col slds-size--1-of-1">
+							<label class="slds-form-element__label" for="localAuthority">
+								<abbr class="slds-required">*</abbr>Local Authority
+							</label>
+						</div>
+						<div class="slds-col slds-size--1-of-1">
+							<div class="slds-grid">
+								<div class="slds-col slds-small-size--1-of-3" >
+ 									<lightning:input type="radio" label="City" value="City" name="la" checked="{!v.app.abd_Local_Authority_Type__c=='City'}" onchange="{!c.laChange}" disabled="{!v.LAChoiceIsLocked}" />
+ 								</div>
+ 								<div class="slds-col slds-small-size--2-of-3" >
+ 									{!v.cityLA}
+ 								</div>
+ 							</div>
+ 							<div class="slds-grid">
+ 								<div class="slds-col slds-small-size--1-of-3" >
+									<lightning:input type="radio" label="County" value="County" checked="{!v.app.abd_Local_Authority_Type__c=='County'}" name="la" onchange="{!c.laChange}" disabled="{!v.LAChoiceIsLocked}" />
+ 								</div>
+ 								<div class="slds-col slds-small-size--2-of-3" >
+									{!v.countyLA}
+ 								</div>
+ 							</div>
+ 							<div class="slds-grid">
+ 								<div class="slds-col slds-small-size--1-of-1" >
+									<lightning:input type="radio" label="State" value="State" checked="{!v.app.abd_Local_Authority_Type__c=='State'}" name="la" onchange="{!c.laChange}" />
+ 								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-7" >&nbsp;</div>
+			</div>
+			<div class="slds-grid padded">
+				<div class="slds-col slds-size--1-of-1">&nbsp;</div>
+			</div>
+			<aura:renderIf isTrue="{!v.showOutdoor}">
+				<div class="slds-grid slds-wrap padded">
+					<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-7">&nbsp;</div>
+					<div class="slds-col slds-size--1-of-1 slds-medium-size--6-of-7">
+						<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--large">
+							<lightning:textarea label="Please describe the Outdoor Service Area Boundaries" name="boundaries" required="true" value="{!v.app.abd_Outdoor_Service_Area_Boundary_Info__c}" maxlength="32768" messageWhenValueMissing="This field will be required to submit the application, but can be completed later." />
+						</div>
+					</div>
+				</div>
+			</aura:renderIf>
+		</div>
+	</div>
+
+</aura:component>

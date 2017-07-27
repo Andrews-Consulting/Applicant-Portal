@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <recordTypes>
+        <label><!-- All --></label>
+        <name>All</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Comment --></label>
+        <name>Comment</name>
+    </recordTypes>
+    <webLinks>
+        <label><!-- Add_Multiple_Conditions --></label>
+        <name>MUSW__Add_Multiple_Conditions</name>
+    </webLinks>
+</CustomObjectTranslation>

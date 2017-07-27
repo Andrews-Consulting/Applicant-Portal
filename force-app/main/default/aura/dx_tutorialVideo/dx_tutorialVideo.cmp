@@ -1,0 +1,16 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,force:appHostable" controller="DX_TutorialController" access="global">
+	
+	<aura:attribute name="url" type="string" default=""/>
+	
+	<div class="slds-grid slds-wrap slds-grid--pull-padded">
+    	<div class="slds-col slds-size--1-of-1">
+    		<div style="text-align:center"> 
+				<br/><br/>
+				<video width="640" height="480" id="video1" controls="true">
+    				<source src="{!v.url}" type="video/mp4"/>
+    			</video>	
+    		</div>
+    	</div>
+    </div>
+	
+</aura:component>

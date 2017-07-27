@@ -1,0 +1,1 @@
+trigger DRE2_Attachment on Attachment (after insert, before update, before delete, after undelete) { DRE.DREManager.runTrigger(); }

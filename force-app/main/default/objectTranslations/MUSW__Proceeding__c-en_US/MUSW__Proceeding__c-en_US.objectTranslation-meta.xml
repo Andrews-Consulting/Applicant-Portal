@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <webLinks>
+        <label><!-- Attach_Letter --></label>
+        <name>MUSW__Attach_Letter</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Attach_Planning_Letter --></label>
+        <name>MUSW__Attach_Planning_Letter</name>
+    </webLinks>
+</CustomObjectTranslation>

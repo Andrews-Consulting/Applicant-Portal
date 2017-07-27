@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <webLinks>
+        <label><!-- Refresh_Financials --></label>
+        <name>BGBK__Refresh_Financials</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- AddParcelAlert --></label>
+        <name>MUSW__AddParcelAlert</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Add_Alert --></label>
+        <name>MUSW__Add_Alert</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Attach_Letter --></label>
+        <name>MUSW__Attach_Letter</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Clear_Alert_Status --></label>
+        <name>MUSW__Clear_Alert_Status</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Link_Attachment --></label>
+        <name>MUSW__Link_Attachment</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Refresh_Financials --></label>
+        <name>MUSW__Refresh_Financials</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Run_Automation --></label>
+        <name>MUSW__Run_Automation</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- View_GIS_Map --></label>
+        <name>MUSW__View_GIS_Map</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- View_Map --></label>
+        <name>MUSW__View_Map</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- View_Parcel_Map --></label>
+        <name>MUSW__View_Parcel_Map</name>
+    </webLinks>
+</CustomObjectTranslation>

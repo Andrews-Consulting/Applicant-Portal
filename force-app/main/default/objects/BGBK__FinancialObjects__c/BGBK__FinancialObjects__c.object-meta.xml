@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <description>Specifies parents for Fees as well as Account and Contact for Cart and Transactions. Object name goes in the Name field.</description>
+    <enableFeeds>false</enableFeeds>
+    <label>Financial Objects</label>
+    <visibility>Public</visibility>
+</CustomObject>

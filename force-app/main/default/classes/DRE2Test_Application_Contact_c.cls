@@ -1,0 +1,1 @@
+@isTest private class DRE2Test_Application_Contact_c { @isTest static void insertUpdateDelete() { DRE.DRETestExternalManager.run('Application_Contact__c'); } }

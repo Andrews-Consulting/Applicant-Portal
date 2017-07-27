@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MUSW__AllowCallouts__c</fullName>
+    <defaultValue>false</defaultValue>
+    <deprecated>false</deprecated>
+    <description>Callouts are permitted to configured GIS REST services</description>
+    <externalId>false</externalId>
+    <inlineHelpText>If true, callouts are permitted to call external GIS REST services (ensure they hosted as valid Remote Sites)</inlineHelpText>
+    <label>Allow Callouts</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

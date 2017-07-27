@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- AVID - 9 digits XXX*XXX*XXX
+ISO - 10 digits
+ISO-EU - 15 digits --></help>
+    <label><!-- Microchip No. --></label>
+    <name>MUSW__Microchip_Number__c</name>
+</CustomFieldTranslation>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Active_Issued_Primary_Licenses</fullName>
+    <columns>NAME</columns>
+    <columns>MUSW__Class__c</columns>
+    <columns>MUSW__Primary__c</columns>
+    <columns>MUSW__Primary_Licensee__c</columns>
+    <columns>abd_Length__c</columns>
+    <columns>MUSW__Status__c</columns>
+    <columns>abd_Effective_End_Date__c</columns>
+    <columns>Watchlist_Image__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>MUSW__Status__c</field>
+        <operation>equals</operation>
+        <value>Issued,Timely Filed</value>
+    </filters>
+    <filters>
+        <field>abd_Effective_End_Date__c</field>
+        <operation>greaterThan</operation>
+        <value>TODAY</value>
+    </filters>
+    <filters>
+        <field>MUSW__Primary__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>Active Issued Primary Licenses</label>
+</ListView>

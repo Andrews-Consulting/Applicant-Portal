@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Operation --></label>
+    <name>DRE__Operation__c</name>
+    <picklistValues>
+        <masterLabel>APPLY</masterLabel>
+        <translation><!-- APPLY --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>EVALUATE</masterLabel>
+        <translation><!-- EVALUATE --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>START</masterLabel>
+        <translation><!-- START --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

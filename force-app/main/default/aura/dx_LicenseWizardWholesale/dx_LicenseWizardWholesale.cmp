@@ -1,0 +1,116 @@
+<!-- <aura:component implements="forceCommunity:availableForAllPageTypes,force:appHostable" access="global" controller="TBD"> -->
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" controller="DX_LicenseType">
+    
+    <aura:attribute name="beerDistributor_URL" type="String" />
+	<aura:attribute name="highProofBeer_URL" type="String" />
+	<aura:attribute name="nativeBeer_URL" type="String" />
+	<aura:attribute name="highProofNativeBeer_URL" type="String" />
+	<aura:attribute name="wineDistributor_URL" type="String" />
+	<aura:attribute name="nativeWine_URL" type="String" />
+	<aura:attribute name="directShipperofWine_URL" type="String" />
+
+    <aura:attribute name="beerDistributor_Code" type="String" required="true" />
+	<aura:attribute name="highProofBeer_Code" type="String" required="true" />
+	<aura:attribute name="nativeBeer_Code" type="String" required="true" />
+	<aura:attribute name="highProofNativeBeer_Code" type="String" required="true" />
+	<aura:attribute name="wineDistributor_Code" type="String" required="true" />
+	<aura:attribute name="nativeWine_Code" type="String" required="true" />
+	<aura:attribute name="directShipperofWine_Code" type="String" required="true" />
+
+
+	<div class="slds-grid slds-wrap">
+  		<div class="slds-col slds-size--1-of-1 slds-large-size--1-of-1">
+		    <div id="slds-form-element" class="slds-container--center slds-container--small link titleClass">
+		    	Selecting the Right License
+		    	<br/>
+		    	Wholesale or Carrier
+		    	<br/><br/><br/>
+		    	I want to be one of the following<br/><br/>
+		    </div>
+		</div>
+	</div>
+
+	<div class="slds-grid slds-wrap">
+  		<div class="slds-col slds-size--1-of-1 slds-large-size--1-of-3">
+		    <div id="slds-form-element" class="slds-container--center slds-container--small link licenseOption">
+		    	<aura:if isTrue="{! not(empty(v.beerDistributor_URL))}" >
+		    		<a href="" onclick="{!c.navigateBeerDistributor}" data-URL="{!v.beerDistributor_URL}" role="" class="licenseOption">
+		    			<img src="{!$Resource.DX_GraphicLibrary + '/licenseWizard/whole_BeerDist.png'}" title="Wholesale Beer Distributor" alt="Wholesale Beer Distributor" /><br/>
+		    			Wholesale Beer Distributor
+		    		</a>
+		    	</aura:if>
+		    </div>
+		</div>
+  		<div class="slds-col slds-size--1-of-1 slds-large-size--1-of-3">
+		    <div id="slds-form-element" class="slds-container--center slds-container--small link licenseOption">
+		        <aura:if isTrue="{! not(empty(v.highProofBeer_URL))}" >
+		    		<a href="" onclick="{!c.navigateHighProofBeer}" data-URL="{!v.highProofBeer_URL}" role="" class="licenseOption">
+		    			<img src="{!$Resource.DX_GraphicLibrary + '/licenseWizard/whole_HighProof.png'}" title="Wholesale High Proof Beer" alt="Wholesale High Proof Beer" /><br/>
+		    			Wholesale High Proof Beer
+		    		</a>
+		        </aura:if>
+		    </div>
+		</div>
+  		<div class="slds-col slds-size--1-of-1 slds-large-size--1-of-3">
+		    <div id="slds-form-element" class="slds-container--center slds-container--small link licenseOption">
+		        <aura:if isTrue="{! not(empty(v.nativeBeer_URL))}" >
+		    		<a href="" onclick="{!c.navigateNativeBeer}" data-URL="{!v.nativeBeer_URL}" role="" class="licenseOption">
+		    			<img src="{!$Resource.DX_GraphicLibrary + '/licenseWizard/whole_NativeBeer.png'}" title="Wholesale Native Beer Distributor" alt="Wholesale Native Beer Distributor" /><br/>
+		    			Wholesale Native Beer Distributor
+		    		</a>
+		        </aura:if>
+		    </div>
+		</div>		
+	</div>
+
+	<p>&nbsp;</p>
+
+	<div class="slds-grid slds-wrap">
+  		<div class="slds-col slds-size--1-of-1 slds-large-size--1-of-3">
+		    <div id="slds-form-element" class="slds-container--center slds-container--small link licenseOption">
+		    	<aura:if isTrue="{! not(empty(v.highProofNativeBeer_URL))}" >
+		    		<a href="" onclick="{!c.navigateHighProofNativeBeer}" data-URL="{!v.highProofNativeBeer_URL}" role="" class="licenseOption">
+		    			<img src="{!$Resource.DX_GraphicLibrary + '/licenseWizard/whole_HighProofNative.png'}" title="Wholesale High Proof Native Beer Distributor" alt="Wholesale High Proof Native Beer Distributor" /><br/>
+		    			Wholesale High Proof Native Beer Distributor
+		    		</a>
+		    	</aura:if>
+		    </div>
+		</div>
+  		<div class="slds-col slds-size--1-of-1 slds-large-size--1-of-3">
+		    <div id="slds-form-element" class="slds-container--center slds-container--small link licenseOption">
+		        <aura:if isTrue="{! not(empty(v.wineDistributor_URL))}" >
+		    		<a href="" onclick="{!c.navigateWine}" data-URL="{!v.wineDistributor_URL}" role="" class="licenseOption">
+		    			<img src="{!$Resource.DX_GraphicLibrary + '/licenseWizard/whole_Wine.png'}" title="Wholesale Wine Distributor" alt="Wholesale Wine Distributor" /><br/>
+		    			Wholesale Wine Distributor
+		    		</a>
+		        </aura:if>
+		    </div>
+		</div>
+  		<div class="slds-col slds-size--1-of-1 slds-large-size--1-of-3">
+		    <div id="slds-form-element" class="slds-container--center slds-container--small link licenseOption">
+		        <aura:if isTrue="{! not(empty(v.nativeWine_URL))}" >
+		    		<a href="" onclick="{!c.navigateNativeWine}" data-URL="{!v.nativeWine_URL}" role="" class="licenseOption">
+		    			<img src="{!$Resource.DX_GraphicLibrary + '/licenseWizard/whole_NativeWine.png'}" title="Wholesale Native Wine Distributor" alt="Wholesale Native Wine Distributor" /><br/>
+		    			Wholesale Native Wine Distributor
+		    		</a>
+		        </aura:if>
+		    </div>
+		</div>	
+	</div>	
+
+	<p>&nbsp;</p>
+
+	<div class="slds-grid slds-wrap">
+  		<div class="slds-col slds-size--1-of-1 slds-large-size--1-of-1">
+		    <div id="slds-form-element" class="slds-container--center slds-container--small link licenseOption">
+		    	<aura:if isTrue="{! not(empty(v.directShipperofWine_URL))}" >
+		    		<a href="" onclick="{!c.navigateDirectShipperOfWine}" data-URL="{!v.directShipperofWine_URL}" role="" class="licenseOption">
+		    			<img src="{!$Resource.DX_GraphicLibrary + '/licenseWizard/whole_WineShipper.png'}" title="A Distributor that can ship wine directly to a personal address" alt="A Distributor that can ship wine directly to a personal address" /><br/>
+		    			A Distributor that can ship wine directly to a personal address
+		    		</a>
+		    	</aura:if>
+		    </div>
+		</div>
+	</div>		
+		
+</aura:component>

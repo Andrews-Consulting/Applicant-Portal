@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- As measured between opposing property lines or run. Declines are negative --></help>
+    <label><!-- Avg Grade --></label>
+    <name>MUSW__Avg_Grade__c</name>
+</CustomFieldTranslation>

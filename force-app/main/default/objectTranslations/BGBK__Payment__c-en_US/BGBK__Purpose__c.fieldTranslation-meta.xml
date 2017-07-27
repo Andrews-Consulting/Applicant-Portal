@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Purpose --></label>
+    <name>BGBK__Purpose__c</name>
+    <picklistValues>
+        <masterLabel>Application 1 Deposit</masterLabel>
+        <translation><!-- Application 1 Deposit --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Application 2 Deposit</masterLabel>
+        <translation><!-- Application 2 Deposit --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

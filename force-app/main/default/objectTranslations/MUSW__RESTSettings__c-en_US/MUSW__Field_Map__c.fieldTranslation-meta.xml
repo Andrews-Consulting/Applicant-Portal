@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- The expected BasicGov field name to (:) the external REST Service parameter name. Multiple mappings are separated by a comma. e.g. city:City, street:Address, ... The current supported fields are street, city, state, country, and zip. --></help>
+    <label><!-- Request Field Map --></label>
+    <name>MUSW__Field_Map__c</name>
+</CustomFieldTranslation>

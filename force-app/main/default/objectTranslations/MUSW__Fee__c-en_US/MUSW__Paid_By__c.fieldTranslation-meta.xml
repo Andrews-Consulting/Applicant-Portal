@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Paid By --></label>
+    <name>MUSW__Paid_By__c</name>
+    <relationshipLabel><!-- Fees Paid --></relationshipLabel>
+</CustomFieldTranslation>

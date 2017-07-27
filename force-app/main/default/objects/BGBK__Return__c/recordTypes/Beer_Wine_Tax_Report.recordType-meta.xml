@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Beer_Wine_Tax_Report</fullName>
+    <active>true</active>
+    <label>Beer/Wine Tax Report</label>
+    <picklistValues>
+        <picklist>abd_License_Type__c</picklist>
+        <values>
+            <fullName>BA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BAA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BAAN</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BAN</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>WA</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>abd_Status__c</picklist>
+        <values>
+            <fullName>Complete</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>In Progress</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Non Compliant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pending</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Submitted</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>abd_Tax_Type__c</picklist>
+        <values>
+            <fullName>Beer Tax</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wine Tax</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

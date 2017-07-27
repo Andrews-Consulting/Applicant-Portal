@@ -1,0 +1,45 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" controller="dx_AttestationAndSubmitController" access="global">
+
+    <aura:attribute name="app" type="MUSW__Application2__c" default="{'sobjectType':'MUSW__Application2__c'}" />
+
+    <aura:attribute name="showError" type="Boolean"  />
+    <aura:attribute name="errorMessage" type="string" />
+    <aura:Attribute name="RecordIdIsApplication" type="Boolean" />    
+
+    <aura:registerevent name="SaveCompleted" type="c:dx_actionComplete" />
+    <aura:registerevent name="EmptyComponent" type="c:dx_actionComplete" />
+
+    <aura:method name="PerformSave" action="{!c.save}"  />
+    <aura:method name="PerformInit" action="{!c.doInit}"  />
+
+    
+    <div class="slds-grid slds-wrap padded">
+        <div class="slds-col slds-size--1-of-1">
+            <div class="slds-grid slds-wrap padded">
+                <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-7" />
+                <div class="slds-col slds-size--1-of-1 slds-medium-size--6-of-7">
+                    <h1>Attest and Submit the Application</h1>
+                </div>
+                <div class="slds-col slds-size--1-of-1 slds-p-top--medium">
+                    <p>Notice - This is not the final step. You must pay for and provide supporting documents before the application is filed for review.</p>
+                    <p class="slds-p-top--small">This application must by completed by a person listed in the Ownership Section.</p>
+                    <p class="slds-p-top--small">I hereby declare that all information contained in the Application is true and correct. I understand that misrepresentation of material facts in the Application is a crime and grounds for denial of the license or permit under Iowa law. I further understand that, as a condition of receiving a license, the licensed premises is subject to inspection during business hours by appropriate local, state and federal officials. </p>
+                    <p class="slds-p-top--small">NOTE: The applicant's Name must match one of the owner's names from the Ownership screen.</p>
+                </div>
+            </div>
+            <div class="slds-grid slds-wrap padded slds-p-top--medium">
+                <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-7" />
+                <div class="slds-col slds-size--1-of-1 slds-medium-size--4-of-7">
+                    <div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">
+                        <lightning:input label="Owner's Electronic Signature" name="esig" required="true" value="{!v.app.abd_Attestation_Name__c}" />
+                    </div>
+                </div>
+                <div class="slds-col slds-size--1-of-1 slds-medium-size--2-of-7">
+                    <div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">
+                        <ui:inputDate label="Date" required="true" value="{!v.app.abd_Attestation_Date__c}" displayDatePicker="true"  />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</aura:component>

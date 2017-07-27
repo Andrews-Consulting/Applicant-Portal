@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Generates Notification to Applicant and LA when Application Approved</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Application Approval</name>
+    <style>none</style>
+    <subject>License Approval Notification</subject>
+    <type>text</type>
+</EmailTemplate>

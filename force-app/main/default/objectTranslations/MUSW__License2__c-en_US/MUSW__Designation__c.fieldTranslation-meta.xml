@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- distinguishing marker, special identifier, or specific permission --></help>
+    <label><!-- Designation --></label>
+    <name>MUSW__Designation__c</name>
+    <picklistValues>
+        <masterLabel>Potentially Dangerous</masterLabel>
+        <translation><!-- Potentially Dangerous --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Viscous</masterLabel>
+        <translation><!-- Viscous --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

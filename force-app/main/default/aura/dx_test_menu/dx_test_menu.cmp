@@ -1,0 +1,65 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" >
+   <aura:attribute name="Button1Label" type="String" required="false" />
+   <aura:attribute name="Button1URL" type="String" required="false"/>   
+   <aura:attribute name="Button2Label" type="String" required="false" />
+   <aura:attribute name="Button2URL" type="String" required="false" />   
+   <aura:attribute name="Button3Label" type="String" required="false"/>
+   <aura:attribute name="Button3URL" type="String" required="false"/>   
+   <aura:attribute name="Button4Label" type="String" required="false"/>
+   <aura:attribute name="Button4URL" type="String" required="false"/>   
+   <aura:attribute name="Button5Label" type="String" required="false" />
+   <aura:attribute name="Button5URL" type="String" required="false"/>   
+   <aura:attribute name="Button6Label" type="String" required="false" />
+   <aura:attribute name="Button6URL" type="String" required="false" />   
+   <aura:attribute name="Button7Label" type="String" required="false"/>
+   <aura:attribute name="Button7URL" type="String" required="false"/>   
+   <aura:attribute name="Button8Label" type="String" required="false"/>
+   <aura:attribute name="Button8URL" type="String" required="false"/>   
+	<div class="c-container">
+		<div class="slds-text-heading--large slds-text-align--center"> Temporary Landing page </div>
+		<div class="slds-grid slds-wrap ">
+		<aura:if isTrue="{! not(empty(v.Button1URL))}" >
+			<div class="slds-p-horizontal--small slds-size--1-of-1 slds-medium-size--1-of-6 slds-large-size--3-of-12">
+				<lightning:button variant="brand" label="{!v.Button1Label}" iconName="action:check" iconPosition="left" onclick="{! c.handleButtonClick }" name="{!v.Button1URL }"  />
+			</div>
+			</aura:if>
+			<aura:if isTrue="{! not(empty(v.Button2URL))}" >
+			<div class="slds-p-horizontal--small slds-size--1-of-1 slds-medium-size--1-of-6 slds-large-size--3-of-12">
+				<lightning:button variant="brand" label="{!v.Button2Label}" iconName="action:check" iconPosition="left" onclick="{! c.handleButtonClick }" name="{!v.Button2URL}" />
+			</div>
+			</aura:if>
+			<aura:if isTrue="{! not(empty(v.Button3URL))}" >
+			<div class="slds-p-horizontal--small slds-size--1-of-1 slds-medium-size--1-of-6 slds-large-size--3-of-12">
+				<lightning:button variant="brand" label="{!v.Button3Label}" iconName="action:check" iconPosition="left" onclick="{! c.handleButtonClick }" name="{!v.Button3URL}" />
+			</div>
+			</aura:if> 
+			<aura:if isTrue="{! not(empty(v.Button4URL))}" >
+			<div class="slds-p-horizontal--small slds-size--1-of-1 slds-medium-size--1-of-6 slds-large-size--3-of-12">
+				<lightning:button variant="brand" label="{!v.Button4Label}" iconName="action:check" iconPosition="left" onclick="{! c.handleButtonClick }" name="{!v.Button4URL}" />
+			</div>
+			</aura:if>
+			<aura:if isTrue="{! not(empty(v.Button5URL))}" >
+
+			<div class="slds-p-horizontal--small slds-size--1-of-1 slds-medium-size--1-of-6 slds-large-size--3-of-12">
+				<lightning:button variant="brand" label="{!v.Button5Label}" iconName="action:check" iconPosition="left" onclick="{! c.handleButtonClick }" name="{!v.Button5URL }"  />
+			</div>
+			</aura:if>
+			<aura:if isTrue="{! not(empty(v.Button6URL))}" >
+			<div class="slds-p-horizontal--small slds-size--1-of-1 slds-medium-size--1-of-6 slds-large-size--3-of-12">
+				<lightning:button variant="brand" label="{!v.Button6Label}" iconName="action:check" iconPosition="left" onclick="{! c.handleButtonClick }" name="{!v.Button6URL}" />
+			</div>
+			</aura:if>
+			<aura:if isTrue="{! not(empty(v.Button7URL))}" >
+			<div class="slds-p-horizontal--small slds-size--1-of-1 slds-medium-size--1-of-6 slds-large-size--3-of-12">
+				<lightning:button variant="brand" label="{!v.Button7Label}" iconName="action:check" iconPosition="left" onclick="{! c.handleButtonClick }" name="{!v.Button7URL}" />
+			</div>
+			</aura:if>
+			<aura:if isTrue="{! not(empty(v.Button8URL))}" >
+			<div class="slds-p-horizontal--small slds-size--1-of-1 slds-medium-size--1-of-6 slds-large-size--3-of-12">
+				<lightning:button variant="brand" label="{!v.Button8Label}" iconName="action:check" iconPosition="left" onclick="{! c.handleButtonClick }" name="{!v.Button8URL}" />
+			</div>
+			</aura:if>
+
+		</div>
+	</div>
+</aura:component>

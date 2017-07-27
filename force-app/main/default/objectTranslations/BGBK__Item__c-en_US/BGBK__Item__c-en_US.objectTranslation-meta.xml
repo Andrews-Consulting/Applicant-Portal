@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <recordTypes>
+        <label><!-- AdminOnly --></label>
+        <name>AdminOnly</name>
+    </recordTypes>
+    <validationRules>
+        <errorMessage><!-- Transaction is not editable --></errorMessage>
+        <name>BGBK__Item_Trans_change_not_allowed</name>
+    </validationRules>
+</CustomObjectTranslation>

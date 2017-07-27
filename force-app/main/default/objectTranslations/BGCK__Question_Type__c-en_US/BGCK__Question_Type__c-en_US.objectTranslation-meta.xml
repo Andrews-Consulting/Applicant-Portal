@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <recordTypes>
+        <label><!-- Checkbox - Vertical --></label>
+        <name>Checkbox_Vertical</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Date --></label>
+        <name>Date</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Label --></label>
+        <name>Label</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Number - Currency --></label>
+        <name>Number_Currency</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Number - Decimal --></label>
+        <name>Number_Decimal</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Number - Percent --></label>
+        <name>Number_Percent</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Picklist --></label>
+        <name>Picklist</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Radio Button --></label>
+        <name>Radio_Button</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Text --></label>
+        <name>Text</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Text Area --></label>
+        <name>Text_Area</name>
+    </recordTypes>
+</CustomObjectTranslation>

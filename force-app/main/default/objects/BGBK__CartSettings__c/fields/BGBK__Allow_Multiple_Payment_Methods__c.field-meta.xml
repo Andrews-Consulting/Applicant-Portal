@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BGBK__Allow_Multiple_Payment_Methods__c</fullName>
+    <defaultValue>false</defaultValue>
+    <deprecated>false</deprecated>
+    <description>Allow user to pay outstanding amount using multiple payment methods</description>
+    <externalId>false</externalId>
+    <label>Allow Multiple Payment Methods</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

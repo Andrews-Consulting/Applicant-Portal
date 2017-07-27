@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>abd_Charity_Business_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Charity Business Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Foreign corporation as defined in section 504.141</fullName>
+                <default>false</default>
+                <label>Foreign corporation as defined in section 504.141</label>
+            </value>
+            <value>
+                <fullName>Nonprofit corporation organized under chapter 504</fullName>
+                <default>false</default>
+                <label>Nonprofit corporation organized under chapter 504</label>
+            </value>
+            <value>
+                <fullName>Nonprofit entity which has a principal office in the State of Iowa</fullName>
+                <default>false</default>
+                <label>Nonprofit entity which has a principal office in the State of Iowa</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

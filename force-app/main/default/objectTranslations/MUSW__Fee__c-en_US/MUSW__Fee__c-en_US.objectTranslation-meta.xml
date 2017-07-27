@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <recordTypes>
+        <label><!-- All --></label>
+        <name>All</name>
+    </recordTypes>
+    <validationRules>
+        <errorMessage><!-- Can not change the Amount of a Invoiced Fee. Void invoice before changing Fee Amount --></errorMessage>
+        <name>BGBK__Fee_Invoiced_lock_Amount</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Can not change the Amount of a Paid Fee below what is paid. Increase Amount or click Cancel --></errorMessage>
+        <name>BGBK__Fee_Paid_Full_lock_Amount</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Cannot overpay Fee Amount --></errorMessage>
+        <name>MUSW__Fee_Amount_Paid_Over_Amount</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Can not waive more than Amount --></errorMessage>
+        <name>MUSW__Waived_Amount_greater_than_Amount</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Add_Fees_to_Cart --></label>
+        <name>Add_Fees_to_Cart</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- AdjustFees --></label>
+        <name>BGBK__AdjustFees</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Adjust_Fee --></label>
+        <name>BGBK__Adjust_Fee</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Invoice_Create --></label>
+        <name>BGBK__Invoice_Create</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Pay_Fees2 --></label>
+        <name>BGBK__Pay_Fees2</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Add_Multiple_Fees --></label>
+        <name>MUSW__Add_Multiple_Fees</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Pay_Fees --></label>
+        <name>MUSW__Pay_Fees</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- UpdatePayment --></label>
+        <name>MUSW__UpdatePayment</name>
+    </webLinks>
+</CustomObjectTranslation>

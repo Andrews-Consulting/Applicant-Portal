@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- If selected the Editors will show API names for objects and fields instead of their labels --></help>
+    <label><!-- Show API Names --></label>
+    <name>DRE__Show_API_Names__c</name>
+</CustomFieldTranslation>

@@ -1,0 +1,127 @@
+/* iowa sliver styles */
+
+.THIS    .sliver-container {
+      background:#2f5e8c;
+      background: -moz-linear-gradient(top, #1b4472 0%, #2d5c90 53%, #2d5c90 100%);
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #1b4472), color-stop(53%, #2d5c90), color-stop(100%, #2d5c90));
+      background: -webkit-linear-gradient(top, #1b4472 0%, #2d5c90 53%, #2d5c90 100%);
+      background: -o-linear-gradient(top, #1b4472 0%, #2d5c90 53%, #2d5c90 100%);
+      background: -ms-linear-gradient(top, #1b4472 0%, #2d5c90 53%, #2d5c90 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1b4472', endColorstr='#2d5c90', GradientType=0);
+      background: linear-gradient(top, #1b4472 0%, #2d5c90 53%, #2d5c90 100%);
+      font: normal 13px/20px Helvetica, Arial, sans-serif !important;
+      word-wrap: break-word;
+      border: 0;
+      outline: 0;
+      border-top: 5px solid;
+      min-height: 41px;
+      width: 100%;
+      padding: 3px 0;
+      color: #fff;
+      text-align: right;
+}
+
+.THIS    #iowa_sliver_bar a,
+.THIS    #iowa_sliver_bar a:visited {
+      color: #fff;
+      text-decoration: none;
+    }
+.THIS    #iowa_sliver_bar a:hover {
+      text-decoration: underline;
+    }
+
+.THIS    #iowa_sliver_links {
+      float: left;
+      position: relative;
+      z-index: 500;
+      box-sizing: content-box;
+    }
+.THIS .IowaLinks {
+      margin: 3px 0 0 1px;
+      padding: 0;
+      text-align: left;
+
+}    
+.THIS    #iowa_sliver_links ul {
+      margin: 3px 0 0 1px;
+      padding: 0;
+      text-align: left;
+    }
+.THIS    #iowa_sliver_links ul li {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      float: left;
+      display: inline;
+    }
+.THIS    #iowa_sliver_links ul li a,
+.THIS    #iowa_sliver_links ul li a:visited {
+      display: block;
+      float: left;
+      padding: 6px 10px 2px;
+      opacity: .7;
+      -webkit-transition: opacity 0.3s ease-out;
+      -moz-transition: opacity 0.3s ease-out;
+    }
+.THIS    #iowa_sliver_links ul li a:hover {
+      opacity: 1;
+  }
+
+.THIS    #iowa_sliver_links ul li#iowa_sliver_agencies a {
+      background: url("https://iowa.gov/sliver/img/icons/listing.png") no-repeat 4px 10px;
+      padding-left: 22px;
+    }
+.THIS    #iowa_sliver_links ul li#iowa_sliver_services a {
+      background: url("https://iowa.gov/sliver/img/icons/services.png") no-repeat 5px 10px;
+      padding-left: 22px;
+    }
+.THIS    #iowa_sliver_links ul li#iowa_sliver_logo a {
+      width: 95px;
+      min-height: 30px;
+      padding: 3px 10px;
+      margin-top: -2px;
+      overflow: hidden;
+      text-indent: -1000px;
+      opacity: 1;
+      background: url("https://iowa.gov/sliver/img/iowa-logo-small-white.png") no-repeat 10px 0;
+      box-sizing: content-box;
+    }
+.THIS    #iowa_sliver_links ul li#iowa_sliver_logo a:hover,
+.THIS    #iowa_sliver_links ul li#iowa_sliver_logo a:focus {
+      background-position: 10px -40px;
+    }
+
+.THIS    #iowa_sliver_search {
+      margin: 3px 10px 0 0;
+      position: relative;
+    }
+.THIS    #iowa_sliver_search a#iowa_sliver_search_link {
+      display: inline-block;
+      padding: 2px 8px 2px 26px;
+      margin: 3px 0;
+      border: 1px solid #819dbc;
+      font-size: 12px;
+      line-height: 20px;
+      color: #bfcddd;
+      background: url("https://iowa.gov/sliver/img/icons/search-icon.png") no-repeat 8px 6px;
+      box-sizing: content-box;
+      -webkit-transition: color 0.3s ease-out;
+      -moz-transition: color 0.3s ease-out;
+    }
+.THIS    #iowa_sliver_search a#iowa_sliver_search_link:hover {
+      color: #ffffff;
+    }
+.THIS    #iowa_sliver.quirky #iowa_sliver_bar {
+      min-height: 41px;
+    }
+.THIS    #iowa_sliver.quirky #iowa_sliver_links ul li#iowa_sliver_logo a {
+      width: 115px;
+      min-height: 30px;
+    }
+.THIS    #iowa_sliver.quirky #iowa_sliver_search {
+      margin: 6px 10px 0 0;
+    }
+.THIS    #iowa_sliver.quirky #iowa_sliver_search_form form input#iowa_sliver_q {
+      width: 164px;
+      margin-right: 5px;
+    }

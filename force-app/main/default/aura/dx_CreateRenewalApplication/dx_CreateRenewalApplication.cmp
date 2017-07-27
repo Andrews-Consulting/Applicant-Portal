@@ -1,0 +1,20 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,force:appHostable,force:hasRecordId" controller="DX_CreateNewApplication" access="global">
+
+	<aura:attribute name="showError" type="Boolean"  />
+	<aura:attribute name="errorMessage" type="string" />
+
+	
+	<!-- <aura:handler name="init" value="{!this}" action="{!c.doInit}" /> -->
+	<aura:registerevent name="SaveCompleted" type="c:dx_actionComplete" />
+	<aura:registerevent name="EmptyComponent" type="c:dx_actionComplete" />
+	<aura:registerevent name="NextOnlyEvent" type="c:dx_actionComplete" />
+	<aura:method name="PerformSave" action="{!c.save}"  />
+    <aura:method name="PerformInit" action="{!c.doInit}"  />
+	
+
+	<div class="slds-grid slds-wrap padded">
+		<div class="slds-col slds-size--1-of-1">
+			
+		</div>
+	</div>
+</aura:component>

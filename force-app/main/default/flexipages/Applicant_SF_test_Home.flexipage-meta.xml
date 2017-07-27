@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlexiPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>Button1Label</name>
+                <value>I&apos;m a new user</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Button1URL</name>
+                <value>/dx-register</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Button2Label</name>
+                <value>I&apos;m an existing user</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Button2URL</name>
+                <value>/dx-login</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Button3Label</name>
+                <value>I want to run a report</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Button3URL</name>
+                <value>/dx-auth-home</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Button4Label</name>
+                <value>I want to find a Keg label</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Button4URL</name>
+                <value>/dx-auth-home/</value>
+            </componentInstanceProperties>
+            <componentName>IOWA_ABD_Start</componentName>
+        </componentInstances>
+        <name>header</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <name>featured</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <name>left</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <name>right</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <name>footer</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <masterLabel>Home</masterLabel>
+    <template>
+        <name>siteforce:twoColumnLayout</name>
+    </template>
+    <type>CommAppPage</type>
+</FlexiPage>

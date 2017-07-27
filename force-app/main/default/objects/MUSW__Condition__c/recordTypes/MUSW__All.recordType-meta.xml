@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MUSW__All</fullName>
+    <active>true</active>
+    <label>All</label>
+    <picklistValues>
+        <picklist>MUSW__Status__c</picklist>
+        <values>
+            <fullName>Accepted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Draft</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Final</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>MUSW__Type__c</picklist>
+        <values>
+            <fullName>EROSION CONTROL</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FINAL GRADE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FLOOD HAZARD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OTHER</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+</RecordType>

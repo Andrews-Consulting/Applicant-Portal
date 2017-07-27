@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- adds to the validation where clause, if populated and the condition is false, this field will be omitted from validation. --></help>
+    <label><!-- Conditional Validation Field --></label>
+    <name>Conditional_Validation_Field__c</name>
+</CustomFieldTranslation>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>abd_Display_Premise_Zip_Code__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( abd_Use_Mailing__c ,  MUSW__Account__r.BillingPostalCode ,   abd_Premise_Zip_Code__c )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Premises Zip Code</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

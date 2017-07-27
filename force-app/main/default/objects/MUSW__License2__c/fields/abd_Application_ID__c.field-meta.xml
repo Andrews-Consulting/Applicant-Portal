@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>abd_Application_ID__c</fullName>
+    <description>Used to temporarily store the parent license's application id so that Automatic (included) licenses can be added to the application.  Used by the DRE</description>
+    <externalId>false</externalId>
+    <label>Application ID</label>
+    <length>25</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

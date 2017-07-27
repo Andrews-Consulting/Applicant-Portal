@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Denial_Reason__c</fullName>
+    <externalId>false</externalId>
+    <label>Denial Reason</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Deleted Corp</fullName>
+                <default>false</default>
+                <label>Deleted Corp</label>
+            </value>
+            <value>
+                <fullName>Deleted LLC</fullName>
+                <default>false</default>
+                <label>Deleted LLC</label>
+            </value>
+            <value>
+                <fullName>Denied by Local Authority</fullName>
+                <default>false</default>
+                <label>Denied by Local Authority</label>
+            </value>
+            <value>
+                <fullName>Unpaid Taxes</fullName>
+                <default>false</default>
+                <label>Unpaid Taxes</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

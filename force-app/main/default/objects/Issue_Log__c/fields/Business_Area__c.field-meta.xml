@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Business_Area__c</fullName>
+    <externalId>false</externalId>
+    <label>Business Area</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>New License</fullName>
+                <default>false</default>
+                <label>New License</label>
+            </value>
+            <value>
+                <fullName>License Renewal</fullName>
+                <default>false</default>
+                <label>License Renewal</label>
+            </value>
+            <value>
+                <fullName>Add On/Privilege</fullName>
+                <default>false</default>
+                <label>Add On/Privilege</label>
+            </value>
+            <value>
+                <fullName>Premise Update</fullName>
+                <default>false</default>
+                <label>Premise Update</label>
+            </value>
+            <value>
+                <fullName>Transfer License</fullName>
+                <default>false</default>
+                <label>Transfer License</label>
+            </value>
+            <value>
+                <fullName>Label Approval</fullName>
+                <default>false</default>
+                <label>Label Approval</label>
+            </value>
+            <value>
+                <fullName>Additional Locations</fullName>
+                <default>false</default>
+                <label>Additional Locations</label>
+            </value>
+            <value>
+                <fullName>Ownership Update</fullName>
+                <default>false</default>
+                <label>Ownership Update</label>
+            </value>
+            <value>
+                <fullName>Tax Reporting</fullName>
+                <default>false</default>
+                <label>Tax Reporting</label>
+            </value>
+            <value>
+                <fullName>Keg Registration</fullName>
+                <default>false</default>
+                <label>Keg Registration</label>
+            </value>
+            <value>
+                <fullName>Appeals</fullName>
+                <default>false</default>
+                <label>Appeals</label>
+            </value>
+            <value>
+                <fullName>Dramshop Changes</fullName>
+                <default>false</default>
+                <label>Dramshop Changes</label>
+            </value>
+            <value>
+                <fullName>Refunds</fullName>
+                <default>false</default>
+                <label>Refunds</label>
+            </value>
+            <value>
+                <fullName>Registration</fullName>
+                <default>false</default>
+                <label>Registration</label>
+            </value>
+            <value>
+                <fullName>Permissions</fullName>
+                <default>false</default>
+                <label>Permissions</label>
+            </value>
+            <value>
+                <fullName>General</fullName>
+                <default>false</default>
+                <label>General</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

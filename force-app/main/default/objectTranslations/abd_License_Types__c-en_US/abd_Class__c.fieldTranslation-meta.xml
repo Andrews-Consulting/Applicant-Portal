@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Class --></label>
+    <name>abd_Class__c</name>
+    <picklistValues>
+        <masterLabel>Brew Pub</masterLabel>
+        <translation><!-- Brew Pub --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Brewer's Certificate of Compliance</masterLabel>
+        <translation><!-- Brewer&apos;s Certificate of Compliance --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Broker's Permit</masterLabel>
+        <translation><!-- Broker&apos;s Permit --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Carrier Permit</masterLabel>
+        <translation><!-- Carrier Permit --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Catering</masterLabel>
+        <translation><!-- Catering --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Charity Beer Wine and Liquor Auction Permit</masterLabel>
+        <translation><!-- Charity Beer Wine and Liquor Auction Permit --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Class A Liquor License</masterLabel>
+        <translation><!-- Class A Liquor License --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Class B Beer License</masterLabel>
+        <translation><!-- Class B Beer License --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Class B Beer Permit</masterLabel>
+        <translation><!-- Class B Beer Permit --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Class B Liquor License</masterLabel>
+        <translation><!-- Class B Liquor License --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Class B Native Wine Permit</masterLabel>
+        <translation><!-- Class B Native Wine Permit --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Class B Wine Permit</masterLabel>
+        <translation><!-- Class B Wine Permit --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Class C Beer Permit</masterLabel>
+        <translation><!-- Class C Beer Permit --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Class C Liquor License</masterLabel>
+        <translation><!-- Class C Liquor License --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Class C Native Wine</masterLabel>
+        <translation><!-- Class C Native Wine --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Class D Liquor License</masterLabel>
+        <translation><!-- Class D Liquor License --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Class E Liquor License</masterLabel>
+        <translation><!-- Class E Liquor License --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Direct Shipper License</masterLabel>
+        <translation><!-- Direct Shipper License --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Distiller's Certificate of Compliance</masterLabel>
+        <translation><!-- Distiller&apos;s Certificate of Compliance --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>High Proof Brew Pub</masterLabel>
+        <translation><!-- High Proof Brew Pub --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>High Proof Native Wholesale Beer Distributor</masterLabel>
+        <translation><!-- High Proof Native Wholesale Beer Distributor --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>High Proof Wholesale Beer Distributor</masterLabel>
+        <translation><!-- High Proof Wholesale Beer Distributor --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Liquor Manufacturer</masterLabel>
+        <translation><!-- Liquor Manufacturer --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Living Quarters</masterLabel>
+        <translation><!-- Living Quarters --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Micro-Distilled Spirits Permit</masterLabel>
+        <translation><!-- Micro-Distilled Spirits Permit --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Native Wholesale Beer Distributor</masterLabel>
+        <translation><!-- Native Wholesale Beer Distributor --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Native Wine Manufacturer</masterLabel>
+        <translation><!-- Native Wine Manufacturer --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Outdoor Service</masterLabel>
+        <translation><!-- Outdoor Service --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Special Class C Liquor</masterLabel>
+        <translation><!-- Special Class C Liquor --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Sunday Sales</masterLabel>
+        <translation><!-- Sunday Sales --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Vintner's Certificate of Compliance</masterLabel>
+        <translation><!-- Vintner&apos;s Certificate of Compliance --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Wholesale Beer Distributor</masterLabel>
+        <translation><!-- Wholesale Beer Distributor --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Wholesale Wine Distributor</masterLabel>
+        <translation><!-- Wholesale Wine Distributor --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

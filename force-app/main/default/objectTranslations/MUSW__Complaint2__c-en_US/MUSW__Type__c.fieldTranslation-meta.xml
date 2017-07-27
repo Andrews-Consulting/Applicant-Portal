@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Type --></label>
+    <name>MUSW__Type__c</name>
+    <picklistValues>
+        <masterLabel>Financial</masterLabel>
+        <translation><!-- Financial --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Serving without a License</masterLabel>
+        <translation><!-- Serving without a License --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Underage Service</masterLabel>
+        <translation><!-- Underage Service --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

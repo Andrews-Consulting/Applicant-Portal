@@ -1,0 +1,64 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes"  controller="DX_DynamicRecordListController" access="global">
+    <aura:attribute name="records" type="SObject[]"/>
+    <aura:attribute name="fsName" type="String" default="owner_details"/>
+    <aura:attribute name="objectName" type="String" default="Application_Contact__c"/>
+    <aura:attribute name="fieldNum" type="Integer" default="5"/>
+    <aura:attribute name="recordId" type="Id" description="The Id of the Application" required="true" default="a0335000001ky46"/>
+    <aura:attribute name="isRendered" type="Boolean" required="true" default="false"/>
+    <aura:attribute name="showError" type="Boolean" required="true" description="" default="false" access="private"/>
+    <aura:attribute name="showEmpty" type="Boolean" required="true" description="" default="true" access="private"/>
+    <aura:attribute name="renderForm" type="Boolean" default="false" access="private"/>
+    <aura:attribute name="errorMessage" type="String" required="false" description="" access="private"/>
+    <aura:attribute name="fields" type="Object[]"/>
+    <aura:attribute name="form" type="Aura.Component[]"/>
+    <aura:attribute name="inputToField" type="Map"/>
+    <aura:handler name="init" value="{!this}" action="{!c.initDRL}"/>
+    
+    <div>
+        <aura:renderIf isTrue="{!v.showError}">
+            <div id="error">
+                <ui:outputRichText value="{!v.errorMessage}"/>
+            </div>
+        </aura:renderIf>
+        <table class="slds-table slds-table--bordered slds-table--cell-buffer" style="width:50vw;">
+            <thead>
+                <tr class="slds-text-title--caps">
+                	<aura:iteration items="{!v.fields}" var="field">
+	                    <th scope="col">
+	                        <div class="slds-truncate" title="{!field.label}">{!field.label}</div>
+	                    </th>
+                    </aura:iteration>
+                </tr>
+            </thead>
+            <tbody>
+            {!v.form}
+                <!-- <aura:iteration items="{!v.records}" var="obj">
+                    <tr>
+                    	<th scope="row" data-label="Name" style="width:25vw">
+	                            <div class="slds-truncate" title="{!obj.Name}"><a href="javascript:void(0);">{!obj.Name}</a></div>
+	                    </th>
+	                    <aura:iteration items="{!v.fields}" var="field">
+	                        <td data-label="Effective Date" style="width:25vw">
+	                            <div class="slds-truncate" title="{!obj.field.fieldPath}">{!obj.field.fieldPath}</div>
+	                        </td>
+	                    </aura:iteration>
+					</tr>
+                </aura:iteration> -->
+                <aura:renderIf isTrue="{!v.showEmpty}">
+            		<tr>
+                        <th colspan="4" style="text-align:center">No Records Found</th>
+                    </tr>
+                </aura:renderIf>
+                <aura:if isTrue="{!v.renderForm}">
+					<!-- START MODAL iframe -->
+		            <c:dx_ChecklistRecordEditCreate APIName="{!v.objectName}"
+		                    mode="CREATE"
+		                    fieldset="{!v.fsName}"
+		                    aura:id="bgck-record-form" 
+		                    isVisible="true"/>
+				</aura:if>
+            </tbody>
+        </table>
+        
+    </div>
+</aura:component>

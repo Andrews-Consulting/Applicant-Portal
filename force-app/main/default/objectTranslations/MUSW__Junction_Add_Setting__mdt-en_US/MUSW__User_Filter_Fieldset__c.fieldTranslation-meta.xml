@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Name of the Field Set you created to to allow the user to filter the list results. --></help>
+    <label><!-- User Defined Filter Field Set Name --></label>
+    <name>MUSW__User_Filter_Fieldset__c</name>
+</CustomFieldTranslation>

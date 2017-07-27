@@ -1,0 +1,39 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" controller="DX_LicenseListController" access="global">
+    <aura:attribute name="license" type="MUSW__License2__c" />
+    <aura:attribute name="page" type="string" default="none" />
+	<aura:attribute name="shouldDisable" type="boolean" default="false"/>
+
+    <aura:if isTrue="{!v.page=='Appeal'}">
+        <tr>
+            <th scope="row" style="width:25vw">
+                <div class="slds-container--left slds-container--small inner">
+                    <ui:button aura:id="appeal" label="Appeal" press="{!c.doAppeal}" class="stdButton" />
+                </div>
+            </th>
+            <td data-label="Name" style="width:25vw">
+                <div class="slds-truncate">{!l.MUSW__Class__c}</div>
+            </td>
+            <td data-label="Status" style="width:25vw">
+                <div class="slds-truncate" style="width:150px">{!l.MUSW__Status__c}</div>
+            </td>
+            <td data-label="decision" style="width:25vw">
+                <div class="slds-truncate">{!l.LastModifiedBy}</div>
+            </td>
+        </tr>
+    </aura:if>
+    <aura:if isTrue="{!v.page=='Review'}">
+    	<div class="slds-grid slds-wrap padded">
+	        <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-2">
+	            <div class="slds-truncate">License: {!v.license.MUSW__Class__c}</div>
+	        </div>
+	        <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-2">
+	            <div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small padded" aura:id="port">
+	                <div class="slds-grid slds-wrap">
+	                    <lightning:input type="radio" label="Approved" value="Approved" name="{!v.license.Id+port}" onchange="{!c.statusChange}" disabled="{!v.shouldDisable}" checked="{!v.license.MUSW__Status__c=='Approved'}"/>
+	                    <lightning:input type="radio" label="Denied" value="Denied" name="{!v.license.Id+port}" onchange="{!c.statusChange}" disabled="{!v.shouldDisable}" checked="{!v.license.MUSW__Status__c=='Denied'}"/>
+	                </div>
+	            </div>
+	        </div>
+        </div>
+    </aura:if>
+</aura:component>

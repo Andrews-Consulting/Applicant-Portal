@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DRE__Deploy_Upload_Selected</fullName>
+    <availability>online</availability>
+    <displayType>massActionButton</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Upload Selected Data Sets</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <requireRowSelection>true</requireRowSelection>
+    <url>var records = {!GETRECORDIDS($ObjectType.DRE__DTE_Data_Set__c)};
+uploadDeploymentFile(records.join(','));</url>
+</WebLink>

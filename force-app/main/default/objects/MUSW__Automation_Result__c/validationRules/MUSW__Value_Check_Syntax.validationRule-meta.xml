@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MUSW__Value_Check_Syntax</fullName>
+    <active>true</active>
+    <description>Check syntax</description>
+    <errorConditionFormula>OR( 
+ ISBLANK(MUSW__Value__c), 
+ CONTAINS(MUSW__Value__c, "&lt;content") 
+     &amp;&amp; !REGEX(MUSW__Value__c, '[a-zA-Z\\s\\d]*(&lt;content(\\s+\\w+="?[\\w\\s]+"?)*>\\w+(\\.\\w+){1,2}&lt;/content>)?[a-zA-Z\\s\\d]*') 
+     &amp;&amp; !REGEX(MUSW__Value__c, '[a-zA-Z\\s\\d]*(&lt;content-diff(\\s+\\w+="?[\\w\\s]+"?)*>\\w+(\\.\\w+){1,2}&lt;/content-diff>)?[a-zA-Z\\s\\d]*'), 
+/*
+ CONTAINS(MUSW__Value__c, "{!") 
+    &amp;&amp; !REGEX(MUSW__Value__c,'[a-zA-Z\\s\\d]*(\\{\\!\\$?\\w+(\\.\\w+){1,2\\)?[a-zA-Z\\s\\d]*'), 
+*/
+ CONTAINS(MUSW__Value__c, "&lt;today") &amp;&amp; !REGEX(MUSW__Value__c, '&lt;today(\\s+\\w+="?[\\w\\s]+"?)*/>'), 
+ CONTAINS(MUSW__Value__c, "&lt;now") &amp;&amp; !REGEX(MUSW__Value__c, '&lt;now/>'), 
+ CONTAINS(MUSW__Value__c, "&lt;user") &amp;&amp; !REGEX(MUSW__Value__c, '&lt;user/>'), 
+ CONTAINS(MUSW__Value__c, "&lt;formula") &amp;&amp; !REGEX(MUSW__Value__c, '&lt;formula>.*&lt;/formula>'), 
+ ISPICKVAL(MUSW__Action_Type__c,"Add Letter") &amp;&amp; !REGEX(MUSW__Value__c, '&lt;letter(\\s+\\w+="?[\\w\\s]+"?)*/>'), 
+ ISPICKVAL(MUSW__Action_Type__c,"Send Email") &amp;&amp; !REGEX(MUSW__Value__c, '&lt;email(\\s+\\w+="?[\\w\\s]+"?)*/>'), 
+ ISPICKVAL(MUSW__Action_Type__c,"Email Report") &amp;&amp; !REGEX(MUSW__Value__c, '&lt;report(\\s+\\w+="?[\\w\\s]+"?)*/>') 
+)</errorConditionFormula>
+    <errorDisplayField>MUSW__Value__c</errorDisplayField>
+    <errorMessage>Invalid Result Value syntax for selected Action Type</errorMessage>
+</ValidationRule>

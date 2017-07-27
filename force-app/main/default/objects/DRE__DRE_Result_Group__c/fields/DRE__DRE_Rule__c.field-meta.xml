@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DRE__DRE_Rule__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <label>DRE Rule</label>
+    <referenceTo>DRE__DRE_Rule__c</referenceTo>
+    <relationshipLabel>Result Groups</relationshipLabel>
+    <relationshipName>DRE_Result_Groups</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>true</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

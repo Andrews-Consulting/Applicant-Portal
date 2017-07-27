@@ -1,0 +1,18 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" controller="dx_AvailableActions" access="global">
+
+	<aura:attribute name="URL" type="String" />
+	<aura:attribute name="IconName" type="String" />
+	<aura:attribute name="Title" type="String" />
+	<aura:attribute name="AltText" type="String" />
+
+	<aura:registerevent name="NextOnlyEvent" type="c:dx_actionComplete" /> 
+
+    <div id="slds-form-element" class="slds-container--center slds-container--small link IconChoice">
+    	<!-- <aura:if isTrue="{! not(empty(v.URL))}" > -->
+    		<a href="" onclick="{!c.navigate}" data-URL="{!v.URL}" role="" class="IconChoice">
+	   			<img src="{!$Resource.DX_GraphicLibrary + '/' + v.IconName}" title="{!v.Title}" alt="{!v.AltText}" /><br/>
+    		</a>
+	   	<!-- </aura:if> -->
+	</div>
+
+</aura:component>

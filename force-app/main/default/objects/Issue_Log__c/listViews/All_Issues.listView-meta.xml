@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Issues</fullName>
+    <booleanFilter>1</booleanFilter>
+    <columns>NAME</columns>
+    <columns>Status__c</columns>
+    <columns>Jira__c</columns>
+    <columns>Platform__c</columns>
+    <columns>Business_Area__c</columns>
+    <columns>Summary__c</columns>
+    <columns>Type__c</columns>
+    <columns>Assigned_To__c</columns>
+    <columns>Duplicate_Issue__c</columns>
+    <columns>Release__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Sourse__c</field>
+        <operation>equals</operation>
+        <value>UAT1</value>
+    </filters>
+    <label>All Issues</label>
+</ListView>

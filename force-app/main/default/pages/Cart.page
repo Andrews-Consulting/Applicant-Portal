@@ -1,0 +1,332 @@
+<apex:page standardController="MUSW__Fee__c" extensions="CartController" tabStyle="BGBK__Cart__c" recordSetVar="c" action="{!initOrder}" id="p">
+
+    <apex:includeScript value="/support/console/26.0/integration.js"/>
+    
+    <c:BlockIndicator />
+    <div id="preloader2" style="visibility:hidden;"></div>
+
+    <apex:form id="f">
+    
+        <apex:sectionHeader title="Cart" subtitle="{!IF(con != null, con.Name + '`s Cart', 'Your Cart')}" id="h">
+            <apex:pageMessages id="msg"></apex:pageMessages>
+            <div id='errorMsg'></div>
+        </apex:sectionHeader>
+        
+        <apex:pageBlock title="Cart #{!cart.Name}" id="pb">
+        
+            <apex:pageblockbuttons id="topBtns" location="top" rendered="{!!isPortalUser}">
+                <apex:commandbutton id="abandonBtn" action="{!abandon}" value="Abandon Cart" immediate="true" rendered="{!(!isPortalUser && activeTab != 'confirm' && a.Name='Citizen')}" onclick="return confirm('You should abandon a cart only if the payer is no longer paying for it or has left. Are you sure you want to continue?');" />
+                <apex:commandbutton action="{!cancel}" value="Back" immediate="true"/>
+            </apex:pageblockbuttons>
+        
+            <apex:variable var="hasCC" value="false"/>
+            
+            <apex:outputPanel id="totalPaymentPanel">
+                <apex:pageBlockSection columns="2" rendered="{!!isPortalUser}">
+                    <apex:outputPanel />
+                    <apex:outputText label="Total Payment" value="${!totalPayment}" id="totalPayment" style="font-size:150%;font-weight:bold;" />
+                </apex:pageBlockSection>
+            </apex:outputPanel>            
+            
+            
+            <apex:tabPanel switchType="client" value="{!activeTab}" id="tab" headerSpacing="5" activeTabClass="activeTab" inactiveTabClass="inactiveTab" disabledTabClass="disabledTab" rendered="{!feeVOs.size >= 0 || invoiceVOs.size >= 0}">
+                
+                <!---- FEES TAB ---->
+                <apex:tab label="Items" name="fees" disabled="{!processSuccessful}" onTabEnter="setSelected();">
+                    <apex:outputPanel rendered="{!isPortalUser}">
+                        <p>To add fees, view <a href="/apex/PermitTabPortal">your applications</a> and click "Add to Payments" on any application with an outstanding fee.</p>
+                        <p><strong>Note that you must use a valid VISA, MasterCard or Discover credit card to pay online.</strong></p>
+                    </apex:outputPanel>
+                    
+                    <script>
+                    var feeVOList = [];
+                    var invVOList = [];
+                    </script>
+                
+                    <apex:repeat value="{!feeVOs}" var="fee"> 
+                        <script> 
+                        feeVOList.push('{!fee.f.id}' + ','+ '{!fee.isSelected}'); 
+                        </script> 
+                    </apex:repeat>
+                    <apex:repeat value="{!invoiceVOs}" var="inv"> 
+                        <script> 
+                        invVOList.push('{!inv.i.id}' + ','+ '{!inv.isSelected}'); 
+                        </script> 
+                    </apex:repeat>
+                    
+                    <!-- FEES -->
+                    <apex:pageblockSection columns="1" title="Fees" collapsible="false" rendered="{!feeVOs.size > 0}">
+                    <apex:pageBlocktable value="{!feeVOs}" var="fee" style="width:100%">
+                        <apex:column headerValue="Pay" rendered="{!!isPortalUser}">
+                            <input type="checkbox" checked="{!IF(fee.isSelected, 'checked', '')}" id="{!fee.f.Id}" rendered="{!!isPortalUser}"/>
+                        </apex:column>
+                    
+                        <apex:repeat value="{!$ObjectType.MUSW__Fee__c.FieldSets.BGBK__Fee_Basic}" var="ff">                
+                            <apex:column headerValue="{!ff.label}" >
+                                <apex:outputField value="{!fee.f[ff]}" rendered="{!ff != 'MUSW__Amount_Waived__c'}"/>
+                                <apex:inputField value="{!fee.f[ff]}" rendered="{!ff  = 'MUSW__Amount_Waived__c'}"/>
+                            </apex:column>
+                        </apex:repeat>
+                        
+                        <apex:column headerValue="Payment Amount" rendered="{!canPayPartial}">
+                            <apex:inputText value="{!fee.paymentAmount}" rendered="{!canPayPartial}"/>
+                        </apex:column>
+                    </apex:pageBlocktable>
+                    </apex:pageblockSection>
+                    
+                    <!-- INVOICES -->
+                    <apex:pageblockSection columns="1" title="Invoices" collapsible="false" rendered="{!invoiceVOs.size > 0}">
+                    <apex:pageBlocktable value="{!invoiceVOs}" var="inv" style="width:100%">
+                        <apex:column headerValue="Pay">
+                            <input type="checkbox" checked="{!IF(inv.isSelected, 'checked', '')}" id="{!inv.i.Id}"/> 
+                        </apex:column>
+                    
+                        <apex:repeat value="{!$ObjectType.BGBK__Bill__c.FieldSets.BGBK__Invoice_Basic}" var="ff">                
+                            <apex:column headerValue="{!ff.label}" rendered="{!!isPortalUser}">
+                                <apex:outputField value="{!inv.i[ff]}"/>
+                            </apex:column>
+                        </apex:repeat>
+                    </apex:pageBlocktable>
+                    </apex:pageblockSection>
+                
+                    <div class="bg-fees">
+                        <apex:pageBlockSection columns="1" id="totals">
+                            <apex:inputText label="Email Receipt To" value="{!email}" id="email"/>
+                            <apex:outputText label="Total Selected" value="${!totalSelected}" id="totalSelected" style="font-weight:bold;font-size:1.5em;" styleClass="bg-float-right" />
+                            <apex:outputPanel styleClass="btn" style="margin-left:18%" onclick="refreshTotalJS(getUnselectedItems());" rendered="{!canCreate && (feeVOs.size > 0 || invoiceVOs.size > 0)}">Refresh Total</apex:outputPanel>
+                            <apex:selectList id="accounts" rendered="{!!isPortalUser}" value="{!accountSelected}" multiselect="false" size="1" label="Account" >
+                                <apex:selectOptions value="{!accounts}"/>
+                                <apex:actionSupport event="onchange" action="{!accountChanged}" reRender="tab,abandonBtn" />
+                            </apex:selectList>
+                            <apex:inputField rendered="{!!isPortalUser}" value="{!cart.BGBK__Contact__c}" id="contact" >
+                                <apex:actionSupport event="onchange" action="{!contactChanged}" reRender="reconcileSection" /> 
+                            </apex:inputField>
+                            
+                            <apex:inputField rendered="{!!isPortalUser}" value="{!cart.BGBK__Process_DateTime__c}"/>
+                            <br />
+                            <apex:outputPanel styleClass="btn" style="margin-left:18%" onclick="checkoutJS(getUnselectedItems());" rendered="{!canCreate && (feeVOs.size > 0 || invoiceVOs.size > 0)}">Continue</apex:outputPanel> 
+                            <apex:outputPanel id="reconcileSection" style="display:none">
+                                <apex:outputPanel rendered="{!reconcileCart!=null}">
+                                    <script>
+                                        if(confirm('An active cart for the selected Contact has been found. Click OK to reconcile the two carts, or Cancel to select a different Contact')){
+                                            $(document.getElementById('p:f:pb:totals:doReconcileBtn')).click();
+                                        }
+                                        else{
+                                            $(document.getElementById('p:f:pb:totals:cancelRconcileBtn')).click();
+                                        }
+                                    </script>
+                                    <apex:commandbutton id="doReconcileBtn" action="{!doReconcile}" value="Do Reconcile"  />
+                                    <apex:commandbutton id="cancelRconcileBtn" action="{!cancelReconcile}" value="Cancel Reconcile" reRender="totals" />
+                                </apex:outputPanel>
+                            </apex:outputPanel>                                
+                        </apex:pageBlockSection>   
+                    </div>
+                
+                    <script>
+                    
+                    /* set the checkbox value when load this tab */
+                    function setSelected()
+                    {
+                        var nList = document.getElementsByTagName('input');
+                        for (var i = 0; i < nList.length; i++)
+                        {
+                            var n = nList[i];
+                            if(n.getAttribute('type')=='checkbox')
+                            {
+                                for (var j = 0; j < feeVOList.length; j++)
+                                {
+                                    if (feeVOList[j].indexOf(n.id) != -1)
+                                    {
+                                        var a = feeVOList[j].split(',');
+                                        n.checked = (a[1] == 'true');
+                                    }
+                                }
+                                
+                                for(var j = 0; j < invVOList.length; j++)
+                                {
+                                    if (invVOList[j].indexOf(n.id) != -1)
+                                    {
+                                        var a = invVOList[j].split(',');
+                                        n.checked = (a[1] == 'true');
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                    setSelected();
+                    </script>
+                </apex:tab>
+                
+                <!---- CHECKOUT TAB ---->
+                <apex:variable var="index" value="{!0}"/>
+                <apex:tab label="Checkout" id="checkout" name="checkout" disabled="{!(activeTab != 'checkout' && activeTab != 'review') || processSuccessful }" onTabEnter="checkoutJS(getUnselectedItems());">
+                
+                    <apex:outputPanel rendered="{!isPortalUser}">
+                        <p>Pay with a credit card.</p>
+                    </apex:outputPanel>
+                    
+                    <apex:repeat value="{!receiptVOs}" var="rvo" id="receipts">
+                        <hr />
+                        <br />
+                        <apex:pageBlockSection columns="1" id="pm">
+                            <apex:selectList value="{!rvo.pmtMethodSelected}" label="Payment Method" size="1" id="payment" required="true">
+                                <apex:selectOptions value="{!pmtMethods}"/>
+                                <apex:actionSupport event="onchange" reRender="tab"/>
+                            </apex:selectList>
+                        </apex:pageBlockSection>
+                    
+                        <apex:outputPanel id="creditPanel" rendered="{!rvo.r.MUSW__Payment_Method__c = 'Credit Card' || rvo.r.MUSW__Payment_Method__c = 'Debit' || rvo.r.MUSW__Payment_Method__c = 'Offline Credit Card' || rvo.r.MUSW__Payment_Method__c = 'Bank Account'}">
+                            
+                            <apex:pageBlockSection id="creditAbs" columns="2">
+                                <apex:inputText label="Amount" id="amountTotal" value="{!rvo.amount}" >
+                                    <apex:actionSupport event="onchange" reRender="totals,totalPaymentPanel" />  
+                                </apex:inputText>
+                            </apex:pageBlockSection>
+                            
+                            <!-- PLUGIN CREDIT CARD SECTION HERE -->
+                            <apex:insert name="creditCardInfo"/>
+                            
+                            <apex:variable var="hasCC" value="true"/>
+                    
+                        </apex:outputPanel>
+                    
+                        <apex:outputPanel rendered="{!!isblank(rvo.r.MUSW__Payment_Method__c) && CONTAINS('Check', rvo.r.MUSW__Payment_Method__c)}">
+                    
+                            <apex:pageBlockSection columns="1" id="checkCheckOut">
+                                <apex:inputText label="Amount" value="{!rvo.amount}">
+                                    <apex:actionSupport event="onchange" reRender="totals,totalPaymentPanel" />  
+                                </apex:inputText>
+                                <apex:inputField value="{!rvo.r.MUSW__Check_Number__c}" rendered="{!rvo.r.Id = null}"/>
+                                <apex:outputField value="{!rvo.r.MUSW__Check_Number__c}" rendered="{!rvo.r.Id != null}"/>
+                            </apex:pageBlockSection>
+                    
+                        </apex:outputPanel>
+                   
+                        <apex:outputPanel rendered="{!!isblank(rvo.r.MUSW__Payment_Method__c) && CONTAINS('Cash', rvo.r.MUSW__Payment_Method__c)}">
+                    
+                            <apex:pageBlockSection columns="1" id="cashCheckOut">
+                                <apex:inputText label="Amount" value="{!rvo.amount}">
+                                    <apex:actionSupport event="onchange" reRender="totals,totalPaymentPanel" />  
+                                </apex:inputText>
+                            </apex:pageBlockSection>
+                    
+                        </apex:outputPanel>
+                        
+                        <apex:outputPanel rendered="{!!isblank(rvo.r.MUSW__Payment_Method__c) && CONTAINS('Other', rvo.r.MUSW__Payment_Method__c)}">
+                    
+                            <apex:pageBlockSection columns="1" id="existingReceiptCheckout">                              
+                                <apex:inputField label="Select Receipt" value="{!rvo.existingPmt.BGBK__Receipt__c}" required="false">
+                                    <apex:actionSupport event="onchange" reRender="totals,totalPaymentPanel" />  
+                                </apex:inputField>
+                                <apex:inputText label="Amount" value="{!rvo.amount}" >
+                                    <apex:actionSupport event="onchange" reRender="totals,totalPaymentPanel" />  
+                                </apex:inputText>
+                            </apex:pageBlockSection>
+                    
+                        </apex:outputPanel>
+                    
+                        <!-- JS SCRIPT FOR HIDING CERTAIN PAYMENT OPTIONS (e.g. only DSA can see Credit Card) -->
+                        <!-- SWIPE BUTTON ALSO GOES HERE -->
+                        <apex:insert name="creditCardExtras"/>
+                        
+                        <apex:variable var="index" value="{!index+1}"/>
+                        <br />
+                    </apex:repeat>
+                    
+                    <br />
+                    
+                    <!-- ADDITIONAL CHECKOUT BUTTON FOR CREDIT CARD 
+                    <apex:insert name="checkoutTabButton"/>-->
+                    <!-- 
+                    <apex:commandButton value="Continue" id="reviewOrderBtn" rendered="{!hasCC = 'true'}">
+                        <apex:actionSupport event="onclick"  action="{!review}" reRender="tab,msg" oncomplete="document.getElementById('preloader2').style.visibility='hidden';"/>
+                    </apex:commandButton>
+                     -->
+                    <apex:commandButton value="Add Payment Method" action="{!addReceipt}" reRender="tab"  rendered="{!canPayMulti && hasCC = 'false'}" />
+                    <!-- 
+                    <apex:commandButton value="Process Payment" action="{!process}" reRender="tab,msg" rendered="{!hasCC = 'false'}" oncomplete="sendEmailJS();document.getElementById('p:f:pb:topBtns:abandonBtn').style.visibility='hidden';"/>
+                     -->
+                    <apex:commandButton value="Process Payment" action="{!process}" reRender="tab,msg" status="BlockIndicator" oncomplete="sendEmailJS();document.getElementById('p:f:pb:topBtns:abandonBtn').style.visibility='hidden';"/>
+                     
+                </apex:tab>
+                 
+                 <!---- REVIEW CC TAB 
+                <apex:tab label="Review Credit Card" name="review" id="review" disabled="{!activeTab != 'review' || processSuccessful}" rendered="{!hasCC = 'true'}">
+                    <apex:outputPanel id="creditReviewPbs"> 
+                        
+                        
+                        <apex:insert name="creditCardReview"/>
+                        
+                    </apex:outputPanel>
+                </apex:tab>
+                ---->
+                <!---- CONFIRM TAB ---->
+                <apex:tab label="Confirmation" name="confirm" disabled="{!activeTab != 'confirm'}">
+                    <BGBK:CartConfirm cart="{!cart}" fees="{!fees}" invoices="{!invoices}" receipts="{!rs}" emailAddress="{!con.email}" totalAmount="{!totalPayment}" error="{!processResultCode}" rendered="{!activeTab = 'confirm'}"/>
+                    <apex:commandButton value="Print Receipt" reRender="tab,msg" onClick="window.open('/apex/BGBK__CartPrint?cartId={!cart.Id}&email={!email}');" rendered="{!processSuccessful}"/>                
+                    <apex:commandButton value="Try Again" action="{!checkout}" reRender="tab,msg" rendered="{!!processSuccessful && (feeVOs.size > 0 || invoiceVOs.size > 0)}" />
+                </apex:tab>
+                
+            </apex:tabPanel>
+            
+            <p class="bg-steps">To complete the payment process successfully, please do not click your browser back button.</p>
+    
+        </apex:pageblock>
+    
+        <apex:actionFunction name="sendEmailJS" action="{!sendPdf}" reRender=""/>
+        <apex:actionFunction name="refreshTotalJS" action="{!refreshTotal}" reRender="totals,msg">
+            <apex:param name="itemIdsUnselected" assignTo="{!itemsUnselected}" value="" />
+        </apex:actionFunction>
+        <apex:actionFunction name="checkoutJS" action="{!refreshTotalAndCheckout}" reRender="tab,msg,totalPaymentPanel" >
+            <apex:param name="itemIdsUnselected" assignTo="{!itemsUnselected}" value="" />
+        </apex:actionFunction>
+        
+    
+    <style>
+    .pbBody tr .disabledTab {
+      color: #999;
+    }
+    #preloader2 {
+      margin:0;
+      margin-top:image-height/2;
+      margin-left:image-width/2;
+      padding:0;
+      position:absolute;
+      top:50%;
+      left:50%;
+      width:33px; 
+      height:30px;      
+      background:#fff url('/img/loading32.gif') no-repeat center center;
+      z-index:999;
+    }
+    </style>
+    
+    <script>
+    /* Loop through the input checkbox and return the list of unselected items */
+    function getUnselectedItems()
+    {
+        var nList = document.getElementsByTagName('input');
+        var itemIds = '';
+        for (var i = 0; i < nList.length; i++)
+        {
+            var n = nList[i];
+            if (n.getAttribute('type') == 'checkbox')
+            {
+                if (!n.checked)    
+                {
+                    itemIds += n.id;
+                    itemIds +=',';
+                }
+            }
+        }
+        
+        return itemIds;
+    }
+    </script>
+    
+    <!-- ALL OTHER JS SCRIPT GOES HERE -->
+    <apex:insert name="pageScript"/>
+
+    </apex:form>
+</apex:page>

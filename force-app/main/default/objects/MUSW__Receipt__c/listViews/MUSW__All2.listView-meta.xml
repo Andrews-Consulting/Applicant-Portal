@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MUSW__All2</fullName>
+    <columns>MUSW__Iss_Track_No__c</columns>
+    <columns>MUSW__Amount_Tendered__c</columns>
+    <columns>MUSW__Amount_Available__c</columns>
+    <columns>MUSW__Check_Number__c</columns>
+    <columns>MUSW__Effective_Date__c</columns>
+    <columns>MUSW__Receipt_Paid_By__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>All</label>
+    <language>en_US</language>
+</ListView>

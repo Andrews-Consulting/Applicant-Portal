@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- If checked, all Contacts will be associated to the Citizen Account. Otherwise a new Person Account will be created for them. --></help>
+    <label><!-- Associate Contacts to Citizen --></label>
+    <name>MUSW__Associate_Contacts_Citizen__c</name>
+</CustomFieldTranslation>

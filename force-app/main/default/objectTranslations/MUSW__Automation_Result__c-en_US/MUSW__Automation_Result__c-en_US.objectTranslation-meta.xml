@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <validationRules>
+        <errorMessage><!-- Invalid Result Value syntax for selected Action Type --></errorMessage>
+        <name>MUSW__Value_Check_Syntax</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- New_Edit_Results --></label>
+        <name>MUSW__New_Edit_Results</name>
+    </webLinks>
+</CustomObjectTranslation>

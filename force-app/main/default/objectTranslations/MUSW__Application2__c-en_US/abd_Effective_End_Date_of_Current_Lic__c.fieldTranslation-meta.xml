@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Expiration Date of Current License --></label>
+    <name>abd_Effective_End_Date_of_Current_Lic__c</name>
+</CustomFieldTranslation>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlexiPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>page</name>
+                <value>Home</value>
+            </componentInstanceProperties>
+            <componentName>dx_headerText</componentName>
+        </componentInstances>
+        <name>header</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <name>sidebar</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>centerButtonLabel</name>
+                <value>Click here if you represent an Insurance Company or you represent a Local Authority the approves licenses.</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>centerButtonUrl</name>
+                <value>/</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>leftButtonLabel</name>
+                <value>Click here if you or your company is (or wants to) sell, distribute, or manufacture alcoholic beverages or products in the State of Iowa.</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>leftButtonUrl</name>
+                <value>./dx-tutorialpage</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>rightButtonLabel</name>
+                <value>Click here if you would like access to public records or to look up a keg registration.</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>rightButtonUrl</name>
+                <value>/</value>
+            </componentInstanceProperties>
+            <componentName>dx_userRedirection</componentName>
+        </componentInstances>
+        <name>content</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <name>sidebarAlt</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <name>footer</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <masterLabel>DX_Home</masterLabel>
+    <template>
+        <name>siteforce:sldsThreeCol363Layout</name>
+    </template>
+    <type>CommAppPage</type>
+</FlexiPage>

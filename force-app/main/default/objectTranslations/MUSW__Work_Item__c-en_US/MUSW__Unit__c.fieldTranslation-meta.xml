@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Unit --></label>
+    <name>MUSW__Unit__c</name>
+    <picklistValues>
+        <masterLabel>$</masterLabel>
+        <translation><!-- $ --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>100 LI</masterLabel>
+        <translation><!-- 100 LI --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>1K BTU</masterLabel>
+        <translation><!-- 1K BTU --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>1K CFM</masterLabel>
+        <translation><!-- 1K CFM --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>AMP</masterLabel>
+        <translation><!-- AMP --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>CU YD</masterLabel>
+        <translation><!-- CU YD --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>DEVICE</masterLabel>
+        <translation><!-- DEVICE --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>EACH</masterLabel>
+        <translation><!-- EACH --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FLAT</masterLabel>
+        <translation><!-- FLAT --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FT</masterLabel>
+        <translation><!-- FT --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>GAL</masterLabel>
+        <translation><!-- GAL --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>HEADS</masterLabel>
+        <translation><!-- HEADS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>HOUR</masterLabel>
+        <translation><!-- HOUR --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>HP</masterLabel>
+        <translation><!-- HP --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>INCH</masterLabel>
+        <translation><!-- INCH --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>LIN FT</masterLabel>
+        <translation><!-- LIN FT --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>QTY</masterLabel>
+        <translation><!-- QTY --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SQ FT</masterLabel>
+        <translation><!-- SQ FT --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SQ YD</masterLabel>
+        <translation><!-- SQ YD --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SYSTEM</masterLabel>
+        <translation><!-- SYSTEM --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

@@ -1,0 +1,6 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" >
+    <div class="block" >
+        this is the main application page where all kinds of neat things happen.
+    <br />
+        </div>
+</aura:component>

@@ -1,0 +1,12 @@
+{
+  "orgName": "abdstaging1",
+  "country": "US",
+  "username" : "chrisscratch1@abdstaging1.net", 
+  "edition": "Enterprise", 
+  "adminEmail" : "chris.andrews@doextra.com", 
+  "features": "AuthorApex; Communities; Sites",
+  "orgPreferences": {
+    "enabled": ["S1DesktopEnabled", "NetworksEnabled"],
+    "disabled": ["SelfSetPasswordInApi"]
+    }, 
+  }

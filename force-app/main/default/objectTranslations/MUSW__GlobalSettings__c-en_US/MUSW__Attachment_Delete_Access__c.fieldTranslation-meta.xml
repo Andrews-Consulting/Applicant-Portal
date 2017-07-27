@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- List of user names (comma separated) allowed to delete attachments. Leave blank if anyone is allowed to delete. --></help>
+    <label><!-- Attachment Delete Access --></label>
+    <name>MUSW__Attachment_Delete_Access__c</name>
+</CustomFieldTranslation>

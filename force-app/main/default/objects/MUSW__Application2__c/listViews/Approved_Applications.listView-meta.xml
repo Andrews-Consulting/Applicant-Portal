@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Approved_Applications</fullName>
+    <columns>NAME</columns>
+    <columns>Primary_Lic_Type__c</columns>
+    <columns>MUSW__Account__c</columns>
+    <columns>abd_Effective_End_Date__c</columns>
+    <columns>abd_Effective_Date__c</columns>
+    <columns>CREATEDBY_USER</columns>
+    <columns>abd_Application_Type__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>MUSW__Status__c</field>
+        <operation>equals</operation>
+        <value>Approved</value>
+    </filters>
+    <label>Approved Applications</label>
+</ListView>

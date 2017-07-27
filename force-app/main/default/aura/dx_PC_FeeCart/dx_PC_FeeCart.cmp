@@ -1,0 +1,8 @@
+<aura:component extends="c:dx_StdPageAbstraction" implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" access="global">
+
+    <aura:set attribute="ActiveCmp" value="dx_PC_FeeCart" />     <!-- This drives the navigation and needs to exist in Nav metadata -->
+
+    <div aura:id="dx_PC_FeeCartDiv" style="width:inherit;height: inherit;">
+        <c:dx_CartContainer SaveCompleted="{!c.SaveComplete}" EmptyComponent="{!c.EmptyComponent}" showError="{!v.showError}" errorMessage="{!v.errorMessage}" aura:id="dx_PC_FeeCart" recordId="{!v.recordId}" RecordIdIsApplication="{!v.RecordIdIsApplication}"/> 
+    </div>
+</aura:component>

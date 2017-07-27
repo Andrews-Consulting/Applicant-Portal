@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- A Traverse Instruction contains key names to JSONpaths. e.g. x,y$candidates[*].location[&quot;x&quot;,&quot;y&quot;]. Multiple Instructions are separated using a ; symbol. Refer to the Wiki for details. --></help>
+    <label><!-- Response Traverse Instructions --></label>
+    <name>MUSW__Traverse_Instructions__c</name>
+</CustomFieldTranslation>

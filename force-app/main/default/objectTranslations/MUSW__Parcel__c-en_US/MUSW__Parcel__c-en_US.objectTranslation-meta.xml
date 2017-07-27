@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <webLinks>
+        <label><!-- AddAlert --></label>
+        <name>MUSW__AddAlert</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- ClearParcelAlertStatus --></label>
+        <name>MUSW__ClearParcelAlertStatus</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Link_Attachment --></label>
+        <name>MUSW__Link_Attachment</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- ViewLocationMap --></label>
+        <name>MUSW__ViewLocationMap</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- View_GIS_Map --></label>
+        <name>MUSW__View_GIS_Map</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- View_ParcelMap --></label>
+        <name>MUSW__View_ParcelMap</name>
+    </webLinks>
+</CustomObjectTranslation>

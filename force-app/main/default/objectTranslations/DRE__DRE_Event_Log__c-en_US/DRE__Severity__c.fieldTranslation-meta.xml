@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Severity --></label>
+    <name>DRE__Severity__c</name>
+    <picklistValues>
+        <masterLabel>ERROR</masterLabel>
+        <translation><!-- ERROR --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>INFO</masterLabel>
+        <translation><!-- INFO --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

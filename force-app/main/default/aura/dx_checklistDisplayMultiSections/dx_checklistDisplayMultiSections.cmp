@@ -1,0 +1,83 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" controller="DX_DynamicChecklistQuestions" access="global">
+    <aura:attribute name="SectionCounts" type="Integer" description="Internal value holding number of sections" />
+    <aura:attribute name="NextURL" type="String" description="URL of next page" required="true" />
+    <aura:attribute name="ParmHold" type="String" />
+    <aura:Attribute name="Section1" type="string" description="Name of a page section 1 to display" />
+    <aura:Attribute name="Section2" type="string" description="Name of a page section 2 to display" />
+    <aura:Attribute name="Section3" type="string" description="Name of a page section 3 to display" />
+    <aura:Attribute name="Section4" type="string" description="Name of a page section 4 to display" />
+    <aura:Attribute name="Section5" type="string" description="Name of a page section 5 to display" />
+    <aura:Attribute name="Section6" type="string" description="Name of a page section 6 to display" />
+    <aura:Attribute name="ShowNext" type="boolean" description="Show Next Button" />
+    <aura:attribute name="ShowExitNoSave" type="Boolean" description="Show Exit without saving button" />
+    <aura:attribute name="ShowSaveExit" type="Boolean" description="Show the Save and Exit button"  />
+    <aura:attribute name="ShowSkip" type="Boolean" description="Show the Skip button"  />
+    <aura:attribute name="ShowSaveAdd" type="Boolean" description="Show Save and Add another button" />
+    <aura:attribute name="SkipLabel" type="String" description="Label of the Skip button"  />
+    <aura:attribute name="SaveAddLabel" type="String" description="Label of the Save and Add another"  />
+   <!-- <aura:attribute name="recordId" type="ID" />      -->
+
+
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+
+    <div aura:id="dynamicErrorDiv"></div>
+
+    <!-- each of the checklist display sections must have an Aura:ID of PageSection.  You can add anynumber of these to the page and
+     - - the code will find all of them and process them correctly.
+     - - The pages can't contain overlapping fields, since each instance performs a separate save to the server.
+    -->
+    <div class="slds-grid slds-wrap ">
+        <aura:if isTrue="{! not(empty(v.Section1))}" >
+            <div class="slds-size--1-of-1" >
+                <ui:outputText value="{!v.Section1}" class="heading" />
+            </div>
+           	<div class="slds-size--1-of-1" >
+        		<c:dx_checklistDisplaySectionOnly application="{!v.recordId}" Section="{!v.Section1}" aura:id="PageSection" SaveCompleted="{!c.SaveComplete}" SectionCounts="{!v.SectionCounts}" />
+        	</div>
+        </aura:if>
+        <aura:if isTrue="{! not(empty(v.Section2))}" >
+            <div class="slds-size--1-of-1" >
+                <ui:outputText value="{!v.Section2}" class="heading" />
+            </div>
+           	<div class="slds-size--1-of-1" >
+        		<c:dx_checklistDisplaySectionOnly application="{!v.recordId}" Section="{!v.Section2}" aura:id="PageSection" SaveCompleted="{!c.SaveComplete}" SectionCounts="{!v.SectionCounts}" />
+        	</div>
+        </aura:if>
+        <aura:if isTrue="{! not(empty(v.Section3))}" >
+            <div class="slds-size--1-of-1" >
+                <ui:outputText value="{!v.Section3}" class="heading" />
+            </div>
+            <div class="slds-size--1-of-1" >
+                <c:dx_checklistDisplaySectionOnly application="{!v.recordId}" Section="{!v.Section3}" aura:id="PageSection" SaveCompleted="{!c.SaveComplete}" SectionCounts="{!v.SectionCounts}" />
+            </div>
+        </aura:if>
+        <aura:if isTrue="{! not(empty(v.Section4))}" >
+            <div class="slds-size--1-of-1" >
+                <ui:outputText value="{!v.Section4}" class="heading" />
+            </div>
+            <div class="slds-size--1-of-1" >
+                <c:dx_checklistDisplaySectionOnly application="{!v.recordId}" Section="{!v.Section4}" aura:id="PageSection" SaveCompleted="{!c.SaveComplete}" SectionCounts="{!v.SectionCounts}" />
+            </div>
+        </aura:if>
+        <aura:if isTrue="{! not(empty(v.Section5))}" >
+            <div class="slds-size--1-of-1" >
+                <ui:outputText value="{!v.Section5}" class="heading" />
+            </div>
+            <div class="slds-size--1-of-1" >
+                <c:dx_checklistDisplaySectionOnly application="{!v.recordId}" Section="{!v.Section5}" aura:id="PageSection" SaveCompleted="{!c.SaveComplete}" SectionCounts="{!v.SectionCounts}" />
+            </div>
+        </aura:if>
+        <aura:if isTrue="{! not(empty(v.Section6))}" >
+            <div class="slds-size--1-of-1" >
+                <ui:outputText value="{!v.Section6}" class="heading" />
+            </div>
+            <div class="slds-size--1-of-1" >
+                <c:dx_checklistDisplaySectionOnly application="{!v.recordId}" Section="{!v.Section6}" aura:id="PageSection" SaveCompleted="{!c.SaveComplete}" SectionCounts="{!v.SectionCounts}" />
+            </div>
+        </aura:if>
+        <div class="slds-size--1-of-1" >
+    		<c:dx_footerButtonsStd ShowNext="{!v.ShowNext}" ShowExitNoSave="{!v.ShowExitNoSave}" ShowSaveExit="{!v.ShowSaveExit}" ShowSkip="{!v.ShowSkip}" ShowSaveAdd="{!v.ShowSaveAdd}" SkipLabel="{!v.SkipLabel}" SaveAddLabel="{!v.SaveAddLabel}"  NextURL="{!v.NextURL}" dx_SaveInvoked="{!c.saveInvoked}" dx_NextOnlyInvoked="{!c.nextOnlyInvoked}" />
+    	</div>
+    	
+	</div>
+</aura:component>

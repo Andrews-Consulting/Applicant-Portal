@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- is the number issued permanently (ie. locked and will require an extra Issued_Number__c field), or be overwritten only one more time after being set? --></help>
+    <label><!-- Control --></label>
+    <name>BGCM__Control__c</name>
+    <picklistValues>
+        <masterLabel>Overwrite Once</masterLabel>
+        <translation><!-- Overwrite Once --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Permanent</masterLabel>
+        <translation><!-- Permanent --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

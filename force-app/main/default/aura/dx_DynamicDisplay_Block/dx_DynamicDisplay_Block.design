@@ -1,0 +1,6 @@
+<design:component>
+    <design:attribute name="fsName" label="License Type" description="This is just during testing" />
+    <design:attribute name="typeName" label="sObject" description="The Object that contains your field to update."/>
+    
+	
+</design:component>

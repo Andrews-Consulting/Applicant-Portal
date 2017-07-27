@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Determines if the setting is included in the POST Request --></help>
+    <label><!-- Active --></label>
+    <name>MUSW__isActive__c</name>
+</CustomFieldTranslation>

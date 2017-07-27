@@ -1,0 +1,1 @@
+trigger DRE2_BGCK_Answer_c on BGCK__Answer__c (after insert, before update, before delete, after undelete) { DRE.DREManager.runTrigger(); }

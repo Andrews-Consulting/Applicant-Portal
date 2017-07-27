@@ -1,0 +1,21 @@
+.THIS span.strike{
+	text-decoration: line-through;	
+}
+.THIS .uiLabel-right{
+	padding-left: 10px;
+}
+.THIS .help{
+	
+	fill:#2d5c90;
+}
+.THIS .slds-icon{
+	fill:inherit;
+}
+.THIS div.help{
+	vertical-align:bottom;
+	display: table-cell;	
+}
+.THIS #someDiv{
+	display: table;	
+	width: 100%;
+}

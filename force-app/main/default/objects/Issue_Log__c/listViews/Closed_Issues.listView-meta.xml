@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Closed_Issues</fullName>
+    <columns>NAME</columns>
+    <columns>Platform__c</columns>
+    <columns>Business_Area__c</columns>
+    <columns>Summary__c</columns>
+    <columns>Status__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Sourse__c</field>
+        <operation>equals</operation>
+        <value>UAT1</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Closed</value>
+    </filters>
+    <label>Closed Issues</label>
+    <sharedTo>
+        <allInternalUsers/>
+    </sharedTo>
+</ListView>

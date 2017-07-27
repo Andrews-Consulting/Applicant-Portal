@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <validationRules>
+        <errorMessage><!-- Can not Void a Paid Invoice --></errorMessage>
+        <name>BGBK__Can_not_Void_a_Paid_Invoice</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Can not change the Status of a Voided Invoice --></errorMessage>
+        <name>BGBK__Can_not_change_from_Voided_Invoice</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Pay_Invoice --></label>
+        <name>BGBK__Pay_Invoice</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Print_Invoice --></label>
+        <name>BGBK__Print_Invoice</name>
+    </webLinks>
+</CustomObjectTranslation>

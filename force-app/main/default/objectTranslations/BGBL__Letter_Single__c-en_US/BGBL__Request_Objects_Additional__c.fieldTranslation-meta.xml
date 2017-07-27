@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- when including Attach Letter button to an object, add object API name to this list. comma-delimited. no spaces. do not include Permit2, License2, Application2. The shorter this list, the quicker the page loads. --></help>
+    <label><!-- Single Man. Reqst Objects - Additional --></label>
+    <name>BGBL__Request_Objects_Additional__c</name>
+</CustomFieldTranslation>

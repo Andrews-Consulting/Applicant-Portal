@@ -1,0 +1,5 @@
+<aura:event type="COMPONENT" description="Event template" access="global">
+	<aura:attribute name="record" type="Object" description="The record to be created or updated" />
+	<aura:attribute name="mode" type="String" description="Can be EDIT or CREATE." />
+	<aura:attribute name="createNewAfter" type="Boolean" description="If true, means user wants to save the current record and create a new one after." />
+</aura:event>

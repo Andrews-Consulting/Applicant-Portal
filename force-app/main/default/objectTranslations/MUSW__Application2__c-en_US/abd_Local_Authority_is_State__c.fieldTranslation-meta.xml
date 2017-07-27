@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Local Authority is State --></label>
+    <name>abd_Local_Authority_is_State__c</name>
+</CustomFieldTranslation>

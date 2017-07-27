@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <defaultLandingTab>standard-home</defaultLandingTab>
+    <formFactors>Large</formFactors>
+    <label>Compliance</label>
+    <logo>SharedDocuments/IOWA_ABD_Logo.gif</logo>
+    <tab>MUSW__Complaint2__c</tab>
+    <tab>MUSW__Inspection__c</tab>
+    <tab>MUSW__Review__c</tab>
+    <tab>MUSW__License2__c</tab>
+    <tab>standard-Account</tab>
+    <tab>standard-Contact</tab>
+    <tab>standard-Dashboard</tab>
+    <tab>standard-report</tab>
+</CustomApplication>

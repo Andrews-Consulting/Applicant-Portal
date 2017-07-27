@@ -1,0 +1,16 @@
+<design:component label="Checklist Display Multiple">
+	<design:attribute name="NextURL" description="URL of next page" required="true" />
+	<design:Attribute name="Section1" description="Name of a page section 1 to display" />
+    <design:Attribute name="Section2" description="Name of a page section 2 to display" />
+    <design:Attribute name="Section3" description="Name of a page section 3 to display" />
+    <design:Attribute name="Section4" description="Name of a page section 4 to display" />
+    <design:Attribute name="Section5" description="Name of a page section 5 to display" />
+    <design:Attribute name="Section6" description="Name of a page section 6 to display" />
+    <design:Attribute name="ShowNext" description="Show Next Button" />
+    <design:attribute name="ShowExitNoSave" description="Show Exit without saving button" />
+    <design:attribute name="ShowSaveExit" description="Show the Save and Exit button"  />
+    <design:attribute name="ShowSkip" description="Show the Skip button"  />
+    <design:attribute name="ShowSaveAdd" description="Show Save and Add another button" />
+    <design:attribute name="SkipLabel" description="Label of the Skip button"  />
+    <design:attribute name="SaveAddLabel" description="Label of the Save and Add another"  />
+</design:component>

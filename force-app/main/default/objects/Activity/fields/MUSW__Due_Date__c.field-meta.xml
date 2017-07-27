@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MUSW__Due_Date__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <inlineHelpText>System Calculated when Task is not Closed</inlineHelpText>
+    <label>Due Date Only</label>
+    <required>false</required>
+    <type>Date</type>
+</CustomField>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Email used for Dram Shop Insurance Carrier and Local Authority Review Notifications</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>DRAM/LA Application Notification</name>
+    <style>none</style>
+    <subject>ABD Application Awaiting Review - {!MUSW__Application2__c.MUSW__Status__c}</subject>
+    <type>text</type>
+</EmailTemplate>

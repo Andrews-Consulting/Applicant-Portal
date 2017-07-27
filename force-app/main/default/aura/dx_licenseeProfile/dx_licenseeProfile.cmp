@@ -1,0 +1,38 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,force:appHostable" controller="DX_LicenseeForm" access="global">
+	<aura:attribute name="showError" type="Boolean" required="true" description="" default="false" access="private" />
+	<aura:attribute name="isLoaded" type="Boolean" required="true" description="" default="false" access="private" />
+	<aura:attribute name="errorMessage" type="string" required="false" description="" access="private" />
+	<aura:attribute name="licensee" type="Account" default="{'sobjectType':'Account'}" />
+	<aura:attribute name="ids" type="Id[]" />
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+	<div>
+		<aura:renderIf isTrue="{!v.showError}">
+			<div id="error">
+				<ui:outputRichText value="{!v.errorMessage}" />
+			</div>
+		</aura:renderIf>
+		<div id="slds-form-element" class="sfdc">
+			<label class="slds-form-element__label" for="lname">Name</label>
+			<force:outputField value="{!v.licensee.Name}" aura:id="lname" />
+		</div>
+		<p>&nbsp;</p>
+		<aura:iteration items="{!v.ids}" var="id">
+
+
+			<aura:renderIf isTrue="{!id!=null}">
+				<h1>APPLICATIONS</h1>
+				<div id="slds-form-element" class="sfdc">
+					<c:dx_ApplicationList recordId="{!id}" />
+				</div>
+				<p>&nbsp;</p>
+				<h1>LICENSES</h1>
+				<div id="slds-form-element" class="sfdc">
+					<c:dx_LicenseList recordId="{!id}" />
+				</div>
+			</aura:renderIf>
+
+
+		</aura:iteration>
+	</div>
+</aura:component>

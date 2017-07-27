@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Used to narrow down records that the user can view and select. Use key=‘value’, key=‘value’ to input the text filters. --></help>
+    <label><!-- System Default Filter --></label>
+    <name>MUSW__Filter__c</name>
+</CustomFieldTranslation>

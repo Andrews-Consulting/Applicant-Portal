@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BGCK__Type__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <label>Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Radio Button</fullName>
+                <default>false</default>
+                <label>Radio Button</label>
+            </value>
+            <value>
+                <fullName>Checkbox - Horizontal</fullName>
+                <default>false</default>
+                <label>Checkbox - Horizontal</label>
+            </value>
+            <value>
+                <fullName>Text</fullName>
+                <default>false</default>
+                <label>Text</label>
+            </value>
+            <value>
+                <fullName>Date</fullName>
+                <default>false</default>
+                <label>Date</label>
+            </value>
+            <value>
+                <fullName>Checkbox - Vertical</fullName>
+                <default>false</default>
+                <label>Checkbox - Vertical</label>
+            </value>
+            <value>
+                <fullName>Picklist</fullName>
+                <default>false</default>
+                <label>Picklist</label>
+            </value>
+            <value>
+                <fullName>Number - Percent</fullName>
+                <default>false</default>
+                <label>Number - Percent</label>
+            </value>
+            <value>
+                <fullName>Number - Integer</fullName>
+                <default>false</default>
+                <label>Number - Integer</label>
+            </value>
+            <value>
+                <fullName>Number - Currency</fullName>
+                <default>false</default>
+                <label>Number - Currency</label>
+            </value>
+            <value>
+                <fullName>Phone Number</fullName>
+                <default>false</default>
+                <label>Phone Number</label>
+            </value>
+            <value>
+                <fullName>Record List</fullName>
+                <default>false</default>
+                <label>Record List</label>
+            </value>
+            <value>
+                <fullName>Label</fullName>
+                <default>false</default>
+                <label>Label</label>
+            </value>
+            <value>
+                <fullName>Text Area</fullName>
+                <default>false</default>
+                <label>Text Area</label>
+            </value>
+            <value>
+                <fullName>Number - Decimal</fullName>
+                <default>false</default>
+                <label>Number - Decimal</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

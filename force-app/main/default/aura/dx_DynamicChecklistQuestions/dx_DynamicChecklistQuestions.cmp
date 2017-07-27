@@ -1,0 +1,45 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" controller="DX_DynamicChecklistQuestions" access="global">
+	<aura:attribute name="checklistVersion" type="Id" required="true" default="a1T350000000c9e"/>
+    <aura:attribute name="application" type="Id" description="The Id of the record" required="true" default="a0335000001kaeq"/>
+    <aura:attribute name="licenseType" type="String" default="CP"/>
+    <aura:attribute name="records" type="Object[]"/>
+    <aura:attribute name="applicationType" type="String" default="New License"/>
+    <aura:attribute name="showError" type="Boolean" required="true" description="" default="false" access="private"/>
+    <aura:attribute name="errorMessage" type="string" required="false" description="" access="private"/>
+    <aura:attribute name="fields" type="Object[]"/>
+    <aura:attribute name="form" type="Aura.Component[]"/>
+    <aura:attribute name="questionTypes" type="Map"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    
+    <div>
+        <aura:renderIf isTrue="{!v.checklistVersion!=null}">
+            <div class="slds-grid slds-wrap slds-grid--pull-padded" id="div_topContainer">
+                <aura:iteration items="{!v.records}" var="record">
+                <div class="slds-grid slds-wrap slds-grid--pull-padded">
+                	<div class="slds-truncate" title="{!record.section.Name}"><a href="javascript:void(0);">{!record.section.Name}</a></div>
+                	<aura:iteration items="{!record.questionBlocks}" var="qb">
+	                	<div class="slds-p-horizontal--small slds-size--1-of-1">
+	                		<ui:outputText value="{!qb.question.q.BGCK__Question__r.BGCK__Body__c}"/>
+	                		<aura:renderif isTrue="{!qb.question.qt.BGCK__Type__c=='Radio Button'}">
+		                		<div aura:id="radio" class="slds-form-element__control">
+									<aura:iteration items="{!qb.question.qt.BGCK__Choices__r}" var="item">
+										<ui:inputRadio label="{!item.Name}" change="{!c.handleValueChange}" />
+										
+									</aura:iteration>
+								</div>
+	                		</aura:renderif>
+	                	</div>
+                	</aura:iteration>
+                </div>
+                </aura:iteration>
+            </div>
+        </aura:renderIf>
+        <div class="sfdc" >
+        	<ui:button aura:id="submitButton" label="Save" press="{!c.save}" class="sfdc_button"/>
+			<!-- <div class="slds-spinner_container slds-hide slds-is-fixed" aura:id="spinner">
+				<lightning:spinner variant="brand" size="large"/>
+			</div> -->
+        </div>
+    </div>
+</aura:component>

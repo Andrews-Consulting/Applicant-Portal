@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>has68MonthRestriction__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>If set, a 6 or 8 month instance of this license requires a 2 month waiting period before it can be renewed for the same licensee at the same location.</description>
+    <externalId>false</externalId>
+    <label>has68MonthRestriction</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

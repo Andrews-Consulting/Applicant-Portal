@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Use Type --></label>
+    <name>MUSW__Use_Type__c</name>
+    <picklistValues>
+        <masterLabel>Commercial</masterLabel>
+        <translation><!-- Commercial --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Industrial</masterLabel>
+        <translation><!-- Industrial --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Institutional</masterLabel>
+        <translation><!-- Institutional --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Mixed Use</masterLabel>
+        <translation><!-- Mixed Use --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Mobile Home</masterLabel>
+        <translation><!-- Mobile Home --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Multi Family Dwelling</masterLabel>
+        <translation><!-- Multi Family Dwelling --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Single Family Dwelling</masterLabel>
+        <translation><!-- Single Family Dwelling --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

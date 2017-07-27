@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Transfer_Temp_GT_7_Days</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISPICKVAL(abd_Application_Type__c, "Transfer License")
+&amp;&amp;
+ISPICKVAL(abd_Temporary_or_Permanent__c, "Temporary")
+&amp;&amp;
+IF(abd_Effective_End_Date__c -  abd_Effective_Date__c > 7,TRUE, FALSE)</errorConditionFormula>
+    <errorMessage>Temporary Transfer License Application cannot exceed 7 days</errorMessage>
+</ValidationRule>

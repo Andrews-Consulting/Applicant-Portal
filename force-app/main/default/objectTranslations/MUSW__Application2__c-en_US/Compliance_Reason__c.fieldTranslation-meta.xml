@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Compliance Reason --></label>
+    <name>Compliance_Reason__c</name>
+    <picklistValues>
+        <masterLabel># Bathrooms</masterLabel>
+        <translation><!-- # Bathrooms --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Criminal History</masterLabel>
+        <translation><!-- Criminal History --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Manufacturer/Importer Interest in Owner Business</masterLabel>
+        <translation><!-- Manufacturer/Importer Interest in Owner Business --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Other Paid Owner License Fee</masterLabel>
+        <translation><!-- Other Paid Owner License Fee --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Other Provided Equipment</masterLabel>
+        <translation><!-- Other Provided Equipment --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Others Provided Money</masterLabel>
+        <translation><!-- Others Provided Money --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Owner Employed by Other Manufacturer Importer</masterLabel>
+        <translation><!-- Owner Employed by Other Manufacturer Importer --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Owner Interest in Equipment Used by Other Retailers</masterLabel>
+        <translation><!-- Owner Interest in Equipment Used by Other Retailers --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Owner Interest in Other Manufacturer Importer</masterLabel>
+        <translation><!-- Owner Interest in Other Manufacturer Importer --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Owner Interest in Other Retail License</masterLabel>
+        <translation><!-- Owner Interest in Other Retail License --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Owner Paid License Fee for Retailer</masterLabel>
+        <translation><!-- Owner Paid License Fee for Retailer --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Owner Provided Funds to Retailer</masterLabel>
+        <translation><!-- Owner Provided Funds to Retailer --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Partnership/Non Us Citizen</masterLabel>
+        <translation><!-- Partnership/Non Us Citizen --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Partnership/Not Iowa</masterLabel>
+        <translation><!-- Partnership/Not Iowa --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Retailer with Interest in Owner Business</masterLabel>
+        <translation><!-- Retailer with Interest in Owner Business --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Sole Proprietor/Non Us Citizen</masterLabel>
+        <translation><!-- Sole Proprietor/Non Us Citizen --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Sole Proprietor/Not Iowa</masterLabel>
+        <translation><!-- Sole Proprietor/Not Iowa --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Staff Employed by Other Retailer</masterLabel>
+        <translation><!-- Staff Employed by Other Retailer --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Under 21</masterLabel>
+        <translation><!-- Under 21 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Under 25 Seats</masterLabel>
+        <translation><!-- Under 25 Seats --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

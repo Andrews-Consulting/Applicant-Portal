@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Pending Renewal application submitted to Local Authority Review email (this version to licensee/permittee, Local Authority)</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Submitted to LA Renewal Application</name>
+    <style>none</style>
+    <subject>Application Awaiting Local Authority Review</subject>
+    <textOnly>Dramshop Liability Insurance Coverage has been endorsed for the following license/permit. The application is awaiting local authority approval or denial. After local authority has issued a decision, the application will be submitted to the Iowa Alcoholic Beverages Division for final review . 
+
+Business Name: {!MUSW__Application2__c.MUSW__Account__c}
+License#: {!MUSW__Application2__c.abd_Primary_License__c}
+License Status: {!MUSW__Application2__c.MUSW__Status__c}
+
+To check the status of your application, log on using the link below:
+TBD</textOnly>
+    <type>custom</type>
+</EmailTemplate>

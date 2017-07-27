@@ -1,0 +1,17 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes"  access="global">
+    
+    <aura:attribute name="choices" type="String[]" />
+    <aura:attribute name="label" type="String" />
+    <aura:attribute name="value" type="String" />
+    <aura:attribute name="sObjectName" type="String" />
+    <aura:attribute name="fieldName" type="String" />
+    
+    
+    <lightning:select name="{!v.fieldName}" label="{!v.label}" value="{!v.value}">
+        <option value="">--None--</option>
+        <aura:iteration items="{!v.choices}" var="choice">
+            <option>{!choice}</option>
+        </aura:iteration>
+    </lightning:select>
+    
+</aura:component>

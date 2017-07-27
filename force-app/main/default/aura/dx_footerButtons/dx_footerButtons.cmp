@@ -1,0 +1,56 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,force:appHostable" access="global">
+    <aura:attribute name="leftButtonLabel" type="string" required="true" default="Hidden" />
+    <aura:attribute name="centerButtonLabel" type="string" description="" default="Hidden" />
+    <aura:attribute name="rightButtonLabel" type="string" description="" default="Hidden" />
+    <aura:attribute name="leftButtonUrl" type="string" description="" default="/" />
+    <aura:attribute name="centerButtonUrl" type="string" description="" default="/" />
+    <aura:attribute name="rightButtonUrl" type="string" description="" default="/" />
+	
+	<div class="slds-grid dx-medium-max-show">
+  		<div class="slds-col lbtnDiv">
+		    <div class="slds-container--center slds-container--small">
+		    	<aura:renderIf isTrue="{!v.leftButtonLabel!='Hidden'}">
+		        	<ui:button aura:id="submitButton" label="{!v.leftButtonLabel}" press="{!c.handleLeft}" class="stdButton"/>
+		        </aura:renderIf>
+		    </div>
+		</div>
+		<div class="slds-col lbtnDiv rbtnDiv">
+		    <div class="slds-container--center slds-container--small">
+		        <aura:renderIf isTrue="{!v.centerButtonLabel!='Hidden'}">
+		        	<ui:button aura:id="submitButton" label="{!v.centerButtonLabel}" press="{!c.handleCenter}" class="stdButton"/>
+		        </aura:renderIf>
+		    </div>
+		</div>
+		<div class="slds-col  rbtnDiv">
+		    <div class="slds-container--center slds-container--small">
+		        <aura:renderIf isTrue="{!v.rightButtonLabel!='Hidden'}">
+		        	<ui:button aura:id="submitButton" label="{!v.rightButtonLabel}" press="{!c.handleRight}" class="stdButton" />
+		        </aura:renderIf>
+		    </div>
+		</div>
+	</div>
+	<div class="slds-grid slds-wrap dx-medium-max-hide">
+  		<div class="slds-p-horizontal--small slds-col slds-size--1-of-1">
+		    <div class="slds-container--center slds-container--small">
+		    	<aura:renderIf isTrue="{!v.leftButtonLabel!='Hidden'}">
+		        	<ui:button aura:id="submitButton" label="{!v.leftButtonLabel}" press="{!c.handleLeft}" class="stdButton"/>
+		        </aura:renderIf>
+		    </div>
+		</div>
+		<div class="slds-p-horizontal--small slds-col slds-size--1-of-1">
+		    <div class="slds-container--center slds-container--small">
+		        <aura:renderIf isTrue="{!v.centerButtonLabel!='Hidden'}">
+		        	<ui:button aura:id="submitButton" label="{!v.centerButtonLabel}" press="{!c.handleCenter}" class="stdButton"/>
+		        </aura:renderIf>
+		    </div>
+		</div>
+		<div class="slds-p-horizontal--small slds-col slds-size--1-of-1">
+		    <div class="slds-container--center slds-container--small">
+		        <aura:renderIf isTrue="{!v.rightButtonLabel!='Hidden'}">
+		        	<ui:button aura:id="submitButton" label="{!v.rightButtonLabel}" press="{!c.handleRight}" class="stdButton" />
+		        </aura:renderIf>
+		    </div>
+		</div>
+	</div>
+	<p>&nbsp;</p>
+</aura:component>

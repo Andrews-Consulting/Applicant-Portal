@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Business_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Business Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>General Partnership</fullName>
+                <default>false</default>
+                <label>General Partnership</label>
+            </value>
+            <value>
+                <fullName>Limited Liability Company</fullName>
+                <default>false</default>
+                <label>Limited Liability Company</label>
+            </value>
+            <value>
+                <fullName>Limited Partnership</fullName>
+                <default>false</default>
+                <label>Limited Partnership</label>
+            </value>
+            <value>
+                <fullName>Municipality</fullName>
+                <default>false</default>
+                <label>Municipality</label>
+            </value>
+            <value>
+                <fullName>Non-profit Association</fullName>
+                <default>false</default>
+                <label>Non-profit Association</label>
+            </value>
+            <value>
+                <fullName>Privately-Held Corporation</fullName>
+                <default>false</default>
+                <label>Privately-Held Corporation</label>
+            </value>
+            <value>
+                <fullName>Publicly Traded Corporation</fullName>
+                <default>false</default>
+                <label>Publicly Traded Corporation</label>
+            </value>
+            <value>
+                <fullName>Sole Proprietorship</fullName>
+                <default>false</default>
+                <label>Sole Proprietorship</label>
+            </value>
+            <value>
+                <fullName>Foreign corporation as defined in section 504.141</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Foreign corporation as defined in section 504.141</label>
+            </value>
+            <value>
+                <fullName>Nonprofit corporation organized under chapter 504</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Nonprofit corporation organized under chapter 504</label>
+            </value>
+            <value>
+                <fullName>Nonprofit entity which has a principal office in the State of Iowa</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Nonprofit entity which has a principal office in the State of Iowa</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

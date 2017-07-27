@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Operator --></label>
+    <name>DRE__Operator__c</name>
+    <picklistValues>
+        <masterLabel>!=</masterLabel>
+        <translation><!-- != --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>&lt;</masterLabel>
+        <translation><!-- &lt; --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>&lt;=</masterLabel>
+        <translation><!-- &lt;= --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>=</masterLabel>
+        <translation><!-- = --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>></masterLabel>
+        <translation><!-- &gt; --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>>=</masterLabel>
+        <translation><!-- &gt;= --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>CHANGED</masterLabel>
+        <translation><!-- CHANGED --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>CHANGED TO</masterLabel>
+        <translation><!-- CHANGED TO --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>CHANGED TO ANY</masterLabel>
+        <translation><!-- CHANGED TO ANY --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>CONTAINS</masterLabel>
+        <translation><!-- CONTAINS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>CONTAINS ANY</masterLabel>
+        <translation><!-- CONTAINS ANY --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ENDS WITH</masterLabel>
+        <translation><!-- ENDS WITH --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>IN</masterLabel>
+        <translation><!-- IN --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>NOT CHANGED</masterLabel>
+        <translation><!-- NOT CHANGED --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>NOT CONTAINS</masterLabel>
+        <translation><!-- NOT CONTAINS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>NOT IN</masterLabel>
+        <translation><!-- NOT IN --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>STARTS WITH</masterLabel>
+        <translation><!-- STARTS WITH --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

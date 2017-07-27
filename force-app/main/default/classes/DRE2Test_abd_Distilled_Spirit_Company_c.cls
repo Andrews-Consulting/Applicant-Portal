@@ -1,0 +1,1 @@
+@isTest private class DRE2Test_abd_Distilled_Spirit_Company_c { @isTest static void insertUpdateDelete() { DRE.DRETestExternalManager.run('abd_Distilled_Spirit_Company__c'); } }

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Portal_View</fullName>
+    <columns>NAME</columns>
+    <columns>abd_Active__c</columns>
+    <columns>abd_License_Type__c</columns>
+    <columns>abd_Sunday_Fees__c</columns>
+    <columns>abd_Square_Footage_Max__c</columns>
+    <columns>abd_Square_Footage_Min__c</columns>
+    <columns>abd_Population_Min__c</columns>
+    <columns>abd_Population_Max__c</columns>
+    <columns>abd_Length__c</columns>
+    <columns>abd_Fee_Amount__c</columns>
+    <columns>abd_Application_Type__c</columns>
+    <columns>Other_Criteria__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>abd_Active__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>Portal View</label>
+</ListView>

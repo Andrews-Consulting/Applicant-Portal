@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BGCK__Number_Currency</fullName>
+    <active>false</active>
+    <label>Number - Currency</label>
+    <picklistValues>
+        <picklist>BGCK__Type__c</picklist>
+        <values>
+            <fullName>Number - Currency</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+</RecordType>

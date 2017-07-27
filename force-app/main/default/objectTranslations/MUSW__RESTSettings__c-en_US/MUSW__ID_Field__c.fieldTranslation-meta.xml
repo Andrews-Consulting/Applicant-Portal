@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- REST Service unique ID field (e.g. OBJECTID) --></help>
+    <label><!-- Request ID Field --></label>
+    <name>MUSW__ID_Field__c</name>
+</CustomFieldTranslation>

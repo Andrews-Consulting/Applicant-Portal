@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>abd_PortalWork_PsuedoApp__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This is a Psuedo App flag - Meaning that it's a read only version of an app generated from a license for display purposes only.</description>
+    <externalId>false</externalId>
+    <label>PortalWork PsuedoApp</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

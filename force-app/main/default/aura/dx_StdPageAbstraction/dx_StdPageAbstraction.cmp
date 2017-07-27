@@ -1,0 +1,64 @@
+<aura:component extensible="true" abstract="true" implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" controller="dx_StdPageAbstraction" access="global">
+
+  	<aura:Attribute name="ShowNext" type="boolean" description="Show Next Button" default="false"  />
+	<aura:attribute name="ShowExitNoSave" type="Boolean" description="Show Exit without saving button" default="false" />
+	<aura:attribute name="ShowSaveExit" type="Boolean" description="Show the Save and Exit button"  default="false" />
+	<aura:attribute name="ShowSkip" type="Boolean" description="Show the Skip button" default="false" />
+	<aura:attribute name="ShowSaveAdd" type="Boolean" description="Show Save and Add another button" default="false"/>
+	<aura:attribute name="SkipLabel" type="String" description="Label of the Skip button" />
+	<aura:attribute name="SaveAddLabel" type="String" description="Label of the Save and Add another"/>
+
+    <aura:attribute name="showError" type="Boolean" access="public"/>
+    <aura:attribute name="errorMessage" type="String"  access="public"/>
+
+    <aura:attribute name="SaveDisabled" type="Boolean" description="Flag to disable Save functions" default="false" access="public" />
+    <aura:Attribute name="RecordIdIsApplication" type="Boolean" />
+
+	<aura:attribute name="Action" type="String" description="Next Action to perform"   />
+	<aura:attribute name="Navigation" type="dx_cmpNavigation__mdt[]" description="Holds the navigation information" />
+	<aura:attribute name="ActiveCmp" type="String" description="Active component Name" />
+	<aura:attribute name="ActiveCmpCount" type="Integer" description="Nmber of Active components" />
+	<aura:attribute name="ActiveLicenseType" type="String" description="Active LicenseType - used to facilitate navigation" />
+    <aura:attribute name="AppRecordType" type="String" description="Application Record Type - used to facilitate navigation" />    
+    <aura:attribute name="SitePrefix" type="String" description="Site Prefix in case anyone needs it" />    
+    
+
+    <aura:attribute name="DevRecordId" type="String" description="Development Record Id" default="" />
+    <aura:attribute name="DevMode" type="Boolean" description="Development mode flag" default="false" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    <aura:method name="spinnerOn" action="{!c.spinnerOn}" />
+    <aura:method name="spinnerOff" action="{!c.spinnerOff}" />
+    <aura:method name="SaveComplete" action="{!c.SaveComplete}" />
+    <aura:method name="EmptyComponent" action="{!c.EmptyComponent}" />
+    <aura:method name="saveInvoked" action="{!c.saveInvoked}" />
+
+    <aura:handler name="CommitChange" event="c:dx_actionComplete" action="{!c.saveInvoked}" />    
+    <aura:handler name="NextOnlyEvent" event="c:dx_actionComplete" action="{!c.nextOnlyInvoked}" />
+    <aura:handler name="change" value="{!v.errorMessage}" action="{!c.ErrorMsgChanged}"/>
+
+
+  	<div>
+
+  	  	<div class="dx_StatusBarAppSummary" >
+    		<c:dx_StatusBarAppSummary aura:id="dx_StatusBarAppSummary" recordId="{!v.recordId}" />
+    	</div>
+
+		<aura:If isTrue="{!v.showError}">
+            <div id="error" >
+                <ui:outputRichText value="{!v.errorMessage}" />
+            </div>
+        </aura:If>
+        
+		<div aura:id="stdPageAbs" class="stdPageAbs">{!v.body}</div>
+
+
+		<div  >
+    	   <c:dx_footerButtonsStd ShowNext="{!v.ShowNext}" ShowExitNoSave="{!v.ShowExitNoSave}" ShowSaveExit="{!v.ShowSaveExit}" ShowSkip="{!v.ShowSkip}" ShowSaveAdd="{!v.ShowSaveAdd}" SkipLabel="{!v.SkipLabel}" SaveAddLabel="{!v.SaveAddLabel}" dx_SaveInvoked="{!c.saveInvoked}" dx_NextOnlyInvoked="{!c.nextOnlyInvoked}" />  
+    	</div>
+
+        <div class="slds-spinner_container slds-hide slds-is-fixed" aura:id="spinner">
+            <lightning:spinner variant="brand" size="large"  alternativeText="Waiting on an action to complete"/>
+        </div>
+    </div>
+</aura:component>

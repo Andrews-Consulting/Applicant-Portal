@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <webLinks>
+        <label><!-- My_Cart --></label>
+        <name>BGBK__My_Cart</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Pay_Cart --></label>
+        <name>Pay_Cart</name>
+    </webLinks>
+</CustomObjectTranslation>

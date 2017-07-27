@@ -1,0 +1,35 @@
+<Libraries>
+	<Library Name="cmbLibraryAllConfig" VirtualDirectory="" ActualDirectory="/servlet/servlet.FileDownload?file=01N600000009EAR" Load='true' LoadState='false'></Library>
+	<Library Name="MapPane.xsl" VirtualDirectory="/widget/MapPane.xsl" ActualDirectory="/servlet/servlet.FileDownload?file=01560000000FdLu" Load='false' LoadState='false'></Library>
+	<Library Name="Button.xsl" VirtualDirectory="/widget/Button.xsl" ActualDirectory="/servlet/servlet.FileDownload?file=01560000000FdLa" Load='false' LoadState='false'></Library>
+	<Library Name="CursorTrack.xsl" VirtualDirectory="/widget/CursorTrack.xsl" ActualDirectory="/servlet/servlet.FileDownload?file=01560000000FdLz" Load='false' LoadState='false'></Library>
+	<Library Name="Legend.xsl" VirtualDirectory="/widget/Legend.xsl" ActualDirectory="/servlet/servlet.FileDownload?file=01560000000FdMJ" Load='false' LoadState='false'></Library>
+	<Library Name="TransactionResponse.xsl" VirtualDirectory="/widget/TransactionResponse.xsl" ActualDirectory="/servlet/servlet.FileDownload?file=01560000000FdMO" Load='false' LoadState='false'></Library>
+	<Library Name="context.xml" VirtualDirectory="context.xml" ActualDirectory="/servlet/servlet.FileDownload?file=01560000000FdNb" Load='false' LoadState='false'></Library>
+	<Library Name="GetFeatureInfo.xsl" VirtualDirectory="/tool/GetFeatureInfo.xsl" ActualDirectory="/servlet/servlet.FileDownload?file=01560000000Fdk6" Load='false' LoadState='false'></Library>
+	<Library Name="FeatureInfo.xsl" VirtualDirectory="/widget/FeatureInfo.xsl" ActualDirectory="/servlet/servlet.FileDownload?file=01560000000FdkB" Load='false' LoadState='false'></Library>
+	<Library Name="GmlRendererWZ.xsl" VirtualDirectory="/widget/GmlRendererWZ.xsl" ActualDirectory="/servlet/servlet.FileDownload?file=01560000000Fdm7" Load='false' LoadState='false'></Library>
+	<Library Name="GmlCooordinates2Coord.xsl" VirtualDirectory="/widget/GmlCooordinates2Coord.xsl" ActualDirectory="/servlet/servlet.FileDownload?file=01560000000Fdm8" Load='false' LoadState='false'></Library>
+	<Library Name="FeatureList.xsl" VirtualDirectory="/widget/FeatureList.xsl" ActualDirectory="/servlet/servlet.FileDownload?file=01560000000FdmC" Load='false' LoadState='false'></Library>
+
+	
+	<Library Name="MapTitle.xsl" VirtualDirectory="/widget/MapTitle.xsl" ActualDirectory="/servlet/servlet.FileDownload?file=01560000000Fbco" Load='false' LoadState='false'></Library>
+	<Library Name="locatorMap.xml" VirtualDirectory="/context/locatorMap.xml" ActualDirectory="/servlet/servlet.FileDownload?file=01560000000Fbcy" Load='false' LoadState='false'></Library>
+	<Library Name="GmlRenderer.xsl" VirtualDirectory="/widget/GmlRenderer.xsl" ActualDirectory="/servlet/servlet.FileDownload?file=01560000000Fbct" Load='false' LoadState='false'></Library>
+	<Library Name="ZoomInEnable.png" VirtualDirectory="/images/ZoomInEnable.png" ActualDirectory="/servlet/servlet.FileDownload?file=01560000000Fbgw" Load='false' LoadState='false'></Library>
+	<Library Name="ZoomInDisable.png" VirtualDirectory="/images/ZoomInDisable.png" ActualDirectory="/servlet/servlet.FileDownload?file=01560000000Fbgv" Load='false' LoadState='false'></Library>
+	<Library Name="ZoomOutEnable.png" VirtualDirectory="/images/ZoomOutEnable.png" ActualDirectory="/servlet/servlet.FileDownload?file=01560000000Fbh0" Load='false' LoadState='false'></Library>
+	<Library Name="ZoomOutDisable.png" VirtualDirectory="/images/ZoomOutDisable.png" ActualDirectory="/servlet/servlet.FileDownload?file=01560000000Fbgx" Load='false' LoadState='false'></Library>
+	<Library Name="PanEnable.png" VirtualDirectory="/images/PanEnable.png" ActualDirectory="/servlet/servlet.FileDownload?file=01560000000Fbgm" Load='false' LoadState='false'></Library>
+	<Library Name="PanDisable.png" VirtualDirectory="/images/PanDisable.png" ActualDirectory="/servlet/servlet.FileDownload?file=01560000000Fbgl" Load='false' LoadState='false'></Library>
+	<Library Name="ResetExtentDisable.png" VirtualDirectory="/images/ResetExtentDisable.png" ActualDirectory="/servlet/servlet.FileDownload?file=01560000000Fbh6" Load='false' LoadState='false'></Library>
+	<Library Name="ResetExtentEnable.png" VirtualDirectory="/images/ResetExtentEnable.png" ActualDirectory="/servlet/servlet.FileDownload?file=01560000000Fbh5" Load='false' LoadState='false'></Library>
+	<Library Name="QueryDisable.png" VirtualDirectory="/images/QueryDisable.png" ActualDirectory="/servlet/servlet.FileDownload?file=01560000000Fe62" Load='false' LoadState='false'></Library>
+	<Library Name="QueryEnable.png" VirtualDirectory="/images/QueryEnable.png" ActualDirectory="/servlet/servlet.FileDownload?file=01560000000Fe67" Load='false' LoadState='false'></Library>
+	<Library Name="widgetText.xml" VirtualDirectory="/widgetText.xml" ActualDirectory="/servlet/servlet.FileDownload?file=01560000000Fbfd" Load='false' LoadState='false'></Library>
+	<Library Name="Loading.gif" VirtualDirectory="/images/Loading.gif" ActualDirectory="/servlet/servlet.FileDownload?file=01560000000FdRO" Load='false' LoadState='false'></Library>
+	<Library Name="Spacer.gif" VirtualDirectory="/images/Spacer.gif" ActualDirectory="/servlet/servlet.FileDownload?file=01560000000FdRd" Load='false' LoadState='false'></Library>
+	<Library Name="id.gif" VirtualDirectory="/images/id.gif" ActualDirectory="/servlet/servlet.FileDownload?file=01560000000Fe6M" Load='false' LoadState='false'></Library>
+	<Library Name="MapTitle.xsl" VirtualDirectory="" ActualDirectory="/servlet/servlet.FileDownload?file=01560000000Fbco" Load='false' LoadState='false'></Library>
+	<Library Name="locatorMap.xml" VirtualDirectory="locatorMap.xml" ActualDirectory="/servlet/servlet.FileDownload?file=01560000000Fbcy" Load='false' LoadState='false'></Library>
+</Libraries>

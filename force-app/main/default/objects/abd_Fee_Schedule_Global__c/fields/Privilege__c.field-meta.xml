@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Privilege__c</fullName>
+    <externalId>false</externalId>
+    <label>Privilege</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Brew Pub</fullName>
+                <default>false</default>
+                <label>Brew Pub</label>
+            </value>
+            <value>
+                <fullName>Catering</fullName>
+                <default>false</default>
+                <label>Catering</label>
+            </value>
+            <value>
+                <fullName>High Proof Brew Pub</fullName>
+                <default>false</default>
+                <label>High Proof Brew Pub</label>
+            </value>
+            <value>
+                <fullName>Living Quarters</fullName>
+                <default>false</default>
+                <label>Living Quarters</label>
+            </value>
+            <value>
+                <fullName>Outdoor Service</fullName>
+                <default>false</default>
+                <label>Outdoor Service</label>
+            </value>
+            <value>
+                <fullName>Sunday Sales</fullName>
+                <default>false</default>
+                <label>Sunday Sales</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

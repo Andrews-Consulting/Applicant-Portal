@@ -1,0 +1,14 @@
+.THIS .titleClass {
+	font-size: x-large;
+	font-weight: bold;
+	padding: .25em;
+	margin-bottom: .25em;
+	text-transform: uppercase;
+}
+
+.THIS .licenseOption {
+	margin-bottom: 2em;
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}

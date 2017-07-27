@@ -1,0 +1,11 @@
+<design:component >
+    
+    <design:attribute name="beerDistributor_URL" />
+	<design:attribute name="highProofBeer_URL" />
+	<design:attribute name="nativeBeer_URL" />
+	<design:attribute name="highProofNativeBeer_URL" />
+	<design:attribute name="wineDistributor_URL" />
+	<design:attribute name="nativeWine_URL" />
+	<design:attribute name="directShipperofWine_URL" />
+
+</design:component>

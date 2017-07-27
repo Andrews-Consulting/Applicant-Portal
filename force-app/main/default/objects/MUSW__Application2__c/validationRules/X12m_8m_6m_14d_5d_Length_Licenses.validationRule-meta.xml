@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X12m_8m_6m_14d_5d_Length_Licenses</fullName>
+    <active>true</active>
+    <description>Validates that the length of the license is 12 months, 8 months, 6 months, 14 days, or 5 days for certain License types</description>
+    <errorConditionFormula>AND(
+NOT(TEXT( abd_Application_Type__c ) = "Additional Locations"),
+NOT(TEXT( abd_Application_Type__c ) = "Transfer License"),
+IF(CASE( 
+TEXT( abd_Length__c ),
+"12 months","TRUE",
+"8 months","TRUE",
+"6 months","TRUE",
+"14 days","TRUE",
+"5 days","TRUE",
+"FALSE"
+)="TRUE",False,True),
+NOT(TEXT( MUSW__Status__c )= "Pending"),
+IF(CASE(
+TEXT(  abd_Primary_License__r.abd_License_Type__c  ),
+"BB","TRUE",
+"BW","TRUE",
+"LA","TRUE",
+"LB","TRUE",
+"LC","TRUE",
+"LD","TRUE",
+"WBN","TRUE",
+"WCN","TRUE",
+"FALSE")="TRUE",True,False)  
+)</errorConditionFormula>
+    <errorDisplayField>abd_Length__c</errorDisplayField>
+    <errorMessage>This license type must have a length of 12 months, 8 months, 6 months, 14 days, or 5 days.</errorMessage>
+</ValidationRule>

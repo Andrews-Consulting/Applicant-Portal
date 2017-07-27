@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Contact Type --></label>
+    <name>MUSW__Contact_Type__c</name>
+    <picklistValues>
+        <masterLabel>Agent</masterLabel>
+        <translation><!-- Agent --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Applicant</masterLabel>
+        <translation><!-- Applicant --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Attorney</masterLabel>
+        <translation><!-- Attorney --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Business Owner</masterLabel>
+        <translation><!-- Business Owner --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Emergency Contact</masterLabel>
+        <translation><!-- Emergency Contact --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Interested Party</masterLabel>
+        <translation><!-- Interested Party --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Manager</masterLabel>
+        <translation><!-- Manager --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Owner</masterLabel>
+        <translation><!-- Owner --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Shareholder</masterLabel>
+        <translation><!-- Shareholder --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

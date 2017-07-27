@@ -1,0 +1,7 @@
+<aura:component extends="c:dx_StdPageAbstraction" implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" access="global">
+	<aura:set attribute="ActiveCmp" value="dx_PC_ReviewApplication" />
+	<aura:set attribute="SaveDisabled" value="false" />
+	<div aura:id="dx_PC_ReviewApplicationDiv">
+		<c:dx_ReviewApplication SaveCompleted="{!c.SaveComplete}" EmptyComponent="{!c.EmptyComponent}" showError="{!v.showError}" errorMessage="{!v.errorMessage}" aura:id="dx_PC_ReviewApplication" recordId="{#v.recordId}"/>
+	</div>
+</aura:component>

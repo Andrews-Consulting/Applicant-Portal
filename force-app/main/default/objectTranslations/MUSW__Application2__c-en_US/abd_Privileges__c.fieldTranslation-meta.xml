@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Privileges --></label>
+    <name>abd_Privileges__c</name>
+    <picklistValues>
+        <masterLabel>Sunday Sales</masterLabel>
+        <translation><!-- Sunday Sales --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

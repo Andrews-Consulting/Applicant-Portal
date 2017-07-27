@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>View_Checklist</fullName>
+    <availability>online</availability>
+    <description>allows user to see full checklist after it has been submitted</description>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>View Checklist</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>window.location = '/BGCK/QuestionChecklist2.app?pid={!MUSW__Application2__c.Id}&amp;mode=read';</url>
+</WebLink>

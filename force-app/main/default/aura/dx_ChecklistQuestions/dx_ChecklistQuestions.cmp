@@ -1,0 +1,26 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" controller="DX_DynamicChecklistQuestions" access="global" extensible="true" >
+
+    <aura:attribute name="questionBlock" type="Object" />
+    <!-- <aura:attribute name="showError" type="Boolean" required="true" description="" default="false" access="private" />
+    <aura:attribute name="errorMessage" type="string" required="false" description="" access="private" /> 
+-->
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+<!--
+    <aura:renderIf isTrue="{!v.showError}">
+            <div id="error">
+                <ui:outputRichText value="{!v.errorMessage}" />
+            </div>
+        </aura:renderIf> -->
+        <div id="slds-form-element slds-is-required" class="slds-container--left slds-container--medium">
+            <ui:outputRichText value="{!v.questionBlock.question.q.BGCK__Question__r.BGCK__Body__c}" />
+            <c:dx_ChecklistAnswers questionType="{!v.questionBlock.question.qt}" response="{!v.questionBlock.question.response}"/>
+            <aura:renderIf isTrue="{!v.questionBlock.question.response.Name != 'Not Answered Yet'}">
+            	<aura:iteration items="{!v.questionBlock.subQuestions}" var="sq">
+            		<aura:renderIf isTrue="{!(v.questionBlock.question.response.Name == sq.q.BGCK__Criteria__c)}">
+             			<ui:outputRichText value="{!sq.q.BGCK__Question__r.BGCK__Body__c}"/>
+           				<c:dx_ChecklistAnswers questionType="{!sq.qt}" response="{!sq.response}" questionId="{!sq.q.Id}"/>
+            		</aura:renderIf>
+             	</aura:iteration>
+            </aura:renderIf>
+        </div>
+</aura:component>

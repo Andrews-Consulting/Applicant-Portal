@@ -1,0 +1,64 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,force:appHostable" access="global">
+	<aura:attribute name="page" type="string" description="" default="Login"/>
+	
+	<aura:if isTrue="{!v.page=='Home'}">
+		<div>
+			<center>
+				<h1>Welcome to the Alcohol Licensing Interface System (ALIS) website.</h1>
+			</center>
+		</div>
+	</aura:if>
+	<aura:if isTrue="{!v.page=='Login'}">
+		<div>
+			<center>
+				<h1>Welcome to the Iowa ABD Alcohol Licensing Interface System (ALIS) website.<br/>  
+				If you have not used this site before, please register as a new user.</h1>
+			</center>
+		</div>
+	</aura:if>
+	<aura:if isTrue="{!v.page=='Password'}">
+		<div>
+			<center>
+				<h1>If you have forgotten your password, please enter your email address that you<br/>  
+				use to sign in and press the Forgot Password button.</h1>
+			</center>
+		</div>
+	</aura:if>
+	<aura:if isTrue="{!v.page=='Username'}">
+		<div>
+			<center>
+				<h1>If you have forgotten your username (sign in email address), please provide your<br/>  
+				current email address and press the Forgot Username button.</h1>
+			</center>
+		</div>
+	</aura:if>
+	<aura:if isTrue="{!v.page=='Register'}">
+		<div>
+			<center>
+				<h1>To register as a new user, please enter your name, email, and a password.<br/>  
+				Your signon will be your email address.</h1>
+			</center>
+		</div>
+	</aura:if>
+	<aura:if isTrue="{!v.page=='OwnerSearch'}">
+		<div>
+			<center>
+				<h1>To connect to an existing account, please enter the Name and SSN of an<br/>  
+				owner on an active license.</h1>
+			</center>
+		</div>
+	</aura:if>
+	<aura:if isTrue="{!v.page=='Tutorial'}">
+		<div>
+			<center>
+				<h1>Welcome to the Iowa Alcohol Licensing Interface System (ALIS) website.<br/>  
+				Please take a moment to view this tutorial on how to use this website.</h1>
+			</center>
+		</div>
+	</aura:if>
+	<aura:if isTrue="{!v.page=='Submission'}">
+		<div>
+			<h1>Support Document submission<br/></h1>
+		</div>
+	</aura:if>
+</aura:component>

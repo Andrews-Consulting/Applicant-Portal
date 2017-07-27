@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- The expected BasicGov name to (:) the external REST Service parameter name. e.g. MUSW__Parcel_Number2__c:APN. The parameter has to be already defined in Traverse Instructions. --></help>
+    <label><!-- Request ID Map --></label>
+    <name>MUSW__ID_Map__c</name>
+</CustomFieldTranslation>

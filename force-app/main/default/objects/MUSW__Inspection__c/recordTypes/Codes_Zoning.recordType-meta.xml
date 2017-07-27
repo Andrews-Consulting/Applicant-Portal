@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Codes_Zoning</fullName>
+    <active>true</active>
+    <label>Codes / Zoning</label>
+    <picklistValues>
+        <picklist>Checklist_Type__c</picklist>
+        <values>
+            <fullName>Business - Other Checklist</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Helen Checklist</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lodging Checklist</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Optional Questions</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Restaurant Checklist</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Subquestions Checklist</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Group__c</picklist>
+        <values>
+            <fullName>Building</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Electrical</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>MUSW__Priority__c</picklist>
+        <values>
+            <fullName>1 Low</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2 Normal</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>3 High</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>MUSW__Status__c</picklist>
+        <values>
+            <fullName>Approved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Completed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Denied</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pending</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Scheduled</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>MUSW__Type__c</picklist>
+        <values>
+            <fullName>Complaint Inspection</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reinspection</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Site Inspection</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

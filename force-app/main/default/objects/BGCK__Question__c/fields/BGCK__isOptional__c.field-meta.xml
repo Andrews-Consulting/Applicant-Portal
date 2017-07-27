@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BGCK__isOptional__c</fullName>
+    <defaultValue>false</defaultValue>
+    <deprecated>false</deprecated>
+    <description>if true, do not enforce question to be answered on save or save and complete</description>
+    <externalId>false</externalId>
+    <label>Optional</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

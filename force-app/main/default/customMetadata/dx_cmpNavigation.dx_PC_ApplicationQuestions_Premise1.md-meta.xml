@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>dx_PC_ApplicationQuestions_Premise</label>
+    <protected>false</protected>
+    <values>
+        <field>CmpHome__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>DetailCmp__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>NextCmp__c</field>
+        <value xsi:type="xsd:string">dx_PC_Submissions</value>
+    </values>
+    <values>
+        <field>PrevCmp__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>SaveAddLabel__c</field>
+        <value xsi:type="xsd:string">Save and Add another</value>
+    </values>
+    <values>
+        <field>ShowExitNoSaveButton__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>ShowNextButton__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>ShowSaveAddButton__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>ShowSaveExitButton__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>ShowSkipButton__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>SkipLabel__c</field>
+        <value xsi:type="xsd:string">Skip this</value>
+    </values>
+    <values>
+        <field>ValidLicenseTypeList__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Valid_for_App_Record_Types__c</field>
+        <value xsi:type="xsd:string">Transfer of License/Permit Application; Premises Update Application; Additional Locations Application; Add Privilege</value>
+    </values>
+</CustomMetadata>

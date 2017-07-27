@@ -1,0 +1,48 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,force:appHostable" controller="DX_TutorialController" access="global">
+
+    <aura:attribute name="documents" type="object[]" />
+    <aura:attribute name="showError" type="Boolean" required="true" description="" default="false" access="private" />
+    <aura:attribute name="errorMessage" type="string" required="false" description="" access="private" />
+    <aura:attribute name="slideIndex" type="Integer" required="true" default="0"/>
+
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <div class="slds-grid slds-wrap slds-grid--pull-padded">
+    	<div class="slds-col slds-size--1-of-1 skip">
+    		<a  href="javascript:void(0);"><span onclick="{!c.setCookie}">Skip</span></a> tutorials	
+    	</div>
+    	<div class="slds-col slds-size--1-of-1">
+		    <aura:If isTrue="{!v.showError}">
+				<div id="error">
+					<ui:outputRichText value="{!v.errorMessage}" />
+				</div>
+		    </aura:If>
+		        
+		    <div class="slideshow-container">
+		    	<aura:if isTrue="{!v.documents.length>0}">
+			    	<aura:iteration items="{!v.documents}" var="docu" indexVar="i">
+				        <div class="mySlides fade" aura:id="mySlides">
+				        	<aura:if isTrue="{!docu.dtype != 'application/pdf'}">
+				            	<c:dx_tutorialVideo url="{!docu.surl}"/>
+				            </aura:if>
+				            <aura:if isTrue="{!docu.dtype == 'application/pdf'}">
+				            	<c:dx_tutorialDoc pdfData="{!docu.dbody}" base="{!docu.burl}"/>
+				            </aura:if>
+				        </div>
+				    </aura:iteration>
+				</aura:if>
+		        
+		        <a class="prev" onclick="{!c.minusSlides}"><lightning:icon iconName="utility:chevronleft" size="large" alternativeText="previous"/></a>
+		        <a class="next" onclick="{!c.plusSlides}"><lightning:icon iconName="utility:chevronright" size="large" alternativeText="next"/></a>
+		    </div>
+		    <br/>
+		
+		    <div style="text-align:center">
+			    <aura:iteration items="{!v.documents}" var="docu" indexVar="i">
+			    	<a href="javascript:void(0);">
+			        <span class="dot" onclick="{!c.currentSlide}" name="{!i}" title="{!i}" aura:id="dot"></span></a>
+			    </aura:iteration>
+		    </div>
+		</div>
+	</div>
+
+</aura:component>

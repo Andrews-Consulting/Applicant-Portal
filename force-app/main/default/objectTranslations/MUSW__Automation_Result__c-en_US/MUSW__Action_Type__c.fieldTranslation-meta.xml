@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Action Type --></label>
+    <name>MUSW__Action_Type__c</name>
+    <picklistValues>
+        <masterLabel>Add Adjusted Calendar Days</masterLabel>
+        <translation><!-- Add Adjusted Calendar Days --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Add Business Day Hours</masterLabel>
+        <translation><!-- Add Business Day Hours --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Add Business Days</masterLabel>
+        <translation><!-- Add Business Days --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Add Calendar Days</masterLabel>
+        <translation><!-- Add Calendar Days --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Add Calendar Hours</masterLabel>
+        <translation><!-- Add Calendar Hours --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Add Error</masterLabel>
+        <translation><!-- Add Error --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Add Letter</masterLabel>
+        <translation><!-- Add Letter --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Add Notification</masterLabel>
+        <translation><!-- Add Notification --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Add Record</masterLabel>
+        <translation><!-- Add Record --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Add Record - Duplicate Check</masterLabel>
+        <translation><!-- Add Record - Duplicate Check --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Add Record - Restriction Check</masterLabel>
+        <translation><!-- Add Record - Restriction Check --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Add Records</masterLabel>
+        <translation><!-- Add Records --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Add Records - Duplicate Check</masterLabel>
+        <translation><!-- Add Records - Duplicate Check --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Clone Record</masterLabel>
+        <translation><!-- Clone Record --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Decrement Number</masterLabel>
+        <translation><!-- Decrement Number --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Divide Number</masterLabel>
+        <translation><!-- Divide Number --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Email Report</masterLabel>
+        <translation><!-- Email Report --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Increment Number</masterLabel>
+        <translation><!-- Increment Number --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Maximum</masterLabel>
+        <translation><!-- Maximum --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Minimum</masterLabel>
+        <translation><!-- Minimum --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Multiply Number</masterLabel>
+        <translation><!-- Multiply Number --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>New Value (Numeric Field)</masterLabel>
+        <translation><!-- New Value (Numeric Field) --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>New Value (Text Field)</masterLabel>
+        <translation><!-- New Value (Text Field) --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>New Value - Duplicate Check</masterLabel>
+        <translation><!-- New Value - Duplicate Check --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Send Email</masterLabel>
+        <translation><!-- Send Email --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Sum Numbers</masterLabel>
+        <translation><!-- Sum Numbers --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

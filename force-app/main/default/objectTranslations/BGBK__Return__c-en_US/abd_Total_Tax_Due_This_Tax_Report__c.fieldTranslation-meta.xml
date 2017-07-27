@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Total Tax Due This Tax Report --></label>
+    <name>abd_Total_Tax_Due_This_Tax_Report__c</name>
+</CustomFieldTranslation>

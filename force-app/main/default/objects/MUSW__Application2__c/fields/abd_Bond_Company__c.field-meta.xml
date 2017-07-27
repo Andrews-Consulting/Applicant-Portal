@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>abd_Bond_Company__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Company providing bond</inlineHelpText>
+    <label>Bond Company</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Bond_Companies</valueSetName>
+    </valueSet>
+</CustomField>

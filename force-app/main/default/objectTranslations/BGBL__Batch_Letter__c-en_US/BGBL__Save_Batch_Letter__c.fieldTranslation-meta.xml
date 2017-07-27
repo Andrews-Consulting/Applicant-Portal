@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Create and save large stitched file on server. Cannot be unchecked if also not Attaching --></help>
+    <label><!-- Save Large Batch File --></label>
+    <name>BGBL__Save_Batch_Letter__c</name>
+</CustomFieldTranslation>

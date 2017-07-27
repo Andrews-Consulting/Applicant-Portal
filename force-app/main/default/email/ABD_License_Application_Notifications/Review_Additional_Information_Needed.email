@@ -1,0 +1,10 @@
+Application {!MUSW__Review__c.MUSW__Application2__c} has failed a review.
+
+Please update your submission(s) based on the comments below.
+{!MUSW__Review__c.Comments__c}
+
+{Link TBD}
+
+Thank you,
+ 
+Iowa Alcoholic Beverages Division

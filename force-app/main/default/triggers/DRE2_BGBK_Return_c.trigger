@@ -1,0 +1,1 @@
+trigger DRE2_BGBK_Return_c on BGBK__Return__c (after insert, before update, before delete, after undelete) { DRE.DREManager.runTrigger(); }

@@ -1,0 +1,95 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,force:appHostable,force:hasRecordId" controller="DX_PremiseForm" access="global">
+
+	<aura:attribute name="showError" type="Boolean"  />
+	<aura:attribute name="errorMessage" type="String" />
+
+	<aura:attribute name="app" type="MUSW__Application2__c" default="{'sobjectType':'MUSW__Application2__c'}" />
+	<aura:attribute name="lic" type="MUSW__License2__c" default="{'sobjectType':'MUSW__License2__c'}" />
+
+	<aura:registerevent name="SaveCompleted" type="c:dx_actionComplete" />
+	<aura:registerevent name="EmptyComponent" type="c:dx_actionComplete" />
+
+	<aura:method name="PerformSave" action="{!c.save}"  />
+	<aura:method name="PerformInit" action="{!c.doInit}"  />
+
+	<div class="slds-grid slds-wrap padded">
+		<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-7" />
+		<div class="slds-col slds-size--1-of-1 slds-medium-size--6-of-7">
+			<h1>Update Premises Application</h1>
+		</div>
+		<br />
+		<!-- Row 1		 -->
+		<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-7" />
+		<div class="slds-col slds-size--1-of-1 slds-medium-size--6-of-7">
+			<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--large">
+				<lightning:textarea label="Please describe the update" name="description" required="true" value="{!v.app.abd_Premise_Change_Information__c}" maxlength="32768"/>
+			</div>
+		</div>
+		<!-- Row 2 -->
+		<div class="slds-grid slds-wrap padded slds-hide" aura:id="OSQuestion">
+			<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-7" />
+			<div class="slds-col slds-size--1-of-1 slds-medium-size--6-of-7">
+				<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--large">
+					<lightning:textarea label="Please describe the Outdoor Service Area Boundaries" name="boundaries" required="true" value="{!v.app.abd_Outdoor_Service_Area_Boundary_Info__c}" maxlength="32768"/>
+				</div>
+			</div>
+		</div>
+
+		<div class="slds-col slds-size--1-of-1">&nbsp;</div>
+
+		<!-- Row 3 -->
+
+		<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-7" />
+		<div class="slds-col slds-size--1-of-1 slds-medium-size--2-of-7">
+			<ui:outputText value="Type of Change" class="slds-text-heading_medium" />
+			<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small padded" aura:id="port">
+				<div class="slds-grid slds-wrap">
+					<lightning:input type="radio" label="Permanent" value="Permanent" name="port" checked="true" onchange="{!c.radioChange}"/>
+					<lightning:input type="radio" label="Temporary" value="Temporary" name="port" onchange="{!c.radioChange}"/>
+				</div>
+			</div>
+			<div class="slds-grid slds-wrap">
+				<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-2">
+					<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small">
+						<ui:inputDate label="Start Date" required="true" value="{!v.app.abd_Effective_Date__c}" displayDatePicker="true" />
+					</div>
+				</div>
+				<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-2">
+					<aura:renderIf isTrue="{!v.app.abd_Temporary_or_Permanent__c=='Temporary'}">
+						<div id="slds-form-element slds-is-required" class="slds-container--right slds-container--small">
+							<ui:inputDate label="End Date" required="true" value="{!v.app.abd_Effective_End_Date__c}" displayDatePicker="true" />
+						</div>
+					</aura:renderIf>
+				</div>
+			</div>
+		</div>
+		<div class="slds-col slds-size--1-of-1 slds-medium-size--4-of-7" />
+		<!-- Row 4  -->
+
+		<div class="slds-col slds-size--1-of-1">&nbsp;</div>
+
+		<!-- Row 4  -->
+
+		<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-7" />
+		<div class="slds-col slds-size--1-of-1 slds-medium-size--6-of-7">
+			<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--medium slds-hide" aura:id="LEQuestion">
+				<lightning:input label="Square footage of the entire interior area of the building, including, but not limited to, 
+                                    all areas used in the storage, distribution, wholesale and retail sale of merchandise, offices, 
+                                    bathrooms, break rooms etc." name="abd_Square_Footage__c" required="true" value="{!v.app.abd_Square_Footage__c}" onchange="{!c.handleSqChange}" pattern="^(0|[1-9]\d*)$" messageWhenPatternMismatch="Your entry must be a valid number."/>
+			</div>
+		</div>
+		<!-- Row 5 -->
+		<div class="slds-col slds-size--1-of-1">&nbsp;</div>
+		<!-- Row 5 -->
+
+		<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-7" />
+		<div class="slds-col slds-size--1-of-1 slds-medium-size--6-of-7">
+			<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--medium slds-hide" aura:id="BCQuestion">
+				<lightning:input label="Square footage of the entire retail sales area of the business, including area of walk-in coolers 
+                                    that are accessible to the public. This includes all areas where non-alcohol products are also sold. 
+                                    Do not include areas that are not accessible to the public (offices, bathroom, kitchen, storage area etc.)." 
+                                    name="Square_Footage_Retail_Area__c" required="true" value="{!v.app.Square_Footage_Retail_Area__c}" onchange="{!c.handleSqChange}" pattern="^(0|[1-9]\d*)$" messageWhenPatternMismatch="Your entry must be a valid number." />
+			</div>
+		</div>
+	</div>
+</aura:component>

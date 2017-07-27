@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlexiPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>page</name>
+                <value>Login</value>
+            </componentInstanceProperties>
+            <componentName>dx_headerText</componentName>
+        </componentInstances>
+        <name>header</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <name>sidebar</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>defaultStartURL</name>
+                <value>/dx-licensewizard1</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>forgotPasswordLabel</name>
+                <value>Forgot your User ID or Password?</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>forgotPasswordUrl</name>
+                <value>/dx-forgotpassword</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>forgotUsernameLabel</name>
+                <value>Forgot your username?</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>forgotUsernameUrl</name>
+                <value>/dx-forgotusername</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>loginButtonLabel</name>
+                <value>Log in</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>passwordLabel</name>
+                <value>Password</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>selfRegisterLabel</name>
+                <value>Register as a new User</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>selfRegisterUrl</name>
+                <value>/dx-register</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>startUrl</name>
+                <value>/dx-legal-disclaimer/</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>usernameLabel</name>
+                <value>User ID</value>
+            </componentInstanceProperties>
+            <componentName>dx_login</componentName>
+        </componentInstances>
+        <name>content</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <name>sidebarAlt</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <name>footer</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <masterLabel>DX_Login</masterLabel>
+    <template>
+        <name>siteforce:sldsThreeCol363Layout</name>
+    </template>
+    <type>CommAppPage</type>
+</FlexiPage>

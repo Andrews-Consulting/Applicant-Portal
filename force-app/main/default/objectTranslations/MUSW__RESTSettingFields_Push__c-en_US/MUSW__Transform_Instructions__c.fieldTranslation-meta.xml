@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Uses MS Access formulas to specify the source-to-dest data transformation. To concatenate text/values use the CONCAT function. eg. CONCAT(field1, &quot; &quot;, REPLACE(field2, &quot;xx&quot;, &quot;&quot;)). All fields referenced here must be from the Mapped Object --></help>
+    <label><!-- Transform Instructions --></label>
+    <name>MUSW__Transform_Instructions__c</name>
+</CustomFieldTranslation>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Allowed values: Push Only, Pull Only, Push then Pull, Pull then Push. This field is only used by Sync applications --></help>
+    <label><!-- Sync Operation --></label>
+    <name>MUSW__Sync_Operation__c</name>
+</CustomFieldTranslation>

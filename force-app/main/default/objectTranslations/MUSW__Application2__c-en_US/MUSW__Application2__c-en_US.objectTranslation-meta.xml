@@ -1,0 +1,635 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <layouts>
+        <layout>Add Priv or Lic to Existing Lic</layout>
+        <sections>
+            <label><!-- Action Items --></label>
+            <section>Action Items</section>
+        </sections>
+        <sections>
+            <label><!-- Appeals --></label>
+            <section>Appeals</section>
+        </sections>
+        <sections>
+            <label><!-- Bond Information --></label>
+            <section>Bond Information</section>
+        </sections>
+        <sections>
+            <label><!-- Compliance --></label>
+            <section>Compliance</section>
+        </sections>
+        <sections>
+            <label><!-- DRAM Policy Information --></label>
+            <section>DRAM Policy Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Effective Dates --></label>
+            <section>Effective Dates</section>
+        </sections>
+        <sections>
+            <label><!-- Financials --></label>
+            <section>Financials</section>
+        </sections>
+        <sections>
+            <label><!-- Premises Information --></label>
+            <section>Premises Information</section>
+        </sections>
+        <sections>
+            <label><!-- Status of Business --></label>
+            <section>Status of Business</section>
+        </sections>
+        <sections>
+            <label><!-- Watchlist --></label>
+            <section>Watchlist</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Additional Location Layout</layout>
+        <sections>
+            <label><!-- Action Items --></label>
+            <section>Action Items</section>
+        </sections>
+        <sections>
+            <label><!-- Additional Location Address --></label>
+            <section>Additional Location Address</section>
+        </sections>
+        <sections>
+            <label><!-- Appeals --></label>
+            <section>Appeals</section>
+        </sections>
+        <sections>
+            <label><!-- Compliance --></label>
+            <section>Compliance</section>
+        </sections>
+        <sections>
+            <label><!-- Effective Dates --></label>
+            <section>Effective Dates</section>
+        </sections>
+        <sections>
+            <label><!-- Watchlist Information --></label>
+            <section>Watchlist Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Auction Application Layout</layout>
+        <sections>
+            <label><!-- Action Items --></label>
+            <section>Action Items</section>
+        </sections>
+        <sections>
+            <label><!-- Appeals --></label>
+            <section>Appeals</section>
+        </sections>
+        <sections>
+            <label><!-- Auction Information --></label>
+            <section>Auction Information</section>
+        </sections>
+        <sections>
+            <label><!-- Compliance --></label>
+            <section>Compliance</section>
+        </sections>
+        <sections>
+            <label><!-- DRAM Policy Information --></label>
+            <section>DRAM Policy Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Effective Dates --></label>
+            <section>Effective Dates</section>
+        </sections>
+        <sections>
+            <label><!-- Financials --></label>
+            <section>Financials</section>
+        </sections>
+        <sections>
+            <label><!-- Premises Information --></label>
+            <section>Premises Information</section>
+        </sections>
+        <sections>
+            <label><!-- Status of Business --></label>
+            <section>Status of Business</section>
+        </sections>
+        <sections>
+            <label><!-- Watchlist --></label>
+            <section>Watchlist</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Dram Carrier Change Application</layout>
+        <sections>
+            <label><!-- Action Items --></label>
+            <section>Action Items</section>
+        </sections>
+        <sections>
+            <label><!-- Bond Information --></label>
+            <section>Bond Information</section>
+        </sections>
+        <sections>
+            <label><!-- Compliance --></label>
+            <section>Compliance</section>
+        </sections>
+        <sections>
+            <label><!-- DRAM Policy Information --></label>
+            <section>DRAM Policy Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Distilled Spirits Company --></label>
+            <section>Distilled Spirits Company</section>
+        </sections>
+        <sections>
+            <label><!-- Effective Dates --></label>
+            <section>Effective Dates</section>
+        </sections>
+        <sections>
+            <label><!-- Financials --></label>
+            <section>Financials</section>
+        </sections>
+        <sections>
+            <label><!-- Premise Information --></label>
+            <section>Premise Information</section>
+        </sections>
+        <sections>
+            <label><!-- Status of Business --></label>
+            <section>Status of Business</section>
+        </sections>
+        <sections>
+            <label><!-- Watchlist --></label>
+            <section>Watchlist</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Keg Application Layout</layout>
+        <sections>
+            <label><!-- Action Items --></label>
+            <section>Action Items</section>
+        </sections>
+        <sections>
+            <label><!-- Compliance --></label>
+            <section>Compliance</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Effective Dates --></label>
+            <section>Effective Dates</section>
+        </sections>
+        <sections>
+            <label><!-- Financials --></label>
+            <section>Financials</section>
+        </sections>
+        <sections>
+            <label><!-- Keg Booklet Information --></label>
+            <section>Keg Booklet Information</section>
+        </sections>
+        <sections>
+            <label><!-- Premises Information --></label>
+            <section>Premises Information</section>
+        </sections>
+        <sections>
+            <label><!-- Status of Business --></label>
+            <section>Status of Business</section>
+        </sections>
+        <sections>
+            <label><!-- Watchlist --></label>
+            <section>Watchlist</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Label Approval Application</layout>
+        <sections>
+            <label><!-- Action Items --></label>
+            <section>Action Items</section>
+        </sections>
+        <sections>
+            <label><!-- Appeals --></label>
+            <section>Appeals</section>
+        </sections>
+        <sections>
+            <label><!-- Compliance --></label>
+            <section>Compliance</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Effective Dates --></label>
+            <section>Effective Dates</section>
+        </sections>
+        <sections>
+            <label><!-- Premises Information --></label>
+            <section>Premises Information</section>
+        </sections>
+        <sections>
+            <label><!-- Status of Business --></label>
+            <section>Status of Business</section>
+        </sections>
+        <sections>
+            <label><!-- Watchlist --></label>
+            <section>Watchlist</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>New Application Layout</layout>
+        <sections>
+            <label><!-- Action Items --></label>
+            <section>Action Items</section>
+        </sections>
+        <sections>
+            <label><!-- Appeals --></label>
+            <section>Appeals</section>
+        </sections>
+        <sections>
+            <label><!-- Bond Information --></label>
+            <section>Bond Information</section>
+        </sections>
+        <sections>
+            <label><!-- Compliance --></label>
+            <section>Compliance</section>
+        </sections>
+        <sections>
+            <label><!-- DRAM Policy Information --></label>
+            <section>DRAM Policy Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Effective Dates --></label>
+            <section>Effective Dates</section>
+        </sections>
+        <sections>
+            <label><!-- Financials --></label>
+            <section>Financials</section>
+        </sections>
+        <sections>
+            <label><!-- Premises Information --></label>
+            <section>Premises Information</section>
+        </sections>
+        <sections>
+            <label><!-- Status of Business --></label>
+            <section>Status of Business</section>
+        </sections>
+        <sections>
+            <label><!-- Watchlist --></label>
+            <section>Watchlist</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Ownership Update Layout</layout>
+        <sections>
+            <label><!-- Action Items --></label>
+            <section>Action Items</section>
+        </sections>
+        <sections>
+            <label><!-- Appeals --></label>
+            <section>Appeals</section>
+        </sections>
+        <sections>
+            <label><!-- Bond Information --></label>
+            <section>Bond Information</section>
+        </sections>
+        <sections>
+            <label><!-- Compliance --></label>
+            <section>Compliance</section>
+        </sections>
+        <sections>
+            <label><!-- DRAM Policy Information --></label>
+            <section>DRAM Policy Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Effective Dates --></label>
+            <section>Effective Dates</section>
+        </sections>
+        <sections>
+            <label><!-- Financials --></label>
+            <section>Financials</section>
+        </sections>
+        <sections>
+            <label><!-- Premises Information --></label>
+            <section>Premises Information</section>
+        </sections>
+        <sections>
+            <label><!-- Status of Business --></label>
+            <section>Status of Business</section>
+        </sections>
+        <sections>
+            <label><!-- Watchlist --></label>
+            <section>Watchlist</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Premise Update Application Layout</layout>
+        <sections>
+            <label><!-- Action Items --></label>
+            <section>Action Items</section>
+        </sections>
+        <sections>
+            <label><!-- Appeals --></label>
+            <section>Appeals</section>
+        </sections>
+        <sections>
+            <label><!-- Compliance --></label>
+            <section>Compliance</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Effective Dates --></label>
+            <section>Effective Dates</section>
+        </sections>
+        <sections>
+            <label><!-- Financials --></label>
+            <section>Financials</section>
+        </sections>
+        <sections>
+            <label><!-- Premises Information --></label>
+            <section>Premises Information</section>
+        </sections>
+        <sections>
+            <label><!-- Status of Business --></label>
+            <section>Status of Business</section>
+        </sections>
+        <sections>
+            <label><!-- Watchlist --></label>
+            <section>Watchlist</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Renewal Application Layout</layout>
+        <sections>
+            <label><!-- Action Items --></label>
+            <section>Action Items</section>
+        </sections>
+        <sections>
+            <label><!-- Appeals --></label>
+            <section>Appeals</section>
+        </sections>
+        <sections>
+            <label><!-- Bond Information --></label>
+            <section>Bond Information</section>
+        </sections>
+        <sections>
+            <label><!-- Compliance --></label>
+            <section>Compliance</section>
+        </sections>
+        <sections>
+            <label><!-- DRAM Policy Information --></label>
+            <section>DRAM Policy Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Distilled Spirits Company --></label>
+            <section>Distilled Spirits Company</section>
+        </sections>
+        <sections>
+            <label><!-- Effective Dates --></label>
+            <section>Effective Dates</section>
+        </sections>
+        <sections>
+            <label><!-- Financials --></label>
+            <section>Financials</section>
+        </sections>
+        <sections>
+            <label><!-- Premise Information --></label>
+            <section>Premise Information</section>
+        </sections>
+        <sections>
+            <label><!-- Status of Business --></label>
+            <section>Status of Business</section>
+        </sections>
+        <sections>
+            <label><!-- Watchlist --></label>
+            <section>Watchlist</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Temporary Application Layout</layout>
+        <sections>
+            <label><!-- Action Items --></label>
+            <section>Action Items</section>
+        </sections>
+        <sections>
+            <label><!-- Appeals --></label>
+            <section>Appeals</section>
+        </sections>
+        <sections>
+            <label><!-- Bond Information --></label>
+            <section>Bond Information</section>
+        </sections>
+        <sections>
+            <label><!-- Compliance --></label>
+            <section>Compliance</section>
+        </sections>
+        <sections>
+            <label><!-- DRAM Policy Information --></label>
+            <section>DRAM Policy Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Distilled Spirits Company --></label>
+            <section>Distilled Spirits Company</section>
+        </sections>
+        <sections>
+            <label><!-- Effective Dates --></label>
+            <section>Effective Dates</section>
+        </sections>
+        <sections>
+            <label><!-- Financials --></label>
+            <section>Financials</section>
+        </sections>
+        <sections>
+            <label><!-- Premises Information --></label>
+            <section>Premises Information</section>
+        </sections>
+        <sections>
+            <label><!-- Status of Business --></label>
+            <section>Status of Business</section>
+        </sections>
+        <sections>
+            <label><!-- Watchlist --></label>
+            <section>Watchlist</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Transfer Application Layout</layout>
+        <sections>
+            <label><!-- Action Items --></label>
+            <section>Action Items</section>
+        </sections>
+        <sections>
+            <label><!-- Appeals --></label>
+            <section>Appeals</section>
+        </sections>
+        <sections>
+            <label><!-- Bond Information --></label>
+            <section>Bond Information</section>
+        </sections>
+        <sections>
+            <label><!-- Compliance --></label>
+            <section>Compliance</section>
+        </sections>
+        <sections>
+            <label><!-- DRAM Policy Information --></label>
+            <section>DRAM Policy Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Effective Dates --></label>
+            <section>Effective Dates</section>
+        </sections>
+        <sections>
+            <label><!-- Premises Information --></label>
+            <section>Premises Information</section>
+        </sections>
+        <sections>
+            <label><!-- Status of Business --></label>
+            <section>Status of Business</section>
+        </sections>
+        <sections>
+            <label><!-- Watchlist --></label>
+            <section>Watchlist</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Add Privilege or License to Existing License --></label>
+        <name>Add_Privilege_or_License_to_Existing_License</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Additional Locations Application --></label>
+        <name>Additional_Locations_Application</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Auction Application --></label>
+        <name>Auction_Application</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Dram Carrier Change Application --></label>
+        <name>Dram_Carrier_Change_Application</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Keg Registration --></label>
+        <name>Keg_Registration</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Label Approval --></label>
+        <name>Label_Approval</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- New Application --></label>
+        <name>New_Application</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Ownership Update --></label>
+        <name>Ownership_Update</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Premises Update Application --></label>
+        <name>Premise_Update_Application</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Renewal Application --></label>
+        <name>Renewal_Application</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Temporary Application --></label>
+        <name>Temporary_Application</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Transfer of License/Permit Application --></label>
+        <name>Transfer_of_License_Permit_Application</name>
+    </recordTypes>
+    <validationRules>
+        <errorMessage><!-- Application Expiration Date must be less than Primary License Expiration Date --></errorMessage>
+        <name>Expiration_Check_Date</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- For Temp Premise Update Applications, an End Date is required --></errorMessage>
+        <name>Prem_Update_Temp_End_DateReq</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The Start date of the application cannot be before that of the current/primary license starte date --></errorMessage>
+        <name>Start_Date</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Temporary Transfer License Application cannot exceed 7 days --></errorMessage>
+        <name>Transfer_Temp_GT_7_Days</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- This license type must have a length of 12 months. --></errorMessage>
+        <name>X12_Month_Length_Licenses</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- This license type must have a length of 12 months, 8 months, 6 months, 14 days, or 5 days. --></errorMessage>
+        <name>X12m_8m_6m_14d_5d_Length_Licenses</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- This license type must have a length of 12 months, 8 months, or 6 months. --></errorMessage>
+        <name>X12m_8m_6m_Length_Licenses</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- This license type must have a length of 36 hours. --></errorMessage>
+        <name>X36_Hour_Length_Licenses</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- This license type must have a length of Permanent. --></errorMessage>
+        <name>XPermanent_Length_Licenses</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Checklist --></label>
+        <name>Checklist</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Letter --></label>
+        <name>Letter</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Attach_Letter --></label>
+        <name>MUSW__Attach_Letter</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Link_Attachment --></label>
+        <name>MUSW__Link_Attachment</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- RunAutomation --></label>
+        <name>MUSW__RunAutomation</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- View_Checklist --></label>
+        <name>View_Checklist</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- abd_Create_Letter --></label>
+        <name>abd_Create_Letter</name>
+    </webLinks>
+</CustomObjectTranslation>

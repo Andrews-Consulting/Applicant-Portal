@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Person applying for License on behalf of Licensee --></help>
+    <label><!-- Applicant --></label>
+    <name>MUSW__Applicant__c</name>
+    <relationshipLabel><!-- Licenses. --></relationshipLabel>
+</CustomFieldTranslation>

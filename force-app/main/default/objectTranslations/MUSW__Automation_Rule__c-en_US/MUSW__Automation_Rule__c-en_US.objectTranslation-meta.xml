@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <webLinks>
+        <label><!-- Clear_Logs --></label>
+        <name>MUSW__Clear_Logs</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Get_Names --></label>
+        <name>MUSW__Get_Names</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- RebuildAllRules --></label>
+        <name>MUSW__RebuildAllRules</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Rebuild_This_Rule_Only --></label>
+        <name>MUSW__Rebuild_This_Rule_Only</name>
+    </webLinks>
+</CustomObjectTranslation>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Condition --></label>
+    <name>DRE__Condition__c</name>
+    <picklistValues>
+        <masterLabel>Email was not sent</masterLabel>
+        <translation><!-- Email was not sent --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Email was sent</masterLabel>
+        <translation><!-- Email was sent --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Error occurred</masterLabel>
+        <translation><!-- Error occurred --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Records don't exist</masterLabel>
+        <translation><!-- Records don&apos;t exist --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Records exist</masterLabel>
+        <translation><!-- Records exist --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

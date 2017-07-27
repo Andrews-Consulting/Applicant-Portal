@@ -1,0 +1,11 @@
+{!MUSW__Application2__c.abd_Application_Type__c} - {!MUSW__Application2__c.MUSW__Account__c} ({!MUSW__Application2__c.MUSW__Applicant__c})
+
+Application {!MUSW__Application2__c.Name} has been completed and paid for by the applicant.
+
+The Review is now awaiting your approval.  
+
+Click the following link to go to: 
+LINK TBD
+
+State of Iowa
+Alcoholic Beverages Division

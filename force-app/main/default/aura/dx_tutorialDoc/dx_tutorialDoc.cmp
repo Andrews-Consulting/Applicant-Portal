@@ -1,0 +1,18 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,force:appHostable" controller="DX_TutorialController" access="global">
+	
+	<aura:attribute name="pdfData" type="String"/>
+	<aura:attribute name="base" type="String"/>
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+	<aura:attribute name="pdfContainer" type="Aura.Component[]"/>
+	
+	
+	<div class="slds-grid slds-wrap slds-grid--pull-padded">
+    	<div class="slds-col slds-size--1-of-1">
+    		<div style="text-align:center"> 
+				<br/><br/>
+				{!v.pdfContainer}	
+    		</div>
+    	</div>
+    </div>
+	
+</aura:component>

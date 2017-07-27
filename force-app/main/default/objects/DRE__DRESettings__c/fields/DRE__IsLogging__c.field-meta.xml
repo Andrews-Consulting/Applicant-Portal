@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DRE__IsLogging__c</fullName>
+    <defaultValue>true</defaultValue>
+    <deprecated>false</deprecated>
+    <description>If selected creates log records for DRE events in the DRE Event Log table</description>
+    <externalId>false</externalId>
+    <inlineHelpText>If selected creates log records for DRE events in the DRE Event Log table</inlineHelpText>
+    <label>Enable Event Logs</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>abd_Taxable_Gallons__c</fullName>
+    <externalId>false</externalId>
+    <formula>/* Green Fields from Matrix */
+ abd_Gallons_on_hand_at_beginning_of_mo__c +
+ abd_Gallons_Purchased_Produced_during_mo__c +
+ abd_Gallons_Received_in_Bond__c +
+ abd_Returns_from_retailer__c +
+ abd_Total_Gallons_Shipped__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Taxable Gallons</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>4</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

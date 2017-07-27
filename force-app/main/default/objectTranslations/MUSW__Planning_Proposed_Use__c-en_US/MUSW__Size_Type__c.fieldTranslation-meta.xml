@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Size Type --></label>
+    <name>MUSW__Size_Type__c</name>
+    <picklistValues>
+        <masterLabel>Area</masterLabel>
+        <translation><!-- Area --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Floor Space</masterLabel>
+        <translation><!-- Floor Space --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Footprint</masterLabel>
+        <translation><!-- Footprint --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Frontage</masterLabel>
+        <translation><!-- Frontage --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Height</masterLabel>
+        <translation><!-- Height --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

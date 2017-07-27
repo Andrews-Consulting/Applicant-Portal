@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- The title that users will see when filling out checklists with this version. Will be a link back to the parent record. Supports merge fields on the parent object. --></help>
+    <label><!-- Checklist Title --></label>
+    <name>BGCK__BG_Checklist_Title__c</name>
+</CustomFieldTranslation>

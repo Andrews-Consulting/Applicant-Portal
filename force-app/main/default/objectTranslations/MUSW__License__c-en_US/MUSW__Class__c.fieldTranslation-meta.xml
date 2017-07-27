@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- classification or function/business/privilege permitted --></help>
+    <label><!-- Class --></label>
+    <name>MUSW__Class__c</name>
+    <picklistValues>
+        <masterLabel>Certification</masterLabel>
+        <translation><!-- Certification --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Liquor</masterLabel>
+        <translation><!-- Liquor --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Operation</masterLabel>
+        <translation><!-- Operation --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Owner</masterLabel>
+        <translation><!-- Owner --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Rental</masterLabel>
+        <translation><!-- Rental --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Taxi</masterLabel>
+        <translation><!-- Taxi --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

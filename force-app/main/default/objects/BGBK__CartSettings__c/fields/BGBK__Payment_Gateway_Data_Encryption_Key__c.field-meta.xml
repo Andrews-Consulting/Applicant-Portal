@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BGBK__Payment_Gateway_Data_Encryption_Key__c</fullName>
+    <deprecated>false</deprecated>
+    <description>Needs to be 16 characters long. Otherwise will throw error.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Needs to be 16 characters long. Otherwise will throw error. Example can be 'BasicGovPayments'</inlineHelpText>
+    <label>Payment Gateway Data Encryption Key</label>
+    <length>16</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,14 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" access="global">
+   
+    <aura:attribute name="SkipLabel" type="String" />   
+    <div class="slds-grid slds-wrap padded">
+        <div class="slds-col slds-size--1-of-1">
+            <div class="slds-grid slds-wrap padded">
+                <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-7" />
+                <div class="slds-col slds-size--1-of-1 slds-medium-size--6-of-7">
+                    <h1>Your Application has been submitted.  Click on the "{!v.SkipLabel}" button to return to the Iowa ABD site.</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</aura:component>

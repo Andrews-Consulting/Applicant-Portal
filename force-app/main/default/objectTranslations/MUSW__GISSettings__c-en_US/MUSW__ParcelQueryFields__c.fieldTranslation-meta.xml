@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Parcel field containing the parcel number eg. Name
+or PARCELID
+or Name,PARCELID --></help>
+    <label><!-- ParcelQueryFields --></label>
+    <name>MUSW__ParcelQueryFields__c</name>
+</CustomFieldTranslation>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DRE__Object_Inner_Scope__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <label>Object Inner Scope</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Each</fullName>
+                <default>false</default>
+                <label>Each</label>
+            </value>
+            <value>
+                <fullName>Earliest</fullName>
+                <default>false</default>
+                <label>Earliest</label>
+            </value>
+            <value>
+                <fullName>Latest</fullName>
+                <default>false</default>
+                <label>Latest</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>abd_License_Effective_Date__c</fullName>
+    <description>This answer is valid on this license beginning on this date.</description>
+    <externalId>false</externalId>
+    <label>License Effective Date</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

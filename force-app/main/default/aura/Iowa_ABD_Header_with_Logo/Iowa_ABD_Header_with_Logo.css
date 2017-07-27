@@ -1,0 +1,31 @@
+.THIS {
+    z-index: 1;
+    background: #d4d4d4;
+}
+
+.THIS .menuEntry {
+    margin: 3px;
+    padding: 0;
+    text-align: center;
+    padding: 0em 1.0em;
+    min-height: 61px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.THIS a {
+    color: #8a1300;
+}
+
+.THIS a:hover {
+    color: #8a1300;
+}
+.THIS .IowaLogo {
+    background: url(/sfsites/c/resource/ABD_Logo_219x61);
+     min-height: 61px;
+     max-height: 61px;
+     min-width: 219px;
+     max-width: 219px;
+     padding: 0em 0em;
+
+}

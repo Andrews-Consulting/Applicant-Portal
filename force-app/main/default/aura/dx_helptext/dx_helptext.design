@@ -1,0 +1,5 @@
+<design:component label="Doextra Help Text Block">
+	<design:Attribute name="HelpText"  Label="HelpText"  description=""/>
+	<design:Attribute name="StyleWidth" Label="StyleWidth"  description="add a complete style value pair. ex: max-width:100%" />
+	<design:Attribute name="StyleHeight" Label="StyleHeight" description="add a complete style value pair. ex: max-height:40px" />
+</design:component>

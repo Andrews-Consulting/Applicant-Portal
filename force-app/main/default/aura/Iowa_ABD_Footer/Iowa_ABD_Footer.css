@@ -1,0 +1,126 @@
+.THIS {
+    background-color: #666;
+    color: #fff;
+    -webkit-tap-highlight-color: #57bb53;
+    font-family: Helvetica Neue,sans-serif;
+    font-size: 12px;
+    line-height: 1em;
+    font-weight: 400;
+    align: center;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    padding: .8em 1.5em 0.5em 0.5em;
+    margin: 0 1.5em 0 1.5em;
+    color: #ddd;
+    position: relative;
+    z-index: 1;
+}
+
+.THIS .GovDelivery {
+    text-align:center; 
+    padding-top:20px;
+}
+
+.THIS .GovDeliveryToken {
+    margin:0;
+    padding:0;
+    display:inline;
+}
+
+.THIS .GovDeliveryEmail {
+    padding:5px 0;
+}
+
+.THIS .form_button {
+    font-size: 1em;
+    line-height: 1.5em;
+    font-family: Helvetica Neue,sans-serif;
+    padding: .3em .8em;
+    background: #8a1300;
+    border: solid #570c00;
+    border-width: 0 0 2px;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 3px;
+}
+
+.THIS a {
+   color: #ddd; 
+   }
+
+
+.THIS .box-lined {
+    border-color: #ddd;
+    border: 1px solid #999;
+}
+
+@font-face{font-family:'fontawesome';
+src:url(/sfsites/c/resource/IowaAwesomeFont?v=4.4.0);
+src:url(/sfsites/c/resource/IowaAwesomeFont?#iefix&v=4.4.0) format('embedded-opentype');
+}
+/* 
+url(fontawesome-webfont.woff2?v=4.4.0) format('woff2'),
+url(fontawesome-webfont.woff?v=4.4.0) format('woff'),
+url(fontawesome-webfont.ttf?v=4.4.0) format('truetype'),
+url(fontawesome-webfont.svg?v=4.4.0#fontawesomeregular) format('svg')
+ */
+.THIS .fa-phone {
+
+}
+.THIS .social {
+    display: inline-block;
+    width: 48px;
+    margin: .7em;
+    overflow: hidden;
+    position: relative;
+    transition: all .2s linear;
+    -webkit-font-smoothing: antialiased;
+    white-space: nowrap;
+}
+
+.THIS .social:hover{
+    webkit-transform:translateY(-6px);
+    transform:translateY(-6px);
+    box-shadow:0 5px 10px hsla(0,0%,80%,.3)
+}
+
+.THIS .rss {
+    background: url(/sfsites/c/resource/SocialLogos/Communication-rss-icon.png);
+
+}
+.THIS .facebook {
+    background: url(/sfsites/c/resource/SocialLogos/FB-f-Logo__blue_50.png);
+ }
+
+.THIS .twitter {
+    background: url(/sfsites/c/resource/SocialLogos/twitter-icon-square-logo.png);
+ }
+
+
+.THIS .legal {
+    list-style-type: disc;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    text-align: left;
+    margin-left: 1.5em;
+
+}
+
+.THIS .legal:after {
+    content: " ";
+    display: block;
+    width: 75%;
+    margin: 1em -1.5em;
+    height: 0;
+    border-color: #999;
+    border-bottom: 1px solid #ddd;
+}
+
+.THIS  ul.legal li a.uiOutputURL {
+    color: #ddd;
+}
+.THIS  ul.legal li a.uiOutputURL:hover {
+    color: #ddd;
+}

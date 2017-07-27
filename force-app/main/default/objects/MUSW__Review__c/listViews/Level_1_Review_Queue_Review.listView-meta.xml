@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Level_1_Review_Queue_Review</fullName>
+    <columns>NAME</columns>
+    <columns>MUSW__Type__c</columns>
+    <columns>MUSW__Application2__c</columns>
+    <columns>MUSW__Status__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>OWNER.ALIAS</columns>
+    <filterScope>Queue</filterScope>
+    <filters>
+        <field>MUSW__Status__c</field>
+        <operation>equals</operation>
+        <value>Pending</value>
+    </filters>
+    <filters>
+        <field>Case_Record__c</field>
+        <operation>equals</operation>
+    </filters>
+    <label>Level 1 Review Queue</label>
+    <queue>Level_1_Review_Queue</queue>
+    <sharedTo>
+        <allInternalUsers/>
+    </sharedTo>
+</ListView>

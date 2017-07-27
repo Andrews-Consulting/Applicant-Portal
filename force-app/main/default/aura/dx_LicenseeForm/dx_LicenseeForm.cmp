@@ -1,0 +1,146 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" controller="DX_LicenseeForm" access="global">
+    <aura:attribute name="showError" type="Boolean"  />
+    <aura:attribute name="errorMessage" type="string" />
+    <aura:Attribute name="RecordIdIsApplication" type="Boolean" />
+
+    <aura:attribute name="licensee" type="Account" default="{'sobjectType':'Account'}" />
+    <aura:attribute name="isNewApp" type="Boolean" default="true"/>
+    <aura:attribute name="applicant" type="Contact" default="{'sobjectType':'Contact'}" />
+    <aura:attribute name="businessType" type="string[]" default="" />
+    <aura:attribute name="businessOpps" type="string[]" default="" />
+    <aura:attribute name="Counties" type="string[]" default="" />
+    <aura:attribute name="SaveDisabled" type="Boolean" default="false"/>
+
+    <!-- <aura:handler name="init" value="{!this}" action="{!c.doInit}" /> -->
+    <aura:registerevent name="SaveCompleted" type="c:dx_actionComplete" />
+    <aura:registerevent name="EmptyComponent" type="c:dx_actionComplete" />
+    <aura:method name="PerformSave" action="{!c.save}"  />
+    <aura:method name="PerformInit" action="{!c.doInit}"  />
+    
+
+    <div class="slds-grid slds-wrap padded">
+        <div class="slds-col slds-size--1-of-1">
+        	<div class="slds-grid slds-wrap padded">
+                <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-7" />
+                <div class="slds-col slds-size--1-of-1 slds-medium-size--6-of-7">
+                    <aura:renderIf isTrue="{!!v.isNewApp}">
+		        		<h1>Please verify or update the information below.</h1><br/>
+		        	</aura:renderIf>
+					<h1>Contact Information</h1>
+                </div>
+            </div>
+            <div class="slds-grid slds-wrap padded">
+                <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-7" />
+                <div class="slds-col slds-size--1-of-1 slds-medium-size--2-of-7">
+                    <div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">
+                        <lightning:input label="First Name" name="FirstName" required="true" value="{!v.applicant.FirstName}" messageWhenValueMissing="This field will be required to submit the application, but can be completed later."  />
+                    </div>
+                    <div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">
+                        <lightning:input label="Last Name" name="LastName" required="true" value="{!v.applicant.LastName}" messageWhenValueMissing="This field will be required to submit the application, but can be completed later."  />
+                    </div>
+                </div>
+                <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-7" />
+                <div class="slds-col slds-size--1-of-1 slds-medium-size--2-of-7">
+                    <div id="slds-form-element slds-is-required" aura:id="appPhoneM" class="slds-container--center slds-container--small">
+                        <lightning:input label="Phone" type="tel" aura:id="appPhone" name="appPhone" required="true" value="{!v.applicant.Phone}" messageWhenValueMissing="This field will be required to submit the application, but can be completed later." pattern="[(][0-9]{3}[)]\s[0-9]{3}-[0-9]{4}" messageWhenPatternMismatch="Phone format (555) 111-2345" onblur="{!c.validateAppPhone}"/>
+                    </div>
+                    <div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">
+                        <lightning:input label="Email" type="email" name="Email" required="true" value="{!v.applicant.Email}"  messageWhenValueMissing="This field will be required to submit the application, but can be completed later."  pattern="\S+@\S+\.\S+" messageWhenPatternMismatch="The email doesn't appear to be a valid email" aura:id="applicantEmail"/>
+                    </div>
+                </div>
+                <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-7" />
+            </div>
+            <div class="slds-grid slds-wrap padded">
+                <div class="slds-col slds-size--1-of-1">&nbsp;</div>
+            </div>
+            <div class="slds-grid slds-wrap padded">
+                <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-7" />
+                <div class="slds-col slds-size--1-of-1 slds-medium-size--6-of-7">
+                    <h1>Licensee (Corporation) Information</h1>
+                </div>
+            </div>
+            <div class="slds-grid slds-wrap padded">
+                <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-7" />
+                <div class="slds-col slds-size--1-of-1 slds-medium-size--2-of-7">
+                    <aura:renderIf isTrue="{!v.isNewApp}">
+	                	<div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">
+	                        <lightning:input label="Legal Name" name="Name" required="true" value="{!v.licensee.Name}"  messageWhenValueMissing="This field will be required to submit the application, but can be completed later." />
+	                    </div>
+                    </aura:renderIf>
+	                    <div id="slds-form-element slds-is-required" aura:id="licPhoneM" class="slds-container--center slds-container--small">
+	                        <lightning:input label="Phone" type="tel" name="licPhone" aura:id="licPhone" required="true" value="{!v.licensee.Phone}" messageWhenValueMissing="This field will be required to submit the application, but can be completed later." pattern="[(][0-9]{3}[)]\s[0-9]{3}-[0-9]{4}" messageWhenPatternMismatch="Phone format (555) 111-2345" onblur="{!c.validateLicPhone}"/>
+	                    </div>
+                    <aura:renderIf isTrue="{!v.isNewApp}">
+	                    <div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">
+	                        <lightning:input label="Email" type="email" name="abd_Account_Email_Address__c" required="true" value="{!v.licensee.abd_Account_Email_Address__c}"  messageWhenValueMissing="This field will be required to submit the application, but can be completed later." pattern="\S+@\S+\.\S+" messageWhenPatternMismatch="The email doesn't appear to be a valid email"/>
+                            <!-- "/^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*$/" -->
+	                    </div>
+	                    <div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">
+	                        <label class="slds-form-element__label" for="bTypeItems"><abbr class="slds-required">*</abbr>Business Type</label>
+	                        <ui:inputSelect aura:id="bTypeItems" value="{!v.licensee.Business_Type__c}" change="{!c.onSelectChange}" />
+	                    </div>
+                    </aura:renderIf>
+                </div>
+               	<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-7" />
+                <div class="slds-col slds-size--1-of-1 slds-medium-size--2-of-7">
+                    <div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">
+                        <lightning:input label="Mailing Address" name="BillingStreet" required="true" value="{!v.licensee.BillingStreet}"  messageWhenValueMissing="This field will be required to submit the application, but can be completed later." />
+                    </div>
+                    <div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">
+                        <lightning:input label="Mailing City" name="BillingCity" required="true" value="{!v.licensee.BillingCity}"  messageWhenValueMissing="This field will be required to submit the application, but can be completed later." />
+                    </div>
+                    <div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">
+                        <label class="slds-form-element__label" for="state"><abbr class="slds-required">*</abbr>Mailing State</label>
+                        <ui:inputSelect aura:id="state" value="{!v.licensee.BillingState}" />
+                    </div>
+                    <div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">
+                        <lightning:input label="Mailing Zip" name="BillingPostalCode" required="true" value="{!v.licensee.BillingPostalCode}" onchange="{!c.zipChange}" messageWhenValueMissing="This field will be required to submit the application, but can be completed later." />
+                    </div>
+                    <div aura:id="dependent" class="slds-container--center slds-container--small slds-hide">
+                        <lightning:input label="Business ID" name="abd_Corporate_ID_Number__c" required="true" value="{!v.licensee.abd_Corporate_ID_Number__c}"  messageWhenValueMissing="This field will be required to submit the application, but can be completed later." />
+                    </div>
+                </div>
+                <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-7" />
+	        </div>
+			<div class="slds-grid slds-wrap slds-grid--pull-padded inner slds-hide" aura:id="dependent">
+                <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-7" />
+                <div class="slds-col slds-size--1-of-1 slds-medium-size--4-of-7">
+                    <h1>You are required to validate your corporation is active in Iowa on the Iowa Secretary of State's website.<br/>
+		            	You can also use the site to find your Business Id.  Please use this button to access the Secretary of State's website.</h1><br/>
+                    <div id="slds-form-element" class="slds-grid slds-wrap slds-grid--pull-padded">
+                        <div class="slds-p-horizontal--small slds-medium-size--1-of-1">
+                            <lightning:input type="checkbox" name="abd_Verified_Active_in_Iowa__c" required="true" value="{!v.licensee.abd_Verified_Active_in_Iowa__c}" label="I have validated that my corportation is still active in Iowa"  messageWhenValueMissing="This field will be required to submit the application, but can be completed later." />
+
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-7">
+                    <div class="slds-container--center slds-container--small inner">
+                        <ui:button aura:id="sosButton" label="Iowa Secretary of State website" press="{!c.gotoURL}" class="stdButton" />
+                    </div>
+                </div>
+                <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-7" />
+
+            </div>
+
+            <div role="alertdialog" tabindex="-1" aria-labelledby="prompt-heading-id" aria-describedby="prompt-message-wrapper" class="slds-modal slds-fade-in-hide slds-modal--prompt" aura:id="modaldialog">
+                <div class="slds-modal__container">
+                    <div class="slds-modal__header slds-theme--error slds-theme--alert-texture">
+                        <a class="slds-button slds-modal__close slds-button--icon-inverse" onclick="{!c.closeMessage}">
+						        <lightning:icon iconName="utility:close" size="medium" alternativeText="Close"/>
+						</a>
+                        <h2 class="slds-text-heading--medium" id="prompt-heading-id">General Partnership</h2>
+                    </div>
+                    <div class="slds-modal__content slds-p-around--medium">
+                        <p>Please submit a copy of your trade name filing to the local authority. To apply for a trade name filing, please contact your county recorder's office.</p>
+                    </div>
+                    <div class="slds-modal__footer slds-theme--default">
+                        <button class="slds-button slds-button--neutral" onclick="{!c.closeMessage}">Close Message</button>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-backdrop slds-backdrop--hide" aura:id="backdrop"></div>
+
+        </div>
+    </div>
+</aura:component>

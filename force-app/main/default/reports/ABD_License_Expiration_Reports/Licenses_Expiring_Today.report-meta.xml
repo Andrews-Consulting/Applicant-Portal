@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>MUSW__License2__c.abd_License_Type__c</field>
+    </columns>
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>MUSW__License2__c.abd_Local_Authority__c</field>
+    </columns>
+    <columns>
+        <field>MUSW__License2__c.MUSW__Primary_Licensee__c</field>
+    </columns>
+    <columns>
+        <field>MUSW__License2__c.abd_Effective_Date__c</field>
+    </columns>
+    <columns>
+        <field>MUSW__License2__c.abd_Effective_End_Date__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>MUSW__License2__c.MUSW__Primary__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>1</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Licenses Expiring Today</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$MUSW__License2__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>MUSW__License2__c.abd_Effective_End_Date__c</dateColumn>
+        <interval>INTERVAL_TODAY</interval>
+    </timeFrameFilter>
+</Report>

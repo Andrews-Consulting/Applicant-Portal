@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DRE__IsAutoBulk__c</fullName>
+    <defaultValue>true</defaultValue>
+    <deprecated>false</deprecated>
+    <description>If selected DRE will automatically process records in separate batches. Doing so can increase system robustness at the cost of losing real-time feedback. Enable this setting if your organization contains complex automation processes</description>
+    <externalId>false</externalId>
+    <inlineHelpText>If selected DRE will automatically process records in separate batches. Doing so can increase system robustness at the cost of losing real-time feedback. Enable this setting if your organization contains complex automation processes</inlineHelpText>
+    <label>Enable Auto-Bulk</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

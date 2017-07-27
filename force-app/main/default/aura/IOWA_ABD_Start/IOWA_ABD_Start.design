@@ -1,0 +1,10 @@
+<design:component label="ABD Start Menu">
+    <design:attribute name="Button1Label" default="I'm a new user"/>
+    <design:attribute name="Button1URL" default="./dx-register"/>
+    <design:attribute name="Button2Label" default="I'm an existing user"/>
+    <design:attribute name="Button2URL" default="./dx-login"/>
+    <design:attribute name="Button3Label" default="I want to run a report"/>
+    <design:attribute name="Button3URL" default="./auth-home"/>
+    <design:attribute name="Button4Label" default="I want to find a Keg label"/>
+    <design:attribute name="Button4URL" default="./auth-home"/>
+</design:component>

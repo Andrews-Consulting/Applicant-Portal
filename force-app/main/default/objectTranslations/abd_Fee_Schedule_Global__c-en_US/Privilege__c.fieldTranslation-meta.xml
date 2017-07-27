@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Privilege --></label>
+    <name>Privilege__c</name>
+    <picklistValues>
+        <masterLabel>Brew Pub</masterLabel>
+        <translation><!-- Brew Pub --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Catering</masterLabel>
+        <translation><!-- Catering --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>High Proof Brew Pub</masterLabel>
+        <translation><!-- High Proof Brew Pub --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Living Quarters</masterLabel>
+        <translation><!-- Living Quarters --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Outdoor Service</masterLabel>
+        <translation><!-- Outdoor Service --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Sunday Sales</masterLabel>
+        <translation><!-- Sunday Sales --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

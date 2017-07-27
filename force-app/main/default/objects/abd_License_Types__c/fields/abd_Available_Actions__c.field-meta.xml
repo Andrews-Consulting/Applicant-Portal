@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>abd_Available_Actions__c</fullName>
+    <description>The API name of the entries MUST align with the values in the dx_IconManagement_mdt metadata object</description>
+    <externalId>false</externalId>
+    <label>Available Actions</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>AdditionalLocations</fullName>
+                <default>false</default>
+                <label>Additional Locations</label>
+            </value>
+            <value>
+                <fullName>AddPrivilege</fullName>
+                <default>false</default>
+                <label>Add Privilege</label>
+            </value>
+            <value>
+                <fullName>Appeal</fullName>
+                <default>false</default>
+                <label>Appeal</label>
+            </value>
+            <value>
+                <fullName>ChangeDramCarrier</fullName>
+                <default>false</default>
+                <label>Change Dram Carrier</label>
+            </value>
+            <value>
+                <fullName>LabelApproval</fullName>
+                <default>false</default>
+                <label>Label Approval</label>
+            </value>
+            <value>
+                <fullName>New</fullName>
+                <default>false</default>
+                <label>New</label>
+            </value>
+            <value>
+                <fullName>KegRegistrationBooklet</fullName>
+                <default>false</default>
+                <label>Order Keg Registration booklet</label>
+            </value>
+            <value>
+                <fullName>Refund</fullName>
+                <default>false</default>
+                <label>Refund</label>
+            </value>
+            <value>
+                <fullName>Renew</fullName>
+                <default>false</default>
+                <label>Renew</label>
+            </value>
+            <value>
+                <fullName>TransferLicense</fullName>
+                <default>false</default>
+                <label>Transfer a License</label>
+            </value>
+            <value>
+                <fullName>UpdateOfficer</fullName>
+                <default>false</default>
+                <label>Update Officer</label>
+            </value>
+            <value>
+                <fullName>UpdateOwner</fullName>
+                <default>false</default>
+                <label>Update Owner</label>
+            </value>
+            <value>
+                <fullName>UpdatePremises</fullName>
+                <default>false</default>
+                <label>Update Premises</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

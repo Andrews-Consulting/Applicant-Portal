@@ -1,0 +1,19 @@
+<table height="400" width="550" cellpadding="5" border="0" cellspacing="5" >
+<tr height="400" valign="top" >
+<td style=" color:#000000; font-size:12pt; background-color:#FFFFFF; font-family:arial; bLabel:main; bEditID:r3st1;" tEditID="c1r1" locked="0" aEditID="c1r1" >
+<![CDATA[<p><span style="font-family: Arial,Helvetica,sans-serif; white-space: pre-wrap; font-size: 12px;" class="Apple-style-span">Your user profile has been created in BasicGov. </span></p>
+<p><span style="font-family: Arial,Helvetica,sans-serif; white-space: pre-wrap; font-size: 12px;" class="Apple-style-span"></span>&nbsp;</p>
+<p><span style="font-family: Arial,Helvetica,sans-serif; white-space: pre-wrap; font-size: 12px;" class="Apple-style-span">Your temporary password is: {!MUSW__User_LoginInfo__c.MUSW__TempPassword__c} </span></p>
+<p><span style="font-family: Arial,Helvetica,sans-serif; white-space: pre-wrap; font-size: 12px;" class="Apple-style-span">Your username is: {!MUSW__Wser_LoginInfo__c.MUSW__Email__c} </span></p>
+<p><span style="font-family: Arial,Helvetica,sans-serif; white-space: pre-wrap; font-size: 12px;" class="Apple-style-span"></span>&nbsp;</p>
+<p><span style="font-family: Arial,Helvetica,sans-serif; white-space: pre-wrap; font-size: 12px;" class="Apple-style-span">Please change your password by clicking this link: </span></p>
+<p><span style="font-family: Arial,Helvetica,sans-serif; white-space: pre-wrap; font-size: 12px;" class="Apple-style-span"></span>&nbsp;</p><font size="2"><a href="https://www.basicgov.com/login?un={!MUSW__User_LoginInfo__c.MUSW__Email__c}&amp;tmp_pw={!MUSW__User_LoginInfo__c.MUSW__TempPassword__c}&amp;orgId={!Organization.Id}">https://www.basicgov.com/login?un={!MUSW__User_LoginInfo__c.MUSW__Email__c}&amp;tmp_pw={!MUSW__User_LoginInfo__c.MUSW__TempPassword__c}&amp;orgId={!Organization.Id}</a><br>&nbsp;
+</font><p><font class="Apple-style-span" size="2" face="Arial, Helvetica, sans-serif"><span style="white-space: pre-wrap; font-size: 12px;" class="Apple-style-span">Enter your temporary password above, into the 'Old Password' field.</span></font></p><p><br><font class="Apple-style-span" size="3" face="Arial, Helvetica, sans-serif"><span style="white-space: pre-wrap; font-size: 12px;" class="Apple-style-span"></span></font></p><p><font class="Apple-style-span" size="2" face="Arial, Helvetica, sans-serif"><span style="white-space: pre-wrap; font-size: 12px;" class="Apple-style-span">If the above link does not work, copy and paste the above link to the browser from which you would like to access BasicGov.</span></font></p>
+<p><font class="Apple-style-span" size="3" face="Arial, Helvetica, sans-serif"><span style="white-space: pre-wrap; font-size: 12px;" class="Apple-style-span"><br></span></font></p>
+<p><span style="font-family: Arial,Helvetica,sans-serif; white-space: pre-wrap; font-size: 12px;" class="Apple-style-span">Please bookmark the following page for all future logins: </span></p>
+<p><span style="font-family: Arial,Helvetica,sans-serif; white-space: pre-wrap; font-size: 12px;" class="Apple-style-span"></span>&nbsp;</p>
+<p><span style="font-family: Arial,Helvetica,sans-serif; white-space: pre-wrap; font-size: 12px;" class="Apple-style-span"><a href="https://www.basicgov.com/login">https://www.basicgov.com/login</a></span></p>
+<p><span style="font-family: Arial,Helvetica,sans-serif; white-space: pre-wrap; font-size: 12px;" class="Apple-style-span"></span>&nbsp;</p>
+<p><span style="font-family: Arial,Helvetica,sans-serif; white-space: pre-wrap; font-size: 12px;" class="Apple-style-span">Welcome to BasicGov! </span></p>]]></td>
+</tr>
+</table>

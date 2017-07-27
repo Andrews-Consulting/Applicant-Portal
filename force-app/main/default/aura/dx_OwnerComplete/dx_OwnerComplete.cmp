@@ -1,0 +1,41 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" access="global">
+    <aura:attribute name="showError" type="Boolean"  />
+    <aura:attribute name="errorMessage" type="string" />
+    <aura:Attribute name="RecordIdIsApplication" type="Boolean" />
+
+    <aura:registerevent name="SaveCompleted" type="c:dx_actionComplete" />
+    <aura:registerevent name="EmptyComponent" type="c:dx_actionComplete" /> 
+    <aura:method name="PerformSave" action="{!c.save}"  />
+    <aura:method name="PerformInit" action="{!c.doInit}"  />
+    
+	<aura:attribute name="ActiveCmp" type="String" default="dx_OwnerComplete" />     <!-- This drives the navigation and needs to exist in Nav metadata -->
+
+    <div class="slds-grid slds-size--1-of-1 slds-wrap padded">
+
+	 	<div aura:id="dx_OwnerCompleteDiv">
+	        <c:dx_OwnerList SaveCompleted="{!c.SaveComplete}" EmptyComponent="{!c.EmptyComponent}" showError="{!v.showError}" errorMessage="{!v.errorMessage}" aura:id="dx_OwnerComplete" recordId="{!v.recordId}" RecordIdIsApplication="{!v.RecordIdIsApplication}"/> 
+	    
+
+<!-- 	    <div aura:id="dx_PC_OwnerFormDiv">
+	        <c:dx_OwnerForm SaveCompleted="{!c.SaveComplete}" EmptyComponent="{!c.EmptyComponent}" showError="{!v.showError}" errorMessage="{!v.errorMessage}" aura:id="dx_OwnerComplete" recordId="{!v.recordId}" RecordIdIsApplication="{!v.RecordIdIsApplication}"/> 
+	    </div>  
+ -->
+
+		    <div class="slds-col">
+		    	<br />
+				<h1>Additional Questions related to the Owner(s)</h1>
+				<br />
+		    </div>
+		    
+
+
+	   	    <c:dx_checklistDisplaySectionOnly Section="Ownership Interest" SaveCompleted="{!c.SaveComplete}" EmptyComponent="{!c.EmptyComponent}" showError="{!v.showError}" errorMessage="{!v.errorMessage}" aura:id="dx_OwnerComplete" recordId="{!v.recordId}" RecordIdIsApplication="{!v.RecordIdIsApplication}"/> 
+   
+
+   		    <c:dx_checklistDisplaySectionOnly Section="Criminal History" SaveCompleted="{!c.SaveComplete}" EmptyComponent="{!c.EmptyComponent}" showError="{!v.showError}" errorMessage="{!v.errorMessage}" aura:id="dx_OwnerComplete" recordId="{!v.recordId}" RecordIdIsApplication="{!v.RecordIdIsApplication}"/> 
+
+   
+    	</div>
+
+    </div>
+</aura:component>

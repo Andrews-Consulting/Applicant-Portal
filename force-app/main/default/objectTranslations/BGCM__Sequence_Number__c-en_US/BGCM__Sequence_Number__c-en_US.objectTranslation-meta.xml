@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <validationRules>
+        <errorMessage><!-- Auto Numbers require at least one Source Type Field --></errorMessage>
+        <name>BGCM__Auto_Rule_requires_Source_Type_Field</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Type not required if Format mask does not contain &apos;{type}&apos;. Clear Type field --></errorMessage>
+        <name>BGCM__Type_not_required_if_not_in_Format_mask</name>
+    </validationRules>
+</CustomObjectTranslation>

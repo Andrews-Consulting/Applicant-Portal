@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BGBK__Payment_Gateway_Form_Post_URL__c</fullName>
+    <deprecated>false</deprecated>
+    <description>URL For form post to external payment gateway</description>
+    <externalId>false</externalId>
+    <label>Payment Gateway Form Post URL</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Url</type>
+</CustomField>

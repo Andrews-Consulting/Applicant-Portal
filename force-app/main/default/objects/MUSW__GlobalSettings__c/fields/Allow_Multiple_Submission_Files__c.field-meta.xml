@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Allow_Multiple_Submission_Files__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Allow upload of multiple files for a single submission request</description>
+    <externalId>false</externalId>
+    <label>Allow Multiple Submission Files</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

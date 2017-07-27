@@ -1,0 +1,10 @@
+.THIS {
+    box-sizing: border-box;
+    border-color: #ddd;
+    border: 1px solid #999;
+ 	min-height: 600px;
+    max-height: 600px;
+    content: " ";
+    display: block;
+    clear: left;
+}

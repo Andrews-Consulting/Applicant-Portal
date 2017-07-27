@@ -1,0 +1,373 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" controller="DX_SiteMenuController" access="global" >
+
+	<aura:attribute name="backgroundColor" type="String" required="true" />
+	<aura:attribute name="isAuthenticated" type="Boolean" required="true" />
+
+
+<!-- 	<aura:handler name="init" value="{!this}" action="{!c.doInit}"/> -->
+
+	<div class="slds-grid slds-wrap">
+
+		<!-- This is the icon & menu for the ABD main left menu for the SMALL screen only -->
+		<div class="slds-col slds-size--1-of-1" id="ABDIconSmall">
+					  
+		 	<img src="/sfsites/c/resource/ABD_Logo_107x27" alt="Iowa ABD logo" height="27" width="107" class="IowaLogo" aria-haspopup="true" title="Show More" onclick="{!c.showHideABDMenuSmall}">
+		    	<span class="slds-assistive-text">Show More</span>
+		  	</img>
+
+		  	<!-- The menu that displays when the user taps/clicks on the SMALL logo -->
+		  	<div class="slds-is-collapsed" aura:id="ABDIconMenu" id="ABDIconMenu">
+			    <ul class="slds-dropdown__list" role="menu">
+
+		      		<li class="slds-dropdown__item" role="presentation">
+		      			<a href="https://abd.iowa.gov/" role="menuitem" tabindex="0">
+		          			<span class="slds-truncate">Home</span>
+		        		</a>
+		      		</li>
+
+		      		<li class="slds-dropdown__item" role="presentation">
+		        		<a href="https://abd.iowa.gov/about-us" role="menuitem" tabindex="0">
+		          			<span class="slds-truncate">About</span>
+		        		</a>
+		      		</li>
+
+		      		<li class="slds-dropdown__item" role="presentation">
+		        		<a href="https://abd.iowa.gov/tobacco" role="menuitem" tabindex="0">
+		          			<span class="slds-truncate">Tobacco</span>
+		        		</a>
+		      		</li>
+
+		      		<li class="slds-dropdown__item" role="presentation">
+		        		<a href="https://abd.iowa.gov/alcohol" role="menuitem" tabindex="0">
+		          			<span class="slds-truncate">Alcohol</span>
+		        		</a>
+		      		</li>
+
+		      		<li class="slds-dropdown__item" role="presentation">
+		        		<a href="https://abd.iowa.gov/links" role="menuitem" tabindex="0">
+		          			<span class="slds-truncate">Links</span>
+		        		</a>
+		      		</li>
+
+		      		<li class="slds-dropdown__item" role="presentation">
+		        		<a href="https://abd.iowa.gov/contact-us" role="menuitem" tabindex="0">
+		          			<span class="slds-truncate">Contact Us</span>
+		        		</a>
+		      		</li>
+
+		      		<li class="slds-dropdown__item" role="presentation">
+		      			<span class="MenuNote"><strong>*Please Note*</strong>: These links are part of a separate web site and will open in a new window.</span>
+		      		</li>
+		    	</ul>
+		  	</div>
+		</div>
+		<!-- End logo menu entry for the small screen -->
+
+		<!-- This is the icon & menu for the ABD main left menu for the MEDIUM & LARGE(R) screens only -->
+		<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-6 slds-dropdown-trigger slds-dropdown-trigger--click" aura:id="ABDIconNotSmall" id="ABDIconNotSmall" >
+		 	<img src="/sfsites/c/resource/ABD_Logo_107x27" alt="Iowa ABD logo" height="27" width="107" class="IowaLogo" aria-haspopup="true" title="Show More" onclick="{!c.showHideABDMenuNotSmall}" >
+		    	<span class="slds-assistive-text">Show More</span>
+		  	</img>
+
+		  	<!-- The menu that displays when the user taps/clicks on the logo -->
+		  	<div class="slds-dropdown slds-dropdown--left">
+			    <ul class="slds-dropdown__list" role="menu">
+
+		      		<li class="slds-dropdown__item" role="presentation">
+		      			<a href="https://abd.iowa.gov/" role="menuitem" tabindex="0">
+		          			<span class="slds-truncate">Home</span>
+		        		</a>
+		      		</li>
+
+		      		<li class="slds-dropdown__item" role="presentation">
+		        		<a href="https://abd.iowa.gov/about-us" role="menuitem" tabindex="0">
+		          			<span class="slds-truncate">About</span>
+		        		</a>
+		      		</li>
+
+		      		<li class="slds-dropdown__item" role="presentation">
+		        		<a href="https://abd.iowa.gov/tobacco" role="menuitem" tabindex="0">
+		          			<span class="slds-truncate">Tobacco</span>
+		        		</a>
+		      		</li>
+
+		      		<li class="slds-dropdown__item" role="presentation">
+		        		<a href="https://abd.iowa.gov/alcohol" role="menuitem" tabindex="0">
+		          			<span class="slds-truncate">Alcohol</span>
+		        		</a>
+		      		</li>
+
+		      		<li class="slds-dropdown__item" role="presentation">
+		        		<a href="https://abd.iowa.gov/links" role="menuitem" tabindex="0">
+		          			<span class="slds-truncate">Links</span>
+		        		</a>
+		      		</li>
+
+		      		<li class="slds-dropdown__item" role="presentation">
+		        		<a href="https://abd.iowa.gov/contact-us" role="menuitem" tabindex="0">
+		          			<span class="slds-truncate">Contact Us</span>
+		        		</a>
+		      		</li>
+
+		      		<li class="slds-dropdown__item" role="presentation">
+		      			<span class="MenuNote"><strong>*Please Note*</strong>: These links are part of a separate web site and will open in a new window.</span>
+		      		</li>
+		    	</ul>
+		  	</div>
+		</div>
+		<!-- End logo menu entry for the small screen -->		  		
+
+		<aura:if isTrue="{!v.isAuthenticated}">
+	 		<div class="slds-col slds-size-1-of-1 slds-medium-size-1-of-6" id="SearchButton" aura:Id="SearchButton">
+				<lightning:button variant="brand" label="Search" iconName="utility:search" iconPosition="left" onclick="{! c.handleButtonClick }" name="#1" class="TallButton"/>
+			</div>
+		</aura:if>
+
+<!--
+    =====================================================================================
+    ============================ Small SCREEN MENU ======================================
+    =====================================================================================
+  -->		
+
+		<aura:if isTrue="{!v.isAuthenticated}">
+			<div class="slds-col slds-size--1-of-1 slds-medium-size-1-of-6" id="ButtonMaster1" aura:Id="ButtonMaster1">
+				<lightning:button variant="brand" label="Applications &amp; Licenses" 	iconName="utility:home" 	iconPosition="left" onclick="{! c.showHideMasterMenu1 }" name="" class="TallButton"/>
+			  	<div class="slds-is-collapsed" aura:id="MasterMenu1" id="MasterMenu1">
+					<ul>
+			      		<li>
+			      			<a href="https://abd.iowa.gov/" role="menuitem" tabindex="0">
+			          			<span class="slds-truncate">View All</span>
+			        		</a>
+			      		</li>
+
+			      		<li>
+			        		<a href="https://abd.iowa.gov/about-us" role="menuitem" tabindex="0">
+			          			<span class="slds-truncate">Applications</span>
+			        		</a>
+			      		</li>
+
+			      		<li>
+			        		<a href="https://abd.iowa.gov/tobacco" role="menuitem" tabindex="0">
+			          			<span class="slds-truncate">Licenses</span>
+			        		</a>
+			      		</li>
+
+			      		<li >
+			        		<a href="https://abd.iowa.gov/alcohol" role="menuitem" tabindex="0">
+			          			<span class="slds-truncate">Appeals</span>
+			        		</a>
+			      		</li>
+
+			      		<li >
+			        		<a href="https://abd.iowa.gov/links" role="menuitem" tabindex="0">
+			          			<span class="slds-truncate">Refunds</span>
+			        		</a>
+			      		</li>
+
+			      		<li >
+			        		<a href="https://abd.iowa.gov/contact-us" role="menuitem" tabindex="0">
+			          			<span class="slds-truncate">New Application</span>
+			        		</a>
+			      		</li>
+			    	</ul>
+				</div>
+			</div>
+
+			<div class="slds-col slds-size--1-of-1" id="ButtonMaster2" >
+				<lightning:button variant="brand" label="Help/Info" 	iconName="utility:help" 	iconPosition="left" onclick="{! c.showHideMasterMenu2 }" name="" class="TallButton"/>
+			  	<div class="slds-is-collapsed" aura:id="MasterMenu2" id="MasterMenu2">
+					<ul class="slds-dropdown__list" role="menu">
+
+			      		<li >
+			      			<a href="https://abd.iowa.gov/" role="menuitem" tabindex="0">
+			          			<span class="slds-truncate">News &amp; Alerts</span>
+			        		</a>
+			      		</li>
+
+			      		<li >
+			        		<a href="https://abd.iowa.gov/about-us" role="menuitem" tabindex="0">
+			          			<span class="slds-truncate">Tutorials</span>
+			        		</a>
+			      		</li>
+
+			      		<li >
+			        		<a href="https://abd.iowa.gov/tobacco" role="menuitem" tabindex="0">
+			          			<span class="slds-truncate">License Types</span>
+			        		</a>
+			      		</li>
+
+			      		<li >
+			        		<a href="https://abd.iowa.gov/alcohol" role="menuitem" tabindex="0">
+			          			<span class="slds-truncate">Fees</span>
+			        		</a>
+			      		</li>
+
+			      		<li >
+			        		<a href="https://abd.iowa.gov/links" role="menuitem" tabindex="0">
+			          			<span class="slds-truncate">FAQs</span>
+			        		</a>
+			      		</li>
+
+			      		<li >
+			        		<a href="https://abd.iowa.gov/contact-us" role="menuitem" tabindex="0">
+			          			<span class="slds-truncate">Contact Us</span>
+			        		</a>
+			      		</li>
+			    	</ul>
+				</div>	
+			</div>
+
+			<div class="slds-col slds-size--1-of-1" id="ButtonMaster3">
+				<lightning:button variant="brand" label="My Info" iconName="utility:settings" iconPosition="left" onclick="{! c.showHideMasterMenu3 }" name="" class="TallButton"/>
+			  	<div class="slds-is-collapsed" aura:id="MasterMenu3" id="MasterMenu3">
+					<ul >
+			      		<li >
+			      			<a href="#" onclick="{!c.UserSettings}" role="menuitem" tabindex="0">
+			          			<span class="slds-truncate">Edit My Info</span>
+			        		</a>
+			      		</li>
+
+			      		<li >
+			        		<a href="#" onclick="{!c.ChangePassword}" role="menuitem" tabindex="0">
+			          			<span class="slds-truncate">Change Password</span>
+			        		</a>
+			      		</li>
+			      		<li >
+				      		<a href="#" onclick="{!c.logMeOut}" role="menuitem" tabindex="0">
+			          			<span class="slds-truncate">Log Out</span>
+			          		</a>
+			      		</li>
+			    	</ul>
+				</div>						
+			</div>
+		</aura:if>
+
+<!--
+    =====================================================================================
+    ======================= MEDIUM & LARGE SCREEN MENU ==================================
+    =====================================================================================
+  -->
+
+	  	<aura:if isTrue="{!v.isAuthenticated}">
+			<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-2 slds-dropdown-trigger slds-dropdown-trigger--click rightAlign" aura:id="MasterMenu" id="MasterMenu">
+
+				<!-- The menu that displays when the user taps/clicks on either of the three buttons -->
+			  	<div class="slds-dropdown slds-dropdown--right RightDropDownMenu LeftAlign">
+
+					<div class="slds-grid">
+						<div class="slds-col slds-size--1-of-3">
+
+							<ul class="slds-dropdown__list" role="menu">
+
+					      		<li class="slds-dropdown__item" role="presentation">
+					      			<a href="https://abd.iowa.gov/" role="menuitem" tabindex="0">
+					          			<span class="slds-truncate">View All</span>
+					        		</a>
+					      		</li>
+
+					      		<li class="slds-dropdown__item" role="presentation">
+					        		<a href="https://abd.iowa.gov/about-us" role="menuitem" tabindex="0">
+					          			<span class="slds-truncate">Applications</span>
+					        		</a>
+					      		</li>
+
+					      		<li class="slds-dropdown__item" role="presentation">
+					        		<a href="https://abd.iowa.gov/tobacco" role="menuitem" tabindex="0">
+					          			<span class="slds-truncate">Licenses</span>
+					        		</a>
+					      		</li>
+
+					      		<li class="slds-dropdown__item" role="presentation">
+					        		<a href="https://abd.iowa.gov/alcohol" role="menuitem" tabindex="0">
+					          			<span class="slds-truncate">Appeals</span>
+					        		</a>
+					      		</li>
+
+					      		<li class="slds-dropdown__item" role="presentation">
+					        		<a href="https://abd.iowa.gov/links" role="menuitem" tabindex="0">
+					          			<span class="slds-truncate">Refunds</span>
+					        		</a>
+					      		</li>
+
+					      		<li class="slds-dropdown__item" role="presentation">
+					        		<a href="https://abd.iowa.gov/contact-us" role="menuitem" tabindex="0">
+					          			<span class="slds-truncate">New Application</span>
+					        		</a>
+					      		</li>
+					    	</ul>
+						</div>
+
+						<div class="slds-col slds-size--1-of-3">
+							<ul class="slds-dropdown__list" role="menu">
+
+					      		<li class="slds-dropdown__item" role="presentation">
+					      			<a href="https://abd.iowa.gov/" role="menuitem" tabindex="0">
+					          			<span class="slds-truncate">News &amp; Alerts</span>
+					        		</a>
+					      		</li>
+
+					      		<li class="slds-dropdown__item" role="presentation">
+					        		<a href="https://abd.iowa.gov/about-us" role="menuitem" tabindex="0">
+					          			<span class="slds-truncate">Tutorials</span>
+					        		</a>
+					      		</li>
+
+					      		<li class="slds-dropdown__item" role="presentation">
+					        		<a href="https://abd.iowa.gov/tobacco" role="menuitem" tabindex="0">
+					          			<span class="slds-truncate">License Types</span>
+					        		</a>
+					      		</li>
+
+					      		<li class="slds-dropdown__item" role="presentation">
+					        		<a href="https://abd.iowa.gov/alcohol" role="menuitem" tabindex="0">
+					          			<span class="slds-truncate">Fees</span>
+					        		</a>
+					      		</li>
+
+					      		<li class="slds-dropdown__item" role="presentation">
+					        		<a href="https://abd.iowa.gov/links" role="menuitem" tabindex="0">
+					          			<span class="slds-truncate">FAQs</span>
+					        		</a>
+					      		</li>
+
+					      		<li class="slds-dropdown__item" role="presentation">
+					        		<a href="https://abd.iowa.gov/contact-us" role="menuitem" tabindex="0">
+					          			<span class="slds-truncate">Contact Us</span>
+					        		</a>
+					      		</li>
+					    	</ul>
+						</div>					
+						<div class="slds-col slds-size--1-of-3">
+
+							<ul class="slds-dropdown__list" role="menu">
+					      		<li class="slds-dropdown__item" role="presentation">
+					      			<a href="#" onclick="{!c.UserSettings}" role="menuitem" tabindex="0">
+					          			<span class="slds-truncate">Edit My Info</span>
+					        		</a>
+					      		</li>
+
+					      		<li class="slds-dropdown__item" role="presentation">
+					        		<a href="#" onclick="{!c.ChangePassword}" role="menuitem" tabindex="0">
+					          			<span class="slds-truncate">Change Password</span>
+					        		</a>
+					      		</li>
+
+					      		<li class="slds-dropdown__item" role="presentation">
+						      		<a href="#" onclick="{!c.logMeOut}" role="menuitem" tabindex="0">
+					          			<span class="slds-truncate">Log Out</span>
+				          			</a>
+					      		</li>
+					    	</ul>
+						</div>						
+					</div>
+
+			  	</div>
+
+			  	<!-- These are the three buttons for the medium & large(r) screen only -->
+				<lightning:button variant="brand" label="Applications &amp; Licenses" 	iconName="utility:home" 	iconPosition="left" onclick="{! c.showHideMasterMenu }" name="" class="TallButton"/>
+				<lightning:button variant="brand" label="Help/Info" 					iconName="utility:help" 	iconPosition="left" onclick="{! c.showHideMasterMenu }" name="" class="TallButton"/>
+				<lightning:button variant="brand" label="My Info" 						iconName="utility:settings" iconPosition="left" onclick="{! c.showHideMasterMenu }" name="" class="TallButton"/>
+			</div>
+		</aura:if>
+	</div>
+ </aura:component>

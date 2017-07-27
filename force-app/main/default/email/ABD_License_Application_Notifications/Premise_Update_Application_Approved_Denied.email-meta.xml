@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Generates Notification to Applicant when Application Approved/Denied</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Premise Update Application Approved/Denied</name>
+    <style>none</style>
+    <subject>Premises Update Application {!MUSW__Application2__c.MUSW__Status__c} for {!MUSW__Application2__c.abd_Primary_License__c}</subject>
+    <type>text</type>
+</EmailTemplate>

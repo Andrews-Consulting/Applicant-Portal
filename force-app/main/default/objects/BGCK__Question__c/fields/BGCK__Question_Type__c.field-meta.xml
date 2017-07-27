@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BGCK__Question_Type__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <label>Type</label>
+    <lookupFilter>
+        <active>true</active>
+        <booleanFilter>(1 AND 2) OR 3</booleanFilter>
+        <errorMessage>Value does not exist or does not match filter criteria.</errorMessage>
+        <filterItems>
+            <field>BGCK__Question_Type__c.BGCK__Checklist_Version__r.BGCK__Status__c</field>
+            <operation>equals</operation>
+            <value>Draft</value>
+        </filterItems>
+        <filterItems>
+            <field>BGCK__Question_Type__c.BGCK__Checklist_Version__c</field>
+            <operation>notEqual</operation>
+            <value/>
+        </filterItems>
+        <filterItems>
+            <field>$Source.BGCK__Checklist_Version__c</field>
+            <operation>equals</operation>
+            <value/>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>BGCK__Question_Type__c</referenceTo>
+    <relationshipLabel>Questions</relationshipLabel>
+    <relationshipName>Questions</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

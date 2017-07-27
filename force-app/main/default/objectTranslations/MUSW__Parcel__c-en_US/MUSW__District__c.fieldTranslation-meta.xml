@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- District --></label>
+    <name>MUSW__District__c</name>
+    <picklistValues>
+        <masterLabel>District 1</masterLabel>
+        <translation><!-- District 1 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>District 2</masterLabel>
+        <translation><!-- District 2 --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

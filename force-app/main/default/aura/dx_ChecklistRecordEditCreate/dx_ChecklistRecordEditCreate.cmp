@@ -1,0 +1,61 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes"  access="global">
+	<aura:attribute name="isVisible" type="Boolean" default="true" description="Controls the visibility of this modal" />
+	<aura:attribute name="mode" type="String" description="Can be EDIT or CREATE" />
+	<aura:attribute name="APIName" type="String" description="API Name of the object being edited or created" />
+	<aura:attribute name="fieldset" type="Object[]" description="Array of information about all the fieldset members." />
+	<aura:attribute name="record" type="Object" description="If provided, is the object being edited. If not provided, can be set to a blank object."/>
+	<aura:attribute name="form" type="Aura.Component[]"/>
+	<aura:attribute name="headerMessage" type="String" />
+	<aura:attribute name="errorMessage" type="String" default=""/>
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+	<aura:method name="resetForm" action="{!c.resetForm}" description="Can be called by parent component to reset the form"/>
+
+	<aura:method name="showError" action="{!c.showErrorMessage}">
+		<aura:attribute name="message" type="String"/>
+	</aura:method>
+	<aura:registerEvent name="createEdit" type="c:dx_ChecklistCreateEditEvent" description="Fired by this component to pass the record to be saved up to the parent component."/>
+
+	
+	<aura:if isTrue="{!v.isVisible}">
+		<div role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open" aura:id="modal">
+			<div class="slds-modal__container">
+				<div class="slds-modal__header slds-modal__header--empty">
+					<button class="slds-button slds-modal__close slds-button--icon-inverse" onclick="{!c.closeModal}">
+		   
+		                <lightning:icon iconName="utility:close" size="medium" class="slds-button__icon"
+		                    alternativeText="Close"/>
+		                
+		            </button>
+		            <h2 class="slds-text-header--medium">{!v.headerMessage}</h2>
+				</div>
+				<div class="slds-modal__content slds-grid slds-grid--vertical slds-grid--vertical-align-center">
+					<fieldset class="slds-fieldset slds-size--7-of-8 slds-p-around--x-small" aura:id="form-wrapper">
+
+							{!v.form}
+
+					</fieldset>
+					<div class="slds-grid slds-size--2-of-4 slds-grid--align-spread slds-grid--vertical-align-center
+						slds-m-vertical--small slds-p-vertical--small">
+						<button class="slds-button slds-button--neutral"
+								onclick="{!c.clickSave}">
+								Save
+						</button>
+
+						<button class="slds-button slds-button--neutral"
+								onclick="{!c.closeModal}">
+								Cancel
+						</button>
+
+						<lightning:spinner class="slds-hide" size="small" aura:id="save-record-spinner" alternativeText="working..."/>
+					</div>
+				</div>
+				<div class="slds-modal__footer">
+					{!v.errorMessage}
+				</div>
+			</div>
+		</div>
+		<div class="slds-backdrop slds-backdrop--open" aura:id="modal-backdrop"></div>
+	</aura:if>
+		
+</aura:component>

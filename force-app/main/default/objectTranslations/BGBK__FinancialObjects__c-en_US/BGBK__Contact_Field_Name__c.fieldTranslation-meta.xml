@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- The field API for Contact lookup (e.g. MUSW__Applicant__c) --></help>
+    <label><!-- Contact Field Name --></label>
+    <name>BGBK__Contact_Field_Name__c</name>
+</CustomFieldTranslation>

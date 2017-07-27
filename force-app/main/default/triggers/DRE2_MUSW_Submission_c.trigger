@@ -1,0 +1,1 @@
+trigger DRE2_MUSW_Submission_c on MUSW__Submission__c (after insert, before update, before delete, after undelete) { DRE.DREManager.runTrigger(); }

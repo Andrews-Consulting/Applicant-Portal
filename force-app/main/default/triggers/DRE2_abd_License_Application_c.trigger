@@ -1,0 +1,1 @@
+trigger DRE2_abd_License_Application_c on abd_License_Application__c (after insert, before update, before delete, after undelete) { DRE.DREManager.runTrigger(); }

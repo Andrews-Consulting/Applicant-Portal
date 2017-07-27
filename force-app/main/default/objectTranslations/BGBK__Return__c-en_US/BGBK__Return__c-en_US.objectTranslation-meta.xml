@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Tax Report</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Tax Reports</value>
+    </caseValues>
+    <layouts>
+        <layout>Beer/Wine Layout</layout>
+        <sections>
+            <label><!-- Action Items --></label>
+            <section>Action Items</section>
+        </sections>
+        <sections>
+            <label><!-- Corrections --></label>
+            <section>Corrections</section>
+        </sections>
+        <sections>
+            <label><!-- Financial --></label>
+            <section>Financial</section>
+        </sections>
+        <sections>
+            <label><!-- Non-Taxable --></label>
+            <section>Non-Taxable</section>
+        </sections>
+        <sections>
+            <label><!-- Taxable --></label>
+            <section>Taxable</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Brew Pub Layout</layout>
+        <sections>
+            <label><!-- Action Items --></label>
+            <section>Action Items</section>
+        </sections>
+        <sections>
+            <label><!-- Corrections --></label>
+            <section>Corrections</section>
+        </sections>
+        <sections>
+            <label><!-- Financial --></label>
+            <section>Financial</section>
+        </sections>
+        <sections>
+            <label><!-- Non-Taxable --></label>
+            <section>Non-Taxable</section>
+        </sections>
+        <sections>
+            <label><!-- Taxable --></label>
+            <section>Taxable</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Direct Shipper Layout</layout>
+        <sections>
+            <label><!-- Action Items --></label>
+            <section>Action Items</section>
+        </sections>
+        <sections>
+            <label><!-- Corrections --></label>
+            <section>Corrections</section>
+        </sections>
+        <sections>
+            <label><!-- Financial --></label>
+            <section>Financial</section>
+        </sections>
+        <sections>
+            <label><!-- Taxable --></label>
+            <section>Taxable</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Native Wine (WAN)</layout>
+        <sections>
+            <label><!-- Action Items --></label>
+            <section>Action Items</section>
+        </sections>
+        <sections>
+            <label><!-- Corrections --></label>
+            <section>Corrections</section>
+        </sections>
+        <sections>
+            <label><!-- Financial --></label>
+            <section>Financial</section>
+        </sections>
+        <sections>
+            <label><!-- Non-Taxable --></label>
+            <section>Non-Taxable</section>
+        </sections>
+        <sections>
+            <label><!-- Taxable --></label>
+            <section>Taxable</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Beer/Wine Tax Report --></label>
+        <name>Beer_Wine_Tax_Report</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Brew Pub Tax Report --></label>
+        <name>Brew_Pub_Tax_Report</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Direct Shipper Tax Report --></label>
+        <name>Direct_Shipper_Tax_Report</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Native Wine Tax Report --></label>
+        <name>Native_Wine_Tax_Report</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

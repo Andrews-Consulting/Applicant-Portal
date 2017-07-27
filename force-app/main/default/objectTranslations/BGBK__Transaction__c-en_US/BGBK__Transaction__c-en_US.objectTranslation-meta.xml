@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <validationRules>
+        <errorMessage><!-- Cash Type can only be specified for Cash Transactions --></errorMessage>
+        <name>BGBK__Cash_Type_Not_Permitted</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Cash Type is Required --></errorMessage>
+        <name>BGBK__Cash_Type_Required</name>
+    </validationRules>
+</CustomObjectTranslation>

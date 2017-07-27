@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>abd_License__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Each answer should be tied to a license for a specific time frame.</description>
+    <externalId>false</externalId>
+    <label>License</label>
+    <referenceTo>MUSW__License2__c</referenceTo>
+    <relationshipLabel>Answers</relationshipLabel>
+    <relationshipName>Answers</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

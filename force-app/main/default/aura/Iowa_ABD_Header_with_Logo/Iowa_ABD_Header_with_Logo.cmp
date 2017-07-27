@@ -1,0 +1,31 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" >
+  <aura:attribute name="HomeURL" type="String" default="https://abd.iowa.gov/"/>
+  <aura:attribute name="AboutURL" type="String" default="https://abd.iowa.gov/about"/>
+  <aura:attribute name="AlcoholURL" type="String" default="https://abd.iowa.gov/alcohol"/>
+  <aura:attribute name="TobaccoURL" type="String" default="https://abd.iowa.gov/tobacco"/>
+  <aura:attribute name="LinksURL" type="String" default="https://abd.iowa.gov/links"/>
+  <aura:attribute name="ContactURL" type="String" default="https://abd.iowa.gov/contact"/>
+  <div class="slds-grid slds-wrap ">
+    <div class="slds-p-horizontal--small slds-size--1-of-1 slds-medium-size--1-of-6 slds-large-size--4-of-12">
+      <ui:outputURL value="{!v.HomeURL}" Title="State of Iowa" iconClass="IowaLogo" alt="Iowa Alcoholic Beverages Division"/>
+    </div>
+    <div class="slds-p-horizontal--small slds-size--1-of-1 slds-medium-size--1-of-6 slds-large-size--1-of-12">
+      <ui:outputURL value="{!v.HomeURL}" label="Home" class="menuEntry"/>
+    </div>
+    <div class="slds-p-horizontal--small slds-size--1-of-1 slds-medium-size--1-of-6 slds-large-size--1-of-12">
+      <ui:outputURL value="{!v.AboutURL}" label="About" class="menuEntry"/>
+    </div>
+    <div class="slds-p-horizontal--small slds-size--1-of-1 slds-medium-size--1-of-6 slds-large-size--1-of-12">
+      <ui:outputURL value="{!v.AboutURL}" label="Alcohol" class="menuEntry"/>
+    </div>
+    <div class="slds-p-horizontal--small slds-size--1-of-1 slds-medium-size--1-of-6 slds-large-size--1-of-12">
+      <ui:outputURL value="{!v.AboutURL}" label="Tobacco" class="menuEntry"/>
+    </div>
+    <div class="slds-p-horizontal--small slds-size--1-of-1 slds-medium-size--1-of-6 slds-large-size--1-of-12">
+      <ui:outputURL value="{!v.AboutURL}" label="Links" class="menuEntry"/>
+    </div>
+    <div class="slds-p-horizontal--small slds-size--1-of-1 slds-medium-size--1-of-6 slds-large-size--1-of-12">
+      <ui:outputURL value="{!v.AboutURL}" label="Contact" class="menuEntry"/>
+    </div>
+  </div>
+</aura:component>

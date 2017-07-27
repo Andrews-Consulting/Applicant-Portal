@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FieldSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BGCK__Page_Basic</fullName>
+    <description>Default fieldset for Checklist2Admin. Fields in this fieldset will be displayed in the list of page records in the Checklist2Admin.app, and be editable through the section details page in the app.</description>
+    <displayedFields>
+        <field>Name</field>
+        <isFieldManaged>true</isFieldManaged>
+        <isRequired>true</isRequired>
+    </displayedFields>
+    <displayedFields>
+        <field>BGCK__Description__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>false</isRequired>
+    </displayedFields>
+    <label>Page Basic</label>
+</FieldSet>

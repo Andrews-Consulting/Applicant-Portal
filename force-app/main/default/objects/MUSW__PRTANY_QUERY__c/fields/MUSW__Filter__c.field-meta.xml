@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MUSW__Filter__c</fullName>
+    <deprecated>false</deprecated>
+    <description>The where condition appended to the resulting SOQL query</description>
+    <externalId>false</externalId>
+    <label>Filter</label>
+    <length>32000</length>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>10</visibleLines>
+</CustomField>

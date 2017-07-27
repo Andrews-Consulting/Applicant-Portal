@@ -1,0 +1,75 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global">
+	<aura:attribute name="RssFeed" type="String" default="https://abd.iowa.gov/feed"/>
+	<aura:attribute name="Facebook" type="String" default="https://www.facebook.com/Iowa-Alcoholic-Beverages-Division-158250687929362/?fref=ts" />
+	<aura:attribute name="Twitter" type="String" default="https://twitter.com/IowaABD" />
+	<aura:attribute name="UrlHome" type="String" default="http://iowa.gov" />
+	<aura:attribute name="UrlPolicies" type="String" default="http://iowa.gov/pages/policies" />
+	<aura:attribute name="UrlAdobe" type="String" default="http://get.adobe.com/reader" />
+	<footer id="abd_footer" class="grid">
+		<div class="slds-grid slds-wrap slds-grid--align-space" >
+			<div class="slds-col slds-text-align--center box-lined">
+				<ui:outputText value="Follow us with RSS, Facebook, or Twitter:" />
+				<p>
+					<ui:outputURL value="{!v.RssFeed}" Title="RSS Feed" iconClass="rss social" alt="RSS Feed" />
+					<ui:outputURL value="{!v.Facebook}" Title="Facebook" iconClass="facebook social" alt="Facebook" />
+					<ui:outputURL value="{!v.Twitter}" Title="Twitter" iconClass="twitter social" alt="Twitter" />
+				</p>
+				<!-- GovDelivery Signup Form -->
+				<div class="GovDelivery">
+					<form accept-charset="UTF-8" action="https://public.govdelivery.com/accounts/IACIO/subscribers/qualify" id="GD-snippet-form" method="post">
+						<div class="GovDeliveryToken">
+							<input name="utf8" type="hidden" value="✓" />
+							<input name="authenticity_token" type="hidden" value="C0vxB4uZo0UBBapi7Kih4O9tXYwlp6MtzkF0Zxm94jw=" />
+						</div>
+						<h4>
+							<strong>
+								<ui:outputText value="Subscribe to Allocations " />
+							</strong>
+							<ui:outputText value="from Iowa Alcoholic Beverages Division." />
+						</h4>
+						<div class="GovDeliveryEmail">
+							<label>Enter your e-mail address
+								<input id="email" name="email" type="text" style="width:95% !important;" />
+							</label>
+						</div>
+						<div>
+							<input class="form_button" name="commit" type="submit" value="Subscribe" />
+						</div>
+					</form>
+				</div>
+				<!-- End GovDelivery Signup Form -->
+			</div>
+			<div class="slds-col slds-text-align--center" >
+				<h2>Contact Us</h2>
+				<p>Iowa Alcoholic Beverages Division<br />
+					1918 SE Hulsizer Road<br />
+					Ankeny, IA 50021<br />
+				</p>
+				<p>
+					<img alt="" src="{!$Resource.DX_GraphicLibrary + '/white-phone-15px.png'}" />
+					<strong>Toll-free:</strong>866-IowaABD (469-2223)
+					<br />
+					<img alt="" src="{!$Resource.DX_GraphicLibrary + '/white-phone-15px.png'}" />
+					<strong>Local:</strong>515-281-7400
+				</p>
+			</div>
+			<div class="slds-col ">
+				<ul class="legal" >
+					<li>
+						<ui:outputURL value="{!v.UrlHome}" Title="State of Iowa" label="State of Iowa"/>
+					</li>
+					<li>
+						<ui:outputURL value="{!v.UrlPolicies}" Title="Policies" label="Policies"/>
+					</li>
+					<li>
+						<ui:outputURL value="{!v.UrlAdobe}" Title="Adobe PDF Reader" label="Adobe PDF Reader"/>
+					</li>
+				</ul>
+				<p>© 2015 State of Iowa<br />
+					Alcoholic Beverages Division<br />
+					All rights reserved.<br />
+				</p>
+			</div>
+		</div>
+	</footer>
+</aura:component>

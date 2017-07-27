@@ -1,0 +1,8 @@
+<aura:component extends="c:dx_StdPageAbstraction" implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" access="global">
+
+    <aura:set attribute="ActiveCmp" value="dx_PC_ApplicationAddPrivileges" />     <!-- This drives the navigation and needs to exist in Nav metadata -->
+
+    <div aura:id="dx_PC_ApplicationAddPrivilegesDiv">
+        <c:dx_ApplicationAddPrivileges SaveCompleted="{!c.SaveComplete}" showError="{!v.showError}" errorMessage="{!v.errorMessage}" aura:id="dx_PC_ApplicationAddPrivileges" recordId="{!v.recordId}" /> 
+    </div>
+</aura:component>

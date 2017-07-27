@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Proposed Use --></label>
+    <name>MUSW__Proposed_Use__c</name>
+    <picklistValues>
+        <masterLabel>Agricultural</masterLabel>
+        <translation><!-- Agricultural --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Commercial</masterLabel>
+        <translation><!-- Commercial --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Industrial</masterLabel>
+        <translation><!-- Industrial --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Multi-Family Residential</masterLabel>
+        <translation><!-- Multi-Family Residential --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Other</masterLabel>
+        <translation><!-- Other --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Single Family Residential</masterLabel>
+        <translation><!-- Single Family Residential --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

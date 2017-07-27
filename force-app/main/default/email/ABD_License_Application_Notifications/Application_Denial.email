@@ -1,0 +1,5 @@
+Application {!MUSW__Application2__c.Name} for {!MUSW__Application2__c.MUSW__Account__c} has been denied due to {!MUSW__Application2__c.Denial_Reason__c}.
+
+A letter is attached with the denial details for your records. 
+ 
+Iowa Alcoholic Beverages Division

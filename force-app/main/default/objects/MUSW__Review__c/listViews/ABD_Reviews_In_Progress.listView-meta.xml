@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ABD_Reviews_In_Progress</fullName>
+    <columns>NAME</columns>
+    <columns>MUSW__Type__c</columns>
+    <columns>MUSW__Application2__c</columns>
+    <columns>MUSW__Status__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>OWNER.ALIAS</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>MUSW__Type__c</field>
+        <operation>contains</operation>
+        <value>Compliance Review,ABD Level 1 Review,ABD Level 2 Review,ABD Level 3 Review</value>
+    </filters>
+    <filters>
+        <field>MUSW__Status__c</field>
+        <operation>equals</operation>
+        <value>In Progress</value>
+    </filters>
+    <label>ABD Reviews In Progress</label>
+    <sharedTo>
+        <allInternalUsers/>
+    </sharedTo>
+</ListView>

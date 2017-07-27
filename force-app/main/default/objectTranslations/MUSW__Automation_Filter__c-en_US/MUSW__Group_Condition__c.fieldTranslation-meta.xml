@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Use NOT EXISTS if you want the rule to fire when there are NO records that match every filter in the group. eg. NOT EXISTS construction fees but unpaid, or inspection tasks but open, or required submittals but not loaded. --></help>
+    <label><!-- Condition --></label>
+    <name>MUSW__Group_Condition__c</name>
+    <picklistValues>
+        <masterLabel>NOT EXISTS</masterLabel>
+        <translation><!-- NOT EXISTS --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

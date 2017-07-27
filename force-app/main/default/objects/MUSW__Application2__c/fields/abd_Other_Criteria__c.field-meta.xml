@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>abd_Other_Criteria__c</fullName>
+    <externalId>false</externalId>
+    <label>Other Criteria</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Club has more than 250 members</fullName>
+                <default>false</default>
+                <label>Club has more than 250 members</label>
+            </value>
+            <value>
+                <fullName>Club has less than 250 members</fullName>
+                <default>false</default>
+                <label>Club has less than 250 members</label>
+            </value>
+            <value>
+                <fullName>Veteran’s organization open one day per week or 52 days or less per year</fullName>
+                <default>false</default>
+                <label>Veteran’s organization open one day per week or 52 days or less per year</label>
+            </value>
+            <value>
+                <fullName>Boat</fullName>
+                <default>false</default>
+                <label>Boat</label>
+            </value>
+            <value>
+                <fullName>Train</fullName>
+                <default>false</default>
+                <label>Train</label>
+            </value>
+            <value>
+                <fullName>Plane</fullName>
+                <default>false</default>
+                <label>Plane</label>
+            </value>
+            <value>
+                <fullName>Sells Gas</fullName>
+                <default>false</default>
+                <label>Sells Gas</label>
+            </value>
+            <value>
+                <fullName>No Gas</fullName>
+                <default>false</default>
+                <label>No Gas</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

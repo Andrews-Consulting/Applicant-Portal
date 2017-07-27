@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DRE__Condition__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <label>Condition</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Records exist</fullName>
+                <default>true</default>
+                <label>Records exist</label>
+            </value>
+            <value>
+                <fullName>Records don't exist</fullName>
+                <default>false</default>
+                <label>Records don't exist</label>
+            </value>
+            <value>
+                <fullName>Error occurred</fullName>
+                <default>false</default>
+                <label>Error occurred</label>
+            </value>
+            <value>
+                <fullName>Email was sent</fullName>
+                <default>false</default>
+                <label>Email was sent</label>
+            </value>
+            <value>
+                <fullName>Email was not sent</fullName>
+                <default>false</default>
+                <label>Email was not sent</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

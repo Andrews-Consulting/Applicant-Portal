@@ -1,0 +1,11 @@
+{
+  "packageDirectories": [
+    { "path": "force-app", "default": true   }, 
+    { "path" : "unpackaged" },
+    { "path" : "utils" }
+
+  ],
+  "namespace": "",
+  "sfdcLoginUrl": "https://iowaabd.my.salesforce.com",
+  "sourceApiVersion": "39.0"
+}

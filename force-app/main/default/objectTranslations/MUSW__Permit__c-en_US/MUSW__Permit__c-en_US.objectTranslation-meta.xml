@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <webLinks>
+        <label><!-- Refresh_Financials --></label>
+        <name>BGBK__Refresh_Financials</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Add_Alert --></label>
+        <name>MUSW__Add_Alert</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Alert_Parcel --></label>
+        <name>MUSW__Alert_Parcel</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Attach_Permit_Letter --></label>
+        <name>MUSW__Attach_Permit_Letter</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- CalculateWorkItemValuation --></label>
+        <name>MUSW__CalculateWorkItemValuation</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- ChangePermitStatus --></label>
+        <name>MUSW__ChangePermitStatus</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Clear_Alert_Status --></label>
+        <name>MUSW__Clear_Alert_Status</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Link_Attachment --></label>
+        <name>MUSW__Link_Attachment</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Refresh_Financials --></label>
+        <name>MUSW__Refresh_Financials</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- RunAutomation --></label>
+        <name>MUSW__RunAutomation</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- ViewJobLocationMap --></label>
+        <name>MUSW__ViewJobLocationMap</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- View_GIS_Map --></label>
+        <name>MUSW__View_GIS_Map</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- View_Map --></label>
+        <name>MUSW__View_Map</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- View_Parcel_Map --></label>
+        <name>MUSW__View_Parcel_Map</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- View_Print_Inspection_Sheet --></label>
+        <name>MUSW__View_Print_Inspection_Sheet</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- ViewandPrintJobCard --></label>
+        <name>MUSW__ViewandPrintJobCard</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- ViewandPrintOccupancy --></label>
+        <name>MUSW__ViewandPrintOccupancy</name>
+    </webLinks>
+</CustomObjectTranslation>

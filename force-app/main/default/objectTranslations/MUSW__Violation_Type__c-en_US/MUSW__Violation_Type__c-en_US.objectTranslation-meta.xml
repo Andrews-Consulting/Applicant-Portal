@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <recordTypes>
+        <label><!-- Condition --></label>
+        <name>Condition</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Ordinance --></label>
+        <name>Ordinance</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Standard Comment --></label>
+        <name>Standard_Comment</name>
+    </recordTypes>
+</CustomObjectTranslation>

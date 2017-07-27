@@ -1,0 +1,78 @@
+<!-- add implements="forceCommunity:availableForAllPageTypes" to surface the component in community builder -->
+<aura:component implements="forceCommunity:availableForAllPageTypes" controller="DX_LoginFormController" access="global">
+    <aura:attribute name="showError" type="Boolean" required="true" description="" default="false" access="private"/>
+    <aura:attribute name="errorMessage" type="String" required="false" description="" access="private"/>
+    <aura:attribute name="startUrl" type="String" required="false" description="The url you go to after a successful login" />
+    <aura:attribute name="usernameLabel" type="String" required="false" default="Username"/>
+    <aura:attribute name="passwordLabel" type="String" required="false" default="Password"/>
+    <aura:attribute name="loginButtonLabel" type="String" required="false" default="Log in"/>
+    <aura:attribute name="defaultStartURL" type="String" description="default value to use for the start url" default="dx-auth-home"/>
+    
+    <aura:attribute name="forgotPasswordLabel" type="String" required="false" default="Forgot your password?"/>
+    <aura:attribute name="selfRegisterLabel" type="String" required="false" default="Not a member?"/>
+    <aura:attribute name="forgotPasswordUrl" type="String" required="false" default="/ForgotPassword"/>
+    <aura:attribute name="selfRegisterUrl" type="String" required="false" default="/SelfRegister"/>
+    <aura:attribute name="forgotUsernameLabel" type="String" required="false" default="Forgot your username?"/>
+    <aura:attribute name="forgotUsernameUrl" type="String" required="false" default="/ForgotUsername"/>
+    
+    <aura:attribute name="isUsernamePasswordEnabled" type="Boolean" access="private"/>
+    <aura:attribute name="isSelfRegistrationEnabled" type="Boolean" access="private"/>
+    <aura:attribute name="communityForgotPasswordUrl" type="String" access="private"/>
+    <aura:attribute name="communitySelfRegisterUrl" type="String" access="private"/>
+    
+    <aura:registerevent name="sitePropagatedStartUrl" type="c:setStartUrl"/>
+    <aura:handler name="init" value="{!this}" action="{!c.initialize}"/>
+    <aura:dependency resource="c:setStartUrl" type="EVENT"/>
+    <aura:dependency resource="siteforce:registerQueryEventMap" type="EVENT"/>
+    <aura:handler event="c:setStartUrl" action="{!c.setStartUrl}"/>
+    
+    <div id="abd_loginform" onkeyup="{!c.onKeyUp}">
+        <aura:renderIf isTrue="{!v.isUsernamePasswordEnabled}">
+            <span>
+                <aura:renderIf isTrue="{!v.showError}">
+                    <div id="error" class="slds-container--center slds-container--small">
+                        <ui:outputRichText value="{!v.errorMessage}"/>
+                    </div>
+                </aura:renderIf>
+            </span>            
+            <div id="sfdc_username_container" class="slds-container--center slds-container--small">
+                <ui:inputEmail value="" aura:id="username" keyup="{!c.onKeyUp}" class="inner" label="{!v.usernameLabel}"/>
+            </div>
+    
+            <div id="sfdc_password_container" class="slds-container--center slds-container--small">
+                <ui:inputSecret value="" aura:id="password" keyup="{!c.onKeyUp}" class="inner" label="{!v.passwordLabel}"/>
+            </div>
+    		
+    		<div class="slds-container--center slds-container--small inner">
+                <ui:button aura:id="submitButton" label="{!v.loginButtonLabel}" press="{!c.handleLogin}" class="stdButton"/>
+            </div>
+            
+            <div class="slds-container--center slds-container--small inner link">
+                <a href="{!if(v.communityForgotPasswordUrl == null, v.forgotPasswordUrl, v.communityForgotPasswordUrl)}">{!v.forgotPasswordLabel}</a>
+            </div>
+            
+            <aura:renderIf isTrue="{!v.isSelfRegistrationEnabled}">
+	            <div class="slds-container--center slds-container--small inner">
+	                <ui:button aura:id="submitButton" label="{!v.selfRegisterLabel}" press="{!c.navigateToSelfRegister}" class="stdButton"/>
+	            </div>
+            </aura:renderIf>
+            <!-- <div id="sfdc_forgot" class="sfdc" style="text-align:center">
+                <span style="float:left"><a href="{!if(v.communityForgotPasswordUrl == null, v.forgotPasswordUrl, v.communityForgotPasswordUrl)}">{!v.forgotPasswordLabel}</a></span>
+                <span><a href="{!v.forgotUsernameUrl}">{!v.forgotUsernameLabel}</a></span>
+                <aura:renderIf isTrue="{!v.isSelfRegistrationEnabled}">
+                    <span style="float:right" ><a href="{!if(v.communitySelfRegisterUrl == null, v.selfRegisterUrl, v.communitySelfRegisterUrl)}">{!v.selfRegisterLabel}</a></span>
+                </aura:renderIf>                            
+            </div>  -->
+        </aura:renderIf>
+        <div class="slds-container--center slds-container--small inner " />
+        <div class="slds-container--center slds-container--small inner " />
+
+        <div class="slds-container--center slds-container--small inner ">
+            <!-- <a href="https://test.salesforce.com/services/auth/sso/00D350000000XcdEAE/Facebook">TEST - DO NOT PRESS</a> -->
+        </div>
+
+         <div class="slds-spinner_container slds-hide slds-is-fixed" aura:id="spinner">
+            <lightning:spinner variant="brand" size="large"  alternativeText="Waiting on the login process to complete"/>
+        </div>
+    </div>
+</aura:component>

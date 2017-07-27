@@ -1,0 +1,7 @@
+<design:component >
+   	<design:attribute name="barClubRestaurant_URL"   />
+	<design:attribute name="retailStore_URL"  />
+	<design:attribute name="charityAuction_URL"  />
+	<design:attribute name="wholesalerOrCarrier_URL"  />
+	<design:attribute name="importerOrManufacturer_URL"  />
+</design:component>

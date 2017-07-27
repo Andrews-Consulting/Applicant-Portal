@@ -1,0 +1,13 @@
+Please note that your gallonage tax report is due no later than the 10th of the month.
+
+License #: {!BGBK__Return__c.BGBK__License2__c}
+
+Business Name: {!BGBK__Return__c.abd_Licensee__c}
+
+{!BGBK__Return__c.abd_Premise_Address__c}
+
+Please do not respond to this email.  Contact the Accounting Division with questions regarding the application status at 515.281.7370 or 515.281.7386.
+
+For assistance by email contact Licensing@IowaABD.com
+
+To access the electronic tax reporting system, click here {Link TBD}

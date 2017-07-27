@@ -1,0 +1,8 @@
+<aura:component extends="c:dx_StdPageAbstraction" implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" access="global">
+
+    <aura:set attribute="ActiveCmp" value="dx_PC_CreateNA" />     <!-- This drives the navigation and needs to exist in Nav metadata -->
+
+    <div >
+        <c:dx_createNA SaveCompleted="{!c.SaveComplete}" EmptyComponent="{!c.EmptyComponent}" showError="{!v.showError}" errorMessage="{!v.errorMessage}" aura:id="dx_PC_CreateNA" recordId="{!v.recordId}" /> 
+    </div>
+</aura:component>

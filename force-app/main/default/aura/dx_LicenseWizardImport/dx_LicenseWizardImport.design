@@ -1,0 +1,11 @@
+<design:component >
+    
+	<design:attribute name="shipBeerIntoIA_URL" />
+	<design:attribute name="shipWineIntoIA_URL" />
+	<design:attribute name="shipSpiritsIntoIA_URL" />
+	<design:attribute name="distillSpiritsAndSampleInIA_URL" />
+	<design:attribute name="distillSpiritsAndSellOutsideIA_URL" />
+	<design:attribute name="shipWineToPersonalAddress_URL" />
+	<design:attribute name="promoteLiquorInIA_URL" />
+
+</design:component>

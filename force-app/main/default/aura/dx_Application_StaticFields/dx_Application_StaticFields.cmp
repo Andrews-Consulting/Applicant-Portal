@@ -1,0 +1,90 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,force:appHostable" controller="DX_Application_StaticFields" access="global">
+	<aura:attribute name="submitButtonLabel" type="String" required="false" default="Save"/>
+    <aura:attribute name="showError" type="Boolean" required="true" description="" default="false" access="private"/>
+    <aura:attribute name="errorMessage" type="string" required="false" description="" access="private"/>
+    <aura:attribute name="recordId" type="Id" description="The Id of the record" required="true" default="a0335000001kcYk"/>
+    <aura:attribute name="application" type="MUSW__Application2__c" default="{'sobjectType':'MUSW__Application2__c'}"/>
+    <aura:attribute name="counties" type="string[]" default=""/>
+    <aura:attribute name="states" type="string[]" default=""/>
+    <aura:attribute name="locationTypes" type="string[]" default=""/>
+    <aura:attribute name="visibility" type="map" default=""/>
+    <aura:handler event="c:dx_PassApplication" action="{!c.setApp}"/> 
+    <aura:handler name="init" value="{!this}" action="{!c.doInit1}"/>
+    <aura:method name="staticSave" action="{!c.save}" access="PUBLIC"/>
+    
+    <div class="slds">
+        <aura:renderIf isTrue="{!v.showError}">
+            <div aura:id="error">
+                <ui:outputRichText value="{!v.errorMessage}"/>
+            </div>
+        </aura:renderIf>
+        <aura:renderIf isTrue="{!v.visibility.abd_Effective_Date__c}">
+        <div id="slds-form-element slds-is-required" class="sfdc">
+            <ui:inputDate value="{!v.application.abd_Effective_Date__c}" aura:id="eDate" displayDatePicker="true" label="Effective Date"/>
+        </div>
+        </aura:renderIf>
+        <div id="slds-form-element" class="sfdc">
+            <ui:inputDate value="{!v.application.abd_Application_Date__c}" aura:id="appDate" displayDatePicker="true" label="Application Date"/>
+        </div>
+        <aura:renderIf isTrue="{!v.visibility.MUSW__Description__c!=null}">
+        <div id="slds-form-element slds-is-required" class="sfdc">
+            <ui:inputText value="{!v.application.MUSW__Description__c}" aura:id="description" required="true" label="Description"/>
+        </div>
+        </aura:renderIf>
+        <div id="slds-form-element slds-is-required" class="sfdc">
+            <ui:inputText value="{!v.application.abd_Premise_Address__c}" aura:id="address" required="true" label="Premises Address"/>
+        </div>
+        <div id="slds-form-element" class="sfdc">
+            <ui:inputText value="{!v.application.abd_Premise_Address_2__c}" aura:id="address2" label="Premises Address 2"/>
+        </div>
+        <div id="slds-form-element slds-is-required" class="sfdc">
+            <ui:inputText value="{!v.application.abd_Premise_City__c}" aura:id="City" required="true" label="Premises City"/>
+        </div>
+        <div id="slds-form-element slds-is-required" class="sfdc">
+            <ui:inputSelect aura:id="sItems" change="{!c.onSelectChange}" label="Premises State" required="true">
+				<aura:iteration items="{!v.states}" var="state">
+                    <aura:if isTrue="{!state == v.application.abd_Premise_State__c}">
+                        <ui:inputSelectOption text="{!state}" label="{!state}" value="true"/>
+                        <aura:set attribute="else">
+                            <ui:inputSelectOption text="{!state}" label="{!state}" value="false"/>
+                        </aura:set>
+                    </aura:if>
+				</aura:iteration>
+			</ui:inputSelect>
+        </div>
+        <div id="slds-form-element slds-is-required" class="sfdc">
+            <ui:inputSelect aura:id="cItems" change="{!c.onSelectChange}" label="Premises County (Iowa only)">
+				<aura:iteration items="{!v.counties}" var="county">
+                    <aura:if isTrue="{!county == v.application.abd_Premise_County__c}">
+                        <ui:inputSelectOption text="{!county}" label="{!county}" value="true"/>
+                        <aura:set attribute="else">
+                            <ui:inputSelectOption text="{!county}" label="{!county}" value="false"/>
+                        </aura:set>
+                    </aura:if>
+				</aura:iteration>
+			</ui:inputSelect>
+        </div>
+        <div id="slds-form-element slds-is-required" class="sfdc">
+            <ui:inputText value="{!v.application.abd_Premise_Zip_Code__c}" aura:id="zip" required="true" label="Premises Postal Code"/>
+        </div>
+        <div id="slds-form-element slds-is-required" class="sfdc">
+            <ui:inputSelect aura:id="lItems" change="{!c.onSelectChange}" label="Temporary or Permanent Address" required="true">
+				<aura:iteration items="{!v.locationTypes}" var="lType">
+                    <aura:if isTrue="{!lType == v.application.abd_Temporary_or_Permanent__c}">
+                        <ui:inputSelectOption text="{!lType}" label="{!lType}" value="true"/>
+                        <aura:set attribute="else">
+                            <ui:inputSelectOption text="{!lType}" label="{!lType}" value="false"/>
+                        </aura:set>
+                    </aura:if>
+				</aura:iteration>
+			</ui:inputSelect>
+        </div>
+                
+       <!-- <div class="sfdc">
+        	<ui:button aura:id="submitButton" label="{!v.submitButtonLabel}" press="{!c.save}" class="sfdc_button"/>
+                <div class="slds-spinner_container slds-hide slds-is-fixed" aura:id="spinner">
+                    <lightning:spinner variant="brand" size="large"/>
+                </div>
+        </div>-->
+    </div>	
+</aura:component>

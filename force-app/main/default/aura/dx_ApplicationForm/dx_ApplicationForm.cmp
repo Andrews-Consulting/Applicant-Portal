@@ -1,0 +1,39 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,force:appHostable" controller="DX_ApplicationForm" access="global">
+	<aura:attribute name="submitButtonLabel" type="String" required="false" default="Save"/>
+    <aura:attribute name="showError" type="Boolean" required="true" description="" default="false" access="private"/>
+    <aura:attribute name="errorMessage" type="string" required="false" description="" access="private"/>
+    <aura:attribute name="recordId" type="Id" description="The Id of the record" required="true" default="a0335000001kcYk"/>
+    <aura:attribute name="Ids" type="Id[]"/>
+    <aura:attribute name="application" type="MUSW__Application2__c" default="{'sobjectType':'MUSW__Application2__c'}"/>
+    <aura:attribute name="visibility" type="map" default=""/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:registerEvent name="initEvent" type="c:dx_PassApplication"/>
+    
+    <aura:dependency resource="c:dx_PassApplication" type="EVENT"/>
+    
+    <h1><ui:outputText value="{!v.application.Name}"/></h1>
+    
+    <div>
+        <aura:renderIf isTrue="{!v.showError}">
+            <div aura:id="error">
+                <ui:outputRichText value="{!v.errorMessage}"/>
+            </div>
+        </aura:renderIf>
+        <aura:renderIf isTrue="{!v.application.Id!=null}">
+        	<c:dx_Application_StaticFields aura:id="staticC"/>
+        	<aura:iteration items="{!v.Ids}" var="i">
+        		<c:dx_checklist application="{!i}" aura:id="checklist"/>
+        	</aura:iteration>
+        </aura:renderIf>
+        <!-- <aura:renderIf isTrue="{!v.application.Id!=null}">
+            <c:dx_DynamicDisplay_Block recordId="{!v.recordId}" fsName="{!v.application.Primary_Lic_Type__c}" typeName="MUSW__Application2__c" aura:id="dynamicC"/>     
+        </aura:renderIf> -->
+        <div class="sfdc">
+        	<ui:button aura:id="submitButton" label="{!v.submitButtonLabel}" press="{!c.save}" class="sfdc_button"/>
+                <div class="slds-spinner_container slds-is-fixed slds-hide" aura:id="spinner">
+                    <lightning:spinner variant="brand" size="large" alternativeText="spinner"/>
+                </div>
+        </div>
+    </div>
+    
+</aura:component>

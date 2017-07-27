@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Status --></label>
+    <name>MUSW__Status__c</name>
+    <picklistValues>
+        <masterLabel>Closed - No Action Taken</masterLabel>
+        <translation><!-- Closed - No Action Taken --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Closed - Resolved</masterLabel>
+        <translation><!-- Closed - Resolved --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Investigation In Progress</masterLabel>
+        <translation><!-- Investigation In Progress --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>New</masterLabel>
+        <translation><!-- New --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Under Action</masterLabel>
+        <translation><!-- Under Action --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

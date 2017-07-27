@@ -1,0 +1,36 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes"  access="global">
+	
+	<aura:attribute name="record" type="Object" description="Full record object."/>
+	<aura:attribute name="fieldset" type="Object[]" description="Array of fields that are to be used in the view"/>
+	<aura:attribute name="values" type="Object[]" description="Placeholder object. This is what gets iterated through to create the table cells."/>
+	<aura:attribute name="isReadMode" type="Boolean" default="false"/>
+
+	<aura:handler event="aura:doneRendering" action="{!c.doInit}" />
+
+	<aura:registerEvent name="editRecord" type="c:dx_ChecklistRecordEditEvent" /> 	
+	<aura:registerEvent name="deleteRecord" type="c:dx_ChecklistRecordDeleteEvent" />
+	
+	<tr>
+		<aura:iteration items="{!v.values}" var="item">
+			<td data-label="{!item.label}">
+				<div class="slds-truncate" title="{!item.value}">{!item.value}</div>
+			</td>
+	        
+	    </aura:iteration>
+	    <td class="slds-cell-shrink">
+	    	<button class="slds-button slds-button--neutral slds-m-around--none"
+                    data-record="{!v.record.Id}"
+                    onclick="{!c.editRecord}"
+                    disabled="{!v.isReadMode}">
+                Edit
+            </button>
+            <button class="slds-button slds-button--neutral slds-m-around--none"
+                    data-record="{!v.record.Id}"
+                    onclick="{!c.deleteRecord}"
+                    disabled="{!v.isReadMode}">
+                Delete
+            </button>
+        </td>
+	</tr>
+   
+</aura:component>

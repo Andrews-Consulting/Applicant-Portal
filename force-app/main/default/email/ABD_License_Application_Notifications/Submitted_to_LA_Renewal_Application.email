@@ -1,0 +1,12 @@
+Dramshop Liability Insurance Coverage has been endorsed for the following license/permit. The application is awaiting local authority approval or denial. After local authority has issued a decision, the application will be submitted to the Iowa Alcoholic Beverages Division for final review.<br />
+
+<table>
+<tr>
+<th align=left bgcolor=whitesmoke>License #</th><th align=left bgcolor=whitesmoke>License Status</th><th align=left bgcolor=whitesmoke>Business Name</th>
+</tr>
+<tr>
+<td>{!MUSW__Application2__c.abd_Primary_License__c}</td><td>{!MUSW__Application2__c.MUSW__Status__c}</td><td>{!MUSW__Application2__c.MUSW__Account__c}</td>
+</tr>
+</table>
+<br />
+To check the status of your application, log on here.

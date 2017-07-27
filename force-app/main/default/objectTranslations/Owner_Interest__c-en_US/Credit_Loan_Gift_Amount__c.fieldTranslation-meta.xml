@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Credit/Loan/Gift Amount --></label>
+    <name>Credit_Loan_Gift_Amount__c</name>
+</CustomFieldTranslation>

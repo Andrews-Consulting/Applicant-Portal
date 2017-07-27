@@ -1,0 +1,94 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" controller="DX_LicenseListController" access="global">
+    <aura:attribute name="showError" type="Boolean"  />
+    <aura:attribute name="errorMessage" type="string" />
+    <aura:Attribute name="RecordIdIsApplication" type="Boolean" />
+
+    <aura:attribute name="licenses" type="Object[]"/>
+    
+    <aura:registerevent name="SaveCompleted" type="c:dx_actionComplete" />
+    <aura:registerevent name="EmptyComponent" type="c:dx_actionComplete" />
+    <aura:method name="PerformSave" action="{!c.save}"  />
+    <aura:method name="PerformInit" action="{!c.doInit}"  />
+
+
+    <div class="slds-grid slds-wrap padded">
+        <div class="slds-col slds-size--1-of-1">
+            <div class="slds-grid slds-wrap padded slds-grid--vertical-align-center">
+                <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-12" />
+                <div class="slds-col slds-size--1-of-1 slds-medium-size--8-of-12">
+                    <h1>License List</h1>
+                </div>
+                <div class="slds-col slds-size--1-of-1 slds-medium-size--3-of-12" />
+            </div>
+            <div class="slds-grid slds-wrap padded">
+                <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-12" />
+                <div class="slds-col slds-size--1-of-1 slds-medium-size--10-of-12 slds-container--center">
+                    <table class="slds-table slds-table--bordered slds-table--cell-buffer" style="width:50vw;">
+                        <thead>
+                            <tr class="slds-text-title--caps">
+                                <th scope="col">
+                                    <div class="slds-truncate" title="License Name">License Name</div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate" title="Effective Date">Effective Date</div>
+                                </th>
+                                <th scope="col">
+                                    <div title="Description">Description</div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate" title="Status">Status</div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate" title="Class">Class</div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate" title="Last Modified By">Last Modified By</div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate" title="Account Name">Account Name</div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <aura:iteration items="{!v.licenses}" var="l">
+                                <tr>
+                                    <th scope="row" data-label="License Name" style="width:25vw">
+                                        <div class="slds-truncate" title="{!l.Lic_Name}">
+                                            <a href="javascript:void(0);">{!l.Lic_Name}</a>
+                                        </div>
+                                    </th>
+                                    <td data-label="Effective Date" style="width:25vw">
+                                        <div class="slds-truncate" title="{!l.Lic_Effective_Date}">{!l.Lic_Effective_Date}</div>
+                                    </td>
+                                    <td data-label="Description" style="width:25vw">
+                                        <div class="slds-truncate" title="{!l.Lic_Description}" style="width:150px">{!l.Lic_Description}</div>
+                                    </td>
+                                    <td data-label="Status" style="width:25vw">
+                                        <div class="slds-truncate" title="{!l.Lic_Status}">{!l.Lic_Status}</div>
+                                    </td>
+                                    <td data-label="Class" style="width:25vw">
+                                        <div class="slds-truncate" title="{!l.Lic_Class}">{!l.Lic_Class}</div>
+                                    </td>
+                                    <td data-label="Last Modified By" style="width:25vw">
+                                        <div class="slds-truncate" title="{!l.Lic_LastModifiedBy_Name}">{!l.Lic_LastModifiedBy_Name}</div>
+                                    </td>
+                                    <td data-label="Account Name" style="width:25vw">
+                                        <div class="slds-truncate" title="{!l.Account_Name}">{!l.Account_Name}</div>
+                                    </td>
+                                </tr>
+                                <!-- Lic_Id  -->
+                                <!-- Account_Id  -->
+                            </aura:iteration>
+                            <aura:renderIf isTrue="{!v.showEmpty}">
+                                <tr>
+                                    <th colspan="4" style="text-align:center">No Records Found</th>
+                                </tr>
+                            </aura:renderIf>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-12" />
+            </div>                
+        </div>
+    </div>
+</aura:component>

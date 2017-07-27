@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Compliance_Reason__c</fullName>
+    <externalId>false</externalId>
+    <label>Compliance Reason</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Sole Proprietor/Non Us Citizen</fullName>
+                <default>false</default>
+                <label>Sole Proprietor/Non Us Citizen</label>
+            </value>
+            <value>
+                <fullName>Sole Proprietor/Not Iowa</fullName>
+                <default>false</default>
+                <label>Sole Proprietor/Not Iowa</label>
+            </value>
+            <value>
+                <fullName>Under 21</fullName>
+                <default>false</default>
+                <label>Under 21</label>
+            </value>
+            <value>
+                <fullName>Criminal History</fullName>
+                <default>false</default>
+                <label>Criminal History</label>
+            </value>
+            <value>
+                <fullName># Bathrooms</fullName>
+                <default>false</default>
+                <label># Bathrooms</label>
+            </value>
+            <value>
+                <fullName>Under 25 Seats</fullName>
+                <default>false</default>
+                <label>Under 25 Seats</label>
+            </value>
+            <value>
+                <fullName>Owner Interest in Other Manufacturer Importer</fullName>
+                <default>false</default>
+                <label>Owner Interest in Other Manufacturer Importer</label>
+            </value>
+            <value>
+                <fullName>Owner Interest in Other Retail License</fullName>
+                <default>false</default>
+                <label>Owner Interest in Other Retail License</label>
+            </value>
+            <value>
+                <fullName>Manufacturer/Importer Interest in Owner Business</fullName>
+                <default>false</default>
+                <label>Manufacturer/Importer Interest in Owner Business</label>
+            </value>
+            <value>
+                <fullName>Other Paid Owner License Fee</fullName>
+                <default>false</default>
+                <label>Other Paid Owner License Fee</label>
+            </value>
+            <value>
+                <fullName>Others Provided Money</fullName>
+                <default>false</default>
+                <label>Others Provided Money</label>
+            </value>
+            <value>
+                <fullName>Other Provided Equipment</fullName>
+                <default>false</default>
+                <label>Other Provided Equipment</label>
+            </value>
+            <value>
+                <fullName>Owner Employed by Other Manufacturer Importer</fullName>
+                <default>false</default>
+                <label>Owner Employed by Other Manufacturer Importer</label>
+            </value>
+            <value>
+                <fullName>Retailer with Interest in Owner Business</fullName>
+                <default>false</default>
+                <label>Retailer with Interest in Owner Business</label>
+            </value>
+            <value>
+                <fullName>Owner Paid License Fee for Retailer</fullName>
+                <default>false</default>
+                <label>Owner Paid License Fee for Retailer</label>
+            </value>
+            <value>
+                <fullName>Owner Provided Funds to Retailer</fullName>
+                <default>false</default>
+                <label>Owner Provided Funds to Retailer</label>
+            </value>
+            <value>
+                <fullName>Owner Interest in Equipment Used by Other Retailers</fullName>
+                <default>false</default>
+                <label>Owner Interest in Equipment Used by Other Retailers</label>
+            </value>
+            <value>
+                <fullName>Staff Employed by Other Retailer</fullName>
+                <default>false</default>
+                <label>Staff Employed by Other Retailer</label>
+            </value>
+            <value>
+                <fullName>Partnership/Non Us Citizen</fullName>
+                <default>false</default>
+                <label>Partnership/Non Us Citizen</label>
+            </value>
+            <value>
+                <fullName>Partnership/Not Iowa</fullName>
+                <default>false</default>
+                <label>Partnership/Not Iowa</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

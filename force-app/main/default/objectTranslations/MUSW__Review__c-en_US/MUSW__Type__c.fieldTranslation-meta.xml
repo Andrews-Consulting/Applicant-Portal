@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Type --></label>
+    <name>MUSW__Type__c</name>
+    <picklistValues>
+        <masterLabel>ABD Compliance Level 1 Review</masterLabel>
+        <translation><!-- ABD Compliance Level 1 Review --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ABD Compliance Level 2 Review</masterLabel>
+        <translation><!-- ABD Compliance Level 2 Review --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ABD Compliance Level 3 Review</masterLabel>
+        <translation><!-- ABD Compliance Level 3 Review --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ABD Level 1 Review</masterLabel>
+        <translation><!-- ABD Level 1 Review --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ABD Level 2 Review</masterLabel>
+        <translation><!-- ABD Level 2 Review --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ABD Level 3 Review</masterLabel>
+        <translation><!-- ABD Level 3 Review --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Compliance Review</masterLabel>
+        <translation><!-- Compliance Review --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>DRAM Review</masterLabel>
+        <translation><!-- DRAM Review --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Local Authority Review</masterLabel>
+        <translation><!-- Local Authority Review --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

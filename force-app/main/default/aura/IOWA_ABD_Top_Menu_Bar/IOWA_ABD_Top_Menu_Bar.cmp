@@ -1,0 +1,21 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" >
+    <div class="topnav">
+         <div class="menu">
+            <ul id="navigation">
+                <li id="logo">
+                    <a href="https://abd.iowa.gov" title="Home" rel="home">
+					<div id="site_logo">
+            			<img id="logo" src="https://abd.iowa.gov/sites/all/themes/iiabdtheme/logo.png" alt="Home" />
+					</div>
+                    </a></li>
+
+                <li id="home-off"><a href="https://abd.iowa.gov/">Home</a></li>
+                <li id="about-off"><a href="https://abd.iowa.gov/about">About</a></li>
+                <li id="alcohol-off"><a href="https://abd.iowa.gov/alcohol">Alcohol</a></li>
+                <li id="tobacco-off"><a href="https://abd.iowa.gov/tobacco">Tobacco</a></li>
+                <li id="links-off"><a href="https://abd.iowa.gov/links">Links</a></li>
+                <li id="contact-off"><a href="https://abd.iowa.gov/contact">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</aura:component>

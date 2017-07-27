@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Issue_Number__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( OR(ISNULL(MUSW__Issued_Number__c), MUSW__Issued_Number__c = "")
+,HYPERLINK("../"&amp;Id, Name, "_parent") &amp; " " &amp; HYPERLINK("/servlet/servlet.Integration?lid=01NF00000011RbY&amp;Id=" &amp; Id &amp;
+"&amp;ic=1&amp;object=MUSW__License2__c&amp;setIssuanceDate=notnull&amp;issuanceDateField=MUSW__Issue_Date__c&amp;setStatus=Issued&amp;statusField=MUSW__Status__c&amp;type="&amp; TExT( MUSW__Type__c)&amp;"&amp;year="&amp; TEXT(YEAR(TODAY()))&amp;"&amp;month="&amp;
+TEXT(MONTH(TODAY()))&amp;"&amp;day="&amp; TEXT(DAY(TODAY())), "(Issue)", "_parent"),HYPERLINK( "../"&amp;Id , Name,"_parent" ) &amp; " " &amp; IF(CASE( MUSW__Type__c ,
+"Animal","RENEW",
+"Rental","RENEW", 
+"DEFAULT")= "RENEW",HYPERLINK("/servlet/servlet.Integration?lid=01NF00000011RbY&amp;Id=" &amp; Id &amp;
+"&amp;ic=1&amp;object=MUSW__License2__c&amp;instruct=RENEWDATEONLY&amp;setIssuanceDate=notnull&amp;issuanceDateField=MUSW__Renewal_Date__c&amp;setStatus=2-RenewedTemp&amp;statusField=MUSW__Disposition__c&amp;type="&amp; CASE( MUSW__Type__c ,
+"Rental","Rental",
+"Animal","Animal",
+"DEFAULT" ), "(Renew)", "_parent"),""))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Issue Number</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

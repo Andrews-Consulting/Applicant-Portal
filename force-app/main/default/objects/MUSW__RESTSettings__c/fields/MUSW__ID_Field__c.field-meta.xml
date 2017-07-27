@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MUSW__ID_Field__c</fullName>
+    <deprecated>false</deprecated>
+    <description>REST Service unique ID field (e.g. OBJECTID)</description>
+    <externalId>false</externalId>
+    <inlineHelpText>REST Service unique ID field (e.g. OBJECTID)</inlineHelpText>
+    <label>Request ID Field</label>
+    <length>80</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

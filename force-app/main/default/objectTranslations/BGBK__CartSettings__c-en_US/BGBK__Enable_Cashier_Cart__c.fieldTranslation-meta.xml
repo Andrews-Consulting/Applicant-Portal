@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Enable Cashier Cart --></label>
+    <name>BGBK__Enable_Cashier_Cart__c</name>
+</CustomFieldTranslation>

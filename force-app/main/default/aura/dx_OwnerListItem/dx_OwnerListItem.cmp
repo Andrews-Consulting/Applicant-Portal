@@ -1,0 +1,35 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,force:appHostable" access="global">
+
+ 	<aura:registerevent name="NextOnlyEvent" type="c:dx_actionComplete" />
+ 	
+    <aura:attribute name="owner" type="Application_Contact__c" default="{'sobjectType':'Application_Contact__c'}" />
+	<aura:attribute name="delete" type="boolean" default="false"/>
+	<aura:attribute name="ShowCommit" type="boolean" default="false"/>
+		
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+	
+	<aura:renderIf isTrue="{!v.delete!=true}">
+		<tr>
+	        <td>
+	            <a onclick="{!c.navigateToOwner}" >
+	                <lightning:icon iconName="utility:edit" size="medium" />
+	            </a>
+	        </td> 
+	     <!--    <td>
+	            <lightning:input type="checkbox" label="primary" value="{!v.owner.abd_Primary_Owner__c}" aura:id="checkbox" name="abd_Primary_Owner__c" onchange="{!c.handleChange}"/>
+	        </td> -->
+	        <td>
+	            <ui:outputText value="{! v.owner.Business_Name__c + v.owner.First_Name__c +' '+ v.owner.Last_Name__c}" />
+	        </td>
+	        <td>
+	            <lightning:input label="% Ownership" name="of_Ownership__c" type="number" required="true" value="{!v.owner.of_Ownership__c}" step="1" min="0" max="100" onchange="{!c.handleChange}" disabled="{! or(v.owner.abd_LicenseeBusinessType__c == 'Sole Proprietorship', v.owner.abd_LicenseeBusinessType__c == 'Municipality') }"/>
+	        </td>
+	        <td>
+	        	<a onclick="{!c.removeOwner}">
+	                <lightning:icon iconName="utility:delete" size="medium" />
+	            </a>
+	        </td>
+	    </tr>
+    </aura:renderIf>
+
+</aura:component>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Minor adjustment to balance accounts. Used under a specified threshold --></help>
+    <label><!-- Loss/Overage Amount --></label>
+    <name>BGBK__Loss_Overage_Amount__c</name>
+</CustomFieldTranslation>

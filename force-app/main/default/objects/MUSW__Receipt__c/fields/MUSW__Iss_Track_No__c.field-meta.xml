@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MUSW__Iss_Track_No__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <formula>IF( OR(ISNULL(MUSW__Track_No__c), MUSW__Track_No__c = ""), HYPERLINK("../"&amp;Id, Name, "_parent") &amp; " " &amp; HYPERLINK("/servlet/servlet.Integration?lid=01N600000008s5e&amp;Id=" &amp; Id &amp; "&amp;ic=1&amp;object=MUSW__Receipt__c&amp;type=DEFAULT&amp;year="&amp; TEXT(YEAR(TODAY()))&amp;"&amp;month="&amp; TEXT(MONTH(TODAY()))&amp;"&amp;day="&amp; TEXT(DAY(TODAY())), "(Issue No.)", "_parent"),HYPERLINK( "../"&amp;Id , MUSW__Track_No__c,"_parent" ) )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Iss. Receipt No.</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

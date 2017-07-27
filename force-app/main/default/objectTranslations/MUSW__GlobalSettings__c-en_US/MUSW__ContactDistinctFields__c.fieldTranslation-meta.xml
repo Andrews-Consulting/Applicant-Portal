@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Contact fields determining record uniqueness. Fieldname list (comma delimited)
+eg. lastname, mailingstreet --></help>
+    <label><!-- ContactDistinctFields --></label>
+    <name>MUSW__ContactDistinctFields__c</name>
+</CustomFieldTranslation>

@@ -1,0 +1,23 @@
+<aura:component extends="c:dx_StdPageAbstraction" implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" access="global">
+
+    <aura:set attribute="ActiveCmp" value="dx_PC_ApplicationQuestions_Owner" />     <!-- This drives the navigation and needs to exist in Nav metadata -->
+
+ 	    <div class="slds-grid slds-wrap padded">
+            <div class="slds-col slds-size--1-of-1 slds-medium-size--2-of-12" />
+            <div class="slds-col slds-size--1-of-1 slds-medium-size--10-of-12">
+				<h1>Additional Questions related to the Owner(s)</h1>
+            </div>
+    	</div>
+    <br />
+
+
+    <div aura:id="dx_PC_ApplicationQuestions_OwnerDiv">
+   	    <c:dx_checklistDisplaySectionOnly Section="Ownership Interest" SaveCompleted="{!c.SaveComplete}" EmptyComponent="{!c.EmptyComponent}" showError="{!v.showError}" errorMessage="{!v.errorMessage}" aura:id="dx_PC_ApplicationQuestions_Owner" recordId="{!v.recordId}" RecordIdIsApplication="{!v.RecordIdIsApplication}"/> 
+   
+
+   	    <c:dx_checklistDisplaySectionOnly Section="Criminal History" SaveCompleted="{!c.SaveComplete}" EmptyComponent="{!c.EmptyComponent}" showError="{!v.showError}" errorMessage="{!v.errorMessage}" aura:id="dx_PC_ApplicationQuestions_Owner" recordId="{!v.recordId}" RecordIdIsApplication="{!v.RecordIdIsApplication}"/> 
+
+   
+    </div>
+
+</aura:component>

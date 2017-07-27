@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- What is being constructed, serviced or installed? --></help>
+    <label><!-- Subtype --></label>
+    <name>MUSW__Subtype__c</name>
+    <picklistValues>
+        <masterLabel>Accessory</masterLabel>
+        <translation><!-- Accessory --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Deck</masterLabel>
+        <translation><!-- Deck --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Dwelling</masterLabel>
+        <translation><!-- Dwelling --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Fence</masterLabel>
+        <translation><!-- Fence --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Pool</masterLabel>
+        <translation><!-- Pool --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Roof</masterLabel>
+        <translation><!-- Roof --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

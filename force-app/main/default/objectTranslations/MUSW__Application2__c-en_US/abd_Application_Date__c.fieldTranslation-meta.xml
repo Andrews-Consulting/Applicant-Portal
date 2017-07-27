@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Date application is submitted for the first time --></help>
+    <label><!-- Application Submitted Date --></label>
+    <name>abd_Application_Date__c</name>
+</CustomFieldTranslation>

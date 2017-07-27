@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Maximum number of records DRE should process without kicking into Bulk Mode. Any more than this number will enable Bulk Mode (asynchronous processing). This setting is applied only if Auto-Bulk is enabled in DRE Settings --></help>
+    <label><!-- Bulk Threshold --></label>
+    <name>DRE__Bulk_Threshold__c</name>
+</CustomFieldTranslation>

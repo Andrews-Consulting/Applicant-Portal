@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Setting will overwrite default production single letter request endpoint to any url or ip of Admin&apos;s choosing (for testing and migration purposes). --></help>
+    <label><!-- Single Manual Letter Request Endpoint --></label>
+    <name>BGBL__Letter_Request_Endpoint__c</name>
+</CustomFieldTranslation>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MUSW__Alert_Indicator__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <formula>HYPERLINK("/apex/musw__TaskAlert?id="+ Id, IMAGE( 
+CASE( MUSW__AlertCode__c, 
+0, "/img/samples/light_green.gif", 
+1, "/img/samples/light_yellow.gif", 
+2, "/img/samples/light_red.gif", 
+"https://letterbatch.mybasicgov.com/img/light_off.gif"), 
+"none"), "_top")</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Clear Alert Status after closing all open Alert Tasks</inlineHelpText>
+    <label>Alert</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

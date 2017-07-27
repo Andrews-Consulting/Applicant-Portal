@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <webLinks>
+        <label><!-- Clone_x5 --></label>
+        <name>BGBL__Clone_x5</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Refresh_Status --></label>
+        <name>BGBL__Refresh_Status</name>
+    </webLinks>
+</CustomObjectTranslation>

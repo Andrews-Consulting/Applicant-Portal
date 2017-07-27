@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Table --></label>
+    <name>MUSW__Table__c</name>
+    <picklistValues>
+        <masterLabel>Account</masterLabel>
+        <translation><!-- Account --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Attachment</masterLabel>
+        <translation><!-- Attachment --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>MUSW__Application2__c</masterLabel>
+        <translation><!-- MUSW__Application2__c --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>MUSW__Complaint2__c</masterLabel>
+        <translation><!-- MUSW__Complaint2__c --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>MUSW__Condition__c</masterLabel>
+        <translation><!-- MUSW__Condition__c --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>MUSW__Fee__c</masterLabel>
+        <translation><!-- MUSW__Fee__c --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>MUSW__Inspection_Violation__c</masterLabel>
+        <translation><!-- MUSW__Inspection_Violation__c --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>MUSW__Inspection__c</masterLabel>
+        <translation><!-- MUSW__Inspection__c --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>MUSW__License2__c</masterLabel>
+        <translation><!-- MUSW__License2__c --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>MUSW__Milestone__c</masterLabel>
+        <translation><!-- MUSW__Milestone__c --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>MUSW__Parcel__c</masterLabel>
+        <translation><!-- MUSW__Parcel__c --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>MUSW__Permit2__c</masterLabel>
+        <translation><!-- MUSW__Permit2__c --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>MUSW__Project2__c</masterLabel>
+        <translation><!-- MUSW__Project2__c --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>MUSW__Review__c</masterLabel>
+        <translation><!-- MUSW__Review__c --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>MUSW__Submission__c</masterLabel>
+        <translation><!-- MUSW__Submission__c --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>MUSW__Work_Item__c</masterLabel>
+        <translation><!-- MUSW__Work_Item__c --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Task</masterLabel>
+        <translation><!-- Task --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Variable</masterLabel>
+        <translation><!-- Variable --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

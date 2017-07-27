@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>BB_Application_Bond_Number</label>
+    <protected>false</protected>
+    <values>
+        <field>ApplicationTypeList__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>ApplicationType__c</field>
+        <value xsi:type="xsd:string">New</value>
+    </values>
+    <values>
+        <field>ColumnOrder__c</field>
+        <value xsi:type="xsd:double">3.0</value>
+    </values>
+    <values>
+        <field>Column__c</field>
+        <value xsi:type="xsd:double">1.0</value>
+    </values>
+    <values>
+        <field>FieldName__c</field>
+        <value xsi:type="xsd:string">abd_Bond_Number__c</value>
+    </values>
+    <values>
+        <field>IsReadOnly__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>LicenseTypeCode__c</field>
+        <value xsi:type="xsd:string">BB</value>
+    </values>
+    <values>
+        <field>ObjectName__c</field>
+        <value xsi:type="xsd:string">MUSW__Application2__c</value>
+    </values>
+    <values>
+        <field>PageName__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>isRequired__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+</CustomMetadata>

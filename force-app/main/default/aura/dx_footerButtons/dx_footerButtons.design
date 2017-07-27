@@ -1,0 +1,8 @@
+<design:component label="Doextra Footer Buttons">
+    <design:attribute name="leftButtonLabel" default="Hidden" />
+    <design:attribute name="centerButtonLabel" default="Hidden" />
+    <design:attribute name="rightButtonLabel" default="Hidden" />
+    <design:attribute name="leftButtonUrl" default="/someUrl" />
+    <design:attribute name="centerButtonUrl" default="/someUrl" />
+    <design:attribute name="rightButtonUrl" default="/someUrl" />
+</design:component>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>used for emailing cart receipt on confirmation page</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>MUSW__BasicGov_Correspondence</letterhead>
+    <name>Cart Payment Receipt</name>
+    <style>freeForm</style>
+    <subject>BasicGov Payment Receipt</subject>
+    <textOnly>Dear {!Contact.Name},
+
+Your payment has been successfully processed. A copy of your receipt is attached to this email.
+
+We appreciate your business and look forward to serving you in the future.</textOnly>
+    <type>html</type>
+</EmailTemplate>

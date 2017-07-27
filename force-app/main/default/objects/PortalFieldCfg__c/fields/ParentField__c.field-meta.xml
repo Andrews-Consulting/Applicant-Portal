@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ParentField__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Reference to parent question</description>
+    <externalId>false</externalId>
+    <label>ParentField</label>
+    <referenceTo>PortalFieldCfg__c</referenceTo>
+    <relationshipLabel>ChildrenFields</relationshipLabel>
+    <relationshipName>ChildrenFields</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

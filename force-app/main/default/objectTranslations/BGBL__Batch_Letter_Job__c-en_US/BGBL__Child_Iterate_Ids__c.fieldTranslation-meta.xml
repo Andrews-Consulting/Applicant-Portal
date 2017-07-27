@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Record id&apos;s to filter children record results further --></help>
+    <label><!-- Child Iterate Ids --></label>
+    <name>BGBL__Child_Iterate_Ids__c</name>
+</CustomFieldTranslation>

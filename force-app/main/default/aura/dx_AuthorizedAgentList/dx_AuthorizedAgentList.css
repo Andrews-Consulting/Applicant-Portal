@@ -1,0 +1,13 @@
+.THIS .slds-form-element__label{
+	display:none;
+	visibility : hidden;
+}
+.THIS .MyFooterButtons {
+    height: 30px;
+    width: 182px;
+    margin-left: 0em;
+    margin-right: .25em;
+    margin-bottom: .25em;
+    padding-left: 0em;
+    padding-right: 0em;
+}

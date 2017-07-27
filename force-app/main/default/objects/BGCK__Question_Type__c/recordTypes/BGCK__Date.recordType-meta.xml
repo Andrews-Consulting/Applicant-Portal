@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BGCK__Date</fullName>
+    <active>false</active>
+    <label>Date</label>
+    <picklistValues>
+        <picklist>BGCK__Type__c</picklist>
+        <values>
+            <fullName>Date</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+</RecordType>

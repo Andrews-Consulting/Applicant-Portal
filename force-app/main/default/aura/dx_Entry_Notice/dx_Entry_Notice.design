@@ -1,0 +1,7 @@
+<design:component label="Doextra Website Entry Notice">
+     <design:attribute name="DisclaimerText" label="Disclaimer Text" description="The body of the disclaimer to present to the customer"/>
+	 <design:Attribute name="Heading" Label="Heading" description="The heading at the top of the Disclaimer notice" />
+	 <design:Attribute name="ButtonText" Label="Button Text" Description="What appears in the button they should press" />
+	 
+	 
+</design:component>

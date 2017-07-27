@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- The field(s) containing the Source Type value --></help>
+    <label><!-- Source Type Fields --></label>
+    <name>MUSW__Source_Type_Fields__c</name>
+    <picklistValues>
+        <masterLabel>Case_Type__c</masterLabel>
+        <translation><!-- Case_Type__c --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>MUSW__Class__c</masterLabel>
+        <translation><!-- MUSW__Class__c --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>MUSW__Current_Status__c</masterLabel>
+        <translation><!-- MUSW__Current_Status__c --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>MUSW__Permit_Type__c</masterLabel>
+        <translation><!-- MUSW__Permit_Type__c --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>MUSW__Status__c</masterLabel>
+        <translation><!-- MUSW__Status__c --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>MUSW__Type__c</masterLabel>
+        <translation><!-- MUSW__Type__c --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>abd_License_Type__c</masterLabel>
+        <translation><!-- abd_License_Type__c --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

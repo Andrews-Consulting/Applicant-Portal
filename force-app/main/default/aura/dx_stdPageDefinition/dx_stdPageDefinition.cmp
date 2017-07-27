@@ -1,0 +1,13 @@
+<aura:component extends="c:dx_StdPageAbstraction"  implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" access="global">
+	<aura:attribute name="ComponentName" type="String" required="true" />
+	<aura:attribute name="ComponentParms" type="String" />
+	<aura:attribute name="NavigationName" type="String" required="true" />
+
+	<aura:handler name="init" value="{!this}" action="{!c.Init}" />
+
+    <aura:set attribute="ActiveCmp" value="{!v.NavigationName}" />    <!--This drives the navigation and needs to exist in Nav metadata -->
+
+    <div >
+    	{!v.body}
+    </div>
+</aura:component>

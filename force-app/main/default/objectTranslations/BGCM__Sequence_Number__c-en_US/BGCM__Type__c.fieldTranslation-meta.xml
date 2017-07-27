@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- the source type field value that the sequence number counts against. eg. Building or B or left blank (for all records in this track object) --></help>
+    <label><!-- Type --></label>
+    <name>BGCM__Type__c</name>
+</CustomFieldTranslation>

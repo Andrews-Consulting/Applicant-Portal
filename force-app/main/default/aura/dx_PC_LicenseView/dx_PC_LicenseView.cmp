@@ -1,0 +1,94 @@
+<aura:component extends="c:dx_StdPageAbstraction" implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" access="global" >
+	<aura:set attribute="ActiveCmp" value="dx_PC_LicenseView" />
+	<aura:set attribute="SaveDisabled" value="true" />
+
+	<!-- This routine is called after the parent base class init is called.  -->
+	<!-- <aura:handler name="init" value="{!this}" action="{!c.init}" /> -->
+
+	<div aura:id="dx_PC_LicenseViewDiv">
+
+	<!-- Change the following to read the URL's from configuration and replace all of this hard coding  -->
+		<div>
+			<c:dx_AvailableActions aura:id="dx_PC_LicenseView" showError="{!v.showError}" errorMessage="{!v.errorMessage}" recordId="{#v.recordId}" />
+		</div>
+
+
+		<div aura:id="Application" class="slds-section">
+			<h3 class="slds-section__title" >
+				<lightning:button label="Application" class="slds-button slds-section__title-action" onclick="{!c.ClickButton}" >
+					<lightning:icon iconName="utility:switch" size="small" class="slds-section__title-action-icon slds-button__icon slds-button__icon--left"  />&nbsp;Application
+				</lightning:button>
+			</h3>
+			<div class="slds-section__content" >
+				<c:dx_ApplicationBasics SaveCompleted="{!c.SaveComplete}" EmptyComponent="{!c.EmptyComponent}" showError="{!v.showError}" errorMessage="{!v.errorMessage}" aura:id="dx_PC_LicenseView" ReadOnly="true"  recordId="{#v.recordId}" RecordIdIsApplication="{!v.RecordIdIsApplication}"/>
+			</div>
+		</div>
+
+		<div aura:id="Contact and Corporation" class="slds-section">
+			<h3 class="slds-section__title" >
+				<lightning:button label="Contact and Corporation" class="slds-button slds-section__title-action" onclick="{!c.ClickButton}" >
+					<lightning:icon iconName="utility:switch" size="small" class="slds-section__title-action-icon slds-button__icon slds-button__icon--left"  />&nbsp;Contact and Corporation
+				</lightning:button>
+			</h3>
+			<div class="slds-section__content" >
+				<c:dx_LicenseeForm SaveCompleted="{!c.SaveComplete}" EmptyComponent="{!c.EmptyComponent}" showError="{!v.showError}" errorMessage="{!v.errorMessage}" aura:id="dx_PC_LicenseView" recordId="{#v.recordId}" RecordIdIsApplication="{!v.RecordIdIsApplication}" SaveDisabled="{!v.SaveDisabled}"/>
+			</div>
+		</div>
+
+		<div aura:id="Premise" class="slds-section">
+			<h3 class="slds-section__title" >
+				<lightning:button label="Premises" class="slds-button slds-section__title-action" onclick="{!c.ClickButton}" >
+					<lightning:icon iconName="utility:switch" size="small" class="slds-section__title-action-icon slds-button__icon slds-button__icon--left"  />&nbsp;Premises
+				</lightning:button>
+			</h3>
+			<div class="slds-section__content" >
+				<c:dx_PremiseComplete SaveCompleted="{!c.SaveComplete}" EmptyComponent="{!c.EmptyComponent}" showError="{!v.showError}" errorMessage="{!v.errorMessage}" aura:id="dx_PC_LicenseView" recordId="{#v.recordId}" RecordIdIsApplication="{!v.RecordIdIsApplication}"/>
+			</div>
+		</div>
+
+		<div aura:id="Auction" class="slds-section">
+			<h3 class="slds-section__title" >
+				<lightning:button label="Auction" class="slds-button slds-section__title-action" onclick="{!c.ClickButton}" >
+					<lightning:icon iconName="utility:switch" size="small" class="slds-section__title-action-icon slds-button__icon slds-button__icon--left"  />&nbsp;Auction
+				</lightning:button>
+			</h3>
+			<div class="slds-section__content" >
+				<c:dx_checklistDisplaySectionOnly Section="Auction" SaveCompleted="{!c.SaveComplete}" EmptyComponent="{!c.EmptyComponent}" showError="{!v.showError}" errorMessage="{!v.errorMessage}" aura:id="dx_PC_LicenseView" recordId="{#v.recordId}" RecordIdIsApplication="{!v.RecordIdIsApplication}"/>
+			</div>
+		</div>
+
+		<div aura:id="Owner" class="slds-section">
+			<h3 class="slds-section__title" >
+				<lightning:button label="Owner" class="slds-button slds-section__title-action" onclick="{!c.ClickButton}" >
+					<lightning:icon iconName="utility:switch" size="small" class="slds-section__title-action-icon slds-button__icon slds-button__icon--left"  />&nbsp;Owners
+				</lightning:button>
+			</h3>
+			<div class="slds-section__content" >
+				<c:dx_OwnerComplete SaveCompleted="{!c.SaveComplete}" EmptyComponent="{!c.EmptyComponent}" showError="{!v.showError}" errorMessage="{!v.errorMessage}" aura:id="dx_PC_LicenseView" recordId="{#v.recordId}" RecordIdIsApplication="{!v.RecordIdIsApplication}"/>
+			</div>
+		</div>
+
+
+		<div aura:id="Authorized Agents" class="slds-section">
+			<h3 class="slds-section__title" >
+				<lightning:button label="Authorized Agents" class="slds-button slds-section__title-action" onclick="{!c.ClickButton}" >
+					<lightning:icon iconName="utility:switch" size="small" class="slds-section__title-action-icon slds-button__icon slds-button__icon--left"  />&nbsp;Authorized Agents
+				</lightning:button>
+			</h3>
+			<div class="slds-section__content" >
+				<c:dx_AuthorizedAgentComplete SaveCompleted="{!c.SaveComplete}" EmptyComponent="{!c.EmptyComponent}" showError="{!v.showError}" errorMessage="{!v.errorMessage}" aura:id="dx_PC_LicenseView" recordId="{#v.recordId}" RecordIdIsApplication="{!v.RecordIdIsApplication}"/>
+			</div>
+		</div>
+
+		<div aura:id="Documents" class="slds-section">
+			<h3 class="slds-section__title" >
+				<lightning:button label="Documents" class="slds-button slds-section__title-action" onclick="{!c.ClickButton}" >
+					<lightning:icon iconName="utility:switch" size="small" class="slds-section__title-action-icon slds-button__icon slds-button__icon--left"  />&nbsp;Documents
+				</lightning:button>
+			</h3>
+			<div class="slds-section__content" >
+				<c:dx_Documents SaveCompleted="{!c.SaveComplete}" EmptyComponent="{!c.EmptyComponent}" showError="{!v.showError}" errorMessage="{!v.errorMessage}" aura:id="dx_PC_LicenseView" recordId="{#v.recordId}" RecordIdIsApplication="{!v.RecordIdIsApplication}"/>
+			</div>
+		</div>
+	</div>
+</aura:component>

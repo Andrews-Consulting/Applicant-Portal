@@ -1,0 +1,6 @@
+<table border="0" cellpadding="5" width="550" cellspacing="5" height="400" >
+<tr valign="top" height="400" >
+<td tEditID="c1r1" style=" background-color:#FFFFFF; color:#000000; bEditID:r3st1; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r1" locked="0" >
+<![CDATA[<span style="background-color: rgb(255, 255, 255);">Dear {!Contact.Name},&nbsp;</span><br><br><span style="background-color: rgb(255, 255, 255);">Your payment has been successfully processed. A copy of your receipt is attached to this email.</span><br><br><div class="page" title="Page 1"><div class="layoutArea"><div class="column"><p><font size="3"><span style="font-family: Helvetica;">We appreciate your business and look forward to serving you in the future<font size="3">.</font></span></font></p></div></div></div>]]></td>
+</tr>
+</table>

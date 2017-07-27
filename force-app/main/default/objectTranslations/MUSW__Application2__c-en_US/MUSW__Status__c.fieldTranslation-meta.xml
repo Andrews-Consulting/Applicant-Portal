@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Status --></label>
+    <name>MUSW__Status__c</name>
+    <picklistValues>
+        <masterLabel>ABD Level 1 Review</masterLabel>
+        <translation><!-- ABD Level 1 Review --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ABD Level 2 Review</masterLabel>
+        <translation><!-- ABD Level 2 Review --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ABD Level 3 Review</masterLabel>
+        <translation><!-- ABD Level 3 Review --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Additional Information Required</masterLabel>
+        <translation><!-- Additional Information Required --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Approved</masterLabel>
+        <translation><!-- Approved --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Compliance Review</masterLabel>
+        <translation><!-- Compliance Review --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>DRAM Review</masterLabel>
+        <translation><!-- DRAM Review --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Denied</masterLabel>
+        <translation><!-- Denied --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>In Progress</masterLabel>
+        <translation><!-- In Progress --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>In Review</masterLabel>
+        <translation><!-- In Review --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Local Authority Review</masterLabel>
+        <translation><!-- Local Authority Review --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Partially Approved</masterLabel>
+        <translation><!-- Partially Approved --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Pending</masterLabel>
+        <translation><!-- Pending --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Ready for Payment</masterLabel>
+        <translation><!-- Ready for Payment --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Submitted</masterLabel>
+        <translation><!-- Submitted --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Withdrawn</masterLabel>
+        <translation><!-- Withdrawn --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

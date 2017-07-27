@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- The next number that will issued --></help>
+    <label><!-- Next Number --></label>
+    <name>BGCM__Next_Number__c</name>
+</CustomFieldTranslation>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Progress Section --></label>
+    <name>Progress_Section__c</name>
+    <picklistValues>
+        <masterLabel>Applicant</masterLabel>
+        <translation><!-- Applicant --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Company</masterLabel>
+        <translation><!-- Company --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Decision Rendered</masterLabel>
+        <translation><!-- Decision Rendered --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Fees &amp; Documentation</masterLabel>
+        <translation><!-- Fees &amp; Documentation --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Insurance Review</masterLabel>
+        <translation><!-- Insurance Review --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Local Authority Review</masterLabel>
+        <translation><!-- Local Authority Review --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Ownership</masterLabel>
+        <translation><!-- Ownership --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Premise</masterLabel>
+        <translation><!-- Premise --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>State Review</masterLabel>
+        <translation><!-- State Review --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Submit</masterLabel>
+        <translation><!-- Submit --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

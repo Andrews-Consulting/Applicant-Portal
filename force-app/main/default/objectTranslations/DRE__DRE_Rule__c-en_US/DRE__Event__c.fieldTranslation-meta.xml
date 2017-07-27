@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Event --></label>
+    <name>DRE__Event__c</name>
+    <picklistValues>
+        <masterLabel>Batched</masterLabel>
+        <translation><!-- Batched --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Created</masterLabel>
+        <translation><!-- Created --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Created or Edited</masterLabel>
+        <translation><!-- Created or Edited --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Deleted</masterLabel>
+        <translation><!-- Deleted --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Edited</masterLabel>
+        <translation><!-- Edited --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>However Impacted</masterLabel>
+        <translation><!-- However Impacted --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Unit Test Event A</masterLabel>
+        <translation><!-- Unit Test Event A --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Unit Test Event B</masterLabel>
+        <translation><!-- Unit Test Event B --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Viewed</masterLabel>
+        <translation><!-- Viewed --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

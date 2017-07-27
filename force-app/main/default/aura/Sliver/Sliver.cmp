@@ -1,0 +1,22 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" >
+ <div class="slds-grid slds-wrap">
+            <div id="iowa_sliver_bar" class="sliver-container">
+                <div id="iowa_sliver_links">
+                    <ul>
+                        <li id="iowa_sliver_logo">
+                            <a href="https://www.iowa.gov">Iowa.gov</a>
+                        </li>
+                        <li id="iowa_sliver_agencies">
+                            <a href="https://phonebook.iowa.gov/agency.aspx">Agencies</a>
+                        </li>
+                        <li id="iowa_sliver_services">
+                            <a href="https://www.iowa.gov/Online_Services">Online Services</a>
+                        </li>
+                    </ul>
+                </div>
+                <div id="iowa_sliver_search">
+                    <a href="https://www.iowa.gov/search" id="iowa_sliver_search_link">Search All of Iowa.gov...</a>
+                </div>
+            </div>
+        </div>
+</aura:component>

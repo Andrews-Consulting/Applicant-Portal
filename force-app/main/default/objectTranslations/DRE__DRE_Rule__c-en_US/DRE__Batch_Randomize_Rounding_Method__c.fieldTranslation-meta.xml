@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Batch Randomize Rounding Method --></label>
+    <name>DRE__Batch_Randomize_Rounding_Method__c</name>
+    <picklistValues>
+        <masterLabel>CEILING</masterLabel>
+        <translation><!-- CEILING --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FLOOR</masterLabel>
+        <translation><!-- FLOOR --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DRE__Show_DRE_Objects__c</fullName>
+    <defaultValue>false</defaultValue>
+    <deprecated>false</deprecated>
+    <description>If selected the DRE Rule Editor will display DRE/DTE objects (including the packaged ones). Also the DRE Config page will make certain DRE/DTE objects available for enabling (the packaged triggers are already enabled and cannot be configured)</description>
+    <externalId>false</externalId>
+    <label>Show DRE Objects</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

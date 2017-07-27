@@ -1,0 +1,12 @@
+The following license/permit renewal is submitted and awaiting endorsement of Dramshop Liability Insurance coverage by the insurance carrier. After the insurance carrier has certified coverage, the application will be forwarded to the local authority for review.<br />
+
+<table>
+<tr>
+<th align=left bgcolor=whitesmoke>License #</th><th align=left bgcolor=whitesmoke>License Status</th><th align=left bgcolor=whitesmoke>Business Name</th>
+</tr>
+<tr>
+<td>{!MUSW__Application2__c.abd_Primary_License__c}</td><td>{!MUSW__Application2__c.MUSW__Status__c}</td><td>{!MUSW__Application2__c.MUSW__Account__c}</td>
+</tr>
+</table>
+<br />
+To check the status of your application, log on here.

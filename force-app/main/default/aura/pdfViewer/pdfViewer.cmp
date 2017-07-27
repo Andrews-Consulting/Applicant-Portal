@@ -1,0 +1,5 @@
+<aura:component access="GLOBAL" extensible="false">
+	<aura:attribute access="GLOBAL" name="pdfData" type="String" description="PDF data in base64 encoded format"/>
+	<aura:attribute access="GLOBAL" name="baseUrl" type="String"/>
+	<iframe aura:id="pdfFrame" src="{!v.baseUrl+'/resource/lcins1_pdfjs/web/viewer.html'}" class="pdfFrame" onload="{!c.loadpdf}"></iframe>
+</aura:component>

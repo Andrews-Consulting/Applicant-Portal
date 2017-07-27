@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BGBL__Letter_Request_Endpoint__c</fullName>
+    <defaultValue>"https://lettersingle.mybasicgov.com/RunBatchMergeJob/SingleLetter.aspx"</defaultValue>
+    <deprecated>false</deprecated>
+    <description>Setting will overwrite default production single letter request endpoint to any url or ip of Admin's choosing (for testing and migration purposes).</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Setting will overwrite default production single letter request endpoint to any url or ip of Admin's choosing (for testing and migration purposes).</inlineHelpText>
+    <label>Single Manual Letter Request Endpoint</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Url</type>
+</CustomField>

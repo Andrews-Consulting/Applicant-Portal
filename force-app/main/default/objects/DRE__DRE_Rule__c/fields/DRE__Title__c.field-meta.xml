@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DRE__Title__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <formula>HYPERLINK('/' &amp; Id, Name) &amp; " - " &amp; DRE__Object_Name__c &amp; " " &amp; TEXT(DRE__Event__c) &amp; " (Type: " &amp; TEXT(DRE__Type__c) &amp; ", Order: " &amp; TEXT(DRE__Order__c) &amp; IF(DRE__Run_Once__c, ', Run Once', '') &amp; IF(DRE__IsActive__c, ', Active', ', Inactive') &amp; ")"</formula>
+    <label>Title</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

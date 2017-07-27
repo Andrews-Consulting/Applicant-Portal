@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <validationRules>
+        <errorMessage><!-- You must specify which fields you want the query to return for merging. --></errorMessage>
+        <name>BGBL__Fields_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Query fields must include id field in list --></errorMessage>
+        <name>BGBL__Fields_id</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Relationship queries are not permitted with Letter Generator. Instead, create another letter query with this query as the parent to follow this one --></errorMessage>
+        <name>BGBL__Relationship_Queries_are_not_Supported</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Test_Query --></label>
+        <name>BGBL__Test_Query</name>
+    </webLinks>
+</CustomObjectTranslation>

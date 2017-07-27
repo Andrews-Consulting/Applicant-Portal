@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- License Duration, 8 month, 12 month, etc. --></help>
+    <label><!-- Length --></label>
+    <name>abd_Length__c</name>
+</CustomFieldTranslation>

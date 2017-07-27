@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Current Land Use --></label>
+    <name>MUSW__Current_Land_Use__c</name>
+    <picklistValues>
+        <masterLabel>Commercial</masterLabel>
+        <translation><!-- Commercial --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Industrial</masterLabel>
+        <translation><!-- Industrial --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Multi-Family</masterLabel>
+        <translation><!-- Multi-Family --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Single Family</masterLabel>
+        <translation><!-- Single Family --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Vacant</masterLabel>
+        <translation><!-- Vacant --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Booklet_Id_Format</fullName>
+    <active>true</active>
+    <description>Booklet id needs to be in A000001-A000025 format
+Second number needs to be 24 larger than the second number</description>
+    <errorConditionFormula>!(REGEX( Name , "[A][0-9]{6}-[A][0-9]{6}"))
+||
+(VALUE(MID(Name,2,6))+24 &lt;> VALUE(MID(Name,10,6)))</errorConditionFormula>
+    <errorDisplayField>Name</errorDisplayField>
+    <errorMessage>Booklet id needs to be in A000001-A000025 format
+Second number needs to be 24 larger than the second number</errorMessage>
+</ValidationRule>

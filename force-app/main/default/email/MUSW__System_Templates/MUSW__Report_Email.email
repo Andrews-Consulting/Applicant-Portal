@@ -1,0 +1,12 @@
+<messaging:emailTemplate subject="Report {!relatedTo.Name}" relatedToType="MUSW__Report_Trigger__c">
+
+    <messaging:plainTextEmailBody >
+        You can find a copy of this report attached.<br/><br/>
+        {!$Organization.Name}
+    </messaging:plainTextEmailBody>
+    
+    <messaging:attachment filename="report_{!relatedTo.Name}.csv">
+        <c:ReportEmail reportName="{!relatedTo.Name}" reportParams="{!relatedTo.MUSW__Parameters__c}"/>
+    </messaging:attachment>
+    
+</messaging:emailTemplate>

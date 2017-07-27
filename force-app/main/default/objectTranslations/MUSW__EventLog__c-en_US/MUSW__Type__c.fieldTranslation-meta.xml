@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Type --></label>
+    <name>MUSW__Type__c</name>
+    <picklistValues>
+        <masterLabel>DML</masterLabel>
+        <translation><!-- DML --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>EMAIL</masterLabel>
+        <translation><!-- EMAIL --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>EXCEPTION</masterLabel>
+        <translation><!-- EXCEPTION --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>GENERAL</masterLabel>
+        <translation><!-- GENERAL --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SOQL</masterLabel>
+        <translation><!-- SOQL --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SOSL</masterLabel>
+        <translation><!-- SOSL --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>WEBSERVICES</masterLabel>
+        <translation><!-- WEBSERVICES --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

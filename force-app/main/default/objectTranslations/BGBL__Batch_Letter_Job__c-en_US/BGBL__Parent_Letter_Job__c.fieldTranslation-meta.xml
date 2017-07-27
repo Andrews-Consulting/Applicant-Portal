@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- the original job in which this sub job spun from. --></help>
+    <label><!-- Parent Letter Job --></label>
+    <name>BGBL__Parent_Letter_Job__c</name>
+    <relationshipLabel><!-- Letter Jobs --></relationshipLabel>
+</CustomFieldTranslation>

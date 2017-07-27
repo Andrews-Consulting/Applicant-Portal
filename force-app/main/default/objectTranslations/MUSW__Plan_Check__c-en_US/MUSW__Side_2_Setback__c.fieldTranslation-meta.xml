@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Right side when viewing from access road --></help>
+    <label><!-- Side 2 --></label>
+    <name>MUSW__Side_2_Setback__c</name>
+</CustomFieldTranslation>

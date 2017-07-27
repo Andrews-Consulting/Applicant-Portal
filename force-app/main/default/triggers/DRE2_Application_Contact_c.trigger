@@ -1,0 +1,1 @@
+trigger DRE2_Application_Contact_c on Application_Contact__c (after insert, before update, before delete, after undelete) { DRE.DREManager.runTrigger(); }

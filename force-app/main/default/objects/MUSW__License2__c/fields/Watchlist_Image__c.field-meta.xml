@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Watchlist_Image__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF ( ISblank( TEXT(Watchlist_Color__c) ), 
+IMAGE("/img/samples/color_green.gif", "green", 30, 30),
+IMAGE("/img/samples/color_" &amp; TEXT( Watchlist_Color__c ) &amp; ".gif", TEXT( Watchlist_Color__c ), 30, 30)
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Watchlist Image</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

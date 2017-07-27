@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- The Map Server Parcel Layer Query REST Service (incl. default params) Layer must contain Parcel Number
+eg. http://host/ArcGIS/rest/services/Louisville/LOJIC_LandRecords_Louisville/MapServer/0/query?returnGeometry=true&amp;geometryType=esriGeometryPoint&amp;text= --></help>
+    <label><!-- ParcelQueryService --></label>
+    <name>MUSW__ParcelQueryService__c</name>
+</CustomFieldTranslation>

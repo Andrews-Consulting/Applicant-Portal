@@ -1,0 +1,42 @@
+<aura:component implements="forceCommunity:themeLayout" access="global" description="ABD Theme">
+	<aura:attribute name="profileMenu" type="Aura.Component[]" required="false"/>
+	<aura:attribute name="themeheader" type="Aura.Component[]" required="false"/>
+	<aura:attribute name="footer" type="Aura.Component[]" required="false"/>
+	<aura:attribute name="body" type="Aura.Component[]" required="false"/>
+	<aura:attribute name="SearchURL" type="String" default="https://www.iowa.gov/search"/>
+	<aura:attribute name="appId" type="String" access="global" />
+	<div>
+		<div class="sliver slds-grid slds-wrap">
+			<div id="iowa_sliver_bar" class="sliver-container">
+				<div id="iowa_sliver_links">
+					<ul>
+						<li>
+							<a href="https://www.iowa.gov" class="iowa_sliver_logo">Iowa.gov</a>
+						</li>
+						<li id="iowa_sliver_agencies">
+							<a href="https://phonebook.iowa.gov/agency.aspx">Agencies</a>
+						</li>
+						<li id="iowa_sliver_services">
+							<a href="https://www.iowa.gov/Online_Services">Online Services</a>
+						</li>
+					</ul>
+				</div>
+				<div class="iowa-sliver-search" >
+					<ui:outputURL value="{!v.SearchURL}" label="Search All of Iowa.gov..." class="iowa-sliver-search-a" click="{!c.OpenSearchForm}" />
+				</div>
+			</div>
+		</div>
+		<div aura:id="iowa_sliver_search_form" class="HideSearchForm iowa-sliver-search-form">
+			<form method="get" action="https://www.iowa.gov/search/google">
+				<p class="search-form-title">Search all State of Iowa websites:</p>
+				<input type="text" name="keys" id="iowa_sliver_q" class="iowa-sliver-q" />
+				<input type="submit" name="" id="iowa_sliver_search_submit" value="Search" class="iowa-sliver-search-submit"/>
+			</form>
+			<ui:outputURL value="#" class="close" label="X" click="{!c.OpenSearchForm}" />
+		</div>
+		<div class="ThemeHeader">{!v.themeheader}</div>
+		<div class="mainContentArea">{!v.body}</div>
+		<div class="footer">{!v.footer}</div>
+		<!-- <div class="profileMenuRegion">{!v.profileMenu}</div> -->
+	</div>
+</aura:component>
