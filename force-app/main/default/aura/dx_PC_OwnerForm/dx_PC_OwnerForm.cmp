@@ -3,6 +3,6 @@
     <aura:set attribute="ActiveCmp" value="dx_PC_OwnerForm" />     <!-- This drives the navigation and needs to exist in Nav metadata -->
 
     <div aura:id="dx_PC_OwnerFormDiv">
-        <c:dx_OwnerForm SaveCompleted="{!c.SaveComplete}" EmptyComponent="{!c.EmptyComponent}" showError="{!v.showError}" errorMessage="{!v.errorMessage}" aura:id="dx_PC_OwnerForm" recordId="{!v.recordId}" RecordIdIsApplication="{!v.RecordIdIsApplication}"/> 
+        <c:dx_OwnerForm SaveCompleted="{!c.SaveComplete}" EmptyComponent="{!c.EmptyComponent}" showError="{!v.showError}" errorMessage="{!v.errorMessage}" aura:id="dx_PC_OwnerForm" recordId="{!v.recordId}" RecordIdIsApplication="{!v.RecordIdIsApplication}" isInitComplete="{! v.InitCompleteTriggerFlag}"/> 
     </div>
 </aura:component>

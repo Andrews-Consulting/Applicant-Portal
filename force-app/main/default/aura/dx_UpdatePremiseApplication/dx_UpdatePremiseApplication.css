@@ -1,0 +1,30 @@
+.THIS .small-date .form-element {
+	max-width: 8em;
+}
+
+.THIS .slds-textarea {
+	height: 150px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+.THIS .small-date .uiInput--datetime {
+	display: inline-flex;
+}
+
+.THIS .small-date .uiLabel {
+    margin-top: 0.25rem
+}
+.THIS .small-date .datePicker-openIcon {
+	bottom:unset;
+}
+
+.THIS .abdBox 
+ {
+ border: 1px solid #000000; 
+ border-bottom: 2px solid #000000;
+ border-right: 2px solid #000000;
+ margin-left: 2rem;
+ padding-right: 3px;
+ padding-left: 3px;
+}

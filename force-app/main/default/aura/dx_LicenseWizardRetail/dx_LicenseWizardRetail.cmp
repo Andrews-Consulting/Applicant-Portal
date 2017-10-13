@@ -28,7 +28,9 @@
 		    <div id="slds-form-element" class="slds-container--center slds-container--small link licenseOption">
 		    	<aura:if isTrue="{! not(empty(v.sellBeerOptionalWine_URL))}" >
 		    		<a href="" onclick="{!c.navigateBeerOptionalWine}" data-URL="{!v.sellBeerOptionalWine_URL}" role="" class="licenseOption">
-		    			<img src="{!$Resource.DX_GraphicLibrary + '/licenseWizard/store_BeerOptionalWine.png'}" title="Sell Beer and optionally Wine and Native Wine" alt="Sell Beer and optionally Wine and Native Wine" /><br/>
+		    			<img src="{!$Resource.DX_GraphicLibrary + '/beer_six_pack.png'}" title="Beer and optionally Wine and Native Wine" alt="Beer and optionally Wine and Native Wine" width="200"/>
+                        <br/>
+						<br/>
 		    			Sell Beer and optionally Wine and Native Wine
 		    		</a>
 		    	</aura:if>
@@ -38,7 +40,9 @@
 		    <div id="slds-form-element" class="slds-container--center slds-container--small link licenseOption">
 		        <aura:if isTrue="{! not(empty(v.sellWineOptionalBeer_URL))}" >
 		    		<a href="" onclick="{!c.navigateWineOptionalBeer}" data-URL="{!v.sellWineOptionalBeer_URL}" role="" class="licenseOption">
-		    			<img src="{!$Resource.DX_GraphicLibrary + '/licenseWizard/store_WineOptionalBeer.png'}" title="Sell Wine Only and optionally Beer" alt="Sell Wine Only and optionally Beer" /><br/>
+		    			<img src="{!$Resource.DX_GraphicLibrary + '/wine_bottle.png'}" title="Wine Only and optionally Beer" alt="Wine Only and optionally Beer"  width="200"/>
+                    	<br/>
+						<br/>
 		    			Sell Wine Only and optionally Beer
 		    		</a>
 		        </aura:if>
@@ -54,7 +58,9 @@
 		    <div id="slds-form-element" class="slds-container--center slds-container--small link licenseOption">
 		        <aura:if isTrue="{! not(empty(v.sellLiquorOptionalMore_URL))}" >
 		    		<a href="" onclick="{!c.navigateLiquorOptionalMore}" data-URL="{!v.sellLiquorOptionalMore_URL}" role="" class="licenseOption">
-		    			<img src="{!$Resource.DX_GraphicLibrary + '/licenseWizard/store_LiquorOptionalMore.png'}" title="Sell Liquor and optionally Wine, Native Wine, and Beer" alt="Sell Liquor and optionally Wine, Native Wine, and Beer" /><br/>
+		    			<img src="{!$Resource.DX_GraphicLibrary + '/martini_glass.png'}" title="Liquor and optionally Wine, Native Wine, and Beer" alt="Liquor and optionally Wine, Native Wine, and Beer" width="200"/>
+                        <br/>
+						<br/>
 		    			Sell Liquor and optionally Wine, Native Wine, and Beer
 		    		</a>
 		        </aura:if>
@@ -65,7 +71,9 @@
 		    <div id="slds-form-element" class="slds-container--center slds-container--small link licenseOption">
 		    	<aura:if isTrue="{! not(empty(v.sellNativeWineOptionalBeer_URL))}" >
 		    		<a href="" onclick="{!c.navigateNativeWine}" data-URL="{!v.sellNativeWineOptionalBeer_URL}" role="" class="licenseOption">
-		    			<img src="{!$Resource.DX_GraphicLibrary + '/licenseWizard/store_NativeWineOptionalBeer.png'}" title="Sell Native Wine and optionally Beer" alt="Sell Native Wine and optionally Beer" /><br/>
+		    			<img src="{!$Resource.DX_GraphicLibrary + '/wine_bottle.png'}" title="Native Wine and optionally Beer" alt="Native Wine and optionally Beer"  width="200"/>
+                    	<br/>
+						<br/>
 		    			Sell Native Wine and optionally Beer
 		    		</a>
 		    	</aura:if>

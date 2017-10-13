@@ -1,0 +1,5 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes"  access="global">
+	<div class="slds-container--center slds-container--small">
+       <ui:button aura:id="submitButton" label="Back" press="{!c.closeModal}" class="stdButton" />
+    </div>
+</aura:component>

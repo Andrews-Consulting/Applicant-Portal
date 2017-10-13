@@ -1,6 +1,7 @@
 public with sharing class DX_PremiseQuestions {
 	static String notAnswered = '--None--';
-
+	static final string NONE = '--None--';
+    
     // get the values from the Account record.  First we have to get the Account record id from the user record of the current user.
     // If we don't get anything back on the first SOQL, then the user is not logged on.  We're going to assume that they timed out, since
     // this should have been executed from an authorized page.
@@ -12,9 +13,9 @@ public with sharing class DX_PremiseQuestions {
         if (u == (User)null || u.ContactId == null) return new MUSW__Application2__c();
 
         if (objectId.left(3) == Schema.SObjectType.MUSW__Application2__c.getKeyPrefix()) {
-            list<MUSW__Application2__c> app = [Select Id,Name,Primary_Lic_Type__c,abd_Square_Footage__c,abd_Bond_Company__c,abd_DRAM_shop__c,abd_Veterans_Organization__c,
-        		abd_Non_profit__c,abd_Dues_Member_Number__c,abd_Premises_Vehicle_Type__c,abd_Name_of_River_Lake__c,abd_Occupancy_Explination__c,
-        		abd_Sell_Gasoline__c,abd_Occupancy_Over_200__c,abd_Premise_County__c,Square_Footage_Retail_Area__c,
+            list<MUSW__Application2__c> app = [Select Id,Name,Primary_Lic_Type__c,abd_Square_Footage__c,abd_Bond_Company__c,abd_DRAM_shop__c,
+        		abd_Non_profit__c,abd_Dues_Member_Number__c,abd_Name_of_River_Lake__c,abd_Occupancy_Explination__c,
+        		abd_Occupancy_Over_200__c,abd_Premise_County__c,Square_Footage_Retail_Area__c,
         		(select id, abd_License_Type__c from License_Applications__r)		
         		from MUSW__Application2__c 
         		where ID =:objectId
@@ -53,12 +54,10 @@ public with sharing class DX_PremiseQuestions {
         }
         pickVals.put('bond',options);
         options = new List<String>();
-        fieldResult = MUSW__Application2__c.abd_Premises_Vehicle_Type__c.getDescribe();
-        ple = fieldResult.getPicklistValues();
-            options.add(notAnswered);
-        for (Schema.PicklistEntry f: ple) {
-            options.add(f.getLabel());
-        }
+        options.add(NONE);
+        options.add('Plane');       // These are 3 of the 8 selections in the other Criteria picklist
+        options.add('Train');       // so we'll just hard code them for now.
+        options.add('Boat');
         pickVals.put('pVType',options);
         
         return pickVals;

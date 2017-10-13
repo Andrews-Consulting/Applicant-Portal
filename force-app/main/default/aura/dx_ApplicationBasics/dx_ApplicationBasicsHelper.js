@@ -73,10 +73,7 @@
             }
             // validate required LE questions
             if (errmsg.length === 0 && component.get("v.showLE")) {
-            	console.log(app.abd_Sell_Gasoline__c);
-            	if(app.abd_Sell_Gasoline__c === undefined || app.abd_Sell_Gasoline__c === null)
-            		errmsg = "Please choose Yes or No for the Selling Gas question.";
-        		if(app.abd_Square_Footage__c === undefined || app.abd_Square_Footage__c === null){
+            	if(app.abd_Square_Footage__c === undefined || app.abd_Square_Footage__c === null){
         			if(errmsg.length !== 0)
             			errmsg+='<br/>';
             		errmsg+= "Please provide a value for the Square Footage question.";
@@ -89,9 +86,9 @@
             }
             // validate required LA questions
             if (errmsg.length === 0 && component.get("v.showVO")) {
-            	if(app.abd_Veterans_Organization__c === null)
+            	if(app.abd_Other_Criteria__c !== null || !app.abd_Other_Criteria__c.startswith('Veteran’s'))
             		errmsg = "Please choose Yes or No for the Veteran's Organization question.";
-        		if(app.abd_Veterans_Organization__c === 'No' && (app.abd_More_Than_250_Members__c === undefined || app.abd_More_Than_250_Members__c === null)){
+        		if(app.abd_Other_Criteria__c === null && (app.abd_More_Than_250_Members__c === undefined || app.abd_More_Than_250_Members__c === null)){
         			if(errmsg.length !== 0)
             			errmsg+='<br/>';
             		errmsg+= "Please choose Yes or No for the Club Members question.";
@@ -99,13 +96,11 @@
             }
             // validate required LD questions
             if (errmsg.length === 0 && component.get("v.showLD")) {
-            	if(app.abd_Premises_Vehicle_Type__c == NONE)
+            	if($A.util.isEmpty(app.abd_Other_Criteria__c) == NONE)
             		errmsg = "Please select a Premises Vehicle Type.";
             }
             
             // Null values from picklists
-            if(app.abd_Premises_Vehicle_Type__c == NONE)
-            	app.abd_Premises_Vehicle_Type__c = null;
             if(app.abd_Premise_County__c == NONE)
             	app.abd_Premise_County__c = null;
         	if(app.abd_Premise_City__c == NONE)
@@ -514,12 +509,10 @@
                             this.getPremiseCity(component);
 
                         // populate the vehicle types (plane, train, boat)
-                        var appVehicle = component.get("v.app.abd_Premises_Vehicle_Type__c");
                         list = response.getReturnValue().pVType;
                         opts = [];
                         for(var i=0;i<list.length;i++){
-                            var selected = (list[i] == appVehicle);
-                            opts.push({label:list[i], value:list[i], selected: selected});
+                            opts.push({label:list[i], value:list[i]});
                         }
                         component.find("vehicle").set("v.options",opts);
      
@@ -589,12 +582,11 @@
         var ltype = component.get("v.lTypes");
         var pop = component.get("v.laPopulation")[app.abd_Premise_City__c];
         if((app.abd_Square_Footage__c===undefined || !isNaN(app.abd_Square_Footage__c)) && (app.Square_Footage_Retail_Area__c===undefined || !isNaN(app.Square_Footage_Retail_Area__c))){
-	       var info = {"licenseTypes":ltype,"length":component.get("v.license.abd_Length__c"),"population":pop,
-	                	"sqFt":app.abd_Square_Footage__c,"retailSqFt":app.Square_Footage_Retail_Area__c,
-	                	"gas":(app.abd_Sell_Gasoline__c=='Yes'?'Sells Gas':(app.abd_Sell_Gasoline__c=='No'?'No Gas':null)),
-	                	"vehicleType":(app.abd_Premises_Vehicle_Type__c!='--None--')?app.abd_Premises_Vehicle_Type__c:null,
-	                	"members":(app.abd_More_Than_250_Members__c=='Yes')?true:(app.abd_More_Than_250_Members__c=='No')?false:null,"vo":(app.abd_Veterans_Organization__c=='Yes')?true:(app.abd_Veterans_Organization__c=='No')?false:null};
-	        try {
+	        
+	        var info = {"selectedLicenseTypes":ltype,"length":component.get("v.newLicense.abd_Length__c"),"population":pop,
+	                	"sqFt":sqftValue, "otherCriteria": app.abd_Other_Criteria__c};
+            
+            try {
 	            var action = component.get("c.getFeeSchedule"); // Set the routine to call in the controller
 	            action.setParams({
 	                "appInfo": JSON.stringify(info)

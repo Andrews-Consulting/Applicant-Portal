@@ -9,6 +9,7 @@
     <aura:attribute name="app" type="MUSW__Application2__c" default="{'sobjectType':'MUSW__Application2__c'}" />
     <aura:attribute name="applicant" type="Contact" default="{'sobjectType':'Contact'}" />
     <aura:attribute name="licensee" type="Account" default="{'sobjectType':'Account'}" />
+    <aura:attribute name="isInitComplete" type="Boolean" default="false" />
 
 	<aura:attribute name="showError" type="Boolean"  />
 	<aura:attribute name="errorMessage" type="string" />
@@ -64,7 +65,7 @@
 							</div>
 		                </div>
 	                </aura:renderIf> -->
-	                <aura:renderIf isTrue="{!v.app.abd_Veterans_Organization__c=='No'}">
+	                <aura:renderIf isTrue="{!v.showVO &amp;&amp; v.app.abd_Other_Criteria__c !='Veteran’s organization open one day per week or 52 days or less per year'}" >
 			            <label class="slds-form-element__label" for="nonProf"><abbr class="slds-required">*</abbr>Is your club a non-profit corporation or association of individuals who own, lease or occupy a permanent building whose members pay regular dues and is not operated for a profit other that such profits as would accrue to the entire membership?</label>
 	                    <div id="slds-form-element slds-is-required" class="slds-container++left slds-container++medium padded" aura:id="nonProf">
 		                    <div class="slds-grid slds-wrap">
@@ -90,10 +91,10 @@
 	               <!--  <aura:renderIf isTrue="{!v.showLD}">
 			            <div id="slds-form-element slds-is-required" class="slds-container++left slds-container++medium">
 		                    <label class="slds-form-element__label" for="vehicle"><abbr class="slds-required">*</abbr>Is the premises a Plane, Train, or Boat?</label>
-		                    <ui:inputSelect aura:id="vehicle" value="{!v.app.abd_Premises_Vehicle_Type__c}"/>
+		                    <ui:inputSelect aura:id="vehicle" value="{!v.app.unknown_custom_field}"/>
 		                </div>
 	                </aura:renderIf> -->
-	                <aura:renderIf isTrue="{!v.app.abd_Premises_Vehicle_Type__c=='Boat'}">
+	                <aura:renderIf isTrue="{!v.app.unknown_custom_field=='Boat'}">
 			            <div id="slds-form-element slds-is-required" class="slds-container--left slds-container--medium">
 		                    <lightning:input label="Name of the River/Lake" name="water" required="true" value="{!v.app.abd_Name_of_River_Lake__c}"/>
 		                </div>

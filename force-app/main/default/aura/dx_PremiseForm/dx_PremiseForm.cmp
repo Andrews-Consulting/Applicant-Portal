@@ -2,6 +2,7 @@
 	<aura:attribute name="showError" type="Boolean"  />
 	<aura:attribute name="errorMessage" type="string" />
 	<aura:Attribute name="RecordIdIsApplication" type="Boolean" />
+    <aura:attribute name="isInitComplete" type="Boolean" default="false" />
 
 	<aura:attribute name="stateOnly" type="Boolean" required="true" default="false"/>
 	<aura:attribute name="showOutdoor" type="Boolean" required="true" default="false"/>
@@ -20,7 +21,7 @@
 	
 	<!-- <aura:handler name="change"  action="{! c.onAdjustAuctionDates }" value="{! v.app }" /> -->
 	<aura:handler name="change"  action="{! c.onAdjustAuctionDates }" value="{! v.app.abd_Effective_Date__c }" />
-  	<aura:handler name="change"  action="{! c.onAdjustAuctionDates }"  value="{! v.app.abd_Time_of_Auction_Beginning__c }" /> 
+  	<aura:handler name="change"  action="{! c.onAdjustAuctionDates }"  value="{! v.app.abd_Start_Time__c }" /> 
 
 	<aura:method name="PerformSave" action="{!c.save}"  />
 	<aura:method name="PerformInit" action="{!c.doInit}"  />
@@ -56,7 +57,7 @@
 						<ui:inputSelect aura:id="States" value="{!v.app.abd_Premise_State__c}" disabled="{!v.stateOnly}" change="{!c.countyChange}"/>
 					</div>
 					<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small" aura:id="pAdd">
-						<lightning:input label="Premises Zip" name="Zip" required="true" value="{!v.app.abd_Premise_Zip_Code__c}" maxlength="5" messageWhenValueMissing="This field will be required to submit the application, but can be completed later." onchange="{!c.zipChange}"/>
+						<lightning:input label="Premises Zip" name="Zip" required="true" value="{!v.app.abd_Premise_Zip_Code__c}" maxlength="10" messageWhenValueMissing="This field will be required to submit the application, but can be completed later." onchange="{!c.zipChange}"/>
 					</div>
 					<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small">
 						<label class="slds-form-element__label" for="Counties">
@@ -81,24 +82,24 @@
 						</div>
 					</aura:if>
 					<aura:renderIf isTrue="{!v.app.Primary_Lic_Type__c != 'CP'}">
-						<aura:renderIf isTrue="{!v.lictype.abd_Available_as_temporary_license__c}">
+						<!-- <aura:renderIf isTrue="{!v.lictype.abd_Available_as_temporary_license__c}"> -->
 							<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small padded" aura:id="port">
 								<div class="slds-grid slds-wrap">
 									<lightning:input type="radio" label="Permanent" value="Permanent" name="port" checked="true" onchange="{!c.radioChange}"/>
 									<lightning:input type="radio" label="Temporary" value="Temporary" name="port" onchange="{!c.radioChange}"/>
 								</div>
 							</div>
-						</aura:renderIf>
+						<!-- </aura:renderIf> -->
 						<div class="slds-grid slds-wrap">
 							<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-2">
 								<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small">
-									<ui:inputDate label="Start Date" required="true" value="{!v.app.abd_Effective_Date__c}" displayDatePicker="true" />
+									<c:dx_dateField label="License Begin Date" required="true" value="{!v.app.abd_Effective_Date__c}" displayDatePicker="true" />
 								</div>
 							</div>
 							<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-2">
 								<aura:renderIf isTrue="{!v.app.abd_Temporary_or_Permanent__c=='Temporary'}">
 									<div id="slds-form-element slds-is-required" class="slds-container--right slds-container--small">
-										<ui:inputDate label="End Date" required="true" value="{!v.app.abd_Effective_End_Date__c}" displayDatePicker="true" />
+										<c:dx_dateField label="End Date" required="true" value="{!v.app.abd_Effective_End_Date__c}" displayDatePicker="true" />
 									</div>
 								</aura:renderIf>
 							</div>
@@ -112,25 +113,25 @@
 							</div>
 							<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-2">
 								<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small">
-									<ui:inputDate label="Start Date" required="true" value="{!v.app.abd_Effective_Date__c}" displayDatePicker="true" />
+									<c:dx_dateField label="Start Date" required="true" value="{!v.app.abd_Effective_Date__c}" displayDatePicker="true" />
 								</div>
 							</div>
 							<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-2">
 								<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small">
 									<label class="slds-form-element__label" for="localAuthority">Start Time</label>
-									<ui:inputSelect aura:id="auctionStart" value="{!v.app.abd_Time_of_Auction_Beginning__c}" />
+									<ui:inputSelect aura:id="auctionStart" value="{!v.app.abd_Start_Time__c}" />
 								</div>
 							</div>
 							<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-2">
 								<div id="slds-form-element" class="slds-container--left slds-container--small">
-									<ui:inputDate label="End Date" value="{!v.app.abd_Effective_End_Date__c}" displayDatePicker="true" disabled="true"/>
+									<c:dx_dateField label="End Date" value="{!v.app.abd_Effective_End_Date__c}" displayDatePicker="true" disabled="true"/>
 								</div>
 							</div>
 
 							<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-2">
 								<div id="slds-form-element " class="slds-container--left slds-container--small">
 									<label class="slds-form-element__label" for="auctionEnd">End Time</label>
-									<ui:inputSelect aura:id="auctionEnd" value="{!v.app.abd_Time_of_Auction_Ending__c}" disabled="true"/>
+									<ui:inputSelect aura:id="auctionEnd" value="{!v.app.abd_End_Time__c}" disabled="true"/>
 								</div>
 							</div>
 							<div class="slds-col slds-size--1-of-1" >&nbsp;</div>

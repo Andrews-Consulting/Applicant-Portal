@@ -44,7 +44,7 @@
     	try {
 	    	console.log('Get Owner');
 	        var action = component.get("c.getOwnerss");    // Set the routine to call in the controller
-	        action.setParams({"ownerId": component.get("v.owner.Id"), "appId" : component.get("v.recordId")});
+	        action.setParams({"ownerId": component.get("v.ownerid"), "appId" : component.get("v.recordId")});
 	        action.setCallback(this, function(response){
 	        	var rtnValue = response.getReturnValue();
 	            if (rtnValue === null) {                        // display any errors from the controller.
@@ -83,7 +83,8 @@
                         component.set("v.isPersonName",true);   
                         component.set("v.isBusinessName",true);
                     }
-
+                    console.log(rtnValue);
+                    component.set("v.isInitComplete",true);
                     if ($A.util.isEmpty(rtnValue.Id))
                         this.getType(component, event);
 	            }
@@ -143,10 +144,10 @@
         try {
             component.set("v.showError",false);                 // clear the error message off of the screen
             var notAnswered = '--None--';
-
+            var action;
             // If this isn't an application, then skip the Save for Now and tell everyone we're okay!
             if (!component.get("v.RecordIdIsApplication")) {
-                var action = component.getEvent("SaveCompleted");
+                action = component.getEvent("SaveCompleted");
                 action.setParams({"Component" : component, "Action": "Saved" });
                 action.fire();
                 return;
@@ -170,7 +171,7 @@
                 ($A.util.isEmpty(owner.State__c) || (owner.State__c == notAnswered)) && 
                 ($A.util.isEmpty(owner.U_S_Citizen__c) || (owner.U_S_Citizen__c == notAnswered)) && 
                 $A.util.isEmpty(owner.Zip_Code__c)){
-                	var action = component.getEvent("SaveCompleted");
+                    action = component.getEvent("SaveCompleted");
                 	action.setParams({"Component" : component, "Action": "Saved" });
                 	action.fire();
                 	return;
@@ -202,11 +203,11 @@
                 if (!$A.util.isEmpty(owner.Date_of_Birth__c)) {
                     if ((owner.Date_of_Birth__c.length < 6) || (new Date(owner.Date_of_Birth__c) == 'Invalid Date') || (new Date(owner.Date_of_Birth__c).getTime() < new Date('1900-01-01').getTime()) || (new Date(owner.Date_of_Birth__c).getTime() > new Date().getTime()))
                         errmsg = 'Date of Birth, ';
-                    else owner.Date_of_Birth__c = new Date(owner.Date_of_Birth__c).toJSON().substr(0,10);
+                    //else owner.Date_of_Birth__c = new Date(owner.Date_of_Birth__c).toJSON().substr(0,10);
                 }
             } 
             if (isBusiness) {
-//                if (!owner.abd_EIN__c) errmsg += 'Employer Identification Number (EIN)';
+            	if($A.util.isEmpty(owner.abd_EIN__c) || isNaN(owner.abd_EIN__c)) errmsg += 'Employer Identification Number (EIN)';
             }
 
             
@@ -241,8 +242,8 @@
             else {
             	console.log('Update Record');
                 owner.sobjectType = 'Application_Contact__c';
-                var action = component.get("c.upRecordApex");       // Set the routine to call in the controller
-                action.setParams({"owner": owner});                 // pass the data to the controller
+                action = component.get("c.upRecordApex");       // Set the routine to call in the controller
+                action.setParams({"owner" : owner});                 // pass the data to the controller
                 action.setCallback(this, function(response){
                 	var action = component.getEvent("SaveCompleted");
                     try {            
@@ -327,6 +328,6 @@
         };
         var urlp = getUrlParameter('id');
         if (!$A.util.isEmpty(urlp))
-            component.set("v.owner.Id",urlp );
+        	component.set("v.ownerid",urlp);
     }
 })

@@ -55,7 +55,7 @@
                         }
                         else component.set("v.stateOnly",false);
 
-                        if(! $A.util.isEmpty(lTypes) && lTypes.includes('P-OS'))
+                        if(! $A.util.isEmpty(lTypes) && lTypes.includes('OS'))
                         	component.set("v.showOutdoor",true);
                         component.set("v.app",application);      // but if it's good, set the applicant value to the result.
                         this.getLocalAuthority(component);
@@ -281,21 +281,37 @@
             if (application.abd_Charity_Business_Type__c == notAnswered)  application.abd_Charity_Business_Type__c = null;
 
 // validate the start dates (data entry)
+            var eYear;
+            // IE & edge convert a two digit year to 1900 (!STILL) 
+            if (!$A.util.isEmpty(application.abd_Effective_Date__c)  && new Date(application.abd_Effective_Date__c) != 'Invalid Date') {
+                eYear = new Date(application.abd_Effective_Date__c).getFullYear();
+                if (eYear  > 1900 && eYear < 2000) 
+                    application.abd_Effective_Date__c = new Date(application.abd_Effective_Date__c).setFullYear(eYear+100);
+            }
+
+
             if ($A.util.isEmpty(application.abd_Effective_Date__c) || 
                 (application.abd_Effective_Date__c.length < 6) || 
                 (new Date(application.abd_Effective_Date__c) == 'Invalid Date') || 
-                (new Date(application.abd_Effective_Date__c).getTime() < 0) || 
-                (new Date(application.abd_Effective_Date__c).getTime() > new Date('2020-01-01').getTime()))
+                (new Date(application.abd_Effective_Date__c).getTime() < 0))
                     errmsg += 'Start Date, ';
             else {
                 application.abd_Effective_Date__c = new Date(application.abd_Effective_Date__c).toJSON().substr(0,10);
 // validate end dates if necessary
                 if (application.abd_Temporary_or_Permanent__c == 'Temporary') {
+
+                    // IE & edge convert a two digit year to 1900 (!STILL) 
+                    if (!$A.util.isEmpty(application.abd_Effective_End_Date__c)  && new Date(application.abd_Effective_End_Date__c) != 'Invalid Date') {
+                        eYear = new Date(application.abd_Effective_End_Date__c).getFullYear();
+                        if (eYear  > 1900 && eYear < 2000) 
+                            application.abd_Effective_End_Date__c = new Date(application.abd_Effective_End_Date__c).setFullYear(eYear+100);
+                    }
+
+
                     if ($A.util.isEmpty(application.abd_Effective_End_Date__c) || 
                         (application.abd_Effective_End_Date__c.length < 6) || 
                         (new Date(application.abd_Effective_End_Date__c) == 'Invalid Date') || 
-                        (new Date(application.abd_Effective_End_Date__c).getTime() < 0) || 
-                        (new Date(application.abd_Effective_End_Date__c).getTime() > new Date('2020-01-01').getTime()))
+                        (new Date(application.abd_Effective_End_Date__c).getTime() < 0))
                             errmsg += 'End Date, ';
                     else
                         application.abd_Effective_End_Date__c = new Date(application.abd_Effective_End_Date__c).toJSON().substr(0,10);

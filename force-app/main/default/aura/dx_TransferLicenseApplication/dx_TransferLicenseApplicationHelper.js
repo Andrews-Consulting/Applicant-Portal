@@ -1,5 +1,46 @@
 ({
-    // Code that is instantiated once
+    // We pass it in a license and it creates an application for us!
+	getApplication: function(component, event){
+        try{
+            console.log('Get Application');
+            component.set("v.showError",false);                 // clear the error message display
+        	var action = component.get("c.createApplicationfromLicense");         // Set the routine to call in the controller
+            action.setParams({"licenseId": component.get("v.recordId")});            
+            action.setCallback(this, function(response){        // and when it returns, perform ....
+                try {            
+                    var state = response.getState();
+                    if (state === 'SUCCESS') {
+                        var application = response.getReturnValue();
+                        application.abd_Effective_Date__c = null;
+                        application.abd_Effective_End_Date__c = null;
+                        
+                        component.set("v.app",application); 
+                        component.set("v.recordId",application.Id);
+                        component.set("v.isInitComplete",true);
+                        this.getPremiseCity(component, event);
+                    }
+                    else {      // error or incomplete comes here
+                        var errors = response.getError();
+                        if (errors) {
+                            // get all error messages to display
+                            for (var erri = 0; erri < errors.length; erri++) {
+                                component.set("v.errorMessage", component.get("v.errorMessage") + " : " + errors[erri].message);
+                            }
+                            component.set("v.showError",true);      
+                        }
+                    }
+                } catch(e) {
+                    alert(e.stack);
+                }
+            });
+    		$A.enqueueAction(action);                           // put this item on the queue to execute.
+        }
+        catch(e) {
+            alert(e);
+        }
+     },
+     
+     // Code that is instantiated once
 
     getLicense: function(component){
         try{
@@ -15,12 +56,15 @@
                         component.set("v.lic",license);      // but if it's good, set the applicant value to the result.
 
                         // Copy over these values
-                        var application = JSON.parse(JSON.stringify(component.get("v.app")));
-                        application.abd_Premise_County__c = license.abd_Premise_County__c;
-                        application.abd_Premise_City__c = license.abd_Premise_City__c;
+                        //var application = JSON.parse(JSON.stringify(component.get("v.app")));
+                        //application.abd_Premise_County__c = license.abd_Premise_County__c;
+                        //application.abd_Premise_State__c = license.abd_Premise_State__c;
+                        //application.abd_Premise_City__c = license.abd_Premise_City__c;
+                        if(license.abd_Premise_State__c!='IA')
+                        	component.set("v.textCity",license.abd_Premise_City__c);
                         
-                        component.set("v.app",application);
-
+                        //component.set("v.app",application);
+            			
                         // Now figure out what else we can show / not show / need to lock down.
                         var lTypes = license.abd_License_Type__c;
                         if(license.Licenses__r!==null && license.Licenses__r!==undefined){
@@ -33,12 +77,15 @@
                         }
                         else {
                             component.set("v.stateOnly",false);
-                            var cnty = component.find("Counties");
-                            if (!$A.util.isEmpty(cnty))
-                                $A.util.addClass(cnty,"slds-hide");
+                            //var cnty = component.find("Counties");
+                            //if (!$A.util.isEmpty(cnty))
+                            //    $A.util.addClass(cnty,"slds-hide");
                         }
                         
                         component.set("v.laType",license.abd_Local_Authority_Type__c);
+                        
+                        this.getApplication(component, event);
+                        //this.getPremiseCity(component, event);
                     }
                     else {      // error or incomplete comes here
                         var errors = response.getError();
@@ -59,6 +106,51 @@
             alert(e.stack);
         }
      },
+     getPremiseCity: function(component) {
+
+        try {
+            var action = component.get("c.getPremiseCity"); // Set the routine to call in the controller
+            console.log(component.get("v.app"));
+            action.setParams({"county": component.get("v.app.abd_Premise_County__c")}); // pass the data to the controller
+
+            action.setCallback(this, function(response){
+                try {
+                    var state = response.getState();
+                    if (state === 'SUCCESS') {
+                        var list = response.getReturnValue();
+                        var opts = [];
+                        var map = {};
+                        for (var i = 0; i < list.length; i++) {
+                            opts.push({
+                                label: list[i].Name,
+                                value: list[i].Name,
+                                selected: (component.get("v.app.abd_Premise_City__c") == list[i].Name)
+                            });
+                        }
+                        component.find("city").set("v.options", opts);
+                    }
+                    else {      // error or incomplete comes here
+                        var errors = response.getError();
+                        if (errors) {
+                            for (var erri = 0; erri < errors.length; erri++) {
+                                component.set("v.errorMessage", component.get("v.errorMessage") + " : " + errors[erri].message );
+                            }
+                            component.set("v.showError",true);
+                        }
+                    }
+                } catch(e) {
+                    alert(e.stack);
+                }
+            });
+            $A.enqueueAction(action);                                           // queue the work.
+        }
+        // handle browser errors 
+        catch(e) {
+            alert(e.stack);
+        }
+
+
+    },
     // Call the controller to get the Citizenship values for the drop down box.  (not the result, but all of the choices)
     getPicklistValues: function(component){
         try {
@@ -82,6 +174,20 @@
                             application.abd_Premise_State__c = 'IA';
                             component.set("v.app",application);
                         }
+                        list = rtnValue.time;
+                        opts = [];
+                        for(i=0;i<list.length;i++){
+                            opts.push({label:list[i], value:list[i], selected:(list[i]==component.get("v.app.abd_Start_Time__c"))});
+                        }
+                        component.find("time").set("v.options",opts);
+                        
+                        // populate the county list from the response
+                        list = rtnValue.county;
+                        opts = [];
+                        for (var i = 0; i < list.length; i++) {
+                            opts.push({label: list[i],value: list[i],selected:(list[i]==component.get("v.app.abd_Premise_County__c"))});
+                        }
+                        component.find("Counties").set("v.options", opts);
                     }
                     else {      // error or incomplete comes here
                         var errors = response.getError();
@@ -128,6 +234,16 @@
             if ($A.util.isEmpty(application.abd_Premise_Zip_Code__c))  errmsg += 'Zip, ';
           
 // validate start dates ()
+
+            var eYear;
+            // IE & edge convert a two digit year to 1900 (!STILL), so add 100 years to all dates in the 1900 
+            if (!$A.util.isEmpty(application.abd_Effective_Date__c) && new Date(application.abd_Effective_Date__c) != 'Invalid Date') {
+                eYear = new Date(application.abd_Effective_Date__c).getFullYear();
+                if (eYear  > 1900 && eYear < 2000) 
+                    application.abd_Effective_Date__c = new Date(application.abd_Effective_Date__c).setFullYear(eYear+100);
+            }
+
+
             if ($A.util.isEmpty(application.abd_Effective_Date__c) || 
                 (application.abd_Effective_Date__c.length < 6) || 
                 (new Date(application.abd_Effective_Date__c) == 'Invalid Date') || 
@@ -138,6 +254,16 @@
                 application.abd_Effective_Date__c = new Date(application.abd_Effective_Date__c).toJSON().substr(0,10);
 // validate end dates if necessary
                 if (application.abd_Temporary_or_Permanent__c == 'Temporary') {
+
+
+                    // IE & edge convert a two digit year to 1900 (!STILL), so add 100 years to all dates in the 1900 
+                    if (!$A.util.isEmpty(application.abd_Effective_End_Date__c) && new Date(application.abd_Effective_End_Date__c) != 'Invalid Date') {
+                        eYear = new Date(application.abd_Effective_End_Date__c).getFullYear();
+                        if (eYear  > 1900 && eYear < 2000) 
+                            application.abd_Effective_End_Date__c = new Date(application.abd_Effective_End_Date__c).setFullYear(eYear+100);
+                    }
+
+                    
                     if ($A.util.isEmpty(application.abd_Effective_End_Date__c) || 
                         (application.abd_Effective_End_Date__c.length < 6) || 
                         (new Date(application.abd_Effective_End_Date__c) == 'Invalid Date') || 
@@ -187,7 +313,24 @@
                 // don't try to update with bad values.
                 if (application.abd_Premise_State__c == notAnswered) application.abd_Premise_State__c = null;
             }            
-
+            
+            // Null values from picklists
+            if (errmsg.length === 0) {
+                if(application.abd_Premises_Vehicle_Type__c == notAnswered)
+                	application.abd_Premises_Vehicle_Type__c = null;
+                if(application.abd_Premise_County__c == notAnswered)
+                	application.abd_Premise_County__c = null;
+                if(application.abd_Premise_City__c == notAnswered){
+            		var city = component.get("v.textCity");
+            		if(city!=''){
+            			application.abd_Premise_City__c = city;
+            		}else{
+	            		errmsg+= "Please select a Premises City.";
+            		}
+                }
+                if(application.abd_Premise_State__c == notAnswered)
+            		application.abd_Premise_State__c = null;
+            }
             
             // If there is an error, then let's display it and leave.
             if (errmsg.length !== 0) {
@@ -200,15 +343,13 @@
             // If all good, then let's call the controller and try to update the record.
             else {
                 console.log('dates are ' + application.abd_Effective_Date__c + ' & ' + application.abd_Effective_End_Date__c);
-                var action = component.get("c.createTransferApp");       // Set the routine to call in the controller
-                action.setParams({"application": application,"license": lic});         // pass the data to the controller
+                var action = component.get("c.updateTransferApp");       // Set the routine to call in the controller
+                action.setParams({"application": application});         // pass the data to the controller
                 action.setCallback(this, function(response){
                     var action = component.getEvent("SaveCompleted");
                     try {            
                         var state = response.getState();
                         if (state === 'SUCCESS') {
-                            var recid = response.getReturnValue();
-                            if (!$A.util.isEmpty(recid)) component.set("v.recordId",recid);
                             action.setParams({"Component" : component, "Action": "save" });
                         }
                         else {      // error or incomplete comes here

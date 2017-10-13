@@ -9,7 +9,9 @@
 	<aura:attribute name="applicant" type="Contact" default="{'sobjectType':'Contact'}" />
 	<aura:attribute name="licensee" type="Account" default="{'sobjectType':'Account'}" />
 	<aura:attribute name="laType" type="string" />
-	
+	<aura:attribute name="isInitComplete" type="Boolean" default="false" />
+    <aura:attribute name="textCity" type="String" default=""/>
+    
 	<!-- <aura:handler name="init" value="{!this}" action="{!c.doInit}" /> -->
 	<aura:registerevent name="SaveCompleted" type="c:dx_actionComplete" />
 	<aura:registerevent name="EmptyComponent" type="c:dx_actionComplete" />
@@ -18,69 +20,91 @@
 	
 
 	<div class="slds-grid slds-wrap padded">
-		<div class="slds-col slds-size--1-of-1">
-			<div class="slds-grid slds-wrap padded">
-				<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-7" >&nbsp;</div>
-				<div class="slds-col slds-size--1-of-1 slds-medium-size--6-of-7">
-					<h1>Application for Transfer of License</h1>
-				</div>
-			</div>
-			<div class="slds-grid slds-wrap padded">
-				<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-7" >&nbsp;</div>
-				<div class="slds-col slds-size--1-of-1 slds-medium-size--2-of-7">
-					<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small" aura:id="pAdd">
-						<lightning:input label="New Premises Address" name="Street" required="true" value="{!v.app.abd_Premise_Address__c}" messageWhenValueMissing="This field will be required to submit the application, but can be completed later." />
-					</div>
-					<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small" aura:id="pAdd">
-						<lightning:input label="New Premises Address Line 2" name="Street2" required="false" value="{!v.app.abd_Premise_Address_2__c}"/>
-					</div>
-					<div id="slds-form-element" class="slds-container--left slds-container--small" aura:id="pAdd">
-						<lightning:input label="New Premises City (City and State can not change for retail licenses)" name="City" value="{!v.app.abd_Premise_City__c}" disabled="{!v.stateOnly}"/> 
-					</div>
-					<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small" aura:id="pAdd">
-						<label class="slds-form-element__label" for="States">
-							<abbr class="slds-required">*</abbr>New Premises State
-						</label>
-						<ui:inputSelect aura:id="States" value="{!v.app.abd_Premise_State__c}" disabled="{!v.stateOnly}" change="{!c.countyChange}"/>
-					</div>
-					<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small" aura:id="pAdd">
-						<lightning:input label="New Premises Zip" name="Zip" required="true" value="{!v.app.abd_Premise_Zip_Code__c}" maxlength="5" messageWhenValueMissing="This field will be required to submit the application, but can be completed later." onblur="{!c.zipChange}"/>
-					</div>
-					<div id="slds-form-element" class="slds-container--left slds-container--small" aura:id="Counties">
-						<lightning:input label="New Premises County" name="County" value="{!v.app.abd_Premise_County__c}" disabled="true"/>
-					</div>
-				</div>
-				<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-7" >&nbsp;</div>
-				<div class="slds-col slds-size--1-of-1 slds-medium-size--2-of-7">
-					<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small">&nbsp;</div>
-					<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small">What type of change is requested?</div>
-					<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small padded" aura:id="port">
-						<div class="slds-grid slds-wrap">
-							<lightning:input type="radio" label="Permanent" value="Permanent" name="port" checked="true" onchange="{!c.radioChange}"/>
-							<lightning:input type="radio" label="Temporary" value="Temporary" name="port" onchange="{!c.radioChange}"/>
-						</div>
-					</div>
-					<div class="slds-grid slds-wrap">
-						<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-2">
-							<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small">
-								<ui:inputDate label="Start Date" required="true" value="{!v.app.abd_Effective_Date__c}" displayDatePicker="true" />
-							</div>
-						</div>
-						<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-2">
-							<aura:renderIf isTrue="{!v.app.abd_Temporary_or_Permanent__c=='Temporary'}">
-								<div id="slds-form-element slds-is-required" class="slds-container--right slds-container--small">
-									<ui:inputDate label="End Date" required="true" value="{!v.app.abd_Effective_End_Date__c}" displayDatePicker="true" />
-								</div>
-							</aura:renderIf>
-						</div>
-					</div>
-				</div>
-				<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-7" >&nbsp;</div>
-			</div>
-			<div class="slds-grid padded">
-				<div class="slds-col slds-size--1-of-1">&nbsp;</div>
-			</div>
-			
+		<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-2">
+			<h1>Application for Transfer of License</h1>
 		</div>
 	</div>
+	<div class="slds-grid slds-wrap padded">
+		<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-2">
+			<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small" aura:id="pAdd">
+				<lightning:input label="New Premises Address" name="Street" required="true" value="{!v.app.abd_Premise_Address__c}" messageWhenValueMissing="This field will be required to submit the application, but can be completed later." />
+			</div>
+			<div id="slds-form-element" class="slds-container--left slds-container--small" aura:id="pAdd">
+				<aura:renderIf isTrue="{!v.app.abd_Premise_State__c=='IA'}">
+                       <label class="slds-form-element__label" for="city">
+                           <abbr class="slds-required">*</abbr>New Premises City
+                       </label>
+                       <ui:inputSelect aura:id="city" value="{!v.app.abd_Premise_City__c}" disabled="{!v.laType=='City'}"/>
+                    <aura:set attribute="else">
+                    	<lightning:input label="Premises City" name="premiseCity" aura:id="premiseCity" value="{!v.textCity}" required="true" disabled="{!v.laType=='City'}"/>
+                    </aura:set>
+               	</aura:renderIf>
+			</div>
+			<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small" aura:id="pAdd">
+				<label class="slds-form-element__label" for="States">
+					<abbr class="slds-required">*</abbr>New Premises State
+				</label>
+				<ui:inputSelect aura:id="States" value="{!v.app.abd_Premise_State__c}" disabled="{!v.stateOnly}" change="{!c.stateChange}"/>
+			</div>
+			<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small" aura:id="pAdd">
+				<lightning:input label="New Premises Zip" name="Zip" required="true" value="{!v.app.abd_Premise_Zip_Code__c}" maxlength="10" onchange="{!c.zipFormat}"/>
+			</div>
+			<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small">
+                      <label class="slds-form-element__label" for="Counties">
+                          <abbr class="slds-required"><aura:renderIf isTrue="{!v.app.abd_Premise_State__c=='IA'}">*</aura:renderIf></abbr>New Premises County
+                      </label>
+                      <ui:inputSelect aura:id="Counties" value="{!v.app.abd_Premise_County__c}" change="{!c.countyChange}" disabled="{!v.laType=='County' || (v.app.abd_Premise_State__c!='IA' &amp;&amp; v.app.abd_Premise_State__c!='--None--')}"/>
+                  </div>
+              </div>
+		<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-2">
+			<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small">&nbsp;</div>
+			<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small">What type of change is requested?</div>
+			<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small padded" aura:id="port">
+				<div class="slds-grid slds-wrap">
+					<lightning:input type="radio" label="Permanent" value="Permanent" name="port" checked="true" onchange="{!c.radioChange}"/>
+					<lightning:input type="radio" label="Temporary" value="Temporary" name="port" onchange="{!c.radioChange}"/>
+				</div>
+			</div>
+			<div class="slds-grid">
+				<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-2">
+					<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small">
+						<c:dx_dateField label="Start Date" required="true" value="{!v.app.abd_Effective_Date__c}" displayDatePicker="true" />
+					</div>
+				</div>
+				<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-2">
+					<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small">
+						<label class="slds-form-element__label" for="time">
+							<abbr class="slds-required">*</abbr>Start Time
+						</label>
+						<ui:inputSelect aura:id="time" value="{!v.app.unknown_custom_field}"/>
+					</div>
+				</div>
+			</div>
+			<div class="slds-grid">
+				<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-2">
+					<aura:renderIf isTrue="{!v.app.abd_Temporary_or_Permanent__c=='Temporary'}">
+						<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small">
+							<lightning:input type="number" label="Number of days" value="{!v.app.abd_Number_of_Days__c}" onchange="{!c.daysChange}" min="1" step="1" max="7" name="nod"/>
+						</div>
+						
+					</aura:renderIf>
+				</div>
+			</div>
+			<aura:renderIf isTrue="{!v.app.abd_Number_of_Days__c>0}">
+				<div class="slds-grid">
+					<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-2">
+						<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small">
+							<label class="slds-form-element__label" for="time">
+								Calculated End Date and Time:
+							</label>
+							<ui:outputDate value="{!v.app.abd_Effective_End_Date__c}" format="M/dd/yyyy"/>&nbsp;&nbsp;
+							<ui:outputText value="{!v.app.unknown_custom_field}"/>
+						</div>
+					</div>
+				</div>
+			</aura:renderIf>
+		</div>
+		
+	</div>
+	
 </aura:component>

@@ -1,4 +1,5 @@
 <aura:component implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" access="global">
+    <aura:attribute name="isInitComplete" type="Boolean" default="false" />
    
     <aura:attribute name="SkipLabel" type="String" />   
     <div class="slds-grid slds-wrap padded">

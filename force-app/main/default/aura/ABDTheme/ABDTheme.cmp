@@ -5,6 +5,7 @@
 	<aura:attribute name="body" type="Aura.Component[]" required="false"/>
 	<aura:attribute name="SearchURL" type="String" default="https://www.iowa.gov/search"/>
 	<aura:attribute name="appId" type="String" access="global" />
+	
 	<div>
 		<div class="sliver slds-grid slds-wrap">
 			<div id="iowa_sliver_bar" class="sliver-container">

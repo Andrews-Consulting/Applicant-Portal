@@ -1,0 +1,231 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" controller="DX_AddPrivilegeApplication" access="global">
+
+    <aura:attribute name="showError" type="Boolean" />
+    <aura:attribute name="errorMessage" type="string" default="" />
+
+    <aura:attribute name="exit" type="Boolean" required="true" description="" default="false" access="private" />
+    <aura:attribute name="showNext" type="Boolean" required="true" description="" default="false" access="private" />
+    <aura:attribute name="showRadio" type="Boolean" required="true" description="" default="false" access="private" />
+	
+    <aura:attribute name="app" type="MUSW__Application2__c" default="{'sobjectType':'MUSW__Application2__c'}" />
+	<aura:attribute name="LicenseTypes" type="Object" default="" />
+    <aura:attribute name="optionalTypeNames" type="String" default="" />
+    <aura:attribute name="os" type="String" default="" />
+    <aura:attribute name="showSQBC" type="Boolean" required="true" default="false"/>
+    <aura:attribute name="showOutdoor" type="Boolean" required="true" default="false"/>
+    <aura:attribute name="showTempPerm" type="Boolean" default="false "/>
+    <aura:attribute name="estimate" type="String" default=" -- " />
+    <aura:attribute name="isInitComplete" type="Boolean" default="false" />
+    <aura:attribute name="isInUpdateApplicationMode" type="Boolean" default="false" />
+
+	<aura:registerevent name="SaveCompleted" type="c:dx_actionComplete" />
+    <aura:registerevent name="EmptyComponent" type="c:dx_actionComplete" />
+    <aura:method name="PerformSave" action="{!c.save}" />
+    <aura:method name="PerformInit" action="{!c.doInit}" />
+
+    <!-- warning !! these events fire even when the value changes in the JS code -->
+    <aura:handler name="change" value="{!v.app.abd_Effective_Date__c}" action="{!c.recalcFees}" />
+    <aura:handler name="change" value="{!v.app.abd_Effective_End_Date__c}" action="{!c.recalcFees}" />
+
+    <div class="slds-grid slds-wrap slds-grid_pull-padded">
+        <div class="slds-col slds-size_1-of-1">
+            <h1>Application for Sub-Permits and Privileges</h1>
+            <br />
+            <ui:outputText value="Please select the Sub-Permits and Privileges to add to the existing license: " />
+            <ui:outputURL label="[license class and other helpful information here]" value="http://abd.iowa.gov" alt="information on licenses and available options"/>
+        	<br/><br/>
+		</div>
+<!-- left half --> 
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2" />
+      
+<!-- right half -->            
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+            <div id="slds-form-element" class="slds-container--right">
+                <h1>
+                    <label class="uiLabel-left form-element__label uiLabel" for="ec">Fees with current selections: </label>
+                    <ui:outputText class="abdBox" aura:id="ec" value="{!v.estimate}"/>
+                </h1>
+            </div>
+        </div>
+
+<!-- blank line --> 
+        <div class="slds-col slds-size_1-of-1">
+            <br />
+            <br />
+        </div>
+
+        <aura:if isTrue="{!v.showRadio}">  <!-- Hide this section until the data is available -->
+<!-- left half --> 
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                <h1>Existing Sub-Permits</h1>
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-p-horizontal slds-size_1-of-1 ">
+                        <aura:iteration items="{!v.LicenseTypes.existingSLP}" var="itemE" indexVar="index" >   
+                            <div aura:id="radio" class="slds-form-element__control">
+                                <ui:inputRadio name="{!'ESLP'+index}" value="{!itemE.selected}" disabled="true" />
+                                <label class="uiLabel-right form-element__label uiLabel">
+                                    {!itemE.ltype.abd_Class__c}
+                                </label>
+                            </div>
+                        </aura:iteration>
+                        <aura:if isTrue="{! v.LicenseTypes.existingSLP == ''}" >
+                            None
+                        </aura:if>
+                    </div>
+                </div>
+            </div>
+
+<!-- right half --> 
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                <h1>Existing Privileges</h1>
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-p-horizontal slds-size_1-of-1">
+                        <aura:iteration items="{!v.LicenseTypes.existingPrv}" var="itemE" indexVar="index" >   
+                            <div aura:id="radio" class="slds-form-element__control">
+                                <ui:inputRadio name="{!'EPrv'+index}" value="{!itemE.selected}" disabled="true" />
+                                <label class="uiLabel-right form-element__label uiLabel">
+                                    {!itemE.ltype.abd_Class__c}
+                                </label>
+                            </div>
+                        </aura:iteration>
+                    </div>
+                </div>
+            </div>
+<!-- Blank line --> 
+            <div class="slds-col slds-size_1-of-1">
+                <br />
+            </div>
+
+<!-- left half --> 
+            <div class="slds-col slds-p-horizontal slds-size_1-of-1 slds-medium-size_1-of-2">
+                <h1>Available Sub-Permits 
+                    <lightning:icon iconName="utility:help" title="Help with available Sub-licenses and Permits" class="help" size="x-small"/>
+                    </h1>
+                <br />
+                <div class="slds-grid slds-wrap ">
+                    <div class="slds-col slds-p-horizontal slds-size_1-of-1 ">
+                        <aura:iteration items="{!v.LicenseTypes.optionalSLP}" var="itemO" indexVar="index">
+                            <div aura:id="radio" class="slds-form-element__control" hidden="{!itemO.hidden}" >
+                                <ui:inputRadio click="{!c.handleRadioChange}" name="{!'OSLP'+index}" value="{!itemO.selected}" disabled="{!itemO.disabled}" />
+                                <label class="uiLabel-right form-element__label uiLabel">
+                                 {!itemO.ltype.abd_Class__c}
+                                </label>
+                            </div>
+                        </aura:iteration>
+                    </div>
+                </div>
+            </div>
+
+    <!-- right half -->                  
+            <div class="slds-col slds-p-horizontal slds-size_1-of-1 slds-medium-size_1-of-2">
+                <h1>Available Privileges 
+                    <lightning:icon iconName="utility:help" title="Help with available Sub-licenses and Permits" class="help" size="x-small"/>
+                    </h1>
+                <br />
+                <div class="slds-grid slds-wrap ">
+                    <div class="slds-col slds-p-horizontal slds-size_1-of-1 ">
+                        <aura:iteration items="{!v.LicenseTypes.optionalPrv}" var="itemO" indexVar="index">
+                            <div aura:id="radio" class="slds-form-element__control" hidden="{!itemO.hidden}">
+                                <ui:inputRadio click="{!c.handleRadioChange}" name="{!'OPrv'+index}" value="{!itemO.selected}" disabled="{!itemO.disabled}" />
+                                <label class="uiLabel-right form-element__label uiLabel">
+                                    {!itemO.ltype.abd_Class__c}
+                                </label>                                            
+                            </div>
+                        </aura:iteration>
+                    </div>
+                </div>
+            </div>
+    	</aura:if>  
+
+<!-- Dates and schedules and such -->
+
+<!-- Left hand -->	
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-m-top--medium">                
+            <div class="slds-grid slds-wrap">
+                <aura:if isTrue="{!v.showTempPerm}">
+        <!-- Full width -->
+                    <div class="slds-col slds-size_1-of-1">                
+                        <ui:outputText value="Is this a permanent or temporary change?" />
+        				<div id="slds-form-element slds-is-required" class="slds-container_left slds-container_small" aura:id="port">
+        					<div class="slds-grid slds-wrap">
+        						<lightning:input type="radio" label="Permanent" value="Permanent" name="port" checked="{!v.app.abd_Temporary_or_Permanent__c == 'Permanent'}" onchange="{!c.permTempChange}"/>
+           						<lightning:input type="radio" label="Temporary" value="Temporary" name="port" onchange="{!c.permTempChange}" checked="{!v.app.abd_Temporary_or_Permanent__c == 'Temporary'}" />
+        					</div>
+        				</div>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1">    
+                        <br />
+                    </div>
+                </aura:if>
+    <!-- Left hand -->  
+    			<div class="slds-col slds-size_1-of-2">
+					<div id="slds-form-element slds-is-required" class="small-date" >
+                       <c:dx_dateField label="Start Date" required="true" value="{!v.app.abd_Effective_Date__c}" displayDatePicker="true" disabled="{!v.isInUpdateApplicationMode}" />
+                       
+					</div>
+				</div>
+
+    <!-- Right hand -->  
+                <div class="slds-col slds-size_1-of-2">
+                    <aura:if isTrue="{!v.showOutdoor}">
+                        <aura:if isTrue="{!v.app.abd_Temporary_or_Permanent__c=='Temporary'}">
+							<div id="slds-form-element slds-is-required" class="small-date">
+                                <c:dx_dateField label="End Date" required="true" value="{!v.app.abd_Effective_End_Date__c}" displayDatePicker="true" disabled="{!v.isInUpdateApplicationMode}"/>
+							</div>						
+						</aura:if>
+                    </aura:if>              
+    			</div>
+			</div>
+        </div>
+
+<!-- right hand -->
+		<div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-m-top--medium">
+            <aura:if isTrue="{!v.showOutdoor}">
+				<lightning:textarea label="If this is a recurring event, please describe the schedule" name="schedule" value="{!v.app.MUSW__Description__c}" disabled="{!v.isInUpdateApplicationMode}" /> 
+            </aura:if>
+		</div>
+
+<!-- a blank line -->
+        <div class="slds-col slds-size_1-of-1">
+            <br />
+        </div>            
+<!-- Full width -->
+        <aura:if isTrue="{!v.showOutdoor}">
+        	<div class="slds-col slds-size_1-of-1">
+				<div id="slds-form-element slds-is-required" class="">
+					<lightning:textarea label="Please describe the Outdoor Service Area Boundaries" name="boundaries" required="true" value="{!v.os}" maxlength="32768" disabled="{!v.isInUpdateApplicationMode}"/>
+				</div>
+			</div>
+		</aura:if>
+
+
+		<aura:if isTrue="{!v.showSQBC}">
+			<div class="">
+                <div id="slds-form-element slds-is-required" class="sqft">
+                    <lightning:input label="Square footage of the entire retail sales area of the business, including area 							of walk-in coolers that are accessible to the public. This includes all areas 							where non-alcohol products are also sold. Do not include areas that are not 							accessible to the public (offices, bathroom, kitchen, storage area etc.)." 
+                                    name="abd_Square_Footage_Retail_Area__c" required="true" type="Number" value="{!v.app.Square_Footage_Retail_Area__c}" onchange="{!c.handleSqChange}" pattern="^(0|[1-9]\d*)$" messageWhenPatternMismatch="Your entry must be a valid number." disabled="{!v.isInUpdateApplicationMode}"/>
+                </div>
+            </div>
+	    </aura:if>
+
+<!-- push down a little bit -->
+        <div class="slds-col slds-size_1-of-1" >
+            <br />&nbsp;
+        </div>
+
+<!-- Left side --> 
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2" >
+            <br />&nbsp;
+        </div>
+<!-- right side -->
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+            <div id="slds-form-element" class="slds-container--right">
+                <h1>
+                    <label class="uiLabel-left form-element__label uiLabel" for="ec">Fees with current selections: </label>
+                    <ui:outputText class="abdBox" aura:id="ec" value="{!v.estimate}"/>
+                </h1>
+            </div>
+        </div>
+
+	</div>
+</aura:component>

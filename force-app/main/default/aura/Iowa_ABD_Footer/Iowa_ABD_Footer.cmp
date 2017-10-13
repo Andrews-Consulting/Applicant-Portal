@@ -46,10 +46,10 @@
 					Ankeny, IA 50021<br />
 				</p>
 				<p>
-					<img alt="" src="{!$Resource.DX_GraphicLibrary + '/white-phone-15px.png'}" />
+					<img alt="" src="{!$Resource.DX_GraphicLibrary + '/Social/white-phone-15px.png'}" />
 					<strong>Toll-free:</strong>866-IowaABD (469-2223)
 					<br />
-					<img alt="" src="{!$Resource.DX_GraphicLibrary + '/white-phone-15px.png'}" />
+					<img alt="" src="{!$Resource.DX_GraphicLibrary + '/Social/white-phone-15px.png'}" />
 					<strong>Local:</strong>515-281-7400
 				</p>
 			</div>

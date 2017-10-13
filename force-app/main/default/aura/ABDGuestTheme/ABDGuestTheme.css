@@ -2,7 +2,7 @@
 .THIS {
     position: relative;
     z-index: 1;
-    background-color: #FFFFCC;
+    background-color: #FFFFFF;
 }
 .THIS .sliver {
     padding-top: 5px;
@@ -12,6 +12,14 @@
     padding-top: 5px;
     padding-bottom: 5px;
 }
+
+.THIS .ThemeHeader {
+    border-color: #000000;
+    border-width: 0px 0px 1px 0px;
+    border-style: solid;
+    background-color: #FFFFFF;
+}
+
 
 .THIS .mainContentArea{
 
@@ -247,17 +255,23 @@
 .THIS img.profileIcon{
     	visibility:hidden;
 	}
+
 .THIS .stdButton{
-	min-width:100%;
-	max-width:100%;
-	font-size: 1rem;
-	background-color: #1b4472;
-	color:rgb(217, 217, 217);
-	white-space: normal;
-	word-break: normal;
-	word-wrap: break-word;
-	min-height: 100%;
+  min-width:100%;
+  max-width:100%;
+  font-size: 1rem;
+  background-color: #ffffff;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 1px 3px 3px 1px;
+  /*#1b4472;*/
+  color:#111111;
+  white-space: normal;
+  word-break: normal;
+  word-wrap: break-word;
+  min-height: 100%;
 }
+
 .THIS div.inner{
 	padding-top:20px;
 }
@@ -266,7 +280,7 @@
 }
 .THIS  #error {
     text-align: center;
-    color:#FF0000;
+    color:red;
 }
 .THIS .checkImg {
     background: url(/sfsites/c/resource/sldsSvg/utility/success_60.png);
@@ -288,6 +302,31 @@
 }
 .THIS .rbtnDiv{
 	padding-right:10px;
+}
+.THIS a {
+  color: #000000;
+}
+
+.THIS .slds-textarea, 
+.THIS .input, 
+.THIS .slds-input, 
+.THIS .uiInput--select.select, 
+.THIS .uiInput--select, 
+.THIS .select 
+ {
+ border: 2px solid #000000; 
+}
+
+.THIS .slds-button {
+  background-color: #ffffff;
+  color: #111111;
+  border-color: #111111;
+  border-width: 1px 3px 3px 1px ;
+}
+
+.THIS .slds-form-element__label {
+  color: #000000;
+  font-size: 1rem;
 }
 
 

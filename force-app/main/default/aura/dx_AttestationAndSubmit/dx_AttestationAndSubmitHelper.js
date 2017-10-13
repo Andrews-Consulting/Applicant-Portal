@@ -5,17 +5,12 @@
         var errmsg = '';
 
         if ($A.util.isEmpty(app.abd_Attestation_Name__c))
-            errmsg = "Please enter your name to act as a signature.1";
+            errmsg = "Please enter your name to act as a signature.";
 
-        if ($A.util.isEmpty(app.abd_Attestation_Date__c))
-            app.abd_Attestation_Date__c = new Date();
-        else  {
-            if (new Date(app.abd_Attestation_Date__c) == 'Invalid Date' || new Date(app.abd_Attestation_Date__c).getTime() < 0 )
-                errmsg = 'Please provide a valid date';
-            else 
-                if (new Date(app.abd_Attestation_Date__c).getTime() > new Date().getTime())
-                    errmsg = 'Future dating your application is not allowed';   
-            }
+        //  The date is preloaded and locked down - 
+        // if ($A.util.isEmpty(app.abd_Attestation_Date__c))
+        //     app.abd_Attestation_Date__c = new Date();
+
 
         if (app.Id === null) errmsg = 'It does not appear that you are still logged in or logged in as a valid user.';
 

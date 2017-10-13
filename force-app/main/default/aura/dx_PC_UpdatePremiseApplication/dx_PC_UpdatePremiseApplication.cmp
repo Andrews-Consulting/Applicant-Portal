@@ -1,8 +1,20 @@
 <aura:component extends="c:dx_StdPageAbstraction" implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" access="global">
 
     <aura:set attribute="ActiveCmp" value="dx_PC_UpdatePremiseApplication" />     <!-- This drives the navigation and needs to exist in Nav metadata -->
+    <aura:attribute name="upaInitComplete" type="Boolean" default="false" />   
 
     <div aura:id="dx_PC_UpdatePremiseApplicationDiv">
-        <c:dx_UpdatePremiseApplication SaveCompleted="{!c.SaveComplete}" showError="{!v.showError}" errorMessage="{!v.errorMessage}" aura:id="dx_PC_UpdatePremiseApplication" recordId="{!v.recordId}" /> 
+        <c:dx_UpdatePremiseApplication SaveCompleted="{!c.SaveComplete}" showError="{!v.showError}" errorMessage="{!v.errorMessage}" aura:id="dx_PC_UpdatePremiseApplication" recordId="{!v.recordId}" isInitComplete="{! v.upaInitComplete}" /> 
+
+
+        <aura:if isTrue="{! v.upaInitComplete}" >
+		    <c:dx_checklistDisplaySectionOnly Section="Premises Information" SaveCompleted="{!c.SaveComplete}" EmptyComponent="{!c.EmptyComponent}" showError="{!v.showError}"  errorMessage="{!v.errorMessage}" aura:id="dx_PC_UpdatePremiseApplication" recordId="{!v.recordId}" RecordIdIsApplication="{!v.RecordIdIsApplication}" 
+		    isInitComplete="{! v.InitCompleteTriggerFlag}"/> 
+
+		    <c:dx_checklistDisplaySectionOnly Section="General Premises Information" SaveCompleted="{!c.SaveComplete}" EmptyComponent="{!c.EmptyComponent}" showError="{!v.showError}" errorMessage="{!v.errorMessage}" aura:id="dx_PC_UpdatePremiseApplication" recordId="{!v.recordId}" RecordIdIsApplication="{!v.RecordIdIsApplication}" 
+		    isInitComplete="{! v.InitCompleteTriggerFlag}"/> 
+		</aura:if>
+
+
     </div>
 </aura:component>

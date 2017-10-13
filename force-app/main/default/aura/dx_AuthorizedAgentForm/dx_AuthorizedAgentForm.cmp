@@ -3,13 +3,16 @@
 
     <aura:attribute name="showError" type="Boolean"  />
     <aura:attribute name="errorMessage" type="string" />
-    <aura:Attribute name="RecordIdIsApplication" type="Boolean" />    
+    <aura:Attribute name="RecordIdIsApplication" type="Boolean" />   
+    <aura:attribute name="isInitComplete" type="Boolean" default="false" />
+     
 
     <!-- <aura:handler name="init" value="{!this}" action="{!c.doInit}" /> -->
     <aura:registerevent name="SaveCompleted" type="c:dx_actionComplete" />
     <aura:registerevent name="EmptyComponent" type="c:dx_actionComplete" />
     <aura:method name="PerformSave" action="{!c.save}"  />
     <aura:method name="PerformInit" action="{!c.doInit}"  />
+    <aura:attribute name="isSP" type="Boolean"  />
     
 
     <div class="slds-grid slds-wrap">
@@ -17,7 +20,7 @@
             <div class="slds-grid slds-wrap padded">
                 <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-12" />
                 <div class="slds-col slds-size--1-of-1 slds-medium-size--11-of-12">
-                    <h1>Authorized Agent Information</h1>
+                    <h1>{!v.isSP?'Distilled Spirits Company':'Authorized Agent'} Information</h1>
                 </div>
             </div>
             <div class="slds-grid slds-wrap padded">
@@ -50,12 +53,12 @@
                         <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-12" />
                         <div class="slds-col slds-size--1-of-1 slds-medium-size--3-of-12">
                             <div id="slds-form-element slds-is-required" class="slds-container--right slds-container--small">
-                                <lightning:input label="Zip" name="zip" required="true" value="{!v.agent.abd_Auth_Agent_Zip__c}" maxlength="5"/>
+                                <lightning:input label="Zip" name="zip" required="true" value="{!v.agent.abd_Auth_Agent_Zip__c}" maxlength="10" onchange="{!c.zipFormat}"/>
                             </div>
                         </div>
                     </div>
                     <div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small">
-                        <lightning:input type="tel" label="Phone" aura:id="phone" name="phone" value="{!v.agent.abd_Auth_Agent_Phone__c}"  pattern="[(][0-9]{3}[)]\s[0-9]{3}-[0-9]{4}" messageWhenPatternMismatch="Phone format (555) 111-2345" onblur="{!c.validatePhone}" />
+                        <lightning:input type="tel" label="Phone" aura:id="phone" name="phone" value="{!v.agent.abd_Auth_Agent_Phone__c}" onchange="{!c.phoneFormat}" maxlength="40"/> <!-- pattern="[(][0-9]{3}[)]\s[0-9]{3}-[0-9]{4}" messageWhenPatternMismatch="Phone format (555) 111-2345" -->
                     </div>
                 </div>
                 <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-12" />

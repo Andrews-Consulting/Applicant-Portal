@@ -20,11 +20,11 @@
                         }
 		                if(ltype.includes('BB') || ltype.includes('LC') || ltype.includes('LE') || ltype.includes('BA') || ltype.includes('BAA') || ltype.includes('BAN') || ltype.includes('BAAN') || ltype.includes('WA') || ltype.includes('WAN') || ltype.includes('DS')){
                             var show = true;
-                            if((ltype.includes('BB') || ltype.includes('LC')) && (!ltype.includes('P-HPBP') && !ltype.includes('P-BP')))
+                            if((ltype.includes('BB') || ltype.includes('LC')) && (!ltype.includes('HPBP') && !ltype.includes('BP')))
                                 show = false;
                         }
 	                	// show Boat question
-                        if(ltype.includes('LD') && rtnValue.abd_Premises_Vehicle_Type__c==='Boat') {
+                        if(ltype.includes('LD') && rtnValue.abd_Other_Criteria__c==='Boat') {
                             component.set("v.showLD",true);
                         }
                         // Show the dram insurance list
@@ -105,6 +105,15 @@
 			var review = component.get("v.review");
 
 			errmsg = '';
+
+ 			var eYear;
+            // IE & edge convert a two digit year to 1900 (!STILL), so add 100 years to all dates in the 1900 
+            if (!$A.util.isEmpty(review.MUSW__Completed_DateTime__c) && new Date(review.MUSW__Completed_DateTime__c) != 'Invalid Date') {
+                eYear = new Date(review.MUSW__Completed_DateTime__c).getFullYear();
+                if (eYear  > 1900 && eYear < 2000) 
+                    review.MUSW__Completed_DateTime__c = new Date(review.MUSW__Completed_DateTime__c).setFullYear(eYear+100);
+            }
+
             if  ($A.util.isEmpty(review.MUSW__Completed_DateTime__c) || 
 				(review.MUSW__Completed_DateTime__c.length < 6) || 
                 (new Date(review.MUSW__Completed_DateTime__c) == 'Invalid Date') || 

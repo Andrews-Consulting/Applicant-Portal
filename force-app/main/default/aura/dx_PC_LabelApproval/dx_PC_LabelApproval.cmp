@@ -3,6 +3,6 @@
     <aura:set attribute="ActiveCmp" value="dx_PC_LabelApproval" />     <!-- This drives the navigation and needs to exist in Nav metadata -->
 
     <div aura:id="dx_PC_LabelApprovalDiv">
-        <c:dx_LabelApproval SaveCompleted="{!c.SaveComplete}" showError="{!v.showError}" errorMessage="{!v.errorMessage}" aura:id="dx_PC_LabelApproval" recordId="{!v.recordId}" /> 
+        <c:dx_LabelApproval SaveCompleted="{!c.SaveComplete}" showError="{!v.showError}" errorMessage="{!v.errorMessage}" aura:id="dx_PC_LabelApproval" recordId="{!v.recordId}"  isInitComplete="{! v.InitCompleteTriggerFlag}" /> 
     </div>
 </aura:component>

@@ -1,5 +1,43 @@
 ({
-	getAgentList: function(component,event){
+	checkApplication: function(component, event, helper){
+    	try {
+	    	console.log('Get Application');
+	        var action = component.get("c.checkApplication");    // Set the routine to call in the controller
+	        action.setParams({"appId": component.get("v.recordId")});
+	        action.setCallback(this, function(response){
+	        	try {
+	                var state = response.getState();
+	                if (state === 'SUCCESS') {
+	                    console.log(response.getReturnValue());
+	                    if (response.getReturnValue() === null) {
+	                        var nextAction = component.getEvent("EmptyComponent");
+                            console.log('Empty');
+	                        nextAction.fire();
+	                    }else{
+	                    	component.set("v.isSP",response.getReturnValue());
+	                    	helper.getAgentList(component, event);
+	                    }
+	                } else { // error or incomplete comes here
+	                    var errors = response.getError();
+	                    if (errors) {
+	                        // get all error messages to display
+	                        for (var erri = 0; erri < errors.length; erri++) {
+	                            component.set("v.errorMessage", component.get("v.errorMessage") + " : " + errors[erri].message);
+	                        }
+	                        component.set("v.showError", true);
+	                    }
+	                }
+	            } catch (e) {
+	                alert(e.stack);
+	            }
+	        });
+    		$A.enqueueAction(action);
+        }
+        catch(e) {
+            alert(e.name + ': ' + e.message+ ' : '+e.lineNumber);
+        }
+    },
+    getAgentList: function(component,event){
     	try {
 	    	console.log('Get Agents');
 	        var action = component.get("c.getAgentList");    // Set the routine to call in the controller

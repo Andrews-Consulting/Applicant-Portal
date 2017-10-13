@@ -166,9 +166,9 @@
         'currency': { componentDef: 'lightning:input', attributes: { type: 'number'} },
         'datacategorygroupreference': { componentDef: 'lightning:input', attributes: { type: 'text'} },
         'date': {
-            componentDef: 'lightning:input',
+            componentDef: 'c:dx_dateField',
             attributes: {
-                type: 'date'
+                displayDatePicker:true
             }
         },
         'datetime': { componentDef: 'lightning:input', attributes: { type: 'datetime' } },

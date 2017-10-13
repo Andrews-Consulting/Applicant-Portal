@@ -11,6 +11,8 @@
     <aura:attribute name="lastnameLabel" type="String" required="false" default="Last Name" />
     <aura:attribute name="emailLabel" type="String" required="false" default="Email" />
     <aura:attribute name="passwordLabel" type="String" required="false" default="Create Password" />
+    <aura:attribute name="phoneLabel" type="String" required="false" default="Phone" />
+    <aura:attribute name="user" type="User" default="{'sobjectType':'User','Phone':''}" />
     <aura:attribute name="confirmPasswordLabel" type="String" required="false" default="Confirm Password" />
     <aura:attribute name="leftButtonLabel" type="string" required="true" default="Register as a new User and Create an Application for a new License/Permit" />
     <aura:attribute name="rightButtonLabel" type="string" description="" default="Register as a new User and Connect to an existing License/Application" />
@@ -31,37 +33,29 @@
                 <ui:outputRichText value="{!v.errorMessage}" />
             </div>
         </aura:renderIf>
-        <div id="sfdc_username_container" class="slds-container--center slds-container--small">
-            <span id="sfdc_user" class="login-icon" data-icon="a"></span>
-            <ui:inputText value="" aura:id="firstname" label="{!v.firstnameLabel}" keyup="{!c.onKeyUp}" class="input sfdc_usernameinput sfdc" required="true"/>
+        <div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">
+            <lightning:input label="{!v.firstnameLabel}" name="FirstName" required="true" value="{!v.user.FirstName}" />
         </div>
-
-        <div id="sfdc_nickname_container" class="slds-container--center slds-container--small">
-            <span id="sfdc_user" class="login-icon" data-icon="a"></span>
-            <ui:inputText value="" aura:id="lastname" label="{!v.lastnameLabel}" keyup="{!c.onKeyUp}" class="input sfdc_usernameinput sfdc" required="true" />
+        <div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">
+            <lightning:input label="{!v.lastnameLabel}" name="LastName" required="true" value="{!v.user.LastName}" />
         </div>
-
         <div id="sfdc_email_container" class="slds-container--center slds-container--small">
-            <span id="sfdc_user" class="login-icon" data-icon="k"></span>
-            <ui:inputText value="" aura:id="email" label="{!v.emailLabel}" keyup="{!c.onKeyUp}" class="input sfdc_usernameinput sfdc" required="true" />
+            <lightning:input label="{!v.emailLabel}" type="email" name="Email" required="true" value="{!v.user.Email}" pattern="\S+@\S+\.\S+" messageWhenPatternMismatch="The email doesn't appear to be a valid email" aura:id="Email"/>
+        </div>
+		<div id="sfdc_email_container" class="slds-container--center slds-container--small">
+        	<lightning:input type="tel" label="Phone" aura:id="phone" name="phone" value="{!v.user.Phone}" onchange="{!c.phoneFormat}" maxlength="40" required="true"/>
         </div>
 
-        <aura:iteration aura:id="extraFields" items="{!v.extraFields}" var="curField" indexVar="index">
-            <div id="sfdc_extrafield_container" class="slds-container--center slds-container--small">
-                <span id="sfdc_user" class="login-icon" data-icon="a"></span>
-                <ui:inputText value="{!curField.value}" aura:id="{!curField.fieldPath}" label="{!curField.label}" keyup="{!c.onKeyUp}" class="input sfdc_extrafieldinput sfdc" />
-            </div>
-        </aura:iteration>
-
+        
         <aura:renderIf isTrue="{!v.includePasswordField}">
             <div id="sfdc_password_container" class="slds-container--center slds-container--small">
-                <span id="sfdc_lock" class="login-icon sfdc" data-icon="c"></span>
-                <ui:inputSecret value="" aura:id="password" label="{!v.passwordLabel}" keyup="{!c.onKeyUp}" class="input sfdc_passwordinput sfdc" required="true" />
+                <label class="slds-form-element__label" for="bTypeItems"><abbr class="slds-required">*</abbr>{!v.passwordLabel}</label>
+                <ui:inputSecret value="" aura:id="password" keyup="{!c.onKeyUp}" class="input sfdc_passwordinput sfdc" required="true"/>
             </div>
 
             <div id="sfdc_confirm_password_container" class="slds-container--center slds-container--small">
-                <span id="sfdc_lock" class="login-icon sfdc" data-icon="c"></span>
-                <ui:inputSecret value="" aura:id="confirmPassword" label="{!v.confirmPasswordLabel}" keyup="{!c.onKeyUp}" class="input sfdc_passwordinput sfdc" required="true" />
+                <label class="slds-form-element__label" for="bTypeItems"><abbr class="slds-required">*</abbr>{!v.confirmPasswordLabel}</label>
+                <ui:inputSecret value="" aura:id="confirmPassword" keyup="{!c.onKeyUp}" class="input sfdc_passwordinput sfdc" required="true"/>
             </div>
         </aura:renderIf>
 

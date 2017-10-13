@@ -69,7 +69,7 @@
 		    <div id="slds-form-element" class="slds-container--center slds-container--small link licenseOption">
 		    	<aura:if isTrue="{! not(empty(v.distillSpiritsAndSampleInIA_URL))}" >
 		    		<a href="" onclick="{!c.navigateDistillSpiritsAndSampleInIA}" data-URL="{!v.distillSpiritsAndSampleInIA_URL}" role="" class="licenseOption">
-		    			<img src="{!$Resource.DX_GraphicLibrary + '/licenseWizard/import_MakeSpiritsLocalSamples.png'}" title="As a micro-distiller in Iowa, I want to manufacture distilled spirits to sell to the ABD and provide samples at my distillery" alt="As a micro-distiller in Iowa, I want to manufacture distilled spirits to sell to the ABD and provide samples at my distillery" /><br/>
+		    			<img src="{!$Resource.DX_GraphicLibrary + '/licenseWizard/import_MakeSpiritsLocalSamples.png'}" title="As a micro-distiller in Iowa, I want to manufacture distilled spirits to sell to the ABD and provide samples at my distillery" alt="As a micro-distiller in Iowa, I want to manufacture distilled spirits to sell to the ABD and provide tastes at my distillery" /><br/>
 		    			As a micro-distiller in Iowa, I want to manufacture distilled spirits to sell to the ABD and provide samples at my distillery
 		    		</a>
 		    	</aura:if>

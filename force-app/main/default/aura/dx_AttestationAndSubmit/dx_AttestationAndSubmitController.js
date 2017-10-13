@@ -22,6 +22,7 @@
         component.set("v.recordId", recordId);
         component.set("v.app.Id", recordId);   
         component.set("v.app.abd_Attestation_Date__c",new Date().toJSON().substr(0,10));
+        component.set("v.isInitComplete",true);
     },
     
 

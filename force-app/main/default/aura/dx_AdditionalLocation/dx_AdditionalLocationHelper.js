@@ -62,7 +62,7 @@
                             opts.push({label:list[i], value:list[i], selected:(list[i]=='IA')});
                         }
                         component.find("States").set("v.options",opts);
-                        application.abd_Addl_Loc_State__c = 'IA';
+                        application.abd_Premise_State__c = 'IA';
                         component.set("v.app",application);
                         
                         list = rtnValue.county;
@@ -71,6 +71,7 @@
                             opts.push({label:list[i], value:list[i]});
                         }
                         component.find("Counties").set("v.options",opts);
+                        component.set("v.isInitComplete",true);
                     }
                     else {      // error or incomplete comes here
                         var errors = response.getError();
@@ -92,6 +93,48 @@
             alert(e.stack);
         }
     },
+    getPremiseCity: function(component) {
+    	try {
+            var action = component.get("c.getPremiseCity"); // Set the routine to call in the controller
+            action.setParams({"county": component.get("v.app.County__c")}); // pass the data to the controller
+
+            action.setCallback(this, function(response){
+                try {
+                    var state = response.getState();
+                    if (state === 'SUCCESS') {
+                        var list = response.getReturnValue();
+                        var opts = [];
+                        var map = {};
+                        for (var i = 0; i < list.length; i++) {
+                            opts.push({
+                                label: list[i].Name,
+                                value: list[i].Name,
+                                selected: (component.get("v.app.abd_Premise_City__c") == list[i].Name)
+                            });
+                           map[list[i].Name] = list[i].abd_Population__c;
+                        }
+                        component.find("city").set("v.options", opts);
+                    }
+                    else {      // error or incomplete comes here
+                        var errors = response.getError();
+                        if (errors) {
+                            for (var erri = 0; erri < errors.length; erri++) {
+                                component.set("v.errorMessage", component.get("v.errorMessage") + " : " + errors[erri].message );
+                            }
+                            component.set("v.showError",true);
+                        }
+                    }
+                } catch(e) {
+                    alert(e.stack);
+                }
+            });
+            $A.enqueueAction(action);                                           // queue the work.
+        }
+        // handle browser errors 
+        catch(e) {
+            alert(e.stack);
+        }
+    },
 
     // Call the controller to update the record with the values collected on the screen.
     // We could do validation here on the client side to make this a little faster.
@@ -109,31 +152,24 @@
             console.log(application);
             // validate the data here!  Check to see if the fields are completed.
             var errmsg = '';
-        	if ($A.util.isEmpty(application.abd_Addl_Loc_Address__c) || application.abd_Addl_Loc_Address__c.length === 0) errmsg += 'Address, ';
-    		if ($A.util.isEmpty(application.abd_Addl_Loc_City__c) || application.abd_Addl_Loc_City__c.length === 0)  errmsg += 'City, ';
-    		if ($A.util.isEmpty(application.abd_Addl_Loc_State__c)  || application.abd_Addl_Loc_State__c == notAnswered) errmsg += 'State, ';
-			if ($A.util.isEmpty(application.abd_Addl_Loc_Zip_Code__c) || application.abd_Addl_Loc_Zip_Code__c.length === 0)  errmsg += 'Zip, ';
-            if (application.abd_Addl_Loc_State__c==='IA' && ($A.util.isEmpty(application.County__c) || application.County__c == notAnswered))  errmsg += 'County, ';
+        	if ($A.util.isEmpty(application.abd_Premise_Address__c) || application.abd_Premise_Address__c.length === 0) errmsg += 'Address, ';
+    		if ($A.util.isEmpty(application.abd_Premise_City__c) || application.abd_Premise_City__c.length == notAnswered)  errmsg += 'City, ';
+    		if ($A.util.isEmpty(application.abd_Premise_State__c)  || application.abd_Premise_State__c == notAnswered) errmsg += 'State, ';
+			if ($A.util.isEmpty(application.abd_Premise_Zip_Code__c) || application.abd_Premise_Zip_Code__c.length === 0)  errmsg += 'Zip, ';
+            if (application.abd_Premise_State__c==='IA' && ($A.util.isEmpty(application.County__c) || application.County__c == notAnswered))  errmsg += 'County, ';
 
 // validate start date 
             if ($A.util.isEmpty(application.abd_Effective_Date__c) || 
                 (application.abd_Effective_Date__c.length < 6) || 
-                (new Date(application.abd_Effective_Date__c) == 'Invalid Date') || 
-                (new Date(application.abd_Effective_Date__c).getTime() < 0) || 
-                (new Date(application.abd_Effective_Date__c).getTime() > new Date('2020-01-01').getTime()))
+                (new Date(application.abd_Effective_Date__c) == 'Invalid Date'))
                     errmsg += 'Start Date, ';
             else {
-                application.abd_Effective_Date__c = new Date(application.abd_Effective_Date__c).toJSON().substr(0,10);
 // validate end dates if necessary
                 if (application.abd_Temporary_or_Permanent__c == 'Temporary') {
                     if ($A.util.isEmpty(application.abd_Effective_End_Date__c) || 
                         (application.abd_Effective_End_Date__c.length < 6) || 
-                        (new Date(application.abd_Effective_End_Date__c) == 'Invalid Date') || 
-                        (new Date(application.abd_Effective_End_Date__c).getTime() < 0) || 
-                        (new Date(application.abd_Effective_End_Date__c).getTime() > new Date('2020-01-01').getTime()))
+                        (new Date(application.abd_Effective_End_Date__c) == 'Invalid Date'))
                             errmsg += 'End Date, ';
-                    else
-                        application.abd_Effective_End_Date__c = new Date(application.abd_Effective_End_Date__c).toJSON().substr(0,10);
                 }
                 else // If it's not needed now, wipe it out since it could have bad data in it.
                     application.abd_Effective_End_Date__c = null;
@@ -141,24 +177,19 @@
 
 
             // Date Validation 
-
-			if ($A.util.isEmpty(errmsg) && application.abd_Effective_Date__c < lic.abd_Effective_Date__c) {
-                var d = new Date(new Date(lic.abd_Effective_Date__c).getTime() + new Date().getTimezoneOffset()*60*1000 );
+			if ($A.util.isEmpty(errmsg) && $A.localizationService.isBefore(application.abd_Effective_Date__c, lic.abd_Effective_Date__c)) {
+                var d = new Date(new Date(lic.abd_Effective_Date__c).getTime() + new Date(lic.abd_Effective_Date__c).getTimezoneOffset()*60*1000 );
                 errmsg = ('The Start Date of the application cannot be before the current/primary license start date of ' + d.toLocaleDateString());
                 console.log(errmsg);
             }
 
-            if ($A.util.isEmpty(errmsg) && (application.abd_Effective_End_Date__c < application.abd_Effective_Date__c)) {
+            if ($A.util.isEmpty(errmsg) && $A.localizationService.isBefore(application.abd_Effective_End_Date__c,application.abd_Effective_Date__c)) {
                 errmsg = 'The End Date of the application cannot be before the Start Date';
                 console.log(errmsg);
             }
 
-            console.log(application.abd_Effective_End_Date__c > lic.abd_Effective_End_Date__c);
-			console.log(application.abd_Effective_End_Date__c);
-			console.log(lic.abd_Effective_End_Date__c);
-
-			if ($A.util.isEmpty(errmsg) && application.abd_Effective_End_Date__c >= lic.abd_Effective_End_Date__c) {
-                var d = new Date(new Date(lic.abd_Effective_End_Date__c).getTime() + new Date().getTimezoneOffset()*60*1000 );
+			if ($A.util.isEmpty(errmsg) && $A.localizationService.isBefore(lic.abd_Effective_End_Date__c, application.abd_Effective_End_Date__c)) {
+                var d = new Date(new Date(lic.abd_Effective_End_Date__c).getTime() + new Date(lic.abd_Effective_End_Date__c).getTimezoneOffset()*60*1000 );
                 if(errmsg.startsWith('The'))
                 	errmsg += '<br/>';
                 errmsg += ('The End Date of the application cannot be after the current/primary license end date of ' + d.toLocaleDateString());
@@ -183,7 +214,7 @@
             // If all good, then let's call the controller and try to update the record.
             else {
                 // don't try to update with bad values.
-                if (application.abd_Addl_Loc_State__c == notAnswered) application.abd_Addl_Loc_State__c = null;
+                if (application.abd_Premise_State__c == notAnswered) application.abd_Premise_State__c = null;
                 if (application.County__c == notAnswered)  application.County__c = null;
 
 

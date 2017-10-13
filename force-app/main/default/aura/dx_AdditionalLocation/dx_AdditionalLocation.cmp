@@ -2,6 +2,7 @@
 
 	<aura:attribute name="showError" type="Boolean"  />
 	<aura:attribute name="errorMessage" type="string" />
+    <aura:attribute name="isInitComplete" type="Boolean" default="false" />
 
 	<aura:attribute name="stateOnly" type="Boolean" required="true" default="false"/>
 	<aura:attribute name="lic" type="MUSW__License2__c" default="{'sobjectType':'MUSW__License2__c'}" />
@@ -28,28 +29,32 @@
 				<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-7" >&nbsp;</div>
 				<div class="slds-col slds-size--1-of-1 slds-medium-size--2-of-7">
 					<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small">
-						<lightning:input label="Address" name="Street" required="true" value="{!v.app.abd_Addl_Loc_Address__c}"/>
+						<lightning:input label="Address" name="Street" required="true" value="{!v.app.abd_Premise_Address__c}"/>
 					</div>
 					<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small">
-						<lightning:input label="Address Line 2" name="Street2" required="false" value="{!v.app.abd_Addl_Loc_Address_2__c}"/>
-					</div>
-					<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small">
-						<lightning:input label="City" name="City" value="{!v.app.abd_Addl_Loc_City__c}" required="true"/>
-					</div>
-					<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small">
-						<label class="slds-form-element__label" for="States">
-							<abbr class="slds-required">*</abbr>State
-						</label>
-						<ui:inputSelect aura:id="States" value="{!v.app.abd_Addl_Loc_State__c}" disabled="true"/>
-					</div>
-					<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small">
-						<lightning:input label="Zip" name="Zip" required="true" value="{!v.app.abd_Addl_Loc_Zip_Code__c}" maxlength="5" onchange="{!c.zipChange}"/>
+						<lightning:input label="Address Line 2" name="Street2" required="false" value="{!v.app.abd_Premise_Address_2__c}"/>
 					</div>
 					<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small">
 						<label class="slds-form-element__label" for="Counties">
 							<abbr class="slds-required">*</abbr>County
 						</label>
-						<ui:inputSelect aura:id="Counties" value="{!v.app.County__c}" disabled="{!(v.app.abd_Addl_Loc_State__c==null || v.app.abd_Addl_Loc_State__c !='IA')}"/>
+						<ui:inputSelect aura:id="Counties" value="{!v.app.County__c}" disabled="{!(v.app.abd_Premise_State__c==null || v.app.abd_Premise_State__c !='IA')}" change="{!c.countyChange}"/>
+					</div>
+					<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small">
+						<label class="slds-form-element__label" for="city">
+                            <abbr class="slds-required">*</abbr>City
+                        </label>
+                        <ui:inputSelect aura:id="city" value="{!v.app.abd_Premise_City__c}" change="{!c.cityChange}"/>
+	                    <!-- <lightning:input label="City" name="City" value="{!v.app.abd_Premise_City__c}" required="true"/> -->
+					</div>
+					<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small">
+						<label class="slds-form-element__label" for="States">
+							<abbr class="slds-required">*</abbr>State
+						</label>
+						<ui:inputSelect aura:id="States" value="{!v.app.abd_Premise_State__c}" disabled="true"/>
+					</div>
+					<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small">
+						<lightning:input label="Zip" name="Zip" required="true" value="{!v.app.abd_Premise_Zip_Code__c}" maxlength="5" onchange="{!c.zipChange}"/>
 					</div>
 					<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small">
 						<lightning:input label="Booth or Space Number" name="booth" value="{!v.app.abd_Booth_Number__c}"/>
@@ -68,13 +73,13 @@
 					<div class="slds-grid slds-wrap">
 						<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-2">
 							<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small">
-								<ui:inputDate label="Start Date" required="true" value="{!v.app.abd_Effective_Date__c}" displayDatePicker="true" />
+								<c:dx_dateField label="Start Date" required="true" value="{!v.app.abd_Effective_Date__c}" displayDatePicker="true" />
 							</div>
 						</div>
 						<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-2">
 							<aura:renderIf isTrue="{!v.app.abd_Temporary_or_Permanent__c=='Temporary'}">
 								<div id="slds-form-element slds-is-required" class="slds-container--right slds-container--small">
-									<ui:inputDate label="End Date" required="true" value="{!v.app.abd_Effective_End_Date__c}" displayDatePicker="true" />
+									<c:dx_dateField label="End Date" required="true" value="{!v.app.abd_Effective_End_Date__c}" displayDatePicker="true" />
 								</div>
 							</aura:renderIf>
 						</div>

@@ -1,0 +1,60 @@
+.THIS .customHr{
+	width: 105%;
+    font-size: 1px;
+    color: rgba(0, 0, 0, 0);
+    line-height: 1px;
+	background-color: grey;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.THIS .centerText {
+	text-align: center;
+}
+
+.THIS input::placeholder {
+	font-style: italic;
+}
+
+.THIS input::disabled {
+	background-color: grey;
+}
+.THIS .small-date .form-element {
+	max-width: 8em;
+}
+
+.THIS .slds-textarea {
+	height: 150px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+.THIS .small-date .uiInput--datetime {
+	display: inline-flex;
+}
+
+.THIS .small-date .uiLabel {
+    margin-top: 0.25rem
+}
+.THIS .small-date .datePicker-openIcon {
+	bottom:unset;
+}
+
+.THIS .abdBox 
+ {
+ border: 1px solid #000000; 
+ border-bottom: 2px solid #000000;
+ border-right: 2px solid #000000;
+ margin-left: 2rem;
+ padding-right: 3px;
+ padding-left: 3px;
+}
+.THIS div.padded{
+    padding:10px 25px 10px 25px;
+}
+.THIS div.disableThis{
+	background-color: white;
+    filter:alpha(opacity=25); /* IE */
+    opacity: 0.25; /* Safari, Opera */
+    -moz-opacity:0.250; /* FireFox */
+    
+}

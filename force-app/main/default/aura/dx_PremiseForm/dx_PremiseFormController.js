@@ -36,8 +36,21 @@
     	helper.getLocalAuthority(component, event);        
 	},
 	zipChange : function(component, event,helper) {
-    	var zip = component.get("v.app.abd_Premise_Zip_Code__c").substr(0,5);
-    	component.set("v.app.abd_Premise_Zip_Code__c",zip);        
+    	//var zip = component.get("v.app.abd_Premise_Zip_Code__c").substr(0,5);
+    	//component.set("v.app.abd_Premise_Zip_Code__c",zip);
+    	var zip = component.get("v.app.abd_Premise_Zip_Code__c");
+		var zipLen = zip.length;
+		zipLen = zip.length;
+		if(!isNaN(zip)){
+			switch (zipLen){
+				case 9:
+	    			zip = zip.substring(0,5)+'-'+zip.substring(5);
+	    			break;
+				default:
+					break;
+			}
+		}
+		component.set("v.app.abd_Premise_Zip_Code__c",zip);        
 	},
 
 	// Whenever the start date and time are adjusted, recalculate the end date.

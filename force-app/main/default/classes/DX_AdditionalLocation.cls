@@ -28,7 +28,7 @@ public with sharing class DX_AdditionalLocation {
         }
         pickVals.put('county',options);
         options = new List<String>();
-        fieldResult = MUSW__Application2__c.abd_Time_of_Auction_Beginning__c.getDescribe();
+        fieldResult = MUSW__Application2__c.abd_Start_Time__c.getDescribe();
         ple = fieldResult.getPicklistValues();
             options.add(notAnswered);
         for (Schema.PicklistEntry f: ple) {
@@ -46,6 +46,15 @@ public with sharing class DX_AdditionalLocation {
         		(Select abd_License_Type__c From Licenses__r where abd_Active_Status__c=true) 
         		From MUSW__License2__c 
         		where id = :licenseId];
+    }
+	@AuraEnabled
+    public static list<abd_Census__c> getPremiseCity(string county){
+    	list<abd_Census__c> temp = new list<abd_Census__c>();
+    	temp.add(new abd_Census__c(name='--None--'));
+       	for(abd_Census__c a:[Select Name,abd_Population__c from abd_Census__c where abd_County__c!=null and abd_County__c includes(:county) and abd_Type__c='City' order by Name]){
+       		temp.add(a);	
+       	} 
+       	return temp;
     }
 	@AuraEnabled
     public static string createAddApp(MUSW__Application2__c application, MUSW__License2__c license){

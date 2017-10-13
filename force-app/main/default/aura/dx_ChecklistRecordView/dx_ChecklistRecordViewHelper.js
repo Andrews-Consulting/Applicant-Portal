@@ -18,7 +18,7 @@
 			for (var i = 0; i < fieldset.length; i++) {
 				field = fieldset[i];
 				if (field.type == 'DATE') {
-					var d = new Date(new Date(record[field.fieldPath]).getTime() + new Date().getTimezoneOffset()*60*1000 );
+					var d = new Date(new Date(record[field.fieldPath]).getTime() + new Date(record[field.fieldPath]).getTimezoneOffset()*60*1000 );
 					values.push({ 'label': field.label, 'value': d.toLocaleDateString()});	
 				}
 				else

@@ -9,6 +9,7 @@
     <aura:attribute name="errorMessage" type="string" />
     <aura:Attribute name="RecordIdIsApplication" type="Boolean" />    
     <aura:Attribute name="ShowCommit" type="Boolean" default="false" />
+    <aura:attribute name="isInitComplete" type="Boolean" default="false" />
 
 	
 	<!-- Event Registration -->

@@ -3,6 +3,6 @@
     <aura:set attribute="ActiveCmp" value="dx_PC_LicenseeForm" />     <!-- This drives the navigation and needs to exist in Nav metadata -->
 
     <div aura:id="dx_PC_LicenseeFormDiv">
-        <c:dx_LicenseeForm SaveCompleted="{!c.SaveComplete}" EmptyComponent="{!c.EmptyComponent}" showError="{!v.showError}" errorMessage="{!v.errorMessage}" aura:id="dx_PC_LicenseeForm" recordId="{!v.recordId}" RecordIdIsApplication="{!v.RecordIdIsApplication}" SaveDisabled="{!v.SaveDisabled}"/> 
+        <c:dx_LicenseeForm SaveCompleted="{!c.SaveComplete}" EmptyComponent="{!c.EmptyComponent}" showError="{!v.showError}" errorMessage="{!v.errorMessage}" aura:id="dx_PC_LicenseeForm" recordId="{!v.recordId}" RecordIdIsApplication="{!v.RecordIdIsApplication}" SaveDisabled="{!v.SaveDisabled}" isInitComplete="{! v.InitCompleteTriggerFlag}"/> 
     </div>
 </aura:component>

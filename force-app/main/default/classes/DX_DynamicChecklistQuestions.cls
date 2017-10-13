@@ -8,7 +8,7 @@ public class DX_DynamicChecklistQuestions {
 		try{
 			temp = new map<Id,BGCK__Question_Type__c>([Select BGCK__Default_Value__c,BGCK__Fieldset_Name__c,BGCK__hasChoices__c,BGCK__Maximum_Length__c,
 												BGCK__Name_Number_Currency__c,BGCK__Name_Number_Integer__c,BGCK__Name_Number_Percent__c,
-												BGCK__Object_Name__c,BGCK__Preview_Field_Count__c,BGCK__Type__c,(Select Name,BGCK__Display_Value__c From BGCK__Choices__r)
+												BGCK__Object_Name__c,BGCK__Preview_Field_Count__c,BGCK__Type__c,(Select Name,BGCK__Display_Value__c, BGCK__Order__c From BGCK__Choices__r order by BGCK__Order__c)
 												from BGCK__Question_Type__c where BGCK__Checklist_Version__c=:i]);
 			return temp;
 		}catch(exception e){

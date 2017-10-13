@@ -35,7 +35,7 @@ public without sharing class dx_StatusBarAppSummaryController {
             }
             else if (objectId.left(3) == Schema.SObjectType.MUSW__License2__c.getKeyPrefix()) {
                 statusBlock.isApplication = false;                
-                 List<MUSW__License2__c> licList = [SELECT Id, Name, CreatedDate, MUSW__Status__c, MUSW__Class__c 
+                 List<MUSW__License2__c> licList = [SELECT Id, Name, abd_Effective_Date__c, MUSW__Status__c, MUSW__Class__c 
                                                         FROM MUSW__License2__c 
                                                         WHERE Id = :objectId ];
                     if (liclist.size() > 0) {
@@ -43,7 +43,7 @@ public without sharing class dx_StatusBarAppSummaryController {
                         statusBlock.name = licList[0].Name;
                         statusBlock.licClass = licList[0].MUSW__Class__c;
                         statusBlock.status = licList[0].MUSW__Status__c;
-                        statusBlock.created = licList[0].CreatedDate.format();
+                        statusBlock.created = licList[0].abd_Effective_Date__c.format();
                         // dx_ProgressAndReview_helper prh = new dx_ProgressAndReview_helper(objectId);
                         // statusBlock.progressStatus = prh.getStatus();
                     }

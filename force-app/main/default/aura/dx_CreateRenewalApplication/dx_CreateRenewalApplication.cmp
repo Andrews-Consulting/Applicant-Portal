@@ -1,20 +1,239 @@
-<aura:component implements="forceCommunity:availableForAllPageTypes,force:appHostable,force:hasRecordId" controller="DX_CreateNewApplication" access="global">
+<aura:component implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" controller="DX_CreateRenewalApplication" access="global">
+	<aura:attribute name="showError" type="Boolean" />
+	<aura:attribute name="errorMessage" type="string" default="" />
+	<aura:attribute name="exit" type="Boolean" required="true" description="" default="false" access="private" />
+	<aura:attribute name="showNext" type="Boolean" required="true" description="" default="false" access="private" />
+	<aura:attribute name="showRadio" type="Boolean" required="true" description="" default="false" access="private" />
 
-	<aura:attribute name="showError" type="Boolean"  />
-	<aura:attribute name="errorMessage" type="string" />
+	<aura:attribute name="isInitComplete" type="Boolean" default="false" />
+	<aura:attribute name="isInUpdateApplicationMode" type="Boolean" default="false" />
+	<aura:attribute name="AppInfo" type="Object" description="In and Out variable" />
 
-	
-	<!-- <aura:handler name="init" value="{!this}" action="{!c.doInit}" /> -->
+	<aura:attribute name="app" type="MUSW__Application2__c" default="{'sobjectType':'MUSW__Application2__c'}" />
+	<aura:attribute name="contact" type="Contact" default="{'sobjectType':'Contact'}" />
+	<aura:attribute name="account" type="Account" default="{'sobjectType':'Account'}" />
+	<aura:attribute name="LicenseTypes" type="Object" default="" />
+	<aura:attribute name="optionalTypeNames" type="String" default="" />
+	<aura:attribute name="showSQBC" type="Boolean" required="true" default="false"/>
+	<aura:attribute name="showOutdoor" type="Boolean" required="true" default="false"/>
+	<aura:attribute name="showTempPerm" type="Boolean" default="false "/>
+	<aura:attribute name="estimate" type="String" default=" -- " />
+	<aura:attribute name="ownerToUpdate" type="String" />
+	<aura:attribute name="owner" type="Object" default="{'sobjectType':'Application_Contact__c'}" />
+	<aura:attribute name="ownerlist" type="Object[]" default="[{'sobjectType':'Application_Contact__c'}]" />
+	<aura:attribute name="ownerNameList" type="Map" />
+	<aura:attribute name="oCounter" type="Integer" default="1" />
+	<aura:attribute name="dynamicComponentsByAuraId" type="Object[]" />
+
+
 	<aura:registerevent name="SaveCompleted" type="c:dx_actionComplete" />
 	<aura:registerevent name="EmptyComponent" type="c:dx_actionComplete" />
-	<aura:registerevent name="NextOnlyEvent" type="c:dx_actionComplete" />
-	<aura:method name="PerformSave" action="{!c.save}"  />
-    <aura:method name="PerformInit" action="{!c.doInit}"  />
-	
 
-	<div class="slds-grid slds-wrap padded">
+	<aura:method name="PerformSave" action="{!c.save}" />
+	<aura:method name="PerformInit" action="{!c.doInit}" />
+
+	<div class="slds-grid slds-wrap slds-grid_pull-padded">
+
+<!-- left half -->
+		<div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+			<h1>Application for License Renewal</h1>
+		</div>
+
+<!-- right half -->
+		<div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+			<ui:button aura:id="GeneratePrintout" label="Print your existing License" press="{!c.printLicense}" class="slds-button slds-button--brand MyButtons" />
+		</div>
+
+<!-- whole line -->
+		<div class="slds-col slds-size_1-of-1">
+			<br />
+			<ui:outputText value="Please select the Sub-Permits and Privileges to add to the existing license: " />
+			<ui:outputURL label="[license class and other helpful information here]" value="http://abd.iowa.gov" alt="information on licenses and available options"/>
+			<br/>
+			<br/>
+		</div>
+
+<!-- left half -->
+		<div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2" />
+
+<!-- right half -->
+		<div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+			<c:dx_FeeDisplay AppInfo="{!v.AppInfo}" isMaster="true" showError="{!v.showError}" errorMessage="{!v.errorMessage}" />
+		</div>
+
+<!-- blank line -->
+		<div class="slds-col slds-size_1-of-1">
+			<br />
+			<br />
+		</div>
+		<aura:if isTrue="{!v.showRadio}">
+		<!-- Hide this section until the data is available -->
+
+<!-- left half -->
+
+
+<!-- left half -->
+			<div class="slds-col slds-p-horizontal slds-size_1-of-1 slds-medium-size_1-of-2">
+				<h1>Available Sub-Permits
+					<lightning:icon iconName="utility:help" variant="bare" title="Help with available Sub-Permits and Privileges" class="help" size="x-small"/>
+				</h1>
+				<br />
+				<div class="slds-grid slds-wrap ">
+					<div class="slds-col slds-p-horizontal slds-size_1-of-1 ">
+						<aura:iteration items="{!v.LicenseTypes.optionalSLP}" var="itemO" indexVar="index">
+							<div aura:id="radio" class="slds-form-element__control" hidden="{!itemO.hidden}" >
+								<ui:inputRadio click="{!c.handleRadioChange}" name="{!'OSLP'+index}" value="{!itemO.selected}" disabled="{!itemO.disabled}" />
+								<label class="uiLabel-right form-element__label uiLabel">{!itemO.ltype.abd_Class__c}</label>
+							</div>
+						</aura:iteration>
+					</div>
+				</div>
+			</div>
+
+<!-- right half -->
+			<div class="slds-col slds-p-horizontal slds-size_1-of-1 slds-medium-size_1-of-2">
+				<h1>Available Privileges
+					<lightning:icon iconName="utility:help" variant="bare" title="Help with available Sub-licenses and Permits" class="help" size="x-small"/>
+				</h1>
+				<br />
+				<div class="slds-grid slds-wrap ">
+					<div class="slds-col slds-p-horizontal slds-size_1-of-1 ">
+						<aura:iteration items="{!v.LicenseTypes.optionalPrv}" var="itemO" indexVar="index">
+							<div aura:id="radio" class="slds-form-element__control" hidden="{!itemO.hidden}">
+								<ui:inputRadio click="{!c.handleRadioChange}" name="{!'OPrv'+index}" value="{!itemO.selected}" disabled="{!itemO.disabled}" />
+								<label class="uiLabel-right form-element__label uiLabel">{!itemO.ltype.abd_Class__c}</label>
+							</div>
+						</aura:iteration>
+					</div>
+				</div>
+			</div>
+		</aura:if>
+
+<!-- full width -->
+		<div class="slds-col slds-size--1-of-1">&nbsp;</div>
+
+<!-- full width -->
 		<div class="slds-col slds-size--1-of-1">
-			
+			<lightning:input type="checkbox" label="Check to change any of the contact information below" name="hasContactChanged" />
+		</div>
+
+<!-- full width -->
+		<div class="slds-col slds-size--1-of-1">&nbsp;</div>
+
+<!-- full width -->
+		<div class="slds-col slds-size--1-of-1">
+			<h1>Primary Contact Information</h1>
+		</div>
+
+
+<!-- Contact Information -->
+		<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-2">
+			<div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">
+				<lightning:input label="First Name" name="FirstName" required="true" value="{!v.contact.FirstName}" messageWhenValueMissing="This field will be required to submit the application, but can be completed later."  />
+			</div>
+			<div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">
+				<lightning:input label="Last Name" name="LastName" required="true" value="{!v.contact.LastName}" messageWhenValueMissing="This field will be required to submit the application, but can be completed later."  />
+			</div>
+		</div>
+
+<!-- half -->
+		<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-2">
+			<div id="slds-form-element slds-is-required" aura:id="appPhoneM" class="slds-container--center slds-container--small">
+				<lightning:input label="Phone" type="tel" aura:id="appPhone" name="appPhone" required="true" value="{!v.contact.Phone}"  onchange="{!c.phoneFormat}" maxlength="40"/>
+				<!-- messageWhenValueMissing="This field will be required to submit the application, but can be completed later." pattern="[(][0-9]{3}[)]\s[0-9]{3}-[0-9]{4}" messageWhenPatternMismatch="Phone format (555) 111-2345" onblur="{!c.validateAppPhone}"/>-->
+			</div>
+			<div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">
+				<lightning:input label="Email" type="email" name="Email" required="true" value="{!v.contact.Email}"  messageWhenValueMissing="This field will be required to submit the application, but can be completed later."  pattern="\S+@\S+\.\S+" messageWhenPatternMismatch="The email doesn't appear to be a valid email" aura:id="applicantEmail"/>
+			</div>
+		</div>
+
+<!-- full width -->
+		<div class="slds-col slds-size--1-of-1">&nbsp;</div>
+
+<!-- full width -->
+		<div class="slds-col slds-size--1-of-1">
+			<h1>Licensee (Corporation) Information</h1>
+		</div>
+
+<!-- half -->
+		<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-2">
+			<div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">
+				<lightning:input label="Business Name (DBA or store  front name)" name="Name" required="true" value="{!v.app.abd_DBA__c}"  messageWhenValueMissing="This field will be required to submit the application, but can be completed later." />
+			</div>
+			<div id="slds-form-element slds-is-required" aura:id="licPhoneM" class="slds-container--center slds-container--small">
+				<lightning:input label="Phone" type="tel" name="licPhone" aura:id="licPhone" required="true" value="{!v.account.Phone}" onchange="{!c.phoneFormat}" maxlength="40"/>
+				<!-- messageWhenValueMissing="This field will be required to submit the application, but can be completed later." pattern="[(][0-9]{3}[)]\s[0-9]{3}-[0-9]{4}" messageWhenPatternMismatch="Phone format (555) 111-2345" onblur="{!c.validateLicPhone}"/>-->
+			</div>
+			<div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">
+				<lightning:input label="Email" type="email" name="abd_Account_Email_Address__c" required="true" value="{!v.account.abd_Account_Email_Address__c}"  messageWhenValueMissing="This field will be required to submit the application, but can be completed later." pattern="\S+@\S+\.\S+" messageWhenPatternMismatch="The email doesn't appear to be a valid email"/>
+				<!-- "/^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*$/" -->
+			</div>
+			<div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">
+				<lightning:input label="Website" name="Website" value="{!v.account.Website}"  />
+			</div>
+			<div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">
+				<lightning:input label="Twitter Handle" name="Twitter" value="{!v.account.abd_Twitter__c}" maxlength="255"/>
+			</div>
+			<div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">
+				<label class="slds-form-element__label" for="bTypeItems">
+					<abbr class="slds-required">*</abbr>Business Type
+				</label>
+				<ui:inputSelect aura:id="bTypeItems" value="{!v.account.Business_Type__c}" change="{!c.onSelectChange}" />
+			</div>
+		</div>
+
+<!-- half -->
+		<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-2">
+			<div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">
+				<lightning:input label="Mailing Address" name="BillingStreet" required="true" value="{!v.account.BillingStreet}"  messageWhenValueMissing="This field will be required to submit the application, but can be completed later." />
+			</div>
+			<div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">
+				<lightning:input label="Mailing City" name="BillingCity" required="true" value="{!v.account.BillingCity}"  messageWhenValueMissing="This field will be required to submit the application, but can be completed later." />
+			</div>
+			<div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">
+				<label class="slds-form-element__label" for="state">
+					<abbr class="slds-required">*</abbr>Mailing State
+				</label>
+				<ui:inputSelect aura:id="state" value="{!v.account.BillingState}" />
+			</div> 
+			<div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">
+				<lightning:input label="Mailing Zip" name="BillingPostalCode" required="true" value="{!v.account.BillingPostalCode}" maxlength="10" onchange="{!c.zipChange}" messageWhenValueMissing="This field will be required to submit the application, but can be completed later." />
+			</div>
+			<div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">
+				<lightning:input label="Facebook URL" name="Facebook" value="{!v.account.abd_Facebook__c}" maxlength="255"/>
+			</div>
+		</div>
+
+ 
+<!-- push down a little bit -->
+		<div class="slds-col slds-size_1-of-1" >
+			<br />&nbsp;
+		</div>
+
+<lightning:button label="test" name="test" onclick="{!c.test}" />
+
+<!-- full width    -->
+		<div class="slds-col slds-size_1-of-1">
+		<ui:outputText value="Do you need to update the mailing information for an owner? If so, select the owner from the list." />
+		<ui:inputSelect aura:id="OwnerItems" value="" change="{!c.onOwnerSelectEdit}"/>
+		</div>
+
+		<div class="slds-col slds-size--1-of-1">
+		{!v.body}
+		</div>
+
+
+<!-- push down a little bit -->
+		<div class="slds-col slds-size_1-of-1" >
+			<br />&nbsp;
+		</div>
+
+<!-- left side -->
+		<div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+		</div>
+
+<!-- right side -->
+		<div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
 		</div>
 	</div>
 </aura:component>

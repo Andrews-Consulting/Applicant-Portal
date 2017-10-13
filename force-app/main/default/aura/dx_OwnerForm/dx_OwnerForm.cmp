@@ -1,7 +1,8 @@
 <aura:component implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" controller="DX_OwnerForm" access="global">
     
     <!-- Component Attributes-->
-    <aura:attribute name="owner" type="Application_Contact__c" default="{'sobjectType':'Application_Contact__c'}" />
+    <aura:attribute name="owner" type="Object" default="{'sobjectType':'Application_Contact__c'}" />
+    <aura:attribute name="ownerid" type="String" default="" />
     <aura:attribute name="NoAllocationsAllowed" type="Boolean" default="false"/>
     <!-- <aura:attribute name="SoleProprietorship" type="Boolean" default="false"/> -->
     
@@ -12,6 +13,7 @@
     <aura:attribute name="isBusinessName" type="Boolean" default="true" />
     <aura:attribute name="isPersonName" type="Boolean" default="true" />
     <aura:attribute name="noBusinessAllowed" type="Boolean" default="false" />
+    <aura:attribute name="isInitComplete" type="Boolean" default="false" />
 	
 	<!-- Event Registration -->
     <aura:registerevent name="SaveCompleted" type="c:dx_actionComplete" />
@@ -25,6 +27,7 @@
     <!-- <aura:handler name="init" value="{!this}" action="{!c.doInit}" /> -->
 	
 	<!-- Main Content -->
+	
 	<div class="slds-grid slds-wrap padded">
         <div class="slds-col slds-size--1-of-1">
             <div class="slds-grid slds-wrap padded">
@@ -82,7 +85,7 @@
                         <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-12" />
                         <div class="slds-col slds-size--1-of-1 slds-medium-size--3-of-12">
                             <div id="slds-form-element slds-is-required" class="slds-container--right slds-container--small">
-                                <lightning:input label="Zip" name="zip" required="true" value="{!v.owner.Zip_Code__c}" maxlength="5" messageWhenValueMissing="This field will be required to submit the application, but can be completed later." />
+                                <lightning:input label="Zip" name="zip" required="true" value="{!v.owner.Zip_Code__c}" maxlength="10" onchange="{!c.zipFormat}" messageWhenValueMissing="This field will be required to submit the application, but can be completed later." />
                             </div>
                         </div>
                     </div>
@@ -115,10 +118,10 @@
 		                    </div>
 		                    <div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">
                                 <div hidden="{!!v.isPersonName}">
-                                    <lightning:input class="SSN" label="SSN" name="SSN" required="{!v.isPersonName}" value="{!v.owner.SSN__c}" placeholder="000-00-0000" pattern="[0-9]{3}-[0-9]{2}-[0-9]{4}" maxlength="11"/>
+                                    <lightning:input class="SSN" label="SSN" name="SSN" required="{!v.isPersonName}" value="{!v.owner.SSN__c}" maxlength="11" onchange="{!c.ssnFormat}"/><!--placeholder="000-00-0000" pattern="[0-9]{3}-[0-9]{2}-[0-9]{4}" maxlength="11" onchange="{!c.ssnFormat}"/>  -->
                                 </div>
                                 <div hidden="{!!v.isBusinessName}" >
-                                    <lightning:input class="SSN" label="FEIN" name="FEIN" required="{!v.isBusinessName}" value="{!v.owner.abd_EIN__c}" />
+                                    <lightning:input class="SSN" label="FEIN" name="FEIN" required="{!v.isBusinessName}" value="{!v.owner.abd_EIN__c}" maxlength="9"/>
                                 </div>
 
 		                    </div>
@@ -126,8 +129,8 @@
 	                    <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-8" />
 	                    <div class="slds-col slds-size--1-of-1 slds-medium-size--2-of-8">
                     		<div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">
-                                <ui:inputDate label="Date of Birth" value="{!v.owner.Date_of_Birth__c}" displayDatePicker="true"  disabled="{!!v.isPersonName}" />
-		                        <!-- name="dob" -->
+                                <c:dx_dateField label="Date of Birth" value="{!v.owner.Date_of_Birth__c}" displayDatePicker="true" disabled="{!!v.isPersonName}"/>
+                                <!-- name="dob" -->
                                 <!-- required="{!v.isPersonName}" --> 
 		                    </div>
 		                    <div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">

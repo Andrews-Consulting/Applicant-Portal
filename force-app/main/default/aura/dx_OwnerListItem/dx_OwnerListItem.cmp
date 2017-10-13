@@ -5,29 +5,30 @@
     <aura:attribute name="owner" type="Application_Contact__c" default="{'sobjectType':'Application_Contact__c'}" />
 	<aura:attribute name="delete" type="boolean" default="false"/>
 	<aura:attribute name="ShowCommit" type="boolean" default="false"/>
+	<aura:attribute name="readOnly" type="boolean" default="false"/>
+	<aura:attribute name="editRow" type="Integer" default="" />
+	<aura:attribute name="row" type="Integer" default="" />
 		
 	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
 	
 	<aura:renderIf isTrue="{!v.delete!=true}">
 		<tr>
 	        <td>
-	            <a onclick="{!c.navigateToOwner}" >
-	                <lightning:icon iconName="utility:edit" size="medium" />
-	            </a>
+	            <lightning:buttonIcon iconName="utility:edit" size="large" disabled="{! !empty(v.editRow)}" onclick="{!c.navigateToOwner}" alternativeText="Edit" variant="bare"/>
 	        </td> 
-	     <!--    <td>
-	            <lightning:input type="checkbox" label="primary" value="{!v.owner.abd_Primary_Owner__c}" aura:id="checkbox" name="abd_Primary_Owner__c" onchange="{!c.handleChange}"/>
-	        </td> -->
-	        <td>
-	            <ui:outputText value="{! v.owner.Business_Name__c + v.owner.First_Name__c +' '+ v.owner.Last_Name__c}" />
+	     	<td>
+	            <aura:renderIf isTrue="{!v.readOnly}">
+			    	<lightning:input name="Name" value="{!(empty(v.owner.Business_Name__c)&amp;&amp;empty(v.owner.First_Name__c)&amp;&amp;empty(v.owner.Last_Name__c))?'Click the pencil to enter the information for this row':v.owner.Business_Name__c + v.owner.First_Name__c +' '+ v.owner.Last_Name__c}" disabled="true"/>
+			    	<aura:set attribute="else">
+			    		<ui:outputText value="{!v.owner.Business_Name__c + v.owner.First_Name__c +' '+ v.owner.Last_Name__c}" />
+                    </aura:set>
+				</aura:renderIf>
 	        </td>
 	        <td>
-	            <lightning:input label="% Ownership" name="of_Ownership__c" type="number" required="true" value="{!v.owner.of_Ownership__c}" step="1" min="0" max="100" onchange="{!c.handleChange}" disabled="{! or(v.owner.abd_LicenseeBusinessType__c == 'Sole Proprietorship', v.owner.abd_LicenseeBusinessType__c == 'Municipality') }"/>
-	        </td>
+	        	<lightning:input name="of_Ownership__c" type="Number" required="{!v.readOnly==false}" value="{!v.owner.of_Ownership__c}" step="1" min="0" max="100" onchange="{!c.handleChange}" disabled="{! v.owner.abd_LicenseeBusinessType__c == 'Sole Proprietorship' || v.owner.abd_LicenseeBusinessType__c == 'Municipality' || v.readOnly}"/>
+			</td>
 	        <td>
-	        	<a onclick="{!c.removeOwner}">
-	                <lightning:icon iconName="utility:delete" size="medium" />
-	            </a>
+	        	<lightning:buttonIcon iconName="utility:delete" size="large" disabled="{! !empty(v.editRow)}" onclick="{!c.removeOwner}" alternativeText="Delete" variant="bare"/>
 	        </td>
 	    </tr>
     </aura:renderIf>

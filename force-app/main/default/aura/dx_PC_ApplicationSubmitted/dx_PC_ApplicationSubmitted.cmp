@@ -3,6 +3,6 @@
     <aura:set attribute="ActiveCmp" value="dx_PC_ApplicationSubmitted" />     <!-- This drives the navigation and needs to exist in Nav metadata -->
 
 <div aura:id="dx_PC_ApplicationSubmittedDiv">
-        <c:dx_ApplicationSubmitted aura:id="dx_PC_ApplicationSubmitted" recordId="{!v.recordId}" SkipLabel="{!v.SkipLabel}" /> 
+        <c:dx_ApplicationSubmitted aura:id="dx_PC_ApplicationSubmitted" recordId="{!v.recordId}" SkipLabel="{!v.SkipLabel}"  isInitComplete="{! v.InitCompleteTriggerFlag}"/> 
     </div>
 </aura:component>

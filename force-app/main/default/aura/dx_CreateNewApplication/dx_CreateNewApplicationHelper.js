@@ -6,6 +6,7 @@
         var lt = component.get("v.LicenseTypes");
         var app = component.get("v.app");
         var ltype = component.get("v.lTypes");
+
         var action;
         try {
             component.set("v.showError", false); // clear the error message off of the screen
@@ -21,11 +22,14 @@
             var licenseType = component.get("v.newLicense.MUSW__Class__c");
             if (errmsg.length === 0) {
                 // validate that a license type was selected.
+
                 if (licenseType === null || licenseType.length === 0 || licenseType == NONE) errmsg = "A valid license type must be selected";
             }
 
 
             var alertcnt = component.get("v.alertcnt");
+
+
             var licenselength = component.get("v.newLicense.abd_Length__c");
             if (errmsg.length === 0 && (licenselength ==='6 months' || licenselength ==='8 months') && ltype.has68MonthRestriction && alertcnt == 0) {
                 var alertmsg = 'Please note that this type of license has a mandatory two month waiting period '; 
@@ -42,15 +46,26 @@
             }
 
             
+
+
+
+
+
+
+
+
+
+
             // validate the county and city have a value.
             if (errmsg.length === 0 && !$A.util.isEmpty(lt.primary.PremisesMustBeIowa__c) && lt.primary.PremisesMustBeIowa__c) {
+
             	if(app.abd_Premise_County__c == NONE)
             		errmsg+= "Please select a Premises County.";
             	if(app.abd_Premise_City__c == NONE){
             		if(errmsg.length !== 0)
-            			errmsg+='<br/>';
-            		errmsg+= "Please select a Premises City.";
-        		}
+	            			errmsg+='<br/>';
+                    errmsg+= "Please select a Premises City.";
+            	}
             }
             if (errmsg.length === 0) {
             	if(app.abd_Premise_State__c == NONE)
@@ -61,6 +76,8 @@
             	if($A.util.isEmpty(app.abd_Other_Criteria__c) || (app.abd_Other_Criteria__c != 'Sells Gas' && app.abd_Other_Criteria__c != 'No Gas' )) {
                     if(errmsg.length !== 0)
                         errmsg+='<br/>';
+
+
             		errmsg = "Please choose Yes or No for the Selling Gas question.";
                 }
             }
@@ -80,9 +97,9 @@
             }
             // validate required LA questions
             if (errmsg.length === 0 && component.get("v.showVO")) {
-            	if(app.abd_Veterans_Organization__c === null)
+            	if(app.abd_Other_Criteria__c !== null || !app.abd_Other_Criteria__c.startswith('Veteran’s'))
             		errmsg = "Please choose Yes or No for the Veteran's Organization question.";
-        		if(app.abd_Veterans_Organization__c === 'No' && (app.abd_More_Than_250_Members__c === undefined || app.abd_More_Than_250_Members__c === null)){
+        		if(app.abd_Other_Criteria__c === null && (app.abd_More_Than_250_Members__c === undefined || app.abd_More_Than_250_Members__c === null)){
         			if(errmsg.length !== 0)
             			errmsg+='<br/>';
             		errmsg+= "Please choose Yes or No for the Club Members question.";
@@ -100,8 +117,14 @@
                 	app.abd_Premises_Vehicle_Type__c = null;
                 if(app.abd_Premise_County__c == NONE)
                 	app.abd_Premise_County__c = null;
-            	if(app.abd_Premise_City__c == NONE)
-            		app.abd_Premise_City__c = null;
+                if(app.abd_Premise_City__c == NONE){
+            		var city = component.get("v.textCity");
+            		if(city!=''){
+            			app.abd_Premise_City__c = city;
+            		}else{
+	            		errmsg+= "Please select a Premises City.";
+            		}
+                }
                 if(app.abd_Premise_State__c == NONE)
             		app.abd_Premise_State__c = null;
             }
@@ -206,6 +229,8 @@
             var NONE = "--None--";
             var action = component.get("c.getLicenseType");                     // apex controller routine
 
+
+
             action.setCallback(this, function(response){
                 try {            
                     var state = response.getState();
@@ -221,6 +246,8 @@
                             selected = false;
                             // if class exists, then if we find the matching entry, mark it as selected (Prefill the dropdown)
                             if(!$A.util.isEmpty(lClass) ){
+
+
                                 if((rtnValue[i].name==lClass)){
                                     selected = true;
                                     // We can start to set all sorts of things
@@ -228,10 +255,14 @@
                                     // chained event, since I need the license type 
                                     this.setValueDefaults(component);
                                 }
+
                             }
                             else    // if class is null, then just select the first entry (--none--)
+
                                 selected = (i === 0);
                             
+
+
                             opts.push({
                                 label: rtnValue[i].name,
                                 value: rtnValue[i].name,
@@ -240,7 +271,19 @@
                         }
                         component.find("lItems").set("v.options", opts);
 
+
+
+
+
+
+
+
+
+
                     }
+
+
+
                     else {      // error or incomplete comes here
                         var errors = response.getError();
                         if (errors) {
@@ -296,7 +339,7 @@
                     selected = true;
                 opts[i].selected = (opts[i].label == application.abd_Other_Criteria__c);
             }
-            if (!selected)
+            if (!selected && opts.length>0)
                 opts[0].selected = true;
             component.find("vehicle").set("v.options",opts);
        }
@@ -305,14 +348,17 @@
 
 
    setLicenseLengthOptions: function(component, licenseTypeOptions, classValue) {
+
         console.log('Set License Length');
         var i;
         var NONE = "--None--";
         component.set("v.app.abd_Other_Criteria__c",null);       // clear this out
         try {
+
             var available = [];
             for (i = 0; i < licenseTypeOptions.length; i++) {
                 if (licenseTypeOptions[i].name == classValue){
+
                     available = licenseTypeOptions[i].lengths;
                     component.set("v.lTypes"," "+licenseTypeOptions[i].ltype+" ");
                     if (licenseTypeOptions[i].premisesMustBeIowa)
@@ -330,7 +376,7 @@
                 });
             } // return value
             component.find("licLengths").set("v.options", opts);
-
+			
             // if there is only one length, then go get the addons for this license.
             if (available.length == 1 && available[0] != NONE) {
                 this.getAddons(component);
@@ -340,6 +386,8 @@
 
 
         }
+
+
         catch (e) {
             alert(e.stack);
         }
@@ -348,6 +396,7 @@
    // call the common routine
     getLicenseLength: function(component) {
         this.setLicenseLengthOptions(component, component.get("v.licenseTypeOptions"), component.get("v.newLicense.MUSW__Class__c"));
+
     },
     getAddons: function(component) {
         try {
@@ -446,6 +495,23 @@
                 } catch(e) {
                     alert(e.stack);
                 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             });
             $A.enqueueAction(action);                                           // queue the work.
         }
@@ -457,6 +523,7 @@
 
 
     getPremiseCity: function(component) {
+
         try {
             var action = component.get("c.getPremiseCity"); // Set the routine to call in the controller
             action.setParams({"county": component.get("v.app.abd_Premise_County__c")}); // pass the data to the controller
@@ -498,6 +565,7 @@
         catch(e) {
             alert(e.stack);
         }
+
 
     },
     // Call the controller to get the Citizenship values for the drop down box.  (not the result, but all of the choices)
@@ -592,15 +660,19 @@
             component.set("v.showVO", ltype.includes('LA'));
             component.set("v.showLD", ltype.includes('LD'));
             if (component.get("v.StateMustBeIowa")) {
+
                 component.set("v.app.abd_Premise_State__c",'IA');
             }
             else
+
                 component.set("v.app.abd_Premise_State__c",'--None--');
 
             if(component.get("v.newLicense.MUSW__Class__c")!==null && component.get("v.newLicense.MUSW__Class__c")!== '--None--' ){
     	        // if(component.get("v.newLicense.abd_Length__c") !==null && component.get("v.newLicense.abd_Length__c") != '--None--')
     	        	this.getFeeSchedule(component);
             }
+
+
         }
     },
 
@@ -653,6 +725,11 @@
                 component.set("v.estimate",estimateError);
             }
             else {
+
+
+
+
+
                 var action = component.get("c.getFeeSchedule"); // Set the routine to call in the controller
                 action.setParams({
                     "appInfo": JSON.stringify(info)
@@ -681,7 +758,9 @@
             }            
         } catch (e) {
             alert(e.stack);
+
         }
+
     },
     handleClassParam: function(component) {
     	// the function that reads the url parameters
@@ -695,7 +774,7 @@
                 sParameterName = sURLVariables[i].split('=');
 
                 if (sParameterName[0] === sParam) {
-                    return sParameterName[1] === undefined ? true : sParameterName[1].replace(/\+/g,' ');
+                    return sParameterName[1] === undefined ? true : sParameterName[1];
                 }
             }
         };
@@ -762,4 +841,5 @@
         if (!$A.util.isEmpty(component)) 
             component.set("v.checked",false);
     }
+
 })

@@ -49,10 +49,12 @@ public without sharing class DX_OwnerList {
 	    public Application_Contact__c owner{get;set;}
     	@AuraEnabled
 	    public boolean needDelete{get;set;}
+    	@AuraEnabled
+	    public integer row{get;set;}
     	
     	public OwnerInfo(Application_Contact__c ac){
     		this.owner = ac;
-    		this.needDelete = false;	
+    		this.needDelete = false;
     	}
     }
 }

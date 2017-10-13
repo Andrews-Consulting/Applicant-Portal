@@ -2,6 +2,7 @@
     <aura:attribute name="showError" type="Boolean"  />
     <aura:attribute name="errorMessage" type="string" />
     <aura:Attribute name="RecordIdIsApplication" type="Boolean" />
+    <aura:attribute name="isInitComplete" type="Boolean" default="false" />
 
     <aura:registerevent name="SaveCompleted" type="c:dx_actionComplete" />
     <aura:registerevent name="EmptyComponent" type="c:dx_actionComplete" /> 

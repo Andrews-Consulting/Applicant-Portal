@@ -1,0 +1,138 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" controller="DX_OwnerForm" access="global">
+    
+    <!-- Component Attributes-->
+    <aura:attribute name="owner" type="Object" default="{'sobjectType':'Application_Contact__c'}" />
+    <aura:attribute name="oldOwner" type="Object" default="{'sobjectType':'Application_Contact__c'}" />
+    <aura:attribute name="ownerid" type="String" default="" />
+    <aura:attribute name="NoAllocationsAllowed" type="Boolean" default="false"/>
+    
+    <aura:attribute name="showError" type="Boolean" default="false" />
+    <aura:attribute name="errorMessage" type="string" />
+    <aura:attribute name="RecordIdIsApplication" type="Boolean" />    
+    <aura:attribute name="isBusinessName" type="Boolean" default="true" />
+    <aura:attribute name="showShortForm" type="Boolean" default="false" />
+    <aura:attribute name="isPersonName" type="Boolean" default="true" />
+    <aura:attribute name="noBusinessAllowed" type="Boolean" default="false" />
+    <aura:attribute name="editRow" type="Integer" default="" />
+	<aura:attribute name="isInitComplete" type="Boolean" default="false" />
+    <aura:attribute name="throwEventOnDone" type="Boolean" default="false" />
+	
+	<!-- Handler definitions -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:registerevent name="ownerDone" type="c:dx_actionComplete" />
+	
+	<!-- Main Content -->
+	<div class="slds-col slds-size--1-of-1">
+        <div class="slds-grid slds-wrap padded">
+            <div class="slds-col slds-size--1-of-1">
+                <h1>Owner / Officer Information</h1>
+            </div>
+            <aura:If isTrue="{!v.showError}">
+            <div id="error" class="slds-col slds-size--1-of-1" >
+                <ui:outputRichText value="{!v.errorMessage}" />
+            </div>
+        </aura:If>
+        </div>
+        <div class="slds-grid slds-wrap padded">
+            <div class="slds-col slds-size--1-of-1">
+                <aura:if isTrue="{! v.isBusinessName}" >
+                    <div id="slds-form-element slds-is-required" class="slds-container--left slds-container--medium" >
+                        <lightning:input label="Corporation Name" name="BusinessName" required="{!v.isBusinessName}" value="{!v.owner.Business_Name__c}" messageWhenValueMissing="This field will be required to submit the application, but can be completed later." onchange="{!c.onNameChange}" aura:id="BusinessName" disabled="{!!v.isBusinessName}" />
+                    </div>
+                </aura:if>
+
+                <aura:if isTrue="{! v.isPersonName}" >
+                    <div id="slds-form-element slds-is-required" class="slds-container--left slds-container--medium">
+                        <lightning:input label="First Name" name="FirstName" required="{!v.isPersonName}" value="{!v.owner.First_Name__c}"  messageWhenValueMissing="This field will be required to submit the application, but can be completed later." onchange="{!c.onNameChange}" aura:id="FirstName" disabled="{!!v.isPersonName}" />
+                    </div>
+                    <div id="slds-form-element slds-is-required" class="slds-container--left slds-container--medium">
+                        <lightning:input label="Last Name" name="LastName" required="{!v.isPersonName}" value="{!v.owner.Last_Name__c}" messageWhenValueMissing="This field will be required to submit the application, but can be completed later."  onchange="{!c.onNameChange}" aura:id="LastName" disabled="{!!v.isPersonName}"/>
+                    </div>
+                </aura:if>
+
+                <div id="slds-form-element slds-is-required" class="slds-container--left slds-container--medium">
+                    <lightning:input label="Address Line 1" name="line1" required="true" value="{!v.owner.Address__c}" messageWhenValueMissing="This field will be required to submit the application, but can be completed later."  />
+                </div>
+                <div id="slds-form-element slds-is-required" class="slds-container--left slds-container--medium">
+                    <lightning:input label="Address Line 2" name="line2" value="{!v.owner.Address_2__c}" />
+                </div>
+                <div class="slds-grid slds-wrap slds-container--medium">
+                    <div class="slds-col slds-size--3-of-5">
+                        <div id="slds-form-element slds-is-required" class="slds-size--11-of-12 slds-container--left slds-container--small">
+                            <lightning:input label="City" name="City" required="true" value="{!v.owner.City__c}"  messageWhenValueMissing="This field will be required to submit the application, but can be completed later." />
+                        </div>
+                    </div>
+                    <div class="slds-col slds-size--2-of-5">
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size--1-of-5">
+                                <div id="slds-form-element slds-is-required" class="slds-container--left">
+                                    <label class="slds-form-element__label" for="state">
+                                        <abbr class="slds-required">*</abbr>State
+                                    </label>
+                                    <ui:inputSelect aura:id="state" value="{!v.owner.State__c}" change="{!c.onSelectChange}" />
+                                </div>
+                            </div>
+                            <div class="slds-col slds-size--4-of-5">
+                                <div id="slds-form-element slds-is-required" class="slds-size--11-of-12 slds-container--right slds-container--small">
+                                    <lightning:input label="Zip" name="zip" required="true" value="{!v.owner.Zip_Code__c}" maxlength="10" onchange="{!c.zipFormat}" messageWhenValueMissing="This field will be required to submit the application, but can be completed later." />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <aura:if isTrue="{! !v.showShortForm}" >
+                    <div class="slds-grid slds-wrap slds-container--medium" >
+                        <div class="slds-col slds-size--3-of-5">
+                            <div id="slds-form-element slds-is-required" class="slds-size--11-of-12 slds-container--left slds-container--small" hidden="{!!v.isPersonName}">
+                                <lightning:input label="Position" name="Position" required="{!v.isPersonName}" value="{!v.owner.Position__c}"  messageWhenValueMissing="This field will be required to submit the application, but can be completed later." disabled="{!!v.isPersonName}" />
+                            </div>
+                            <div id="slds-form-element slds-is-required" class="slds-size--11-of-12 slds-container--left slds-container--small">
+                                <div hidden="{!!v.isPersonName}">
+                                    <lightning:input class="SSN" label="SSN" name="SSN" required="{!v.isPersonName}" value="{!v.owner.SSN__c}" maxlength="11" onchange="{!c.ssnFormat}"/><!--placeholder="000-00-0000" pattern="[0-9]{3}-[0-9]{2}-[0-9]{4}" maxlength="11" onchange="{!c.ssnFormat}"/>  -->
+                                </div>
+                                <div hidden="{!!v.isBusinessName}" >
+                                    <lightning:input class="SSN" label="FEIN" name="FEIN" required="{!v.isBusinessName}" value="{!v.owner.abd_EIN__c}" maxlength="9"/>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="slds-col slds-size--2-of-5">
+                        	<div class="slds-grid slds-wrap">
+    	                    	<div class="slds-col slds-size--1-of-5">&nbsp;</div>
+    	                    	<div class="slds-col slds-size--4-of-5">
+    		                        <div id="slds-form-element slds-is-required" class="slds-container--right slds-container--small slds-size--11-of-12" hidden="{!!v.isPersonName}">
+    		                            <c:dx_dateField label="Date of Birth" value="{!v.owner.Date_of_Birth__c}" displayDatePicker="true" disabled="{!!v.isPersonName}" required="{!v.isPersonName}"/>
+    		                        </div>
+    		                        <div id="slds-form-element slds-is-required" class="slds-container--right slds-container--small slds-size--11-of-12" hidden="{!!v.isPersonName}">
+    		                            <label class="slds-form-element__label" for="citizen"><abbr class="slds-required">*</abbr>US Citizen</label>
+    		                            <ui:inputSelect aura:id="citizen" value="{!v.owner.U_S_Citizen__c}" change="{!c.onSelectChange}" disabled="{!!v.isPersonName}"/>
+    		                        </div>
+    		                        <aura:renderIf isTrue="{!!v.NoAllocationsAllowed}">
+    		                            <div id="slds-form-element slds-is-required" class="slds-container--right slds-container--small slds-size--11-of-12">
+    		                                <lightning:input label="% Ownership" name="percent" type="number" required="true" value="{!v.owner.of_Ownership__c}" step="1" min="0" max="100" messageWhenValueMissing="Please enter a value, which can be zero for corporate officers." />
+    		                            </div>
+    		                        </aura:renderIf>
+    	                        </div>
+                            </div>
+                        </div>
+                    </div>
+                </aura:if>
+            </div>
+        </div>
+        <div class="slds-col slds-size--1-of-1">
+        &nbsp;
+        </div>
+        <div class="slds-grid slds-wrap padded">
+            <div class="slds-col slds-size--1-of-1">
+	            <div class="slds-grid slds-wrap slds-container--large">
+	            	<div class="slds-col slds-container--left slds-size--1-of-2">
+		                <ui:button aura:id="CancelButton" label="Cancel changes to Owner" press="{!c.CancelButtonPressed}" class="slds-button slds-button--brand MyFooterButtons" />
+		            </div>
+	                <div class="slds-col slds-container--right slds-size--1-of-2">
+		                <ui:button aura:id="CommitButton" label="Done making changes to Owner" press="{!c.CommitButtonPressed}" class="slds-button slds-button--brand MyFooterButtons" />
+		            </div>
+	            </div>
+            </div>
+        </div>
+    </div>
+</aura:component>

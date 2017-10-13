@@ -35,7 +35,9 @@
 		    <div id="slds-form-element" class="slds-container--center slds-container--small link licenseOption">
 		    	<aura:if isTrue="{! not(empty(v.serveBeerWithWineCoolers_URL))}" >
 		    		<a href="" onclick="{!c.navigateBeerWithWineCoolers}" data-URL="{!v.serveBeerWithWineCoolers_URL}" role="" class="licenseOption">
-		    			<img src="{!$Resource.DX_GraphicLibrary + '/licenseWizard/beerandWineCoolers.png'}" title="Serve Beer (includes Wine Coolers)" alt="Serve Beer (includes Wine Coolers)" /><br/>
+		    			<img src="{!$Resource.DX_GraphicLibrary + '/beer_mug.png'}" title="Beer (includes Wine Coolers)" alt="Beer (includes Wine Coolers)" width="200"/>
+                        <br/>
+		    			<br/>
 		    			Serve Beer (includes Wine Coolers)
 		    		</a>
 		    	</aura:if>
@@ -45,7 +47,9 @@
 		    <div id="slds-form-element" class="slds-container--center slds-container--small link licenseOption">
 		        <aura:if isTrue="{! not(empty(v.serveBeerWineOnly_URL))}" >
 		    		<a href="" onclick="{!c.navigateBeerWineOnly}" data-URL="{!v.serveBeerWineOnly_URL}" role="" class="licenseOption">
-		    			<img src="{!$Resource.DX_GraphicLibrary + '/licenseWizard/beerandWineOnly.png'}" title="Serve Beer and Wine Only" alt="Serve Beer and Wine Only" /><br/>
+		    			<img src="{!$Resource.DX_GraphicLibrary + '/pint.png'}" title="Beer and Wine Only" alt="Beer and Wine Only" width="200"/>
+                        <br/>
+						<br/>
 		    			Serve Beer and Wine Only
 		    		</a>
 		        </aura:if>
@@ -55,7 +59,9 @@
 		    <div id="slds-form-element" class="slds-container--center slds-container--small link licenseOption">
 		        <aura:if isTrue="{! not(empty(v.serveNativeWine_URL))}" >
 		    		<a href="" onclick="{!c.navigateNativeWine}" data-URL="{!v.serveNativeWine_URL}" role="" class="licenseOption">
-		    			<img src="{!$Resource.DX_GraphicLibrary + '/licenseWizard/nativeWine.png'}" title="Serve Native Wine Only" alt="Serve Native Wine Only" /><br/>
+		    			<img src="{!$Resource.DX_GraphicLibrary + '/wine_bottle.png'}" title="Native Wine Only" alt="Native Wine Only"  width="200"/>
+                    	<br/>
+						<br/>
 		    			Serve Native Wine Only
 		    		</a>
 		        </aura:if>
@@ -70,7 +76,9 @@
 		    <div id="slds-form-element" class="slds-container--center slds-container--small link licenseOption">
 		    	<aura:if isTrue="{! not(empty(v.serveLiquorClub_URL))}" >
 		    		<a href="" onclick="{!c.navigateLiquorClub}" data-URL="{!v.serveLiquorClub_URL}" role="" class="licenseOption">
-		    			<img src="{!$Resource.DX_GraphicLibrary + '/licenseWizard/serveLiquorClub.png'}" title="Serve Liquor at a Private Club" alt="Serve Liquor at a Private Club" /><br/>
+		    			<img src="{!$Resource.DX_GraphicLibrary + '/martini_glass.png'}" title="Liquor at a Private Club" alt="Liquor at a Private Club"  width="200"/>
+                    	<br/>
+						<br/>
 		    			Serve Liquor at a Private Club
 		    		</a>
 		    	</aura:if>
@@ -80,7 +88,9 @@
 		    <div id="slds-form-element" class="slds-container--center slds-container--small link licenseOption">
 		        <aura:if isTrue="{! not(empty(v.serveLiquorHotel_URL))}" >
 		    		<a href="" onclick="{!c.navigateLiquorHotel}" data-URL="{!v.serveLiquorHotel_URL}" role="" class="licenseOption">
-		    			<img src="{!$Resource.DX_GraphicLibrary + '/licenseWizard/serverLiquorAtHotel.png'}" title="Serve Liquor, Wine, and Beer at a Hotel or Motel" alt="Serve Liquor, Wine, and Beer at a Hotel or Motel" /><br/>
+		    			<img src="{!$Resource.DX_GraphicLibrary + '/glass_of_alcohol.png'}" title="Liquor, Wine, and Beer at a Hotel or Motel" alt="Liquor, Wine, and Beer at a Hotel or Motel" width="200"/>
+                        <br/>
+						<br/>
 		    			Serve Liquor, Wine, and Beer at a Hotel or Motel
 		    		</a>
 		        </aura:if>
@@ -90,8 +100,9 @@
 		    <div id="slds-form-element" class="slds-container--center slds-container--small link licenseOption">
 		        <aura:if isTrue="{! not(empty(v.serveLiquorVehicle_URL))}" >
 		    		<a href="" onclick="{!c.navigateLiquorVehicle}" data-URL="{!v.serveLiquorVehicle_URL}" role="" class="licenseOption">
-		    			<img src="{!$Resource.DX_GraphicLibrary + '/licenseWizard/serverLiquorOnVehicle.png'}" title="Serve Liquor, Wine and Beer on a Train, Plain or Boat" alt="Serve Liquor, Wine and Beer on a Train, Plain or Boat" /><br/>
-		    			Serve Liquor, Wine and Beer on a Train, Plain or Boat
+		    			<img src="{!$Resource.DX_GraphicLibrary + '/glass_of_alcohol.png'}" title="Liquor, Wine and Beer on a Train, Plain or Boat" alt="Liquor, Wine and Beer on a Train, Plain or Boat" width="200"/>
+                        <br/>
+						<br/>Serve Liquor, Wine and Beer on a Train, Plain or Boat
 		    		</a>
 		        </aura:if>
 		    </div>
@@ -105,8 +116,9 @@
 		    <div id="slds-form-element" class="slds-container--center slds-container--small link licenseOption">
 		    	<aura:if isTrue="{! not(empty(v.serveBeerWineLiquor_URL))}" >
 		    		<a href="" onclick="{!c.navigateBeerWineLiquor}" data-URL="{!v.serveBeerWineLiquor_URL}" role="" class="licenseOption">
-		    			<img src="{!$Resource.DX_GraphicLibrary + '/licenseWizard/serveLiquorWineBeer.png'}" title="Serve Beer, Wine, and Liquor" alt="Serve Beer, Wine, and Liquor" /><br/>
-		    			Serve Beer, Wine, and Liquor
+		    			<img src="{!$Resource.DX_GraphicLibrary + '/glass_of_alcohol.png'}" title="Beer, Wine, and Liquor" alt="Beer, Wine, and Liquor" width="200"/>
+                        <br/>
+						<br/>Serve Beer, Wine, and Liquor
 		    		</a>
 		    	</aura:if>
 		    </div>

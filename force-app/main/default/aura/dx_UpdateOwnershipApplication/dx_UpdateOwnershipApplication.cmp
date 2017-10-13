@@ -1,0 +1,95 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" controller="dx_UpdateOwnershipApplication" access="global">
+
+    <aura:attribute name="showError" type="Boolean"  />
+	<aura:attribute name="errorMessage" type="String" />
+	<aura:attribute name="app" type="MUSW__Application2__c" default="{'sobjectType':'MUSW__Application2__c'}" />
+	<aura:attribute name="RecordIdIsApplication" type="Boolean" />    
+    <aura:attribute name="isBusinessName" type="Boolean" default="true" />
+    <aura:attribute name="isPersonName" type="Boolean" default="true" />
+    <aura:attribute name="noBusinessAllowed" type="Boolean" default="false" />
+    <aura:attribute name="isInitComplete" type="Boolean" default="false" />
+	<aura:attribute name="isChildInitComplete" type="Boolean" default="false" />
+	<aura:attribute name="numberAdd" type="Integer" default="0"/>
+	<aura:attribute name="editRow" type="Integer" default=""/>
+	<aura:attribute name="owner" type="Object" default="{'sobjectType':'Application_Contact__c'}" />
+    <aura:attribute name="ownerid" type="String" default="" />
+    <aura:attribute name="ownerlist" type="object[]" default="" />
+    
+	<aura:registerevent name="SaveCompleted" type="c:dx_actionComplete" />
+	<aura:registerevent name="EmptyComponent" type="c:dx_actionComplete" />
+
+	<aura:method name="PerformSave" action="{!c.save}"  />
+	<aura:method name="PerformInit" action="{!c.doInit}"  />
+	
+	<div class="slds-grid slds-wrap">
+		<div class="slds-col slds-container--center slds-size--1-of-1">
+        	<center>You must list and complete the information for each owner that has 10% or more interest in the premises.</center>
+        </div>
+        <div class="slds-col slds-size--1-of-1">
+        	<div class="{!(empty(v.editRow))?'':'disableThis'}">
+	            <div class="slds-grid slds-wrap padded slds-grid--vertical-align-center">
+	                <div class="slds-col slds-size--1-of-1">
+	                    <h1>Ownership Allocation</h1>
+	                </div>
+	                <div class="slds-col slds-size--1-of-1 slds-container--left slds-container--large">
+	                	<div class="slds-col slds-size--1-of-6 slds-container--right slds-container--small inner">
+	                		<ui:inputSelect aura:id="numberAdd" value="{!v.numberAdd}" change="{!c.addNew}" disabled="{! !empty(v.editRow)}"/>
+	                	</div>
+	                </div>
+	            </div>
+	            <div class="slds-grid slds-wrap padded">
+	                <div class="slds-col slds-size--1-of-1 slds-container--left slds-container--large">
+	                    <table class="slds-table slds-table--bordered slds-table--cell-buffer" disabled="{! !empty(v.editRow)}">
+				            <thead>
+				                <tr class="slds-text-title--caps">
+				                	<th scope="col">&nbsp;</th>
+				                  	<th scope="col">
+				                        <div class="slds-truncate" title="Owner Name">Owner Name</div>
+				                    </th>
+				                    <th scope="col">
+				                        <div title="% ownership">% Ownership</div>
+				                    </th>
+				                    <th scope="col">&nbsp;</th>
+				                </tr>
+				            </thead>
+				            <tbody>
+				            	<aura:iteration items="{!v.ownerlist}" var="ol" indexVar="index">
+			                		<aura:renderIf isTrue="{! !empty(v.editRow)}">
+				                			<c:dx_OwnerListItem owner="{!ol.owner}" delete="{!ol.needDelete}" ShowCommit="{!v.ShowCommit}" readOnly="true" editRow="{!v.editRow}" row="{!index}"/>
+			                   			<aura:set attribute="else">
+								    		<c:dx_OwnerListItem owner="{!ol.owner}" delete="{!ol.needDelete}" ShowCommit="{!v.ShowCommit}" readOnly="true" editRow="{!v.editRow}" row="{!index}"/>
+					                    </aura:set>
+			                   		</aura:renderIf>
+			                   	</aura:iteration>
+			                </tbody>
+						</table>
+					</div>
+				</div>
+				<div class="slds-grid slds-wrap padded ">
+	                <div class="slds-col slds-size--1-of-1 slds-container--left slds-container--small">
+	                	<div id="slds-form-element slds-is-required" class="small-date" >
+	                    	<c:dx_dateField label="Effective Date of Change" required="true" value="{!v.app.abd_Effective_Date__c}" displayDatePicker="true"  disabled="{! !empty(v.editRow)}"/>
+	                   	</div>
+	                </div>
+	            </div>
+            </div>
+        </div>
+        <div class="slds-col slds-size--1-of-1 slds-container--large">
+	        <aura:if isTrue="{! !empty(v.editRow)}">
+			    <div class="slds-grid slds-wrap padded">
+			    	<div class="customHr">&nbsp;</div>
+			    </div>
+			    <aura:iteration items="{!v.ownerlist}" var="ol" indexVar="index">
+			    	<aura:renderIf isTrue="{!(v.editRow == index)}">
+			    		<c:dx_OwnerFormComponent owner="{!ol.owner}" oldOwner="{#ol.owner}" recordId="{!v.recordId}" editRow="{!v.editRow}" isInitComplete="{!v.isChildInitComplete}" />
+		    		</aura:renderIf>
+	           	</aura:iteration>
+	           	<div class="slds-grid slds-wrap padded ">
+		            <div class="customHr">&nbsp;</div>
+		        </div>
+	        </aura:if>
+		</div>
+		
+        	
+	</div>
+</aura:component>

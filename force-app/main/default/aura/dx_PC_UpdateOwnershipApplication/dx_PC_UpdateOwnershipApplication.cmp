@@ -1,0 +1,18 @@
+<aura:component extends="c:dx_StdPageAbstraction" implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" access="global">
+
+    <aura:set attribute="ActiveCmp" value="dx_PC_UpdateOwnershipApplication" />     <!-- This drives the navigation and needs to exist in Nav metadata -->
+    <aura:attribute name="uoaInitComplete" type="Boolean" default="false" />   
+	
+    <div aura:id="dx_PC_UpdateOwnershipApplicationDiv">
+        <c:dx_UpdateOwnershipApplication SaveCompleted="{!c.SaveComplete}" showError="{!v.showError}" errorMessage="{!v.errorMessage}" aura:id="dx_PC_UpdateOwnershipApplication" recordId="{!v.recordId}" isInitComplete="{!v.uoaInitComplete}" /> 
+		
+		<aura:if isTrue="{!v.uoaInitComplete}" >
+	    	<div class="slds-grid slds-wrap padded">
+				<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-2">
+					<c:dx_checklistDisplaySectionOnly Section="Ownership Interest" SaveCompleted="{!c.SaveComplete}" EmptyComponent="{!c.EmptyComponent}" showError="{!v.showError}"  errorMessage="{!v.errorMessage}" aura:id="dx_PC_UpdateOwnershipApplication" recordId="{!v.recordId}" RecordIdIsApplication="true" isInitComplete="{!v.InitCompleteTriggerFlag}"/> 
+			    	<c:dx_checklistDisplaySectionOnly Section="Criminal History" SaveCompleted="{!c.SaveComplete}" EmptyComponent="{!c.EmptyComponent}" showError="{!v.showError}"  errorMessage="{!v.errorMessage}" aura:id="dx_PC_UpdateOwnershipApplication" recordId="{!v.recordId}" RecordIdIsApplication="true" isInitComplete="{!v.InitCompleteTriggerFlag}"/> 
+				</div>
+			</div>
+		</aura:if>
+    </div>
+</aura:component>

@@ -34,6 +34,12 @@
         if(component.get("v.license.MUSW__Class__c")!==null) 
         	helper.getAddons(component);
     },
+
+	vehicleChange : function(component, event,helper) {
+		var vehicle = event.getSource().get("v.value");
+		component.set("v.app.abd_Other_Criteria__c",vehicle);
+    	helper.getDependency(component);        
+	},
 	handleRadioChange: function(component, event, helper){
 		var selected = !event.getSource().get("v.value");
 		var source = event.getSource();
@@ -95,9 +101,17 @@
 	radioChange : function(component, event,helper) {
 		var application = JSON.parse(JSON.stringify(component.get("v.app")));
 		if(event.getSource().get("v.name")=='VO'){
-			application.abd_Veterans_Organization__c = event.getSource().get("v.value");
-			if(application.abd_Veterans_Organization__c=='Yes'){
+			if(event.getSource().get("v.value") =='Yes'){
+				application.abd_Other_Criteria__c = 'Veteran’s organization open one day per week or 52 days or less per year';
+
 				application.abd_More_Than_250_Members__c=null;
+				component.find("clubMembersYes").set("v.checked",false);
+				component.find("clubMembersNo").set("v.checked",false);
+			}
+			else 
+			{
+				if (application.abd_Other_Criteria__c == 'Veteran’s organization open one day per week or 52 days or less per year')
+					application.abd_Other_Criteria__c = null;
 				component.find("clubMembersYes").set("v.checked",false);
 				component.find("clubMembersNo").set("v.checked",false);
 			}
@@ -105,8 +119,12 @@
 		if(event.getSource().get("v.name")=='clubMembers'){
 			application.abd_More_Than_250_Members__c = event.getSource().get("v.value");
 		}
-		if(event.getSource().get("v.name")=='gas')
-			application.abd_Sell_Gasoline__c = event.getSource().get("v.value");
+		if(event.getSource().get("v.name")=='gas') {
+			if (event.getSource().get("v.value") == 'Yes')
+				application.abd_Other_Criteria__c = 'Sells Gas';
+			else 
+				application.abd_Other_Criteria__c = 'No Gas';
+		}
 		component.set("v.app",application);
 		helper.getDependency(component);
 		//helper.getFeeSchedule(component);

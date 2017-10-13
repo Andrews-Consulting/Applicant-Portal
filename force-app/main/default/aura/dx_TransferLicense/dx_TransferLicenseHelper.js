@@ -113,31 +113,32 @@
             console.log(application);
             // validate the data here!  Check to see if the fields are completed.
             var errmsg = '';
-        	if (application.abd_Premise_Address__c == null || application.abd_Premise_Address__c.length == 0) errmsg += 'Address, ';
-    		if (application.abd_Premise_City__c == null || application.abd_Premise_City__c.length == 0)  errmsg += 'City, ';
-    		if (application.abd_Premise_State__c == null || application.abd_Premise_State__c == notAnswered) errmsg += 'State, ';
-			if (application.abd_Premise_Zip_Code__c == null || application.abd_Premise_Zip_Code__c.length == 0)  errmsg += 'Zip, ';
-			if (application.abd_Effective_Date__c == null)  errmsg += 'Start Date, ';
-			if (application.abd_Effective_End_Date__c == null && application.abd_Temporary_or_Permanent__c == 'Temporary')  errmsg += 'End Date, ';
-			if (application.abd_Premise_State__c==='IA' && (application.abd_Premise_County__c == null || application.abd_Premise_County__c == notAnswered))  errmsg += 'County, ';
+        	if (application.abd_Premise_Address__c === null || application.abd_Premise_Address__c.length === 0) errmsg += 'Address, ';
+    		if (application.abd_Premise_City__c === null || application.abd_Premise_City__c.length === 0)  errmsg += 'City, ';
+    		if (application.abd_Premise_State__c === null || application.abd_Premise_State__c == notAnswered) errmsg += 'State, ';
+			if (application.abd_Premise_Zip_Code__c === null || application.abd_Premise_Zip_Code__c.length === 0)  errmsg += 'Zip, ';
+			if (application.abd_Effective_Date__c === null)  errmsg += 'Start Date, ';
+			if (application.abd_Effective_End_Date__c === null && application.abd_Temporary_or_Permanent__c == 'Temporary')  errmsg += 'End Date, ';
+			if (application.abd_Premise_State__c==='IA' && (application.abd_Premise_County__c === null || application.abd_Premise_County__c == notAnswered))  errmsg += 'County, ';
+
 			if ($A.util.isEmpty(application.abd_Temporary_or_Permanent__c))
 				application.abd_Temporary_or_Permanent__c = 'Permanent';
-			if (application.abd_Effective_Date__c < lic.abd_Effective_Date__c) {
-                var d = new Date(new Date(lic.abd_Effective_Date__c).getTime() + new Date().getTimezoneOffset()*60*1000 );
-                errmsg = ('The Start Date of the application cannot be before the current/primary license start date of ' + lic.abd_Effective_Date__c);
+			if (errmsg === "" && $A.localizationService.isBefore(application.abd_Effective_Date__c, lic.abd_Effective_Date__c)) {
+                var d = new Date(new Date(lic.abd_Effective_Date__c).getTime() + new Date(lic.abd_Effective_Date__c).getTimezoneOffset()*60*1000 );
+                errmsg = ('The Start Date of the application cannot be before the current/primary license start date of ' + d.toLocaleDateString());
                 console.log(errmsg);
             }
             
-			if (application.abd_Effective_End_Date__c < lic.abd_Effective_End_Date__c) {
-                var d = new Date(new Date(lic.abd_Effective_End_Date__c).getTime() + new Date().getTimezoneOffset()*60*1000 );
-                errmsg = ('The End Date of the application cannot be after the current/primary license end date of ' + d.toLocaleDateString('en-US', {timeZone: 'UTC'}));
+			if (errmsg === "" && $A.localizationService.isBefore(application.abd_Effective_End_Date__c, lic.abd_Effective_End_Date__c)) {
+                var d = new Date(new Date(lic.abd_Effective_End_Date__c).getTime() + new Date(lic.abd_Effective_End_Date__c).getTimezoneOffset()*60*1000 );
+                errmsg = ('The End Date of the application cannot be after the current/primary license end date of ' + d.toLocaleDateString());
                 console.log(errmsg);
             }
             var firstDate = new Date(application.abd_Effective_Date__c);
 			var secondDate = new Date(application.abd_Effective_End_Date__c);
 			
 			var diffDays = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime())/(oneDay)));
-            if (application.abd_Temporary_or_Permanent__c == 'Temporary' && (diffDays<1 || diffDays>7))
+            if (errmsg === "" && application.abd_Temporary_or_Permanent__c == 'Temporary' && (diffDays<1 || diffDays>7))
             	errmsg = ('Temporary transfers must be between 1 and 7 days, please adjust the start and end date accordingly');
 			// don't try to update with bad values.
             if (application.abd_Premise_State__c == notAnswered) application.abd_Premise_State__c = null;
@@ -149,6 +150,7 @@
                 if (errmsg.endsWith(', ')) errmsg = errmsg.substring(0,errmsg.length-2) + '. ';
             }
             
+            var action;
             // If there is an error, then let's display it and leave.
             if (errmsg.length !== 0) {
                 component.set("v.errorMessage",errmsg);
@@ -159,7 +161,7 @@
             }
             // If all good, then let's call the controller and try to update the record.
             else {
-                var action = component.get("c.createTransferApp");       // Set the routine to call in the controller
+                action = component.get("c.createTransferApp");       // Set the routine to call in the controller
                 action.setParams({"application": application,"license": lic});         // pass the data to the controller
                 action.setCallback(this, function(response){
                     var action = component.getEvent("SaveCompleted");

@@ -4,34 +4,40 @@
     <aura:attribute name="questionId" type="string" />
     <aura:attribute name="response" type="Object" />
     <aura:attribute name="listMap" type="Object[]" />
-    <aura:attribute name="showType" type="String" default=""/>
+    <aura:attribute name="showType" type="String" default="XXX"/>
+    <aura:attribute name="fldTextInput" type="String" />
+    <aura:attribute name="fldIntegerInput" type="Integer" />
+    <aura:attribute name="fldDecimalInput" type="Decimal" />
+    <aura:attribute name="fldPicklistInput" type="Decimal" />
+    <aura:attribute name="fldCheckBoxV" type="Boolean" />
+    <aura:attribute name="fldCheckBoxH" type="Boolean" />
     <aura:attribute name="itemErrorMessage" type="String" default=""/>
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     
     <aura:renderIf isTrue="{!v.showType=='Radio'}">
         <div aura:id="radio" class="slds-form-element__control">
             <aura:iteration items="{!v.questionType.BGCK__Choices__r}" var="item">
-                <ui:inputRadio label="{!item.Name}" change="{!c.handleRadioChange}" aura:id="{!item.Name}" name="{!questionId+radioGroup}" value="{!v.response.Name==item.Name}" />
+                <ui:inputRadio label="{!item.Name}" change="{!c.handleRadioChange}" aura:id="{!item.Name}" name="{!questionId+radioGroup}" value="{!v.response.Name==item.Name}"/>
             </aura:iteration>
         </div>
     </aura:renderIf>
     <aura:renderIf isTrue="{!v.showType=='Text'}">
-    	<ui:inputText value="{!v.response.BGCK__Actual_Value2__c}" change="{!c.handleTextChange}"/>
+    	<ui:inputText value="{!v.fldTextInput}" change="{!c.handleTextChange}"  />
     </aura:renderIf>
     <aura:renderIf isTrue="{!v.showType=='NumI'}">
-        <ui:inputNumber value="{!v.response.BGCK__Actual_Value2__c}" format="######" change="{!c.handleIntegerChange}" />
+        <ui:inputNumber value="{!v.fldIntegerInput}" format="######" change="{!c.handleIntegerChange}"   />
         <div class="checklisterror">{!v.itemErrorMessage}</div>
     </aura:renderIf>
     <aura:renderIf isTrue="{!v.showType=='NumP'}">
-        <ui:inputNumber value="{!v.response.BGCK__Actual_Value2__c}" format="#.##" maxlength="4" change="{!c.handleNumberChange}" />
-        <div class="checklisterror">{!v.itemErrorMessage}</div>
+        <ui:inputNumber value="{!v.fldDecimalInput}" format="#.##" maxlength="4" change="{!c.handleNumberChange}" />
+        <div class="checklisterror">{!v.itemErrorMessage}</div> 
     </aura:renderIf>
     <aura:renderIf isTrue="{!v.showType=='NumC'}">
-        <ui:inputText value="{!v.response.BGCK__Actual_Value2__c}" change="{!c.handleNumberChange}"/>
+        <ui:inputText value="{!v.response.fldDecimalInput}" change="{!c.handleNumberChange}"  />
         <div class="checklisterror">{!v.itemErrorMessage}</div>
     </aura:renderIf>
     <aura:renderIf isTrue="{!v.showType=='NumD'}">
-        <ui:inputNumber value="{!v.response.BGCK__Actual_Value2__c}" format="###,###,###.##" change="{!c.handleNumberChange}" />
+        <ui:inputNumber value="{!v.response.fldDecimalInput}" format="###,###,###.##" change="{!c.handleNumberChange}"  />
         <div class="checklisterror">{!v.itemErrorMessage}</div>
     </aura:renderIf>
     <aura:renderIf isTrue="{!v.showType=='NumPhone'}">
@@ -40,16 +46,21 @@
     </aura:renderIf>
 
     <aura:renderIf isTrue="{!v.showType=='Date'}">
-    	<ui:inputDate value="{!v.response.abd_Date_Value__c}" select="{!c.handleDateChange}" displayDatePicker="true" aura:id="date"/>
+    	<ui:inputDate value="{!v.response.abd_Date_Value__c}" select="{!c.handleDateChange}" displayDatePicker="true" aura:id="date" />
         <div class="checklisterror">{!v.itemErrorMessage}</div>
     </aura:renderIf>
     <aura:renderIf isTrue="{!v.showType=='Pick'}">
-    	<ui:inputSelect aura:id="picklist" value="{!v.response.Name}" change="{!c.onSelectChange}" />
+    	<ui:inputSelect aura:id="picklist" value="{!v.fldPicklistInput}" change="{!c.onSelectChange}" />
     </aura:renderIf>
     <aura:renderIf isTrue="{!v.showType=='CBV'}">
     	<aura:iteration items="{!v.questionType.BGCK__Choices__r}" var="item">
-	    	<ui:inputCheckbox label="{!item.Name}" change="{!c.handleRadioChange}" aura:id="{!item.Name}" value="{!v.response.Name==item.Name}"/>
+	    	<ui:inputCheckbox label="{!item.Name}" change="{!c.handleCheckboxChange}" aura:id="{!item.Name}" value="{!v.fldCheckBoxV}"/>
 	    </aura:iteration>
+    </aura:renderIf>
+        <aura:renderIf isTrue="{!v.showType=='CBH'}">
+        <aura:iteration items="{!v.questionType.BGCK__Choices__r}" var="item">
+            <ui:inputCheckbox label="{!item.Name}" change="{!c.handleCheckboxChange}" aura:id="{!item.Name}" value="{!v.fldCheckBoxH}"/>
+        </aura:iteration>
     </aura:renderIf>
     <aura:renderIf isTrue="{!v.showType=='List'}">
     	<aura:iteration items="{!v.listMap}" var="lMap">

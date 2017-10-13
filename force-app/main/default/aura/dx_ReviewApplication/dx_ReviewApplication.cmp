@@ -14,6 +14,7 @@
     
 	<aura:attribute name="showError" type="Boolean" />
     <aura:attribute name="errorMessage" type="string" />
+    <aura:attribute name="isInitComplete" type="Boolean" default="false" />
     
 	<!-- Event Registration -->
     <aura:registerevent name="SaveCompleted" type="c:dx_actionComplete" />
@@ -266,10 +267,10 @@
 						    <aura:renderIf isTrue="{!v.showVO}">
 								<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--medium">
 									<label class="slds-form-element__label">Veterans Organizations: </label>
-									<ui:outputText value="{!v.reviewApplication.application.abd_Veterans_Organization__c}" />
+									<ui:outputText value="{!v.reviewApplication.application.abd_Other_Criteria__c==null?'No':'Yes'}" />
 								</div>
 							</aura:renderIf>
-							<aura:renderIf isTrue="{!v.reviewApplication.application.abd_Veterans_Organization__c=='No'}">
+							<aura:renderIf isTrue="{!v.reviewApplication.application.abd_Other_Criteria__c==null}">
 								<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--medium">
 									<label class="slds-form-element__label">Non-profit corporation or association of individuals: </label>
 									<ui:outputText value="{!v.reviewApplication.application.abd_Non_profit__c}" />
@@ -284,13 +285,13 @@
 						    <aura:renderIf isTrue="{!v.showLE}">
 								<label class="slds-form-element__label">Do you sell gasoline?</label>
 								<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--medium">
-									<ui:outputText value="{!v.reviewApplication.application.abd_Sell_Gasoline__c}" />
+									<ui:outputText value="{!v.reviewApplication.application.abd_Other_Criteria__c=='Sells Gas'?'Yes':'No'}" />
 								</div>
 							</aura:renderIf>
 						    <aura:renderIf isTrue="{!v.showLD}">
 								<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--medium">
 									<label class="slds-form-element__label uiLabel-left">Premises Vehicle Type: </label>
-									<ui:outputText value="{!v.reviewApplication.application.abd_Premises_Vehicle_Type__c}" />
+									<ui:outputText value="{!v.reviewApplication.application.abd_Other_Criteria__c}" />
 								</div>
 							</aura:renderIf>
 							<aura:renderIf isTrue="{!v.reviewApplication.application.abd_Premises_Vehicle_Type__c=='Boat'}">
@@ -689,7 +690,7 @@
 								</div>
 								<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-2" >
 									<div id="slds-form-element slds-is-required" class="slds-container--right slds-container--small">
-										<ui:inputDate label="Decision Date" value="{!v.review.MUSW__Completed_DateTime__c}" displayDatePicker="true" labelClass="slds-form-element__label"/>
+										<c:dx_dateField label="Decision Date" value="{!v.review.MUSW__Completed_DateTime__c}" displayDatePicker="true" labelClass="slds-form-element__label"/>
 									</div>
 								</div>
 							</div>

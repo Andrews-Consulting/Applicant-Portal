@@ -3,6 +3,7 @@
 	<aura:attribute name="showError" type="Boolean"  />
 	<aura:attribute name="errorMessage" type="string" />
 	<aura:attribute name="app" type="MUSW__Application2__c" default="{'sobjectType':'MUSW__Application2__c'}" />
+    <aura:attribute name="isInitComplete" type="Boolean" default="false" />
 
 	<aura:registerevent name="SaveCompleted" type="c:dx_actionComplete" />
 	<aura:registerevent name="EmptyComponent" type="c:dx_actionComplete" />
@@ -14,18 +15,15 @@
 	<div class="slds-grid slds-wrap padded">
 		<div class="slds-col slds-size--1-of-1">
 			<div class="slds-grid slds-wrap padded">
-				<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-7" >&nbsp;</div>
-				<div class="slds-col slds-size--1-of-1 slds-medium-size--6-of-7">
-					<h1>Update Dram Carrier Application</h1>
+				<div class="slds-col slds-size--1-of-1">
+					<h1>Application for a Dramshop Carrier Change</h1>
+					<br/>
 				</div>
-<!-- new row -->
-				<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-7" >&nbsp;</div>
-				<div class="slds-col slds-size--1-of-1 slds-medium-size--6-of-7">
-					<div id="slds-form-element slds-is-required" class="slds-container--left">
-	                    <label class="slds-form-element__label" for="dramins"><abbr class="slds-required">*</abbr>Please select the name of your New DRAM Insurer</label>
+				<div class="slds-col slds-size--1-of-1">
+					<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small">
+	                    <label class="slds-form-element__label" for="dramins"><abbr class="slds-required">*</abbr>Please select the name of the new Dramshop Insurance Carrier</label>
 	                    <ui:inputSelect aura:id="dramins" value="{!v.app.abd_DRAM_shop__c}"/>
 	                </div>
-
 				</div>
 			</div>
 		</div>

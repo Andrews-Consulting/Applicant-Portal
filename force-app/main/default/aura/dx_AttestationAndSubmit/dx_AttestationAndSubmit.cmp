@@ -5,6 +5,7 @@
     <aura:attribute name="showError" type="Boolean"  />
     <aura:attribute name="errorMessage" type="string" />
     <aura:Attribute name="RecordIdIsApplication" type="Boolean" />    
+    <aura:attribute name="isInitComplete" type="Boolean" default="false" />
 
     <aura:registerevent name="SaveCompleted" type="c:dx_actionComplete" />
     <aura:registerevent name="EmptyComponent" type="c:dx_actionComplete" />
@@ -15,28 +16,25 @@
     
     <div class="slds-grid slds-wrap padded">
         <div class="slds-col slds-size--1-of-1">
-            <div class="slds-grid slds-wrap padded">
-                <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-7" />
-                <div class="slds-col slds-size--1-of-1 slds-medium-size--6-of-7">
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size--1-of-1">
                     <h1>Attest and Submit the Application</h1>
                 </div>
                 <div class="slds-col slds-size--1-of-1 slds-p-top--medium">
-                    <p>Notice - This is not the final step. You must pay for and provide supporting documents before the application is filed for review.</p>
-                    <p class="slds-p-top--small">This application must by completed by a person listed in the Ownership Section.</p>
-                    <p class="slds-p-top--small">I hereby declare that all information contained in the Application is true and correct. I understand that misrepresentation of material facts in the Application is a crime and grounds for denial of the license or permit under Iowa law. I further understand that, as a condition of receiving a license, the licensed premises is subject to inspection during business hours by appropriate local, state and federal officials. </p>
-                    <p class="slds-p-top--small">NOTE: The applicant's Name must match one of the owner's names from the Ownership screen.</p>
+                    <p>The name used to sign and complete this application must match a name listed on the "Ownership Allocation" screen, or must be the name of a person who has received consent from an owner listed on the "Ownership Allocation" screen to sign and complete this application on that owner's behalf.</p>
+                    <p class="slds-p-top--small">By signing this application, you attest to the following:</p>
+                    <p class="slds-p-top--small">I hereby declare that all information contained in this Application is true and correct. I understand that misrepresentation of material facts in this Application is a crime and grounds for denial of the Application under Iowa law. I further understand that, as a condition of receiving a license or permit, the licensed premises is subject to inspection during business hours by appropriate local, state, and federal officials.</p>
                 </div>
             </div>
-            <div class="slds-grid slds-wrap padded slds-p-top--medium">
-                <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-7" />
-                <div class="slds-col slds-size--1-of-1 slds-medium-size--4-of-7">
+            <div class="slds-grid slds-wrap slds-p-top--medium">
+                <div class="slds-col slds-size--1-of-1 slds-medium-size--2-of-3 ">
                     <div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">
                         <lightning:input label="Owner's Electronic Signature" name="esig" required="true" value="{!v.app.abd_Attestation_Name__c}" />
                     </div>
                 </div>
-                <div class="slds-col slds-size--1-of-1 slds-medium-size--2-of-7">
+                <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-3">
                     <div id="slds-form-element slds-is-required" class="slds-container--center slds-container--small">
-                        <ui:inputDate label="Date" required="true" value="{!v.app.abd_Attestation_Date__c}" displayDatePicker="true"  />
+                        <c:dx_dateField label="Date" value="{!v.app.abd_Attestation_Date__c}" disabled="true"  />
                     </div>
                 </div>
             </div>

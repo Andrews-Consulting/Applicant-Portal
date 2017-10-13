@@ -8,5 +8,5 @@
   "orgPreferences": {
     "enabled": ["S1DesktopEnabled", "NetworksEnabled"],
     "disabled": ["SelfSetPasswordInApi"]
-    }, 
+    }
   }

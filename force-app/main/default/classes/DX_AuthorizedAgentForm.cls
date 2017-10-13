@@ -32,18 +32,26 @@ public without sharing class DX_AuthorizedAgentForm {
 		return agent;
 	}
 	
-	@AuraEnabled
+	/*@AuraEnabled
 	public static MUSW__Application2__c getApplication(Id appId){
-
-		MUSW__Application2__c app;
-		list<MUSW__Application2__c> applist = [Select Id,(select id, abd_License_Type__c from License_Applications__r) from MUSW__Application2__c where Id=:appId];
-		if (applist.size() > 0) {
-			app = applist[0];
-			set<string> ss = new set<string>{'CB', 'CD', 'CV'};	 
-			for(abd_License_Application__c la:app.License_Applications__r){
-				if(ss.contains(la.abd_License_Type__c))
-					return app;
-			}
+		MUSW__Application2__c app = [Select Id,(select id, abd_License_Type__c from License_Applications__r) from MUSW__Application2__c where Id=:appId];
+		set<string> ss = new set<string>{'CB', 'CD', 'CV'};	 
+		for(abd_License_Application__c la:app.License_Applications__r){
+			if(ss.contains(la.abd_License_Type__c))
+				return app;
+		}
+		return null;
+	}*/
+	
+	@AuraEnabled
+	public static boolean checkApplication(Id appId){
+		MUSW__Application2__c app = [Select Id,(select id, abd_License_Type__c from License_Applications__r) from MUSW__Application2__c where Id=:appId];
+		set<string> ss = new set<string>{'CB', 'CD', 'CV', 'SP'};	 
+		for(abd_License_Application__c la:app.License_Applications__r){
+			if(la.abd_License_Type__c=='SP')
+				return true;
+			if(ss.contains(la.abd_License_Type__c))
+				return false;
 		}
 		return null;
 	}

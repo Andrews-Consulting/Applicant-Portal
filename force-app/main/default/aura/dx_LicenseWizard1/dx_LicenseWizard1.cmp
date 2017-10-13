@@ -37,7 +37,7 @@
 		    	<aura:if isTrue="{! not(empty(v.retailStore_URL))}" >
 		    		<a href="" onclick="{!c.navigateRetail}" data-URL="{!v.retailStore_URL}" role=""  class="licenseOption">
 		    			I want to sell at a<br/>
-		    			<img src="{!$Resource.DX_GraphicLibrary + '/licenseWizard/store.png'}" title="I want to sell at a retail store." alt="I want to sell at a retail store." /><br/>
+		    			<img src="{!$Resource.DX_GraphicLibrary + '/retail_store.png'}" title="Retail store" alt="Retail store" width="200"/><br/>
 		    			Retail Store
 		    		</a>
 		        </aura:if>
@@ -64,7 +64,7 @@
 		    	<aura:if isTrue="{! not(empty(v.wholesalerOrCarrier_URL))}" >
 		    		<a href="" onclick="{!c.navigateWholesale}" data-URL="{!v.wholesalerOrCarrier_URL}" role="" class="licenseOption">
 		    			I want to be a<br/>
-		    			<img src="{!$Resource.DX_GraphicLibrary + '/licenseWizard/wholesaler.png'}" title="I want to be a wholesaler or carrier." alt="I want to be a wholesaler or carrier." /><br/>
+		    			<img src="{!$Resource.DX_GraphicLibrary + '/distribution.png'}" title="wholesaler or carrier" alt="wholesaler or carrier"  width="200"/><br/>
 		    			Wholesaler or Carrier
 		    		</a>
 		    	</aura:if>
@@ -75,7 +75,7 @@
 		    	<aura:if isTrue="{! not(empty(v.importerOrManufacturer_URL))}" >
 		    		<a href="" onclick="{!c.navigateImporter}" data-URL="{!v.importerOrManufacturer_URL}" role="" class="licenseOption">
 		    			I want to be an<br/>
-		    			<img src="{!$Resource.DX_GraphicLibrary + '/licenseWizard/importer.png'}" title="I want to be an importer or manufacturer." alt="I want to be an importer or manufacturer." /><br/>
+		    			<img src="{!$Resource.DX_GraphicLibrary + '/manufacture.png'}" title="Importer or manufacturer" alt="Importer or manufacturer"  width="200"/><br/>
 		    			Importer or Manufacturer
 		    		</a>
 		        </aura:if>

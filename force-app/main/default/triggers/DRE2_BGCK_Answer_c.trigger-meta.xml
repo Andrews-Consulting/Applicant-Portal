@@ -3,13 +3,13 @@
     <apiVersion>39.0</apiVersion>
     <packageVersions>
         <majorNumber>2</majorNumber>
-        <minorNumber>30</minorNumber>
+        <minorNumber>37</minorNumber>
         <namespace>BGCK</namespace>
     </packageVersions>
     <packageVersions>
-        <majorNumber>1</majorNumber>
-        <minorNumber>0</minorNumber>
-        <namespace>DRE</namespace>
+        <majorNumber>2</majorNumber>
+        <minorNumber>38</minorNumber>
+        <namespace>BGCM</namespace>
     </packageVersions>
     <status>Active</status>
 </ApexTrigger>

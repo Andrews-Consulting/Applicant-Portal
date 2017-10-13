@@ -2,6 +2,7 @@
 
     <aura:attribute name="showError" type="Boolean"  />
     <aura:attribute name="errorMessage" type="string" />
+    <aura:attribute name="isInitComplete" type="Boolean" default="false" />
 
     <aura:attribute name="exit" type="Boolean" required="true" description="" default="false" access="private" />
     <aura:attribute name="showRadio" type="Boolean" required="true" description="" default="false" access="private" />
@@ -17,6 +18,7 @@
     <aura:attribute name="existingAccounts" type="Account[]" default="" />
     <aura:attribute name="laPopulation" type="Object" default="" />
     <aura:attribute name="appId" type="String" />
+    <aura:attribute name="textCity" type="String" default=""/>
     <aura:attribute name="app" type="MUSW__Application2__c" default="{'sobjectType':'MUSW__Application2__c'}" />
     <aura:attribute name="StateMustBeIowa" type="Boolean" default="false" />
     <aura:attribute name="alertcnt" type="Integer" default="0" />
@@ -85,7 +87,7 @@
                 <div class="slds-col slds-small-size--1-of-1 slds-medium-size--2-of-7 padded">
                     <div id="slds-form-element" class="slds-container--center slds-container--small">
                         <h1>
-                            <label class="uiLabel-left form-element__label uiLabel" for="ec">Estimated Cost:</label>
+                            <label class="uiLabel-left form-element__label uiLabel" for="ec">Fees with current selections:</label>
                             <ui:outputText aura:id="ec" value="{!v.estimate}"/>
                         </h1>
                     </div>
@@ -120,19 +122,18 @@
                                     <div aura:id="radio" class="slds-form-element__control" hidden="{!itemO.hidden}" >
                                         <ui:inputRadio click="{!c.handleRadioChange}" name="{!'O'+index}" value="{!itemO.selected}" />
                                         <label class="uiLabel-right form-element__label uiLabel">
-                                           <!--  <span class="{!(itemO.hidden)?'strike':''}" title="{!(itemO.required)?' included with Class B Wine Permit':''}"> -->
-                                           {!itemO.ltype.abd_Class__c}<!-- </span> -->
+                                         {!itemO.ltype.abd_Class__c}
                                         </label>
                                     </div>
                                 </aura:iteration>
                             </div>
                             <div class="slds-col slds-p-horizontal slds-small-size--1-of-1 slds-medium-size--1-of-2">
                                 <aura:iteration items="{!v.LicenseTypes.optional}" var="itemO" indexVar="index" start="4">
-                                    <div aura:id="radio" class="slds-form-element__control">
-                                        <ui:inputRadio click="{!c.handleRadioChange}" name="{!'O'+index}" value="{!itemO.selected}"  disabled="{!itemO.required}"/>
+                                    <div aura:id="radio" class="slds-form-element__control" hidden="{!itemO.hidden}">
+                                        <ui:inputRadio click="{!c.handleRadioChange}" name="{!'O'+index}" value="{!itemO.selected}"  />
                                         <label class="uiLabel-right form-element__label uiLabel">
-                                            <span class="{!(itemO.required)?'strike':''}" title="{!(itemO.required)?' included with Class B Wine Permit':''}">{!itemO.ltype.abd_Class__c}</span>
-                                        </label>
+                                            {!itemO.ltype.abd_Class__c}
+                                        </label>                                            
                                     </div>
                                 </aura:iteration>
                             </div>
@@ -166,21 +167,26 @@
                 <div class="slds-col slds-small-size--1-of-1 slds-medium-size--5-of-7 padded">
                     <div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small">
                         <label class="slds-form-element__label" for="Counties">
-                            <abbr class="slds-required">*</abbr>Premises County
+                            <abbr class="slds-required"><aura:renderIf isTrue="{!v.app.abd_Premise_State__c=='IA'}">*</aura:renderIf></abbr>Premises County
                         </label>
-                        <ui:inputSelect aura:id="Counties" value="{!v.app.abd_Premise_County__c}" change="{!c.countyChange}"/>
+                        <ui:inputSelect aura:id="Counties" value="{!v.app.abd_Premise_County__c}" change="{!c.countyChange}" disabled="{!v.app.abd_Premise_State__c!='IA' &amp;&amp; v.app.abd_Premise_State__c!='--None--'}"/>
                     </div>
                     <div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small">
-                        <label class="slds-form-element__label" for="city">
-                            <abbr class="slds-required">*</abbr>Premises City
-                        </label>
-                        <ui:inputSelect aura:id="city" value="{!v.app.abd_Premise_City__c}" change="{!c.cityChange}"/>
+	                    <aura:renderIf isTrue="{!v.app.abd_Premise_State__c=='IA'}">
+	                        <label class="slds-form-element__label" for="city">
+	                            <abbr class="slds-required">*</abbr>Premises City
+	                        </label>
+	                        <ui:inputSelect aura:id="city" value="{!v.app.abd_Premise_City__c}" change="{!c.cityChange}"/>
+		                    <aura:set attribute="else">
+		                    	<lightning:input label="Premises City" name="premiseCity" aura:id="premiseCity" value="{!v.textCity}" required="true"/>
+		                    </aura:set>
+	                	</aura:renderIf>
                     </div>
                     <div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small">
                         <label class="slds-form-element__label" for="States">
 							<abbr class="slds-required">*</abbr>Premises State
 						</label>
-						<ui:inputSelect aura:id="States" value="{!v.app.abd_Premise_State__c}" disabled="{!v.StateMustBeIowa}"/>
+						<ui:inputSelect aura:id="States" value="{!v.app.abd_Premise_State__c}" disabled="{!v.StateMustBeIowa}" change="{!c.stateChange}" />
                     </div>
                     <aura:renderIf isTrue="{!v.showLE}">
                         <label class="slds-form-element__label" for="gas">
@@ -219,6 +225,7 @@
                             </div>
                         </div>
                     	<aura:renderIf isTrue="{!v.app.abd_Other_Criteria__c !='Veteran’s organization open one day per week or 52 days or less per year'}" >
+
 	                    	<label class="slds-form-element__label" for="clubMembers">
 	                            <abbr class="slds-required">*</abbr>Does your club have 250 or more members?
 	                        </label>

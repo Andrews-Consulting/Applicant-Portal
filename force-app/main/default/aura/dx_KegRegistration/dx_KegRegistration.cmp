@@ -2,8 +2,10 @@
 
 	<aura:attribute name="showError" type="Boolean"  />
 	<aura:attribute name="errorMessage" type="string" />
-
-	<aura:attribute name="app" type="MUSW__Application2__c" default="{'sobjectType':'MUSW__Application2__c','abd_Number_of_Booklets__c':1}" />
+    <aura:attribute name="isInitComplete" type="Boolean" default="false" />
+	<aura:attribute name="AppInfo" type="Object"/>
+	
+	<aura:attribute name="app" type="MUSW__Application2__c" default="{'sobjectType':'MUSW__Application2__c'}"/>
 	
 	<!-- <aura:handler name="init" value="{!this}" action="{!c.doInit}" /> -->
 	<aura:registerevent name="SaveCompleted" type="c:dx_actionComplete" />
@@ -27,9 +29,12 @@
 						<p>Keg registration sticker come in booklets of 10 stickers.  Please enter the number of booklets that you need.  The booklets will be mailed to the premises address on the license.</p>
 					</div>
 					<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small">
-                        <lightning:input label="Number of Keg Registration Sticker Booklets" name="books" type="number" required="true" value="{!v.app.abd_Number_of_Booklets__c}" step="1" min="1"/>
+                        <lightning:input label="Number of Keg Registration Sticker Booklets" name="books" type="number" required="true" value="{!v.app.abd_Number_of_Booklets__c}" step="1" min="1" onchange="{!c.getFee}"/>
                     </div>
 				</div>
+			</div>
+			<div class="slds-grid slds-wrap padded">
+				<c:dx_FeeDisplay AppInfo="{!v.AppInfo}" isMaster="true" showError="{!v.showError}" errorMessage="{!v.errorMessage}" />
 			</div>
 		</div>
 	</div>

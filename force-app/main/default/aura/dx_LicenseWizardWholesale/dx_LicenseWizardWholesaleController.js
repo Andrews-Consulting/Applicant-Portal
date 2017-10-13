@@ -13,7 +13,7 @@
                 cmp.set("v.showError",true);      
             }else
             {
-               $A.get("e.force:navigateToURL").setParams({"url": cmp.get("v.beerDistributor_URL") + "?dLT=" + rtnValue  + "&recordId=0" }).fire();
+               $A.get("e.force:navigateToURL").setParams({"url": cmp.get("v.beerDistributor_URL") + "?dLT=" + encodeURIComponent(rtnValue)  + "&recordId=0" }).fire();
             }
         });
         $A.enqueueAction(action);  
@@ -37,7 +37,7 @@
                 cmp.set("v.showError",true);      
             }else
             {
-               $A.get("e.force:navigateToURL").setParams({"url": cmp.get("v.highProofBeer_URL") + "?dLT=" + rtnValue  + "&recordId=0" }).fire();
+               $A.get("e.force:navigateToURL").setParams({"url": cmp.get("v.highProofBeer_URL") + "?dLT=" + encodeURIComponent(rtnValue)  + "&recordId=0" }).fire();
             }
         });
         $A.enqueueAction(action);  
@@ -61,7 +61,7 @@
                 cmp.set("v.showError",true);      
             }else
             {
-               $A.get("e.force:navigateToURL").setParams({"url": cmp.get("v.nativeBeer_URL") + "?dLT=" + rtnValue  + "&recordId=0" }).fire();
+               $A.get("e.force:navigateToURL").setParams({"url": cmp.get("v.nativeBeer_URL") + "?dLT=" + encodeURIComponent(rtnValue)  + "&recordId=0" }).fire();
             }
         });
         $A.enqueueAction(action);  
@@ -85,7 +85,7 @@
                 cmp.set("v.showError",true);      
             }else
             {
-               $A.get("e.force:navigateToURL").setParams({"url": cmp.get("v.highProofNativeBeer_URL") + "?dLT=" + rtnValue  + "&recordId=0" }).fire();
+               $A.get("e.force:navigateToURL").setParams({"url": cmp.get("v.highProofNativeBeer_URL") + "?dLT=" + encodeURIComponent(rtnValue)  + "&recordId=0" }).fire();
             }
         });
         $A.enqueueAction(action);  
@@ -109,7 +109,7 @@
                 cmp.set("v.showError",true);      
             }else
             {
-               $A.get("e.force:navigateToURL").setParams({"url": cmp.get("v.wineDistributor_URL") + "?dLT=" + rtnValue   + "&recordId=0"}).fire();
+               $A.get("e.force:navigateToURL").setParams({"url": cmp.get("v.wineDistributor_URL") + "?dLT=" + encodeURIComponent(rtnValue)   + "&recordId=0"}).fire();
             }
         });
         $A.enqueueAction(action);  
@@ -133,7 +133,7 @@
                 cmp.set("v.showError",true);      
             }else
             {
-               $A.get("e.force:navigateToURL").setParams({"url": cmp.get("v.nativeWine_URL") + "?dLT=" + rtnValue  + "&recordId=0" }).fire();
+               $A.get("e.force:navigateToURL").setParams({"url": cmp.get("v.nativeWine_URL") + "?dLT=" + encodeURIComponent(rtnValue)  + "&recordId=0" }).fire();
             }
         });
         $A.enqueueAction(action);  
@@ -157,7 +157,7 @@
                 cmp.set("v.showError",true);      
             }else
             {
-               $A.get("e.force:navigateToURL").setParams({"url": cmp.get("v.directShipperofWine_URL") + "?dLT=" + rtnValue  + "&recordId=0" }).fire();
+               $A.get("e.force:navigateToURL").setParams({"url": cmp.get("v.directShipperofWine_URL") + "?dLT=" + encodeURIComponent(rtnValue)  + "&recordId=0" }).fire();
             }
         });
         $A.enqueueAction(action);  

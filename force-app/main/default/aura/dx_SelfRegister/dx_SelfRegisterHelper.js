@@ -6,23 +6,25 @@
     handleSelfRegister: function (component, event, helper) {
         console.log('handleSelfRegister');
         this.spinnerOn(component);
-        
+        var user = component.get("v.user");
+        console.log(user);
     	var accountId = component.get("v.accountId");
         var regConfirmUrl = component.get("v.regConfirmUrl");
-        var firstname = component.find("firstname").get("v.value");
-        var lastname = component.find("lastname").get("v.value");
-        var email = component.find("email").get("v.value");
+        //var firstname = component.find("firstname").get("v.value");
+        //var lastname = component.find("lastname").get("v.value");
+        //var email = component.find("email").get("v.value");
+        //var phone = component.find("phone").get("v.value");
         var includePassword = component.get("v.includePasswordField");
         var password = component.find("password").get("v.value");
         var confirmPassword = component.find("confirmPassword").get("v.value");
         var action = component.get("c.selfRegister");
-        var extraFields = JSON.stringify(component.get("v.extraFields"));   // somehow apex controllers refuse to deal with list of maps
+        //var extraFields = JSON.stringify(component.get("v.extraFields"));   // somehow apex controllers refuse to deal with list of maps
         var startUrl = component.get("v.startUrl");//'/s/dx-legal-disclaimer/';
         var errmsg = '';
-        
-        if (email == null || email.length == 0) errmsg += 'Email, ';
-        if (firstname == null || firstname.length == 0) errmsg += 'First Name, ';
-        if (lastname == null || lastname.length == 0) errmsg += 'Last Name, ';
+        if (user.Email == null || user.Email.length == 0) errmsg += 'Email, ';
+        if (user.FirstName == null || user.FirstName.length == 0) errmsg += 'First Name, ';
+        if (user.LastName == null || user.LastName.length == 0) errmsg += 'Last Name, ';
+        if (user.Phone == null || user.Phone.length == 0) errmsg += 'Phone, ';
         
         if (errmsg.length !== 0) { 
             errmsg = 'The following fields are required and are missing data: ' + errmsg;
@@ -36,10 +38,11 @@
         }else {
 	        startUrl = decodeURIComponent(startUrl);
 	        
-	        action.setParams({firstname:firstname,lastname:lastname,email:email,
-	                password:password, confirmPassword:confirmPassword, accountId:accountId, regConfirmUrl:regConfirmUrl, extraFields:extraFields, startUrl:startUrl, includePassword:includePassword});
+	        action.setParams({user:user, password:password, confirmPassword:confirmPassword, accountId:accountId, regConfirmUrl:regConfirmUrl, 
+	        					startUrl:startUrl, includePassword:includePassword});
 	        action.setCallback(this, function(a){
 	        	var rtnValue = a.getReturnValue();
+	        	console.log(rtnValue);
 	        	if (rtnValue !== null) {
 	        		component.set("v.errorMessage",rtnValue);
 	            	component.set("v.showError",true);
