@@ -6,6 +6,9 @@
     <aura:attribute name="errorMessage" type="string" />
     <aura:Attribute name="RecordIdIsApplication" type="Boolean" /> 
     <aura:Attribute name="ShowCommit" type="Boolean" default="false" />
+	<aura:attribute name="isSP" type="Boolean"  />
+    <aura:attribute name="isInitComplete" type="Boolean" default="false" />
+
 	
 	<!-- Event Registration -->
     <aura:registerevent name="SaveCompleted" type="c:dx_actionComplete" />
@@ -27,11 +30,11 @@
             <div class="slds-grid slds-wrap padded slds-grid--vertical-align-center">
                 <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-12" />
                 <div class="slds-col slds-size--1-of-1 slds-medium-size--8-of-12">
-                    <h1>Authorized Agents</h1>
+                    <h1>{!v.isSP?'Distilled Spirits Companies':'Authorized Agents'}</h1>
                 </div>
                 <div class="slds-col slds-size--1-of-1 slds-medium-size--2-of-12 slds-grid--vertical-align-start">
                 	<div class="slds-container--left slds-container--small inner">
-                		<ui:button aura:id="newAgentButton" label="Add New Agent" press="{!c.addNew}" class="stdButton" />
+                		<ui:button aura:id="newAgentButton" label="{!'Add New '+(v.isSP?'Company':'Agent')}" press="{!c.addNew}" class="stdButton" />
                		</div>
                 </div>
                 <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-12" />
@@ -44,7 +47,7 @@
 			                <tr class="slds-text-title--caps">
 			                	<th scope="col">&nbsp;</th>
 			                    <th scope="col">
-			                        <div class="slds-truncate" title="Agent Name">Agent Name</div>
+			                        <div class="slds-truncate" title="Agent Name">{!v.isSP?'Company':'Agent'} Name</div>
 			                    </th>
 			                    <th scope="col">
 			                        <div class="slds-truncate" title="City">City</div>

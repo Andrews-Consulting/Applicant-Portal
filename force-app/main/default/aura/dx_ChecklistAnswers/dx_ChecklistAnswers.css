@@ -1,3 +1,6 @@
-.THIS.checklisterror {
+.THIS .checklisterror {
 	color: red;
+}
+.THIS .uiInput--radio input{
+    margin:0.5rem;
 }

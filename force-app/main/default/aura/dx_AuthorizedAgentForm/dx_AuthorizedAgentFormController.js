@@ -20,7 +20,47 @@
     onSelectChange : function(component, event,helper) {
     	//helper.dependency(component);        
 	},
-    validatePhone: function(component, event,helper) {
+	phoneFormat: function(component, event,helper) {
+		var phoneNum = component.get("v.agent.abd_Auth_Agent_Phone__c");
+		var phoneLen = phoneNum.length;
+		
+        if(!phoneNum.startsWith('+')){
+			if(isNaN(phoneNum.substring(phoneLen-1)) && phoneLen<15)
+                phoneNum = phoneNum.substring(0,phoneLen-1);
+            phoneLen = phoneNum.length;
+            switch (phoneLen){
+				case 3:
+					if(!phoneNum.startsWith('('))
+						phoneNum = '('+phoneNum+') ';
+					break;
+				case 9:
+	    			phoneNum+='-';
+	    			break;
+				case 15:
+	    			phoneNum = phoneNum.substring(0,14)+' '+phoneNum.substring(14);
+	    			break;
+				default:
+					break;
+			}
+		}
+		component.set("v.agent.abd_Auth_Agent_Phone__c",phoneNum);
+	},
+	zipFormat: function(component, event,helper) {
+		var zip = component.get("v.agent.abd_Auth_Agent_Zip__c");
+		var zipLen = zip.length;
+		zipLen = zip.length;
+		if(!isNaN(zip)){
+			switch (zipLen){
+				case 9:
+	    			zip = zip.substring(0,5)+'-'+zip.substring(5);
+	    			break;
+				default:
+					break;
+			}
+		}
+		component.set("v.agent.abd_Auth_Agent_Zip__c",zip);
+	}
+    /*validatePhone: function(component, event,helper) {
         if (!$A.util.isEmpty(component.find("phone"))) {
             var validity = component.find("phone").get("v.validity");
             if (validity.patternMismatch) {
@@ -34,7 +74,7 @@
                 }
             }
         }
-    }
+    }*/
   
 	// gotoURL : function (component, event, helper) {
 	// 	helper.doUpdate(component, event);

@@ -1,0 +1,13 @@
+<apex:page standardController="MUSW__Application2__c" extensions="DX_GeocodingController" showHeader="false" sidebar="false" action="{!GeocodeAddress}">
+	<apex:pageMessages escape="false"/>
+	
+	<apex:outputpanel rendered="false">
+	    <apex:outputfield value="{!MUSW__Application2__c.abd_Premises_SingleLine_Address__c}"/>
+	    <apex:outputtext value="{!MUSW__Application2__c.abd_Premises_Geolocation__Latitude__s}"/>
+	    <apex:outputfield value="{!MUSW__Application2__c.abd_Premises_Geolocation__Longitude__s}"/>
+	</apex:outputpanel>
+	
+	<apex:form id="form">
+		<apex:commandbutton value="Back" action="{!Back}"/>
+	</apex:form>
+</apex:page>

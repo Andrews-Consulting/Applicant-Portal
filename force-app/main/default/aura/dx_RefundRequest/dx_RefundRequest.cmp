@@ -34,7 +34,7 @@
 					<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-2">
 						<aura:renderIf isTrue="{!v.app.abd_Temporary_or_Permanent__c=='Temporary'}">
 							<div id="slds-form-element slds-is-required" class="slds-container--right slds-container--small">
-								<ui:inputDate label="Effective End Date for License" required="true" value="{!v.app.abd_Effective_End_Date__c}" displayDatePicker="true" />
+								<c:dx_dateField label="Effective End Date for License" required="true" value="{!v.app.abd_Effective_End_Date__c}" displayDatePicker="true" />
 							</div>
 						</aura:renderIf>
 					</div>

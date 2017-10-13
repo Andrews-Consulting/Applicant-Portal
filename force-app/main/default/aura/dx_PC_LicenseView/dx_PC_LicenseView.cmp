@@ -20,7 +20,7 @@
 				</lightning:button>
 			</h3>
 			<div class="slds-section__content" >
-				<c:dx_ApplicationBasics SaveCompleted="{!c.SaveComplete}" EmptyComponent="{!c.EmptyComponent}" showError="{!v.showError}" errorMessage="{!v.errorMessage}" aura:id="dx_PC_LicenseView" ReadOnly="true"  recordId="{#v.recordId}" RecordIdIsApplication="{!v.RecordIdIsApplication}"/>
+				<c:dx_ApplicationBasics SaveCompleted="{!c.SaveComplete}" EmptyComponent="{!c.EmptyComponent}" showError="{!v.showError}" errorMessage="{!v.errorMessage}" aura:id="dx_PC_LicenseView" ReadOnly="true"  recordId="{#v.recordId}" RecordIdIsApplication="{!v.RecordIdIsApplication}" isInitComplete="{! v.InitCompleteTriggerFlag}"/>
 			</div>
 		</div>
 
@@ -31,7 +31,7 @@
 				</lightning:button>
 			</h3>
 			<div class="slds-section__content" >
-				<c:dx_LicenseeForm SaveCompleted="{!c.SaveComplete}" EmptyComponent="{!c.EmptyComponent}" showError="{!v.showError}" errorMessage="{!v.errorMessage}" aura:id="dx_PC_LicenseView" recordId="{#v.recordId}" RecordIdIsApplication="{!v.RecordIdIsApplication}" SaveDisabled="{!v.SaveDisabled}"/>
+				<c:dx_LicenseeForm SaveCompleted="{!c.SaveComplete}" EmptyComponent="{!c.EmptyComponent}" showError="{!v.showError}" errorMessage="{!v.errorMessage}" aura:id="dx_PC_LicenseView" recordId="{#v.recordId}" RecordIdIsApplication="{!v.RecordIdIsApplication}" SaveDisabled="{!v.SaveDisabled}" isInitComplete="{! v.InitCompleteTriggerFlag}"/>
 			</div>
 		</div>
 
@@ -42,7 +42,7 @@
 				</lightning:button>
 			</h3>
 			<div class="slds-section__content" >
-				<c:dx_PremiseComplete SaveCompleted="{!c.SaveComplete}" EmptyComponent="{!c.EmptyComponent}" showError="{!v.showError}" errorMessage="{!v.errorMessage}" aura:id="dx_PC_LicenseView" recordId="{#v.recordId}" RecordIdIsApplication="{!v.RecordIdIsApplication}"/>
+				<c:dx_PremiseComplete SaveCompleted="{!c.SaveComplete}" EmptyComponent="{!c.EmptyComponent}" showError="{!v.showError}" errorMessage="{!v.errorMessage}" aura:id="dx_PC_LicenseView" recordId="{#v.recordId}" RecordIdIsApplication="{!v.RecordIdIsApplication}" isInitComplete="{! v.InitCompleteTriggerFlag}"/>
 			</div>
 		</div>
 
@@ -53,7 +53,7 @@
 				</lightning:button>
 			</h3>
 			<div class="slds-section__content" >
-				<c:dx_checklistDisplaySectionOnly Section="Auction" SaveCompleted="{!c.SaveComplete}" EmptyComponent="{!c.EmptyComponent}" showError="{!v.showError}" errorMessage="{!v.errorMessage}" aura:id="dx_PC_LicenseView" recordId="{#v.recordId}" RecordIdIsApplication="{!v.RecordIdIsApplication}"/>
+				<c:dx_checklistDisplaySectionOnly Section="Auction" SaveCompleted="{!c.SaveComplete}" EmptyComponent="{!c.EmptyComponent}" showError="{!v.showError}" errorMessage="{!v.errorMessage}" aura:id="dx_PC_LicenseView" recordId="{#v.recordId}" RecordIdIsApplication="{!v.RecordIdIsApplication}" isInitComplete="{! v.InitCompleteTriggerFlag}"/>
 			</div>
 		</div>
 
@@ -64,7 +64,7 @@
 				</lightning:button>
 			</h3>
 			<div class="slds-section__content" >
-				<c:dx_OwnerComplete SaveCompleted="{!c.SaveComplete}" EmptyComponent="{!c.EmptyComponent}" showError="{!v.showError}" errorMessage="{!v.errorMessage}" aura:id="dx_PC_LicenseView" recordId="{#v.recordId}" RecordIdIsApplication="{!v.RecordIdIsApplication}"/>
+				<c:dx_OwnerComplete SaveCompleted="{!c.SaveComplete}" EmptyComponent="{!c.EmptyComponent}" showError="{!v.showError}" errorMessage="{!v.errorMessage}" aura:id="dx_PC_LicenseView" recordId="{#v.recordId}" RecordIdIsApplication="{!v.RecordIdIsApplication}" isInitComplete="{! v.InitCompleteTriggerFlag}"/>
 			</div>
 		</div>
 
@@ -76,7 +76,7 @@
 				</lightning:button>
 			</h3>
 			<div class="slds-section__content" >
-				<c:dx_AuthorizedAgentComplete SaveCompleted="{!c.SaveComplete}" EmptyComponent="{!c.EmptyComponent}" showError="{!v.showError}" errorMessage="{!v.errorMessage}" aura:id="dx_PC_LicenseView" recordId="{#v.recordId}" RecordIdIsApplication="{!v.RecordIdIsApplication}"/>
+				<c:dx_AuthorizedAgentComplete SaveCompleted="{!c.SaveComplete}" EmptyComponent="{!c.EmptyComponent}" showError="{!v.showError}" errorMessage="{!v.errorMessage}" aura:id="dx_PC_LicenseView" recordId="{#v.recordId}" RecordIdIsApplication="{!v.RecordIdIsApplication}" isInitComplete="{! v.InitCompleteTriggerFlag}"/>
 			</div>
 		</div>
 
@@ -87,7 +87,7 @@
 				</lightning:button>
 			</h3>
 			<div class="slds-section__content" >
-				<c:dx_Documents SaveCompleted="{!c.SaveComplete}" EmptyComponent="{!c.EmptyComponent}" showError="{!v.showError}" errorMessage="{!v.errorMessage}" aura:id="dx_PC_LicenseView" recordId="{#v.recordId}" RecordIdIsApplication="{!v.RecordIdIsApplication}"/>
+				<c:dx_Documents SaveCompleted="{!c.SaveComplete}" EmptyComponent="{!c.EmptyComponent}" showError="{!v.showError}" errorMessage="{!v.errorMessage}" aura:id="dx_PC_LicenseView" recordId="{#v.recordId}" RecordIdIsApplication="{!v.RecordIdIsApplication}" isInitComplete="{! v.InitCompleteTriggerFlag}"/>
 			</div>
 		</div>
 	</div>

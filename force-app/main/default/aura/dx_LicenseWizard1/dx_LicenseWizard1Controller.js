@@ -27,7 +27,7 @@
                 cmp.set("v.showError",true);      
             }else
             {
-               $A.get("e.force:navigateToURL").setParams({"url": cmp.get("v.charityAuction_URL") + "?dLT=" + rtnValue  + "&recordId=0"}).fire();
+               $A.get("e.force:navigateToURL").setParams({"url": cmp.get("v.charityAuction_URL") + "?dLT=" + encodeURIComponent(rtnValue)  + "&recordId=0"}).fire();
             }
         });
         $A.enqueueAction(action);  

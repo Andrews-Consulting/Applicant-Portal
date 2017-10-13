@@ -32,7 +32,7 @@
     getApplication: function(component,event){
     	try {
 	    	console.log('Get Application');
-	        var action = component.get("c.getApplication");    // Set the routine to call in the controller
+	        var action = component.get("c.checkApplication");    // Set the routine to call in the controller
 	        action.setParams({"appId": component.get("v.recordId")});
 	        action.setCallback(this, function(response){
 	        	try {
@@ -44,6 +44,8 @@
 	                        var nextAction = component.getEvent("EmptyComponent");
                             console.log('Empty');
 	                        nextAction.fire();
+	                    }else{
+	                    	component.set("v.isSP",response.getReturnValue());
 	                    }
 	                } else { // error or incomplete comes here
 	                    var errors = response.getError();
@@ -110,7 +112,22 @@
             console.log(agent);
             if (!agent.abd_Application__c) agent.abd_Application__c = component.get("v.recordId");
             if (!agent.abd_Application__c) alert('agent is not connect to the app');
+
             // validate the data here!  Check to see if the fields are completed.
+            // If it's completely blank, then just skip ahead.
+            if ($A.util.isEmpty(agent.abd_Auth_Agent_Name__c) && 
+                $A.util.isEmpty(agent.abd_Auth_Agent_Address__c) && 
+                $A.util.isEmpty(agent.abd_Auth_Agent_Address_2__c) && 
+                $A.util.isEmpty(agent.abd_Auth_Agent_City__c) && 
+                $A.util.isEmpty(agent.abd_Auth_Agent_State__c) && 
+                $A.util.isEmpty(agent.abd_Auth_Agent_Zip__c) && 
+                $A.util.isEmpty(agent.abd_Auth_Agent_Phone__c)) {
+                    action.setParams({"Component" : component, "Action": "Saved" });
+                    action.fire();
+                    return;
+                }
+    
+
             var errmsg = '';
 
             if (!$A.util.isEmpty(component.find("phone"))) {
@@ -120,7 +137,7 @@
             }
 
             if (errmsg.length !== 0) { 
-                errmsg = 'The following fields are required and are missing data: ' + errmsg;
+                errmsg = 'The following fields are required and are missing or have invalid data: ' + errmsg;
                 if (errmsg.endsWith(', ')) errmsg = errmsg.substring(0,errmsg.length-2) + '. ';
             }
 

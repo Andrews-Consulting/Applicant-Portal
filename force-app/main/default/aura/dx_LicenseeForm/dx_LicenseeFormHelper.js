@@ -137,6 +137,7 @@
         try {
             var notAnswered = '--None--';
             var action;
+            var validity;
             // If this isn't an application, then skip the Save for Now and tell everyone we're okay!
             if (!component.get("v.RecordIdIsApplication")) {
                 action = component.getEvent("SaveCompleted");
@@ -160,16 +161,26 @@
             if (!$A.util.isEmpty(licensee.abd_Account_Email_Address__c) && !emailpattern.test(licensee.abd_Account_Email_Address__c)) errmsg  = "The Licensee email doesn't appear to be valid.";
 
            if (!$A.util.isEmpty(component.find("licPhone"))) {
-                var validity = component.find("licPhone").get("v.validity");
+                validity = component.find("licPhone").get("v.validity");
                 if (validity.patternMismatch) 
                     errmsg += 'Licensee Phone number is invalid. ';            
             }
 
            if (!$A.util.isEmpty(component.find("appPhone"))) {
-                var validity = component.find("appPhone").get("v.validity");
+                validity = component.find("appPhone").get("v.validity");
                 if (validity.patternMismatch) 
                     errmsg += 'Applicant Phone number is invalid. ';            
             }
+
+
+            // If we're on the save and it's one of these types, then clear out any old info that might be hanging on
+            if( !$A.util.isEmpty(licensee.Business_Type__c) && 
+               (licensee.Business_Type__c ==  'Sole Proprietorship' ||
+                licensee.Business_Type__c == 'General Partnership' || 
+                licensee.Business_Type__c == 'Municipality')) {
+                    licensee.abd_Corporate_ID_Number__c = null;
+            }
+            
 
             if (! $A.util.isEmpty(licensee.abd_Corporate_ID_Number__c)) {
                 var numTest = new RegExp(/[^0-9]/);
@@ -236,7 +247,8 @@
                 Account.Business_Type__c !== '--None--' && 
                 Account.Business_Type__c !== 'Sole Proprietorship' && 
                 Account.Business_Type__c !== 'General Partnership' && 
-                Account.Business_Type__c !== 'Municipality'){
+                Account.Business_Type__c !== 'Municipality' &&
+                component.get("v.IsBusinessIdNeeded")){
 	        	for (i = 0; i < hideShow.length; i++) {
 	                $A.util.removeClass(hideShow[i], 'slds-hide');
 	            }
@@ -302,6 +314,49 @@
                     var state = response.getState();
                     if (state === 'SUCCESS') {
                         component.set("v.isNewApp",response.getReturnValue());      // but if it's good, set the applicant value to the result.
+                    }
+                    else {      // error or incomplete comes here
+                        var errors = response.getError();
+                        if (errors) {
+                            for (var erri = 0; erri < errors.length; erri++) {
+                                component.set("v.errorMessage", component.get("v.errorMessage") + " : " + errors[erri].message );
+                            }
+                            component.set("v.showError",true);                                  
+                        }
+                    }
+                } catch(e) {
+                    alert(e.stack);
+                }
+            });
+            $A.enqueueAction(action);                           // put this item on the queue to execute.
+        }
+        catch(e) {
+            alert(e.stack);
+        }
+    }, 
+      getApplication: function(component, event) {    
+        try{
+            console.log('get Application ' + ':' + component.get("v.recordId"));
+            var action = component.get("c.getApplication");         // Set the routine to call in the controller
+            action.setParams({"objectId": component.get("v.recordId")});    
+            action.setCallback(this, function(response){        // and when it returns, perform ....
+                try {            
+                    var state = response.getState();
+                    if (state === 'SUCCESS') { 
+                        // If this is a special license located in Iowa, then we don't collect the Business ID
+                        if (!$A.util.isEmpty(response.getReturnValue())) {
+                            var app =  response.getReturnValue();
+                            var specialLicenses = 'CB  CD  CV  DS  AC  SP';
+                            if (specialLicenses.includes(app.Primary_Lic_Type__c) && 
+                                app.abd_Premise_State__c !== 'IA') {
+                                component.set("v.IsBusinessIdNeeded",false);
+
+                                var hideShow = component.find("dependent");
+                                for (var i = 0; i < hideShow.length; i++) {
+                                    $A.util.addClass(hideShow[i], 'slds-hide');
+                                }
+                            }
+                        }
                     }
                     else {      // error or incomplete comes here
                         var errors = response.getError();

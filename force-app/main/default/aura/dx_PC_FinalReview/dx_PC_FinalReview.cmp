@@ -3,7 +3,7 @@
     <aura:set attribute="ActiveCmp" value="dx_PC_FinalReview" />     <!-- This drives the navigation and needs to exist in Nav metadata -->
 
     <div aura:id="dx_PC_FinalReviewDiv">
-        <c:dx_FinalReview aura:id="dx_PC_FinalReview" ShowNext="{!v.ShowNext}" recordId="{!v.recordId}" SaveCompleted="{!c.SaveComplete}" showError="{!v.showError}" errorMessage="{!v.errorMessage}" spinnerOn="{!c.spinnerOn}" spinnerOff="{!c.spinnerOff}" RecordIdIsApplication="{!v.RecordIdIsApplication}"/> 
+        <c:dx_FinalReview aura:id="dx_PC_FinalReview" ShowNext="{!v.ShowNext}" recordId="{!v.recordId}" SaveCompleted="{!c.SaveComplete}" showError="{!v.showError}" errorMessage="{!v.errorMessage}" spinnerOn="{!c.spinnerOn}" spinnerOff="{!c.spinnerOff}" RecordIdIsApplication="{!v.RecordIdIsApplication}" isInitComplete="{! v.InitCompleteTriggerFlag}"/> 
          <!-- EmptyComponent="{!c.EmptyComponent}" -->
     </div>
 </aura:component>

@@ -9,11 +9,12 @@ public without sharing class dx_OwnerAccountSearch {
         QueryFields qf = (QueryFields)JSON.deserializeStrict(qfs,QueryFields.class);
         system.debug(qf);
         for(Application_Contact__c ac:[Select Application__r.MUSW__Account__r.Name,Application__r.MUSW__Account__c, SSN__c 
-                                       from Application_Contact__c where First_Name__c =:qf.firstname and Last_Name__c=:qf.lastName]){
-            System.debug('OAS: ' + ac);
+                                       from Application_Contact__c where Last_Name__c=:qf.lastName]){
+            /*System.debug('OAS: ' + ac);
             if (qf.ssn.contains('-')) qf.ssn = qf.ssn.replace('-','');
-            System.debug('OAS: ssn fixed' + qf.ssn);
-        	if(qf.ssn == ac.SSN__c){
+            if (ac.SSN__c!=null && ac.SSN__c.contains('-')) ac.SSN__c = ac.SSN__c.replace('-','');
+            System.debug('OAS: ssn fixed' + qf.ssn);*/
+        	if(ac.SSN__c!=null && qf.ssn == ac.SSN__c.right(4)){
             System.debug('OAS: ssn Match');
                 la.add(new Account(Id=ac.Application__r.MUSW__Account__c,Name=ac.Application__r.MUSW__Account__r.Name));
                 string key = string.valueOf(ac.Application__r.MUSW__Account__c)+string.valueOf(u.ContactId);
@@ -32,18 +33,30 @@ public without sharing class dx_OwnerAccountSearch {
         		lacr.put(key,acr);
         }
         if(lacr.size()>0){
-        	upsert lacr.values();	
+        	//upsert lacr.values();	
         }
         
         return la;
     }
 	
     @AuraEnabled
-    public static string updateUser(Id accountId){
-        system.debug(accountId);
-        User u = [Select ContactId From User Where Id = :UserInfo.getUserId()];
-        Contact c = new Contact(Id=u.ContactId,AccountId=accountId);
-        update c;
+    public static string updateUser(Id accountId, string others){
+        try{
+	        system.debug(accountId);
+	        User u = [Select ContactId From User Where Id = :UserInfo.getUserId()];
+	        list<AccountContactRelation> newLacr = new list<AccountContactRelation>();
+	        if(others != null && others != ''){
+		        for(string s:others.split(';')){
+		        	newLacr.add(new AccountContactRelation(AccountId=(Id)s,ContactId=u.ContactId));		
+		        }
+	        }
+	        Contact c = new Contact(Id=u.ContactId,AccountId=accountId,MUSW__Account_Relationship__c='Applicant');
+	        update c;
+	        if(newLacr.size()>0)
+	        	insert newLacr;
+	    }catch(exception ex){
+            throw new AuraHandledException (ex.getMessage());
+        }
         return null;
     }
 	
@@ -51,9 +64,6 @@ public without sharing class dx_OwnerAccountSearch {
         
         public QueryFields() {}
 
-        @AuraEnabled
-        public string firstName { get;set; }
-        
         @AuraEnabled
         public string lastName { get;set; }
         

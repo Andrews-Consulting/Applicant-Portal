@@ -13,18 +13,19 @@
 	padding-bottom: 30px;
 }
 
-
 @media only screen and (min-width: 769px) {
   .THIS .stdPageAbs{
     min-height: 495px; 
-    height: inherit;
-    width: inherit;
   }
+
 }
 
 @media only screen and (max-width: 768px){
-	.THIS #stdPageAbs {
-	height: inherit;
-    width: inherit;
+	.THIS .stdPageAbs {
+	}
+
+	.THIS .NoMobile {
+		width: 0px;
+		display:hidden;
 	}
 }

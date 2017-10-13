@@ -20,7 +20,21 @@
     onSelectChange : function(component, event,helper) {
     	//helper.dependency(component);        
 	},
-	// onCheckChange : function(component, event,helper) {
+	ssnFormat : function(component, event,helper) {
+    	var ssn = component.get("v.owner.SSN__c");
+    	var ssLen = ssn.length;
+    	if(isNaN(ssn.substring(ssLen-1)))
+    		ssn = ssn.substring(0,ssLen-1);
+    	ssLen = ssn.length;
+    	switch (ssLen){
+    		case 3: case 6:
+    			ssn+='-';
+    			break;
+			default:
+				break;
+    	}
+    	component.set("v.owner.SSN__c",ssn);        
+	},// onCheckChange : function(component, event,helper) {
  //    	component.set("v.owner.abd_Primary_Owner__c",event.getSource().get("v.checked"));
  //    },
     // handles entry in the business name or first name/last name field.
@@ -47,5 +61,20 @@
 	closeMessage : function (component,event, helper){
 		/*helper.hidePopupHelper(component, 'modaldialog', 'slds-fade-in-');
 	    helper.hidePopupHelper(component,'backdrop','slds-backdrop--');*/
+	},
+	zipFormat: function(component, event,helper) {
+		var zip = component.get("v.owner.Zip_Code__c");
+		var zipLen = zip.length;
+		zipLen = zip.length;
+		if(!isNaN(zip)){
+			switch (zipLen){
+				case 9:
+	    			zip = zip.substring(0,5)+'-'+zip.substring(5);
+	    			break;
+				default:
+					break;
+			}
+		}
+		component.set("v.owner.Zip_Code__c",zip);
 	}
 })

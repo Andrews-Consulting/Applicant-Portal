@@ -6,7 +6,7 @@
         helper.getLicenseType(component, event);
         helper.getAccounts(component, event);
         helper.getPicklistValues(component, event);
-        helper.getPremiseCity(component);
+        //helper.getPremiseCity(component);
         component.find("clubMembersYes").set("v.checked",false);
 		component.find("clubMembersNo").set("v.checked",false);
     },
@@ -20,7 +20,11 @@
     	component.set("v.lTypes","");
     	helper.getLicenseLength(component, event);		// reset the license length drop down list
     	helper.setValueDefaults(component);		// reset some checkbox values
-    	//helper.getDependency(component);
+    	if(component.get("v.app.abd_Premise_State__c")!='IA'){
+			component.set("v.app.abd_Premise_City__c",null);
+			component.set("v.app.abd_Premise_County__c",'--None--');
+		}
+		//helper.getDependency(component);
     },
 	onAccountChange : function(component, event,helper) {
     	var selected = component.find("aItems").get("v.value");
@@ -104,11 +108,22 @@
 	countyChange : function(component, event,helper) {
 		var state = (component.get("v.app.abd_Premise_County__c")!='--None--')?'IA':'--None--';
 		component.set("v.app.abd_Premise_State__c",state);
-    	helper.getPremiseCity(component, event);        
+		if(state=='IA')
+			helper.getPremiseCity(component, event);        
 	},
 	cityChange: function(component, event,helper) {
-    	helper.getDependency(component);        
+    	//helper.getDependency(component);        
+
+
 	},
+	stateChange : function(component, event,helper) {
+		if(component.get("v.app.abd_Premise_State__c")!='IA'){
+			component.set("v.app.abd_Premise_City__c",'--None--');
+			component.set("v.app.abd_Premise_County__c",'--None--');
+        }else{
+            component.set("v.textCity","");
+		}
+    },
 
 	vehicleChange : function(component, event,helper) {
 		var vehicle = event.getSource().get("v.value");
@@ -131,10 +146,10 @@
 	radioChange : function(component, event,helper) {
 		var application = JSON.parse(JSON.stringify(component.get("v.app")));
 		if(event.getSource().get("v.name")=='VO'){
-			application.abd_Veterans_Organization__c = event.getSource().get("v.value");
-
+			
 			if(event.getSource().get("v.value") =='Yes'){
 				application.abd_Other_Criteria__c = 'Veteran’s organization open one day per week or 52 days or less per year';
+
 				application.abd_More_Than_250_Members__c=null;
 				component.find("clubMembersYes").set("v.checked",false);
 				component.find("clubMembersNo").set("v.checked",false);
@@ -157,7 +172,6 @@
 		}
 
 		if(event.getSource().get("v.name")=='gas') {
-			application.abd_Sell_Gasoline__c = event.getSource().get("v.value");
 			if (event.getSource().get("v.value") == 'Yes')
 				application.abd_Other_Criteria__c = 'Sells Gas';
 			else 

@@ -1,0 +1,6 @@
+<aura:event type="APPLICATION" description="Used to Coordinate communication between components on the same page that don't have a hierarichal realtionship" >
+ 	<aura:attribute name="ComponentName" type="String" access="global"/>
+	<aura:attribute name="Action" type="String" access="global" />
+	<aura:attribute name="Value" type="String" access="global" />
+	<aura:attribute name="Scope" type="String" access="global" />
+</aura:event>

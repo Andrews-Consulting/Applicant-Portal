@@ -1,6 +1,6 @@
 ({
     doInit: function(component, event, helper) {
-        //helper.getCookie(component);
+        helper.getCookie(component);
         try {
             var action = component.get("c.getTutorials"); // apex controller routine
             action.setCallback(this, function(response) {
@@ -45,10 +45,13 @@
 		helper.showSlides(component);
     },
     setCookie: function(component, event, helper) {
-    	var cookie = "skip=true;";
+    	console.log('Set Cookie');
+    	console.log(component.find("skip").get("v.checked"));
+    	var cookie = "skip="+component.find("skip").get("v.checked")+";";
+	    console.log(cookie);
 	    var d = new Date();
-	    d.setTime(d.getTime() + (1*1*5*60*1000));//Currently setting cookie for 5 minutes for testing after use 1 year (365*24*60*60*1000)
+	    d.setTime(d.getTime() + (365*24*60*60*1000));//Currently setting cookie for 1 year
 	    document.cookie = cookie+"expires="+d.toUTCString()+"; path=/";
-	    helper.gotoURL(component);
+	    //helper.gotoURL(component);
 	}
 })

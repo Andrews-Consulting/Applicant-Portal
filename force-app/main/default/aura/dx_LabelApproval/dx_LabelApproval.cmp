@@ -2,6 +2,7 @@
 
 	<aura:attribute name="showError" type="Boolean"  />
 	<aura:attribute name="errorMessage" type="string" />
+    <aura:attribute name="isInitComplete" type="Boolean" default="false" />
 
 	<aura:attribute name="app" type="MUSW__Application2__c" default="{'sobjectType':'MUSW__Application2__c','abd_Number_of_Booklets__c':1}" />
 	

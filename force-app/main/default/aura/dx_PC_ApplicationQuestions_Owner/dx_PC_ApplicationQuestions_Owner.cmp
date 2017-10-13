@@ -12,10 +12,10 @@
 
 
     <div aura:id="dx_PC_ApplicationQuestions_OwnerDiv">
-   	    <c:dx_checklistDisplaySectionOnly Section="Ownership Interest" SaveCompleted="{!c.SaveComplete}" EmptyComponent="{!c.EmptyComponent}" showError="{!v.showError}" errorMessage="{!v.errorMessage}" aura:id="dx_PC_ApplicationQuestions_Owner" recordId="{!v.recordId}" RecordIdIsApplication="{!v.RecordIdIsApplication}"/> 
+   	    <c:dx_checklistDisplaySectionOnly Section="Ownership Interest" SaveCompleted="{!c.SaveComplete}" EmptyComponent="{!c.EmptyComponent}" showError="{!v.showError}" errorMessage="{!v.errorMessage}" aura:id="dx_PC_ApplicationQuestions_Owner" recordId="{!v.recordId}" RecordIdIsApplication="{!v.RecordIdIsApplication}" isInitComplete="{! v.InitCompleteTriggerFlag}"/> 
    
 
-   	    <c:dx_checklistDisplaySectionOnly Section="Criminal History" SaveCompleted="{!c.SaveComplete}" EmptyComponent="{!c.EmptyComponent}" showError="{!v.showError}" errorMessage="{!v.errorMessage}" aura:id="dx_PC_ApplicationQuestions_Owner" recordId="{!v.recordId}" RecordIdIsApplication="{!v.RecordIdIsApplication}"/> 
+   	    <c:dx_checklistDisplaySectionOnly Section="Criminal History" SaveCompleted="{!c.SaveComplete}" EmptyComponent="{!c.EmptyComponent}" showError="{!v.showError}" errorMessage="{!v.errorMessage}" aura:id="dx_PC_ApplicationQuestions_Owner" recordId="{!v.recordId}" RecordIdIsApplication="{!v.RecordIdIsApplication}" isInitComplete="{! v.InitCompleteTriggerFlag}"/> 
 
    
     </div>

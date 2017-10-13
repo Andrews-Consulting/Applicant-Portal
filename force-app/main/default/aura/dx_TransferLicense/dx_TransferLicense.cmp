@@ -2,6 +2,7 @@
 
 	<aura:attribute name="showError" type="Boolean"  />
 	<aura:attribute name="errorMessage" type="string" />
+    <aura:attribute name="isInitComplete" type="Boolean" default="false" />
 
 	<aura:attribute name="stateOnly" type="Boolean" required="true" default="false"/>
 	<aura:attribute name="lic" type="MUSW__License2__c" default="{'sobjectType':'MUSW__License2__c'}" />
@@ -66,13 +67,13 @@
 					<div class="slds-grid slds-wrap">
 						<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-2">
 							<div id="slds-form-element slds-is-required" class="slds-container--left slds-container--small">
-								<ui:inputDate label="Start Date" required="true" value="{!v.app.abd_Effective_Date__c}" displayDatePicker="true" />
+								<c:dx_dateField label="Start Date" required="true" value="{!v.app.abd_Effective_Date__c}" displayDatePicker="true" />
 							</div>
 						</div>
 						<div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-2">
 							<aura:renderIf isTrue="{!v.app.abd_Temporary_or_Permanent__c=='Temporary'}">
 								<div id="slds-form-element slds-is-required" class="slds-container--right slds-container--small">
-									<ui:inputDate label="End Date" required="true" value="{!v.app.abd_Effective_End_Date__c}" displayDatePicker="true" />
+									<c:dx_dateField label="End Date" required="true" value="{!v.app.abd_Effective_End_Date__c}" displayDatePicker="true" />
 								</div>
 							</aura:renderIf>
 						</div>

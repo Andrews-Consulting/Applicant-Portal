@@ -2,7 +2,8 @@
     <aura:attribute name="showError" type="Boolean"  />
     <aura:attribute name="errorMessage" type="string" />
     <aura:Attribute name="RecordIdIsApplication" type="Boolean" />    
-        
+     <aura:attribute name="isInitComplete" type="Boolean" default="false" />
+       
     <aura:attribute name="ReadOnly" type="Boolean" default="false" />
     <aura:attribute name="exit" type="Boolean" required="true" description="" default="false" access="private" />
     <aura:attribute name="showRadio" type="Boolean" required="true" description="" default="false" access="private" />
@@ -216,12 +217,12 @@
                         </label>
                         <div id="slds-form-element slds-is-required" class="slds-container--left slds-container--medium padded" aura:id="VO">
                             <div class="slds-grid slds-wrap">
-                                <lightning:input type="radio" label="Yes" value="Yes" name="VO" onchange="{!c.radioChange}" aura:id="VOYes" disabled="{!v.ReadOnly}"/>
-                                <lightning:input type="radio" label="No" value="No" name="VO" onchange="{!c.radioChange}" aura:id="VONo" disabled="{!v.ReadOnly}"/>
+                                <lightning:input type="radio" label="Yes" value="Yes" name="VO" onchange="{!c.radioChange}" aura:id="VOYes"/>
+                                <lightning:input type="radio" label="No" value="No" name="VO" onchange="{!c.radioChange}" aura:id="VONo"/>
                             </div>
                         </div>
-                        <aura:renderIf isTrue="{!v.app.abd_Veterans_Organization__c=='No'}">
-                            <label class="slds-form-element__label" for="clubMembers">
+                    	<aura:renderIf isTrue="{!v.app.abd_Other_Criteria__c !='Veteran’s organization open one day per week or 52 days or less per year'}" >
+							<label class="slds-form-element__label" for="clubMembers">
                                 <abbr class="slds-required">*</abbr>Does your club have 250 or more members?
                             </label>
                             <div id="slds-form-element slds-is-required" class="slds-container--left slds-container--medium padded" aura:id="clubMembers">
@@ -237,7 +238,7 @@
                             <label class="slds-form-element__label" for="vehicle">
                                 <abbr class="slds-required">*</abbr>Is the premises a Plane, Train, or Boat?
                             </label>
-                            <ui:inputSelect aura:id="vehicle" value="{!v.app.abd_Premises_Vehicle_Type__c}" change="{!c.handleChange}" disabled="{!v.ReadOnly}"/>
+                            <ui:inputSelect aura:id="vehicle" change="{!c.vehicleChange}" disabled="{!v.ReadOnly}"/>
                         </div>
                     </aura:renderIf>
                 </div>

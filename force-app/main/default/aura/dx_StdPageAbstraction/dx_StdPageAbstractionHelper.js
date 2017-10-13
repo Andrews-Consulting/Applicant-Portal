@@ -1,8 +1,14 @@
 ({
-   
+  
    // Do nothing in here that expects the page to be rendered.  Move that to the rendering classes.   		
-   	init: function(component){
+   	init: function(component, event){
    		try {
+       		
+       		var concComponent = component.isConcrete() ? component.getConcreteComponent() : component;
+
+  			// lock the screen for initialization
+   			this.spinnerOn(component);
+
    			this.CheckRecordId(component);
    			// go get our page configuration.
    	    	var action = component.get("c.getNavigationModel"); 
@@ -47,40 +53,108 @@
 			            	return;
 			            }
 			        }catch (e) {alert(e.stack);}
-					//  At this point, the parent is initialized (or not as the case may be).
-					// Let's call the inner component's init routine
-		            var activecmp = component.find(component.get("v.ActiveCmp")); 
 
-		            if ($A.util.isUndefined(activecmp)) {
-		            	var concComponent = component.getConcreteComponent();
-		            	activecmp = concComponent.find(component.get("v.ActiveCmp"));
-		            }
-		            if ($A.util.isUndefined(activecmp)) {
-		                //All else fails
-		                try {
-		            	activecmp = component.find('stdPageAbs').get("v.body")[0].get("v.value")[0].get("v.body")[0].get("v.value")[0];
-		                } catch(e){}
-		            }
-
-		            // if we end up with multiple components to process, then handle it
-		            try {
-		            if ($A.util.isArray(activecmp)) {
-		                component.set("v.ActiveCmpCount",activecmp.length);
-		                for (var i = 0; i < activecmp.length; i++ ) {
-		                    activecmp[i].PerformInit(component, event);
-		                }
-		            }
-		            else { 
-		                component.set("v.ActiveCmpCount",1);
-		                activecmp.PerformInit(component, event);
-
-		            }
-		        } catch(e){ console.log('no Init routine'); }
-	            }
+					this.InvokeInitRoutines(component, event);
+	           	}
 	        	);
 	        $A.enqueueAction(action);    	
    		}
 	    catch(e) {alert(e.stack);}
+    },
+
+    // This routine will call the init routines of the children that have not already been initialized.
+    InvokeInitRoutines: function(component) {
+		//  At this point, the parent is initialized (or not as the case may be).
+		// Let's call the inner component's init routine
+
+ 		var loadCount = component.get("v.LoadCount");
+		if (loadCount > 6)
+			return;
+		else
+			component.set("v.LoadCount",loadCount+1);
+		
+		var activecmp;
+		if ($A.util.isEmpty(activecmp = this.getActiveCmp(component)))
+			return; 
+
+        //  For each component, let's build an object with some flags for tracking the status (if it doesn't exist)
+        
+        var compFlags;
+        if ($A.util.isEmpty(component.get("v.ComponentFlags"))) {
+        	compFlags = new Map();
+        }
+        else compFlags = component.get("v.ComponentFlags");
+
+
+		var allRoutinesInitialized = true;
+        // if we end up with multiple components to process, then handle it
+        try {
+	        if ($A.util.isArray(activecmp)) {
+	            for (var i = 0; i < activecmp.length; i++ ) {
+	            // if an activecmp instance doesn't exist in the map, we need to add it
+	            	if ($A.util.isEmpty(compFlags.get(activecmp[i].getGlobalId()))) {
+	            		compFlags.set(activecmp[i].getGlobalId(), false);
+	            	}
+	            	allRoutinesInitialized = this.InitializeASubComponent(activecmp[i], compFlags, component, event);
+	            }
+	        }
+	        else { 
+       		//if this activecmp instance doesn't exist in the map, we need to add it
+            	if ($A.util.isEmpty(compFlags.get(activecmp.getGlobalId()))) {
+            		compFlags.set(activecmp.getGlobalId(), false);
+            	}
+	            allRoutinesInitialized = this.InitializeASubComponent(activecmp, compFlags, component, event);
+	      	}
+
+
+       	component.set("v.ComponentFlags", compFlags);
+
+        } catch(e){ console.log('no Init routine'); }
+
+		if (allRoutinesInitialized) {
+			this.spinnerOff(component);
+			component.set("v.MightBeInInit",false);
+		}
+    },
+
+    // common code to get the active component 
+    getActiveCmp: function( component) {
+
+        activecmp = component.find(component.get("v.ActiveCmp")); 
+        if ($A.util.isUndefined(activecmp)) {
+        	var concComponent = component.getConcreteComponent();
+        	activecmp = concComponent.find(component.get("v.ActiveCmp"));
+        }
+        if ($A.util.isUndefined(activecmp)) {
+            try {
+        	activecmp = component.find('stdPageAbs').get("v.body")[0].get("v.value")[0].get("v.body")[0].get("v.value")[0];
+            } catch(e){}
+        }
+
+		return activecmp; 
+ 	},
+
+    // common code to initialize an embedded component
+    InitializeASubComponent: function(componentInstance, compFlags, component, event) {
+
+    // if not initialized, then do so -- If it's set already, just leave.
+		if ($A.util.isEmpty(componentInstance.get("v.isInitComplete")))
+			componentInstance.set("v.isInitComplete",false);
+		else
+       		if (componentInstance.get("v.isInitComplete"))
+       			return true;
+
+		// init in progress flag is in the map.
+		if (compFlags.get(componentInstance.getGlobalId()))
+       			return false;
+
+		// So it doesn't look like we've started or we've completed.  set we're in progress.
+		compFlags.set(componentInstance.getGlobalId(),true);
+		component.set("v.ComponentFlags", compFlags);
+
+	    componentInstance.PerformInit(component, event);
+       	return false;
+
     },
 
     // Here we display the buttons and such for the active component
@@ -90,14 +164,12 @@
 	    	//	Process is to hide the components and then display the one we want to show
 			var NavRecs = component.get("v.Navigation");
 			if ($A.util.isUndefined(component.get( "v.Navigation" ))) {
-				this.spinnerOff(component);
 				return true;
 			}
 			// search for the next component's entry
 			for (var i = 0; i < NavRecs.length && NavRecs[i].MasterLabel.toLowerCase() != activeNavigationCmp.toLowerCase(); i++) ;
 			if (i >= NavRecs.length) {
 				alert('Build Current Component : unable to find next component (' + activeNavigationCmp + ') entry in navigation model');
-		    	this.spinnerOff(component);				
 				return true;
 			}
 
@@ -108,7 +180,9 @@
 			component.set("v.ShowSaveExit", NavRecs[i].ShowSaveExitButton__c);
 			component.set("v.SaveAddLabel", NavRecs[i].SaveAddLabel__c);
 			component.set("v.SkipLabel", NavRecs[i].SkipLabel__c);
-		    this.spinnerOff(component);	
+			if (!$A.util.isEmpty(NavRecs[i].NextLabel__c))
+				component.set("v.NextLabel",NavRecs[i].NextLabel__c);
+			// else default is "Next"
 		    return false;		
 		}
 		catch(e) {
@@ -130,6 +204,7 @@
 	    		switch(nextAction) {
 	    			case "RefreshView" : 
 			    		this.spinnerOff(component);
+			    		// RefreshView is leaving the URL intact - be careful with this.
 			       		$A.get("e.force:refreshView").fire();
 						break;
 		    		case "Exit" : 
@@ -143,6 +218,9 @@
 	    				break;
 	    			case "Prev" : 
 			    		this.prevPage(component, naParms);
+			    		break;
+	    			case "Same" : 
+			    		this.samePage(component, naParms);
 			    		break;
 	    			case "Detail" : 
 			    		this.detailPage(component, naParms);
@@ -243,46 +321,73 @@
 			this.spinnerOff(component);
    		}
     },
+
+    //  This version reads the configuration and turns that into a URL for navigation
+	//  The asumes the ActiveCmp variable and the URL in communities align.
+     samePage: function(component, naParms) {
+    	try {
+  			// because communities use dashes and SF API names use underscores, we'll do a little conversion to convert the API names to page names
+			var nextcmp = this.returnCurrentPage(component);
+			if (!$A.util.isEmpty(nextcmp)) nextcmp = nextcmp.replace(/_/g, "-").toLowerCase();
+
+			var action = $A.get("e.force:navigateToURL");
+			action.setParams({"url": "/" + nextcmp + "?recordId="  + component.get("v.recordId") + naParms});
+			action.fire();    
+
+			}
+		catch(e) {
+			alert(e.stack);
+			this.spinnerOff(component);
+   		}
+    },
  
 	// Based upon the component name specified, application record type, and license type 
 	// Find the next valid page in the navigation model.
 	returnNextValidPage: function(component) {
 
-   		var NavRecs = component.get("v.Navigation");
-		var componentName = component.get("v.ActiveCmp");
-		var activeLT = component.get("v.ActiveLicenseType");
-
-		console.log('ActiveLT - ' + activeLT + ', active component - ' + componentName + ', NavRecs - ' + NavRecs);
-		if ($A.util.isEmpty(NavRecs) ||  $A.util.isEmpty(activeLT) || $A.util.isEmpty(componentName)) {
-			console.log('We do not have the fields necessary to calculate the returnNextValidPage value');
-		}
-		// Find the current page record for the current license and application type
-		for (var i = 0; i < NavRecs.length; i++) {
-			if (NavRecs[i].MasterLabel.toLowerCase() != componentName.toLowerCase()) continue;
-
-			// If this record doesn't work for this license type, then skip it 
-			var validLTList = NavRecs[i].ValidLicenseTypeList__c;
-			if (!$A.util.isEmpty(validLTList) && !this.isMemberOf(validLTList, activeLT)) continue;
-
-			// we have a match on the name.  If no record type, then we're good. This could be a license record.
-			if ($A.util.isEmpty(component.get("v.AppRecordType"))) break;
-
-			// if this entry aligns with the recordtype, then break and use this entry.
-			var rt = component.get("v.AppRecordType");
-			if ($A.util.isEmpty(NavRecs[i].Valid_for_App_Record_Types__c) || this.isMemberOf(NavRecs[i].Valid_for_App_Record_Types__c,rt)) break;
-		}
-
-		if (i >= NavRecs.length) {
-			console.log('returnNextValidPage - unable to find current component (' + componentName + ') in navigation model with LT and Recordtype of ' + component.get("v.ActiveLicenseType") + ' & ' + component.get("v.AppRecordType"));
+  		var navrec = this.returnCurrentNavRec(component, 'returnNextValidPage');
+		if (navrec) 
+			return  navrec.NextCmp__c;
+		else
 			return null;
-		}
-		
-		return  NavRecs[i].NextCmp__c;
 	},
 
 	// Based upon the page/component name specified.  If you can get to the list, then you can get to the detail, so the check is quicker.
 	
 	returnDetailPage: function(component) {
+		var navrec = this.returnCurrentNavRec(component, 'returnDetailPage');
+		if (navrec) 
+			return  navrec.DetailCmp__c;
+		else
+			return null;
+	},
+
+	// Return the name of the current page (based upon the component showing now)
+	returnCurrentPage: function( component) {
+		var navrec = this.returnCurrentNavRec(component, 'returnCurrentPage');
+		if (navrec) 
+			return  navrec.MasterLabel;
+		else
+			return null;
+	},
+
+	// Based upon the component name specified, application record type, and license type 
+	// Find the next valid page in the navigation model.
+	returnPrevValidPage: function(component) {
+
+	
+		// return  NavRecs[i].PrevCmp__c;
+		var navrec = this.returnCurrentNavRec(component, 'returnPrevValidPage');
+		if (navrec) 
+			return  navrec.PrevCmp__c;
+		else
+			return null;
+
+	},
+
+	// Based upon the page/component name specified.  If you can get to the list, then you can get to the detail, so the check is quicker.
+	
+	returnCurrentNavRec: function(component, functionname) {
 
    		var NavRecs = component.get("v.Navigation");
 		var componentName = component.get("v.ActiveCmp");
@@ -290,7 +395,7 @@
 
 		console.log('ActiveLT - ' + activeLT + ', active component - ' + componentName + ', NavRecs - ' + NavRecs);
 		if ($A.util.isEmpty(NavRecs) ||  $A.util.isEmpty(activeLT) || $A.util.isEmpty(componentName)) {
-			console.log('We do not have the fields necessary to calculate the detail page value');
+			console.log('We do not have the fields necessary to calculate the page value to support the function ' + functionname);
 		}
 		// Find the current page record for the current license and application type
 		for (var i = 0; i < NavRecs.length; i++) {
@@ -303,48 +408,13 @@
 
 		// if we hit the end of the loop, we didn't find a match - so just sit here!
 		if (i >= NavRecs.length) {
-			console.log('returnDetailPage - unable to find current component (' + componentName + ') in navigation model with LT and Recordtype of ' + component.get("v.ActiveLicenseType") + ' & ' + component.get("v.AppRecordType"));
+			console.log(functionname + ' - unable to find current component (' + componentName + ') in navigation model with LT and Recordtype of ' + component.get("v.ActiveLicenseType") + ' & ' + component.get("v.AppRecordType"));
 			return null;
 		}
 		
-		return  NavRecs[i].DetailCmp__c;
+		return  NavRecs[i];
 	},
 
-	// Based upon the component name specified, application record type, and license type 
-	// Find the next valid page in the navigation model.
-	returnPrevValidPage: function(component) {
-
-   		var NavRecs = component.get("v.Navigation");
-		var componentName = component.get("v.ActiveCmp");
-		var activeLT = component.get("v.ActiveLicenseType");
-
-		console.log('ActiveLT - ' + activeLT + ', active component - ' + componentName + ', NavRecs - ' + NavRecs);
-		if ($A.util.isEmpty(NavRecs) ||  $A.util.isEmpty(activeLT) || $A.util.isEmpty(componentName)) {
-			console.log('We do not have the fields necessary to calculate the returnPrevValidPage value');
-		}
-		// Find the current page record for the current license and application type
-		for (var i = 0; i < NavRecs.length; i++) {
-			if (NavRecs[i].MasterLabel.toLowerCase() != componentName.toLowerCase()) continue;
-
-			// If this record doesn't work for this license type, then skip it 
-			var validLTList = NavRecs[i].ValidLicenseTypeList__c;
-			if (!$A.util.isEmpty(validLTList) && !this.isMemberOf(validLTList, activeLT)) continue;
-
-			// we have a match on the name.  If no record type, then we're good. This could be a license record.
-			if ($A.util.isEmpty(component.get("v.AppRecordType"))) break;
-
-			// if this entry aligns with the recordtype, then break and use this entry.
-			var rt = component.get("v.AppRecordType");
-			if ($A.util.isEmpty(NavRecs[i].Valid_for_App_Record_Types__c) || this.isMemberOf(NavRecs[i].Valid_for_App_Record_Types__c,rt)) break;
-		}
-
-		if (i >= NavRecs.length) {
-			console.log('returnNextValidPage - unable to find current component (' + componentName + ') in navigation model with LT and Recordtype of ' + component.get("v.ActiveLicenseType") + ' & ' + component.get("v.AppRecordType"));
-			return null;
-		}
-		
-		return  NavRecs[i].PrevCmp__c;
-	},
 	// Determine if entry is in the psudeo multi-select list msl
 	isMemberOf: function(msl, entry) {
 		if (!$A.util.isEmpty(msl) && !$A.util.isEmpty(entry)) {
@@ -384,18 +454,16 @@
 		var spinner = component.find("spinner");    	
 		while ($A.util.isEmpty(spinner) && tryCount-- > 0) {
 		    if (component.isConcrete()) {
-		    	if (!$A.util.isUndefined(component.getSuper().find))
-		    		spinner = component.getSuper().find("spinner");
-		    	else component = component.getConcreteComponent();
+		    	if (!$A.util.isUndefined(component.getSuper()))
+		    		if (!$A.util.isUndefined(component.getSuper().find))
+		    			spinner = component.getSuper().find("spinner");
+		    		else component = component.getConcreteComponent();
 	    	}
     		else
     			component = component.getOwner();
 		}
         if (!$A.util.isEmpty(spinner))
 	        $A.util.addClass(spinner, "slds-hide");
-
-        // var spinner = component.find("spinner");
-        // if ($A.util.isUndefined(spinner)) spinner = component.getSuper().find("spinner");
 
     }, 
     // turn the spinner on (make it visible  by removing the hide class)
@@ -405,9 +473,10 @@
 		var spinner = component.find("spinner");    	
 		while ($A.util.isEmpty(spinner) && tryCount-- > 0) {
 		    if (component.isConcrete()) {
-		    	if (!$A.util.isUndefined(component.getSuper().find))
-		    		spinner = component.getSuper().find("spinner");
-		    	else component = component.getConcreteComponent();		    	
+		    	if (!$A.util.isUndefined(component.getSuper()))
+		    		if (!$A.util.isUndefined(component.getSuper().find))
+		    			spinner = component.getSuper().find("spinner");
+		    		else component = component.getConcreteComponent();		    	
 	    	}
     		else
     			component = component.getOwner();

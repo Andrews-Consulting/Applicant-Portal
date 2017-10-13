@@ -1,0 +1,9 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" controller="DX_MyMap" access="global">
+
+    <ltng:require styles="/resource/leaflet/leaflet.css" />    
+    <ltng:require scripts="/resource/leaflet/leaflet.js"
+             afterScriptsLoaded="{!c.init}" />
+	<aura:attribute name="planes" type="Object[]" />
+    <div class="map" id="map"></div>
+    
+</aura:component>

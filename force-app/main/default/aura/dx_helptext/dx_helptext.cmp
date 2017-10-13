@@ -1,18 +1,40 @@
 <aura:component implements="forceCommunity:availableForAllPageTypes" controller="DX_HelpTextController" access="global" >
-<aura:attribute name="HelpText" type="string" required="false" description="sample" access="global"/>
-<aura:attribute name="StyleWidth" type="string" required="false" access="global"/>
-<aura:attribute name="StyleHeight" type="string" required="false" access="global"/>
 
-<aura:handler name="init" value="{!this}" action="{!c.init}" /> 
+<aura:attribute name="HelpText" type="string" required="false" description="sample" />
+
+<!-- describes the page name or context of this icon.  This is used by the controller to get the help text from SFDC -->
+<aura:attribute name="Context" type="string" required="true" access="global"/>
+<aura:attribute name="Floating" type="boolean" default="true" access="global"/>
+<aura:attribute name="isHelpShowing" type="Boolean" default="false" />
+
+<aura:method name="PerformInit" action="{!c.doInit}" />
 
 <aura:handler event="c:setHelpText" action="{!c.setHelpText}" />
  
 <!-- the css can set the value for the default presentation size -->
-<div id="DefaultPresentation" >
-
-<!-- allow the code to update a new max width and length -->
-		<div style="{! v.StyleWidth + v.StyleHeight}" >
-			<ui:outputRichText value="{!v.HelpText}" />
+<div id="DefaultPresentation" > <!--class="slds-show_medium" -->
+	<div aura:id="HelpIcon" class="HelpTextIconWrapper" onclick="{!c.HelpClick}" >
+		<lightning:icon iconName="action:question_post_action" size="medium" title="Help for this page" class="HelpTextIcon" alternativeText="Provide Help for the current Page" />
+		<div>
+		Need Help?
 		</div>
+	</div>
+
+
+	<div aura:id="HelpText" class="slds-hide" >
+		<section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+		    <div class="slds-modal__container">
+		      <header class="slds-modal__header">
+		        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" onclick="{!c.HelpClick}" title="Close">
+		        <lightning:icon iconName="utility:close" size="small" title="Close" alternativeText="Close Help" />
+		        </button>
+		        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Help</h2>
+		      </header>
+		      <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+		        <ui:outputRichText value="{!v.HelpText}" class="HelpText" />
+		      </div>
+		    </div>
+		  </section>		
+	</div>
 </div>
 </aura:component>

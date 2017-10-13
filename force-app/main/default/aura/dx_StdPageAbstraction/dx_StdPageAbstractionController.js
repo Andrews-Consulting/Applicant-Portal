@@ -14,19 +14,25 @@
         //
         //  queue up the component initialization routines
         //
-        helper.init(component);
+        helper.init(component, event);
         
-
+        
     }, 
 
     //  This is the routine that is called when the button routine tells us that a "save" was invokved.
     //  We need to circle through all of the embedded components and force a save on each
+    //
+    // The component is the abstract class (super) of the stdPageAbstraction.
     saveInvoked: function(component, event, helper) {
         try {
+            var concComponent = component.isConcrete() ? component.getConcreteComponent() : component;
+
+
             component.set("v.showError",false);                 // reset for the save event
             component.set("v.errorMessage","");
             // save away the next action to perform 
             component.set("v.Action",event.getParam("Action"));
+            // var cmp = event.getParam("Component");
 
             // If the save function is disabled (we're in read only mode)
             var disabled = component.get("v.SaveDisabled");
@@ -37,21 +43,14 @@
                 return;
             }
 
+
             // If we're proceeding, we can turn on the spinner.
             helper.spinnerOn(component);
 
-            // We need to find the cmp that  is currently showing and Save the appropriate information ( or call the routine)
-            var activecmp = component.find(component.get("v.ActiveCmp")); 
-
-            if ($A.util.isUndefined(activecmp)) {
-            	var concComponent = component.getConcreteComponent();
-            	activecmp = concComponent.find(component.get("v.ActiveCmp"));
-            }
-            if ($A.util.isUndefined(activecmp)) {
-                //All else fails
-                try {
-            	activecmp = component.find('stdPageAbs').get("v.body")[0].get("v.value")[0].get("v.body")[0].get("v.value")[0];
-                } catch(e){}
+            var activecmp;
+            if ($A.util.isEmpty(activecmp = helper.getActiveCmp(component))) {
+                alert('Internal Error - Unable to find an active component on this page');
+                return; 
             }
 
             // if we end up with multiple components to process, then handle it
@@ -73,6 +72,8 @@
 
     //  This is the routine that is called when the button routine tells us that a "next (without a save)" was invokved.
     nextOnlyInvoked: function(component, event, helper) {
+        var concComponent = component.isConcrete() ? component.getConcreteComponent() : component;
+
         helper.spinnerOff(component);
         component.set("v.showError",false);                 // reset for the save event
         component.set("v.errorMessage","");
@@ -87,10 +88,10 @@
     // Because the inner component can be called before the std page component, we could land on an empty page and need to navigate forward
     EmptyComponent: function(component, event, helper) {
         try {
-        var compCount = component.get("v.ActiveCmpCount");
+            var concComponent = component.isConcrete() ? component.getConcreteComponent() : component;
+            var compCount = component.get("v.ActiveCmpCount");
             if (compCount) {
                 compCount--;
-                component.set("v.ActiveCmpCount",compCount);
                 if (compCount === 0) {
                     helper.spinnerOff(component);
                     if (!component.get("v.DevMode"))        // If we're not in development mode, then we can navigate away....
@@ -105,41 +106,59 @@
     // We need to determine what the next action to take is
     // The choices should be Exit, Next, Prev, and RefreshView.   
     // before we invoked the save, we stored away the next action from the caller.  Now get it back and use it to navigate.
+    //
+    // Component here is a concrete component.
     SaveComplete: function(component, event, helper) {
-        var appId = event.getParam("AppId");
+        try {
+            var concComponent = component.isConcrete() ? component.getConcreteComponent() : component;
 
-        // We should check and see if we should change the context.
-        var cmp = event.getParam("Component");
-    
-        if (!$A.util.isEmpty(appId)) component.set("v.recordId", appId);
-        // If we are told that the routine failed, then we need to preserve the screen.
-        var actionParm = event.getParam("Action"); 
-        if (actionParm && actionParm === "Fail") component.set("v.Action","Fail");
+            var appId = event.getParam("AppId");
+            if (!$A.util.isEmpty(appId)) component.set("v.recordId", appId);
 
-        var compCount = component.get("v.ActiveCmpCount");
-        if (compCount) {
-            compCount--;
-            component.set("v.ActiveCmpCount",compCount);
+            // We should check and see if we should change the context.
+            // var cmp = event.getParam("Component");
 
-            // If we're navigating, we should turn off the spinner first
-            if (compCount === 0) {
-                helper.spinnerOff(component);
-                if (!component.get("v.DevMode"))         // If we're not in development mode, then we can navigate away....
-                    helper.commonNextprocess(component, event, component.get("v.Action"));
+            // If we are told that the routine failed, then we need to preserve the screen.
+            var actionParm = event.getParam("Action"); 
+            if (actionParm && actionParm === "Fail") component.set("v.Action","Fail");
+
+            var compCount = component.get("v.ActiveCmpCount");
+            if (compCount) {
+                compCount--;
+                component.set("v.ActiveCmpCount",compCount);
+                // If we're navigating, we should turn off the spinner first
+                if (compCount === 0) {
+                    helper.spinnerOff(component);
+                    if (!component.get("v.DevMode"))         // If we're not in development mode, then we can navigate away....
+                        helper.commonNextprocess(component, event, component.get("v.Action"));
+                }
             }
-        }
+        } catch(e) {alert (e.stack);}
     }, 
 
     ErrorMsgChanged: function(component, event, helper) {
-        if (!$A.util.isEmpty(component.get("v.errorMessage"))) {
-            var toastEvent = $A.get("e.force:showToast");
-            toastEvent.setParams({
-                "title": "Error",
-                "message": component.get("v.errorMessage")
-            });
-                toastEvent.fire();
-            }
-        },
+        try {
+            if (!$A.util.isEmpty(component.get("v.errorMessage"))) {
+                var toastEvent = $A.get("e.force:showToast");
+                toastEvent.setParams({
+                    "title": "Error",
+                    "message": component.get("v.errorMessage")
+                });
+                    toastEvent.fire();
+                }
+        } catch(e) {alert (e.stack);}
+    },
+
+    // keep this flag current.
+    RecordIdChanged: function(component, event, helper) {
+        try {
+            var recordId = component.get("v.recordId");
+            if (recordId.substr(0,3) == 'a03')
+                component.set("v.RecordIdIsApplication",true);
+            else 
+                component.set("v.RecordIdIsApplication",false);
+        } catch(e) {alert (e.stack);}            
+    },
 
     spinnerOn: function(component, event, helper) {
         // if (!$A.util.isEmpty(event) && !$A.util.isEmpty(event.getParam("Component"))) component = event.getParam("Component");

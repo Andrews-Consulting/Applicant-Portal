@@ -44,7 +44,7 @@
 	            c = c.substring(1);
 	        }
 	        if (c.indexOf(name) == 0) {
-	            if(c.substring(name.length, c.length)!=true)
+	            if(c.substring(name.length, c.length)=='true')
 	            	this.gotoURL(component);
 	        }
 	    }

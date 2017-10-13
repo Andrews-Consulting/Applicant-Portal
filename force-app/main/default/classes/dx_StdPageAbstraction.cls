@@ -4,9 +4,10 @@ public with sharing class dx_StdPageAbstraction {
   public static Navigation_Information getNavigationModel(String objectId) {
 // System.debug('STDPageAbstraction ObjectId ' + objectId);
 
-    list<dx_cmpNavigation__mdt> navRecs = [Select MasterLabel, NextCmp__c, PrevCmp__c, DetailCmp__c, ShowNextButton__c, ShowSaveExitButton__c, 
-    										    ShowExitNoSaveButton__c, ShowSkipButton__c, SkipLabel__c, ShowSaveAddButton__c, SaveAddLabel__c, 
-    										    CmpHome__c, ValidLicenseTypeList__c, Valid_for_App_Record_Types__c from dx_cmpNavigation__mdt];
+    list<dx_cmpNavigation__mdt> tempNavRecs = [Select MasterLabel, NextCmp__c, PrevCmp__c, DetailCmp__c, ShowNextButton__c, ShowSaveExitButton__c, 
+    										    ShowExitNoSaveButton__c, ShowSkipButton__c, ShowSaveAddButton__c, NextLabeL__c, SkipLabel__c, 
+                                                SaveAddLabel__c, CmpHome__c, ValidLicenseTypeList__c, Valid_for_App_Record_Types__c 
+                                                from dx_cmpNavigation__mdt];
 
     String lt = null;
     String recordType = null;
@@ -21,9 +22,6 @@ public with sharing class dx_StdPageAbstraction {
         	    if (app_ltList.size() > 0) {
                     lt = app_ltList[0].Primary_Lic_Type__c;
                     recordType = app_ltList[0].RecordType.Name;
-                    if (recordType == 'New Application' && app_ltList[0].abd_Application_Type__c == 'Add Privilege or License to Existing License')
-                        recordType = 'Add Privilege';
-//                    'Ownership Update';
                 }
             }
             else {      
@@ -43,13 +41,24 @@ public with sharing class dx_StdPageAbstraction {
 	        	    if (app_ltList.size() > 0) {
 	                    lt = app_ltList[0].Primary_Lic_Type__c;
 	                    recordType = app_ltList[0].RecordType.Name;
-                        if (recordType == 'New Application' && app_ltList[0].abd_Application_Type__c == 'Add Privilege or License to Existing License')
-                            recordType = 'Add Privilege';
 	                }
 				}
 				   
             }
         }
+
+        // 
+        // Now that we have the record type name, remove all navigation records that aren't valid for this recordtype.
+        list<dx_cmpNavigation__mdt> navRecs = new list<dx_cmpNavigation__mdt>();
+        if (recordType != null) 
+            for (dx_cmpNavigation__mdt nr: tempNavRecs) {
+                if (nr.Valid_for_App_Record_Types__c == null || nr.Valid_for_App_Record_Types__c.contains(recordType))
+                    navRecs.add(nr);
+            }
+        else
+            navRecs.addAll(tempNavRecs);
+        // System.debug(navRecs);
+
         return new Navigation_Information(lt, navRecs, isApplication, recordType, Site.getBaseUrl());
     }
 

@@ -1,0 +1,1 @@
+trigger DRE2_MUSW_Fee_c on MUSW__Fee__c (after insert, before update, before delete, after undelete) { DRE.DREManager.runTrigger(); }

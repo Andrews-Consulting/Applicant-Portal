@@ -92,7 +92,7 @@
             </apex:outputPanel>
         </apex:pageBlockSection>
         
-        <apex:pageBlockSection title="All Other Violations at {!parcelAddress}" columns="1" collapsible="false" id="pbsOthers" rendered="{!!isBlank(ivParcel) && !CONTAINS($Profile.Name, 'Fire')}">
+      <apex:pageBlockSection title="All Other Violations at {!parcelAddress}" columns="1" collapsible="false" id="pbsOthers" rendered="{!!isBlank(ivParcel) && !CONTAINS($Profile.Name, 'Fire')}">
             <apex:outputText >The following is a list of all other open Violations on this Parcel.</apex:outputText>
             <apex:variable value="{!0}" var="index"/>
             <apex:pageBlockTable value="{!ivParcel}" var="item" rendered="{!ivParcel.size > 0}" id="pbtOthers">
@@ -112,7 +112,7 @@
             </apex:pageBlockTable>
         </apex:pageBlockSection>
     </apex:pageblock>
-    
+ 
     <script>
     function showComments(ordName, fldId, idx) {
         if (ordName.length > 2) {

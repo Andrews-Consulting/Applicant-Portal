@@ -14,13 +14,15 @@ public without sharing class DX_LicenseeForm {
 
         list<Account> a = new list<Account>();
         if (String.valueOf(appId).left(3) == Schema.SObjectType.MUSW__Application2__c.getKeyPrefix()) {
-            a = [Select Id,Name, Phone,Business_Type__c,BillingStreet,BillingCity,BillingState,BillingPostalCode,abd_Corporate_ID_Number__c,abd_Account_Email_Address__c,abd_DBA__c from Account 
-                        where Id in (select MUSW__Account__c from MUSW__Application2__c where ID =: appId)];
+            a = [Select Id,Name, Phone,Business_Type__c,BillingStreet,BillingCity,BillingState,BillingPostalCode,
+                 abd_Corporate_ID_Number__c,abd_Account_Email_Address__c,abd_DBA__c, Website, abd_Twitter__c, abd_Facebook__c
+                 from Account where Id in (select MUSW__Account__c from MUSW__Application2__c where ID =: appId)];
             }
         else 
         if (String.valueOf(appId).left(3) == Schema.SObjectType.MUSW__License2__c.getKeyPrefix()) {
-            a = [Select Id,Name, Phone,Business_Type__c,BillingStreet,BillingCity,BillingState,BillingPostalCode,abd_Corporate_ID_Number__c,abd_Account_Email_Address__c,abd_DBA__c from Account 
-                        where Id in (select MUSW__Primary_Licensee__c from MUSW__License2__c where ID =: appId) limit 1];
+            a = [Select Id,Name, Phone,Business_Type__c,BillingStreet,BillingCity,BillingState,BillingPostalCode,
+                 abd_Corporate_ID_Number__c,abd_Account_Email_Address__c,abd_DBA__c, Website, abd_Twitter__c, abd_Facebook__c
+                 from Account where Id in (select MUSW__Primary_Licensee__c from MUSW__License2__c where ID =: appId) limit 1];
             }
 
 
@@ -40,7 +42,7 @@ public without sharing class DX_LicenseeForm {
         else
             throw new AuraHandledException('No related Licensee (Account) record found for the record Id Provided ' + appId);
     }
-	// get the values from the contact record.  First we have to get the contact record id from the user record of the current user.
+    // get the values from the contact record.  First we have to get the contact record id from the user record of the current user.
     // If we don't get anything back on the first SOQL, then the user is not logged on.  We're going to assume that they timed out, since
     // this should have been executed from an authorized page.
 
@@ -89,7 +91,7 @@ public without sharing class DX_LicenseeForm {
     // Add the -- not answered-- choice as the first value.  If we move to radial buttons, this can all change.
     @AuraEnabled
     public static map<string,string[]> getPicklistValues(Id objectId){
-		map<string,string[]> pickVals = new map<string,string[]>();
+        map<string,string[]> pickVals = new map<string,string[]>();
         string[] options = new string[]{};
         Schema.DescribeFieldResult fieldResult = MUSW__Application2__c.abd_Premise_State__c.getDescribe();
         List<Schema.PicklistEntry> ple = fieldResult.getPicklistValues();
@@ -133,7 +135,7 @@ public without sharing class DX_LicenseeForm {
     public static String upRecordApex(Account licensee,Contact applicant){
         
         try{
-        	update applicant;
+            update applicant;
             update licensee;
         }catch(exception ex){
             throw new AuraHandledException(ex.getMessage());
@@ -152,9 +154,9 @@ public without sharing class DX_LicenseeForm {
             list<MUSW__Application2__c> app =  [Select Id,Name,abd_Other_Criteria__c,abd_Premise_Address__c,abd_Premise_City__c,abd_Premise_State__c,
                 abd_Premise_Zip_Code__c,abd_Premise_County__c,Premises_Type__c,abd_Temporary_or_Permanent__c,
                 abd_Effective_Date__c,abd_Effective_End_Date__c,abd_Local_Authority__c,abd_Square_Footage__c,
-                abd_Outdoor_Service_Area_Boundary_Info__c,Primary_Lic_Type__c,abd_Available_as_temporary_license__c,
-                abd_Outdoor_Service_Endorsement__c,abd_Time_of_Auction_Beginning__c,
-                abd_Time_of_Auction_Ending__c,abd_Use_Mailing__c,abd_DBA__c,abd_Premise_Address_2__c, abd_Local_Authority_Type__c,
+                abd_Outdoor_Service_Area_Boundary_Info__c,Primary_Lic_Type__c,
+                abd_Outdoor_Service_Endorsement__c,abd_Start_Time__c,
+                abd_End_Time__c,abd_Use_Mailing__c,abd_DBA__c,abd_Premise_Address_2__c, abd_Local_Authority_Type__c,
                 CreatedDate, abd_Charity_Business_Type__c, 
                 (select id, abd_License_Type__c from License_Applications__r)
                 from MUSW__Application2__c 

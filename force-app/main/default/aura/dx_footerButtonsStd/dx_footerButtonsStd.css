@@ -6,4 +6,10 @@
     margin-bottom: .25em;
     padding-left: 0em;
     padding-right: 0em;
+  }
+  .THIS .MyFooterButtonColors {
+  	background-color: #ffffff;
+  	color: #000000;
+  	border-color: #000000;
+  	border-width: 1px 3px 3px 1px ;
 }

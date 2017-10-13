@@ -24,33 +24,38 @@ global class DX_SelfRegisterController {
     }
     
     @AuraEnabled
-    public static String selfRegister(String firstname ,String lastname, String email, String password, String confirmPassword, String accountId, String regConfirmUrl, String extraFields, String startUrl, Boolean includePassword) {
+    public static String selfRegister(User user, String password, String confirmPassword, String accountId, String regConfirmUrl, String startUrl, Boolean includePassword) {
         Savepoint sp = null;
         try {
             //for(user u:[Select Id from User where Username=:email])
             sp = Database.setSavepoint();
             
-            if (lastname == null || String.isEmpty(lastname)) {
+            if (user.lastname == null || String.isEmpty(user.lastname)) {
                 return Label.Site.lastname_is_required;
             }
             
-            if (email == null || String.isEmpty(email)) {
+            if (user.email == null || String.isEmpty(user.email)) {
                 return Label.Site.email_is_required;
+            }
+            
+            if (user.phone == null || String.isEmpty(user.phone)) {
+                return 'Please include a valid phone number.';
             }else{
-                for(user u:[Select Id from User where Username=:email]){
+                for(user u:[Select Id from User where Username=:user.email]){
                 	return 'E-mail already has been used to create an account. Lost your password? <a href="dx-forgotpassword" style="color:blue">Click here</a>';    
                 }
-                for(Contact c:[Select Id from Contact where email=:email]){
+                for(Contact c:[Select Id from Contact where email=:user.email]){
                 	return 'E-mail already has been used to create an account. Lost your password? <a href="dx-forgotpassword" style="color:blue">Click here</a>';    
                 }    
             }
             
-            User u = new User();
-            u.Username = email;
-            u.put('Email',email);
+            User u = user;//new User();
+            u.Username = user.email;
+            //u.put('Email',email);
             
-            u.FirstName = firstname;
-            u.LastName = lastname;
+            //u.FirstName = firstname;
+            //u.LastName = lastname;
+            //u.Phone = phone;
             u.abd_StartUrl__c = startUrl;
             startUrl = '/s/dx-legal-disclaimer/';
             
@@ -61,18 +66,18 @@ global class DX_SelfRegisterController {
                 u.put('UserPreferencesHideS1BrowserUI',true);
             }
             
-            String nickname = ((firstname != null && firstname.length() > 0) ? firstname.substring(0,1) : '' ) + lastname.substring(0,1);
+            String nickname = ((user.firstname != null && user.firstname.length() > 0) ? user.firstname.substring(0,1) : '' ) + user.lastname.substring(0,1);
             nickname += String.valueOf(Crypto.getRandomInteger()).substring(1,7);
             u.put('CommunityNickname', nickname);
                      
-            if (extraFields != null) {
+            /*if (extraFields != null) {
                 List<Object> extraFieldsList = (List<Object>) JSON.deserializeUntyped(extraFields);        
                 for (Object thisFieldObject : extraFieldsList) {
                     Map<String,Object> thisField = (Map<String,Object>) thisFieldObject;
                     Schema.SObjectField sof = Schema.SObjectType.User.fields.getMap().get((String) thisField.get('fieldPath'));
                     u.put(sof, thisField.get('value'));
                 }
-            }
+            }*/
                         
             if (includePassword) {    
                 if (!isValidPassword(password, confirmPassword)) {
@@ -92,7 +97,7 @@ global class DX_SelfRegisterController {
             }
             if (userId != null) { 
                 if (password != null && password.length() > 1) {
-                    ApexPages.PageReference lgn = Site.login(email, password, startUrl);
+                    ApexPages.PageReference lgn = Site.login(u.email, password, startUrl);
                     if(!Test.isRunningTest()) {
                     	aura.redirect(lgn);
                     }

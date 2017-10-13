@@ -1,47 +1,69 @@
 ({
+    // Don't preload this - they may never need it.
     init: function(component, event, helper) {
-                console.log("help text controller init function");
-        try{
-        	var action = component.get("c.getHelpText");         // Set the routine to call in the controller
-        	 action.setParams({"keyvalue": "Initial"});		// Hard code for testing.
-            action.setCallback(this, function(response){        // and when it returns, perform ....
-                var rtnValue = response.getReturnValue();       // get the data and validate it, if null show an error
-                if (rtnValue === null) {
-                    component.set("v.HelpText",response.getReturnValue());
-                }else{
-                    component.set("v.HelpText",rtnValue);      // but if it's good, set the applicant value to the result.
-                }
-            });
-    		$A.enqueueAction(action);                           // put this item on the queue to execute.
-        }
-        catch(e) {
-            alert(e);
-        }
      },
 
-    
-    setHelpText: function(component, event, helper) {
-        console.log("help text controller set help text");
-        try{
+    // We need to build a component that lays on the page to show the help.    
+    HelpClick: function(component, event, helper) {
+        try {
 
-            var keyvalue = event.getParam("HelpTextKey");         
+            if ($A.util.isEmpty(component.get("v.isHelpShowing")))
+                component.set("v.isHelpShowing",true);
 
-            var action = component.get("c.getHelpText");         // Set the routine to call in the controller
-            action.setParams({"keyvalue": keyvalue});      // but if it's good, set the applicant value to the result.
-            action.setCallback(this, function(response){        // and when it returns, perform ....
-                var rtnValue = response.getReturnValue();       // get the data and validate it, if null show an error
-                if (rtnValue === null) {
-                    component.set("v.HelpText",response.getReturnValue());
-                }else{
-                    component.set("v.HelpText",rtnValue);      // but if it's good, set the applicant value to the result.
-                }
-            });
+            var cmpIcon = component.find("HelpIcon");
+            var cmpText = component.find("HelpText");
+            var isHelpShowing = component.get("v.isHelpShowing");
 
-            $A.enqueueAction(action);                           // put this item on the queue to execute.
+            if (isHelpShowing) {
+                component.set("v.isHelpShowing",false);                 // set not showing help
+                
+                if (! $A.util.isEmpty(cmpIcon))                         // show the icon
+                    $A.util.removeClass(cmpIcon, "slds-hide");
 
+                if (! $A.util.isEmpty(cmpText))                         // hide the text
+                    $A.util.addClass(cmpText, "slds-hide");
+            }
+            else {
+
+
+                var action = component.get("c.getHelpText"); 
+                action.setParams({"context": component.get("v.Context")}); 
+
+                action.setCallback(this, function(response){
+                    try {
+                        var state = response.getState();
+                        if (state === 'SUCCESS') {
+                            if (! $A.util.isEmpty(response.getReturnValue())) {
+                                component.set("v.isHelpShowing",true);                 // set showing help flag
+                                
+                                if (! $A.util.isEmpty(cmpIcon))                         // hide the icon
+                                    $A.util.addClass(cmpIcon, "slds-hide");
+
+                                if (! $A.util.isEmpty(cmpText))                         // show the text
+                                    $A.util.removeClass(cmpText, "slds-hide");
+
+                                component.set("v.HelpText",response.getReturnValue());
+                            }
+                        }
+                        else {      // error or incomplete comes here
+                            var errors = response.getError();
+                            if (errors) {
+                                for (var erri = 0; erri < errors.length; erri++) {
+                                    component.set("v.errorMessage", component.get("v.errorMessage") + " : " + errors[erri].message );
+                                }
+                                component.set("v.showError",true);
+                            }
+                        }
+                    } catch(e) {
+                        alert(e.stack);
+                    }
+                });
+                $A.enqueueAction(action);                                           // queue the work.
+            }
         }
+        // handle browser errors 
         catch(e) {
-            alert(e); 
+            alert(e.stack);
         }
     }
 })

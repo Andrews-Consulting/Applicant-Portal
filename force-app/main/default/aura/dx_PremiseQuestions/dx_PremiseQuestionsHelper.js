@@ -37,7 +37,7 @@
 
                             if(ltype.includes('BB') || ltype.includes('LC') || ltype.includes('LE') || ltype.includes('BA') || ltype.includes('BAA') || ltype.includes('BAN') || ltype.includes('BAAN') || ltype.includes('WA') || ltype.includes('WAN') || ltype.includes('DS')){
                                 var show = true;
-                                if((ltype.includes('BB') || ltype.includes('LC')) && (!ltype.includes('P-HPBP') && !ltype.includes('P-BP')))
+                                if((ltype.includes('BB') || ltype.includes('LC')) && (!ltype.includes('HPBP') && !ltype.includes('BP')))
                                     show = false;
                                 component.set("v.showBond",show);
                                 if(show){
@@ -47,7 +47,7 @@
                             }
 
                             // show Boat question
-                            if(ltype.includes('LD') && rtnValue.abd_Premises_Vehicle_Type__c==='Boat') {
+                            if(ltype.includes('LD') && rtnValue.abd_Other_Criteria__c==='Boat') {
                                 component.set("v.showLD",true);
                                 noshow = false;
                                 //needPicklistValues = true;
@@ -66,10 +66,7 @@
 
                             // Class A veteran's org and non-profit question
                             if(ltype.includes('LA')) {
-                                if(! $A.util.isEmpty(rtnValue.abd_Veterans_Organization__c))
-                                    noshow = false;
-
-                                if(rtnValue.abd_Veterans_Organization__c=='No')
+                                if(rtnValue.abd_Other_Criteria__c !=='Veteran’s organization open one day per week or 52 days or less per year')
                                     if (! $A.util.isEmpty(rtnValue.abd_Non_profit__c))
                                         if (! $A.util.isEmpty(component.find('nonProf'+rtnValue.abd_Non_profit__c)))
                                             component.find('nonProf'+rtnValue.abd_Non_profit__c).set("v.checked",true);

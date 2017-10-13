@@ -2,7 +2,7 @@
 	doInit: function(component, event, helper) {
 		console.log('Init: AuthorizedAgentList');
 
-        helper.getAgentList(component, event);
+        helper.checkApplication(component, event, helper);
         if (component.get("v.RecordIdIsApplication") !== true) {
         	var newAgentButton = component.find("newAgentButton");
         	if (! $A.util.isEmpty(newAgentButton))

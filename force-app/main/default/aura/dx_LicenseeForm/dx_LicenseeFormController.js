@@ -7,6 +7,7 @@
             helper.CheckRecordId(component, event);
             helper.getAccount(component, event);
             helper.getContact(component, event);
+            helper.getApplication(component, event);
     },
 
     // Save Button code
@@ -38,8 +39,45 @@
 	    helper.hidePopupHelper(component,'backdrop','slds-backdrop--');
 	},
 	zipChange : function(component, event,helper) {
-    	var zip = component.get("v.licensee.BillingPostalCode").substr(0,5);
-    	component.set("v.licensee.BillingPostalCode",zip);        
+    	//var zip = component.get("v.licensee.BillingPostalCode").substr(0,5);
+    	//component.set("v.licensee.BillingPostalCode",zip);
+    	var zip = component.get("v.licensee.BillingPostalCode");
+		var zipLen = zip.length;
+		zipLen = zip.length;
+		if(!isNaN(zip)){
+			switch (zipLen){
+				case 9:
+	    			zip = zip.substring(0,5)+'-'+zip.substring(5);
+	    			break;
+				default:
+					break;
+			}
+		}
+		component.set("v.licensee.BillingPostalCode",zip);        
+	},
+	phoneFormat: function(component, event,helper) {
+		var phoneNum = component.get("v.licensee.Phone");
+		var phoneLen = phoneNum.length;
+		if(!phoneNum.startsWith('+')){
+			if(isNaN(phoneNum.substring(phoneLen-1)) && phoneLen<15)
+    			phoneNum = phoneNum.substring(0,phoneLen-1);
+    		phoneLen = phoneNum.length;
+			switch (phoneLen){
+				case 3:
+					if(!phoneNum.startsWith('('))
+						phoneNum = '('+phoneNum+') ';
+					break;
+				case 9:
+	    			phoneNum+='-';
+	    			break;
+				case 15:
+	    			phoneNum = phoneNum.substring(0,14)+' '+phoneNum.substring(14);
+	    			break;
+				default:
+					break;
+			}
+		}
+		component.set("v.licensee.Phone",phoneNum);
 	}, 
      validateAppPhone: function(component, event,helper) {
         if (!$A.util.isEmpty(component.find("appPhone"))) {

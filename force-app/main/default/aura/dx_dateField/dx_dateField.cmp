@@ -1,0 +1,22 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global">
+	<aura:attribute name="value" type="String" />
+    <aura:attribute name="lclvalue" type="String" /> 
+    <aura:attribute name="lastvalue" type="String" /> 
+    <aura:attribute name="label" type="String" />
+    <aura:attribute name="name" type="String" />
+    <aura:attribute name="labelClass" type="String"  default="slds-form-element__label" />
+    <aura:attribute name="required" type="boolean" default="false"/>
+    <aura:attribute name="disabled" type="boolean"/>
+    <aura:attribute name="lcldisabled" type="boolean" default="false"/>    
+    <aura:attribute name="displayDatePicker" type="boolean" default="true"/>
+    <aura:attribute name="NoValidation" type="Boolean" default="false" />    
+
+    <!-- init routine here is called before the page init has even run --> 
+    <aura:handler name="init" value="{!this}" action="{!c.init}"  />
+
+    <aura:handler name="change" value="{!v.value}" action="{!c.setLclValue}" />
+    <aura:handler name="change" value="{!v.lclvalue}" action="{!c.dateChange}" />
+    <aura:handler name="change" value="{!v.disabled}" action="{!c.setLclDisabled}" />
+
+    <ui:inputDate label="{!v.label}" value="{!v.lclvalue}" disabled="{!v.lcldisabled}" displayDatePicker="{!v.displayDatePicker}" format="MM/dd/yyyy" labelClass="{!v.labelClass}" required="{!v.required}" aura:id="dateField" class="slds-input"/>	 
+</aura:component>

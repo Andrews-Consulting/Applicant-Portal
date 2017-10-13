@@ -12,12 +12,14 @@
 
 	radioChange : function(component, event,helper) {
 		var application = JSON.parse(JSON.stringify(component.get("v.app")));
-		if(event.getSource().get("v.name")=='VO')
-			application.abd_Veterans_Organization__c = event.getSource().get("v.value");
 		if(event.getSource().get("v.name")=='nonProf')
 			application.abd_Non_profit__c = event.getSource().get("v.value");
-		if(event.getSource().get("v.name")=='gas')
-			application.abd_Sell_Gasoline__c = event.getSource().get("v.value");
+		if(event.getSource().get("v.name")=='gas') {
+			if (event.getSource().get("v.value") == 'Yes')
+				application.abd_Other_Criteria__c = 'Sells Gas';
+			else 
+				application.abd_Other_Criteria__c = 'No Gas';
+		}
 		console.log(application);
 		component.set("v.app",application);
 	},

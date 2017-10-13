@@ -13,7 +13,7 @@
                 cmp.set("v.showError",true);      
             }else
             {
-               $A.get("e.force:navigateToURL").setParams({"url": cmp.get("v.shipBeerIntoIA_URL") + "?dLT=" + rtnValue  + "&recordId=0" }).fire();
+               $A.get("e.force:navigateToURL").setParams({"url": cmp.get("v.shipBeerIntoIA_URL") + "?dLT=" + encodeURIComponent(rtnValue)  + "&recordId=0" }).fire();
             }
         });
         $A.enqueueAction(action);  
@@ -37,7 +37,7 @@
                 cmp.set("v.showError",true);      
             }else
             {
-               $A.get("e.force:navigateToURL").setParams({"url": cmp.get("v.shipWineIntoIA_URL") + "?dLT=" + rtnValue  + "&recordId=0" }).fire();
+               $A.get("e.force:navigateToURL").setParams({"url": cmp.get("v.shipWineIntoIA_URL") + "?dLT=" + encodeURIComponent(rtnValue)  + "&recordId=0" }).fire();
             }
         });
         $A.enqueueAction(action);  
@@ -61,7 +61,7 @@
                 cmp.set("v.showError",true);      
             }else
             {
-               $A.get("e.force:navigateToURL").setParams({"url": cmp.get("v.shipSpiritsIntoIA_URL") + "?dLT=" + rtnValue  + "&recordId=0" }).fire();
+               $A.get("e.force:navigateToURL").setParams({"url": cmp.get("v.shipSpiritsIntoIA_URL") + "?dLT=" + encodeURIComponent(rtnValue)  + "&recordId=0" }).fire();
             }
         });
         $A.enqueueAction(action);  
@@ -85,7 +85,7 @@
                 cmp.set("v.showError",true);      
             }else
             {
-               $A.get("e.force:navigateToURL").setParams({"url": cmp.get("v.distillSpiritsAndSampleInIA_URL") + "?dLT=" + rtnValue   + "&recordId=0"}).fire();
+               $A.get("e.force:navigateToURL").setParams({"url": cmp.get("v.distillSpiritsAndSampleInIA_URL") + "?dLT=" + encodeURIComponent(rtnValue)   + "&recordId=0"}).fire();
             }
         });
         $A.enqueueAction(action);  
@@ -109,7 +109,7 @@
                 cmp.set("v.showError",true);      
             }else
             {
-               $A.get("e.force:navigateToURL").setParams({"url": cmp.get("v.distillSpiritsAndSellOutsideIA_URL") + "?dLT=" + rtnValue  + "&recordId=0" }).fire();
+               $A.get("e.force:navigateToURL").setParams({"url": cmp.get("v.distillSpiritsAndSellOutsideIA_URL") + "?dLT=" + encodeURIComponent(rtnValue)  + "&recordId=0" }).fire();
             }
         });
         $A.enqueueAction(action);  
@@ -133,7 +133,7 @@
                 cmp.set("v.showError",true);      
             }else
             {
-               $A.get("e.force:navigateToURL").setParams({"url": cmp.get("v.shipWineToPersonalAddress_URL") + "?dLT=" + rtnValue  + "&recordId=0" }).fire();
+               $A.get("e.force:navigateToURL").setParams({"url": cmp.get("v.shipWineToPersonalAddress_URL") + "?dLT=" + encodeURIComponent(rtnValue)  + "&recordId=0" }).fire();
             }
         });
         $A.enqueueAction(action);  
@@ -157,7 +157,7 @@
                 cmp.set("v.showError",true);      
             }else
             {
-               $A.get("e.force:navigateToURL").setParams({"url": cmp.get("v.promoteLiquorInIA_URL") + "?dLT=" + rtnValue  + "&recordId=0" }).fire();
+               $A.get("e.force:navigateToURL").setParams({"url": cmp.get("v.promoteLiquorInIA_URL") + "?dLT=" + encodeURIComponent(rtnValue)  + "&recordId=0" }).fire();
             }
         });
         $A.enqueueAction(action);  

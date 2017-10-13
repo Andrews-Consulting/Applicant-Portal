@@ -5,8 +5,11 @@
     	console.log('Additional Location Init');
         helper.getLicense(component, event);
         helper.getPicklistValues(component, event);
+        
     },
-
+    countyChange: function(component, event, helper){
+    	helper.getPremiseCity(component);
+    },
     // Save Button code
     save : function(component, event, helper) {
         helper.doUpdate(component, event);
@@ -17,7 +20,7 @@
 		component.set("v.app",application);
 	},
 	zipChange : function(component, event,helper) {
-    	var zip = component.get("v.app.abd_Addl_Loc_Zip_Code__c").substr(0,5);
-    	component.set("v.app.abd_Addl_Loc_Zip_Code__c",zip);        
+    	var zip = component.get("v.app.abd_Premise_Zip_Code__c").substr(0,5);
+    	component.set("v.app.abd_Premise_Zip_Code__c",zip);        
 	}
 })

@@ -22,26 +22,27 @@ public without sharing class DX_CreateNewApplication {
         Map<String, Schema.SObjectField> schemaFieldMap = Schema.SObjectType.MUSW__License2__c.fields.getMap();
         map<string,string> options = new map<string,string>();
         for(string s:schemaFieldMap.keySet()){
-        	Schema.DescribeFieldResult dfr = schemaFieldMap.get(s).getDescribe();
-        	options.put(dfr.getName(),dfr.getInlineHelpText());
+            Schema.DescribeFieldResult dfr = schemaFieldMap.get(s).getDescribe();
+            options.put(dfr.getName(),dfr.getInlineHelpText());
         }
         return options;
     }
     @AuraEnabled
     public static list<Account> getAccounts(){
         try{
-        	list<Account> la = new list<Account>();
-        	la.add(new Account(name='--None--'));
+            list<Account> la = new list<Account>();
+            la.add(new Account(name='--None--'));
             User u = [Select ContactId From User Where Id = :UserInfo.getUserId()];
             if(u.ContactId==null){
-                return null;
+                String msg = 'It does not appear that you are logged on anymore';
+                throw new AuraHandledException(msg);
             }
             for(AccountContactRelation acr:[Select AccountId, Account.Name from AccountContactRelation where ContactId=:u.ContactId and Account.Name!='Registered Users']){
-            	la.add(new Account(Id=acr.AccountId,Name=acr.Account.Name));
+                la.add(new Account(Id=acr.AccountId,Name=acr.Account.Name));
             }
-        	return la;
+            return la;
         }catch(exception e){
-        	return null;
+            throw new AuraHandledException(e.getMessage() + e.getStackTraceString());
         }
     }
     @AuraEnabled
@@ -59,16 +60,16 @@ public without sharing class DX_CreateNewApplication {
     }
     @AuraEnabled
     public static list<abd_Census__c> getPremiseCity(string county){
-    	list<abd_Census__c> temp = new list<abd_Census__c>();
-    	temp.add(new abd_Census__c(name='--None--'));
-       	for(abd_Census__c a:[Select Name,abd_Population__c from abd_Census__c where abd_County__c!=null and abd_County__c includes(:county) and abd_Type__c='City' order by Name]){
-       		temp.add(a);	
-       	} 
-       	return temp;
+        list<abd_Census__c> temp = new list<abd_Census__c>();
+        temp.add(new abd_Census__c(name='--None--'));
+        for(abd_Census__c a:[Select Name,abd_Population__c from abd_Census__c where abd_County__c!=null and abd_County__c includes(:county) and abd_Type__c='City' order by Name]){
+            temp.add(a);    
+        } 
+        return temp;
     }
-	@AuraEnabled
+    @AuraEnabled
     public static map<string,string[]> getPicklistValues(){
-		map<string,string[]> pickVals = new map<string,string[]>();
+        map<string,string[]> pickVals = new map<string,string[]>();
         string[] options = new string[]{};
         Schema.DescribeFieldResult fieldResult = MUSW__Application2__c.abd_Premise_County__c.getDescribe();
         List<Schema.PicklistEntry>ple = fieldResult.getPicklistValues();
@@ -127,16 +128,16 @@ public without sharing class DX_CreateNewApplication {
                 throw new AuraHandledException ('It looks like you are no longer logged in to the system.  Unable to save the information');
                 return null;
             }
-			LicenseTypes lTypes = (LicenseTypes) JSON.deserializeStrict(lts,LicenseTypes.class);
+            LicenseTypes lTypes = (LicenseTypes) JSON.deserializeStrict(lts,LicenseTypes.class);
             User u2 = [Select ID from user Where username = :ACCOUNTOWNER];
             Account a;
             try{
-            	a = new Account(Id=license.MUSW__Primary_Licensee__c);
+                a = new Account(Id=license.MUSW__Primary_Licensee__c);
             }catch(exception e){}
             if(a==null){
-            	a = new Account(Name=license.abd_Business_Name__c,MUSW__Person_Account__c=false, Ownerid=u2.id, Type='Licensee');
-            	insert a;
-            	license.MUSW__Primary_Licensee__c=a.Id;
+                a = new Account(Name=license.abd_Business_Name__c,MUSW__Person_Account__c=false, Ownerid=u2.id, Type='Licensee');
+                insert a;
+                license.MUSW__Primary_Licensee__c=a.Id;
             }
             Contact c = new Contact(Id=u.Contactid,AccountId = a.Id,MUSW__Account_Relationship__c='Applicant');
             update c;
@@ -145,13 +146,13 @@ public without sharing class DX_CreateNewApplication {
             llt.addAll(lTypes.included);
             list<MUSW__License2__c> licenses = new list<MUSW__License2__c>();
            for(LicenseType lt:llt){
-            	if(lt.selected){
-	            	MUSW__License2__c lic = license.clone(false,false,false,false);
-	            	lic.abd_LicenseType__c = lt.ltype.Id;
-	            	lic.MUSW__Class__c = lt.ltype.abd_Class__c;
-	            	lic.abd_License_Type__c = lt.ltype.abd_License_Type__c;
-	            	licenses.add(lic);
-            	}   
+                if(lt.selected){
+                    MUSW__License2__c lic = license.clone(false,false,false,false);
+                    // lic.abd_LicenseType__c = lt.ltype.Id;
+                    lic.MUSW__Class__c = lt.ltype.abd_Class__c;
+                    lic.abd_License_Type__c = lt.ltype.abd_License_Type__c;
+                    licenses.add(lic);
+                }   
             }
             license.MUSW__Applicant__c=c.Id;
             license.name='System Number';
@@ -160,19 +161,19 @@ public without sharing class DX_CreateNewApplication {
             insert licenses;
             // if (lTypes.primary.abd_License_Type__c == 'CP') 
             //MUSW__Application2__c app = new MUSW__Application2__c(abd_Application_Type__c ='New License',MUSW__Account__c=a.Id,MUSW__Applicant__c=c.Id,name='System Number',MUSW__Status__c='Pending',abd_Primary_License__c=license.Id, abd_Length__c=license.abd_Length__c);
-        	app.abd_Application_Type__c ='New License';
-        	if(app.abd_Premise_County__c != null)
-        		app.abd_Premise_State__c='IA';
+            app.abd_Application_Type__c ='New License';
+            if(app.abd_Premise_County__c != null)
+                app.abd_Premise_State__c='IA';
             app.abd_Business_Name__c = license.abd_Business_Name__c;
-        	app.MUSW__Account__c=a.Id;
-        	app.MUSW__Applicant__c=c.Id;
-        	app.abd_Primary_Contact__c=c.Id;
-        	app.name='System Number';
-        	app.MUSW__Status__c='Pending';
-        	app.abd_Primary_License__c=license.Id;
-        	app.abd_Length__c=license.abd_Length__c;
-        	app.abd_Portal_Processed__c = true;
-        	app.abd_Effective_Date__c = license.abd_Effective_Date__c;
+            app.MUSW__Account__c=a.Id;
+            app.MUSW__Applicant__c=c.Id;
+            app.abd_Primary_Contact__c=c.Id;
+            app.name='System Number';
+            app.MUSW__Status__c='Pending';
+            app.abd_Primary_License__c=license.Id;
+            app.abd_Length__c=license.abd_Length__c;
+            app.abd_Portal_Processed__c = true;
+            app.abd_Effective_Date__c = license.abd_Effective_Date__c;
 
             list<abd_License_Types__c> lTypeForStateCheck = [Select Id, StateIsLocalAuthority__c from abd_License_Types__c where abd_License_Type__c = :lTypes.primary.abd_License_Type__c limit 1];
             
@@ -186,29 +187,27 @@ public without sharing class DX_CreateNewApplication {
             else
                 app.RecordTypeID = Schema.SObjectType.MUSW__Application2__c.getRecordTypeInfosByName().get('New Application').getRecordTypeId();
 
-        	// string other = '';
-        	// if(app.abd_Other_Criteria__c =='Yes')
-        	// 	other = 'Veteran’s organization open one day per week or 52 days or less per year';
-        	// if(app.abd_More_Than_250_Members__c!=null)
-        	// 	other = (app.abd_More_Than_250_Members__c=='Yes')?'Club has more than 250 members':'Club has less than 250 members';
-        	// if(app.abd_Sell_Gasoline__c!=null)
-        	// 	other = (app.abd_Sell_Gasoline__c=='Yes')?'Sells Gas':'No Gas';
-        	// if(app.abd_Premises_Vehicle_Type__c!=null && app.abd_Premises_Vehicle_Type__c!='')
-        	// 	other = app.abd_Premises_Vehicle_Type__c;
-        	// if(other!='')
-        	// 	app.abd_Other_Criteria__c = other;
-        	insert app;
+            // string other = '';
+            // if(app.abd_Other_Criteria__c =='Yes')
+            //  other = 'Veteran’s organization open one day per week or 52 days or less per year';
+            // if(app.abd_More_Than_250_Members__c!=null)
+            //  other = (app.abd_More_Than_250_Members__c=='Yes')?'Club has more than 250 members':'Club has less than 250 members';
+            // if(app.abd_Premises_Vehicle_Type__c!=null && app.abd_Premises_Vehicle_Type__c!='')
+            //  other = app.abd_Premises_Vehicle_Type__c;
+            // if(other!='')
+            //  app.abd_Other_Criteria__c = other;
+            insert app;
             list<abd_License_Application__c> lla = new list<abd_License_Application__c>();
             lla.add(new abd_License_Application__c(abd_Application__c=app.Id,abd_License__c=license.Id,abd_Primary_License__c=true,abd_Portal_Processed__c = true));
             for(MUSW__License2__c l:licenses){
-            	lla.add(new abd_License_Application__c(abd_Application__c=app.Id,abd_License__c=l.Id,abd_Primary_License__c=false,abd_Portal_Processed__c = true));
+                lla.add(new abd_License_Application__c(abd_Application__c=app.Id,abd_License__c=l.Id,abd_Primary_License__c=false,abd_Portal_Processed__c = true));
             }
             insert lla;
             return 'SUCCESS: ' + String.valueOf(app.Id);
         }catch (Exception ex) {
-        	system.debug(ex.getMessage());
+            system.debug(ex.getMessage());
             Database.rollback(sp);
-        	throw new AuraHandledException (ex.getMessage());
+            throw new AuraHandledException (ex.getMessage());
         }
     }
 
@@ -220,43 +219,43 @@ public without sharing class DX_CreateNewApplication {
         try {
             update app;
         } catch(Exception ex) { 
-            throw new AuraHandledException(ex.getStackTraceString()); 
+            throw new AuraHandledException(ex.getMessage() + ex.getStackTraceString()); 
         }
 
     }
-	
-	@AuraEnabled
+    
+    @AuraEnabled
     public static LicenseTypes getAddons(MUSW__License2__c license){
         
         try{
-        	abd_License_Types__c primary = new abd_License_Types__c();
-        	map<string,abd_License_Types__c> lmap = new map<string,abd_License_Types__c>();
+            abd_License_Types__c primary = new abd_License_Types__c();
+            map<string,abd_License_Types__c> lmap = new map<string,abd_License_Types__c>();
             for(abd_License_Types__c ltype:[Select Id,abd_Class__c,abd_License_Type__c,Included_Add_On_Privileges__c, Included_Not_12Mo_Add_Ons_Privileges__c, Mandatory_Add_On_Privileges__c,
-            								Optional_12Mo_Add_Ons_Privileges__c,Optional_Not_12Mo_Add_Ons_Privileges__c,Optional_Add_On_Privileges__c,
-            								Available_Term_Lengths__c, PremisesMustBeIowa__c, Does_Not_Allow__c
-            								from abd_License_Types__c where Available_Term_Lengths__c includes(:license.abd_Length__c)]){
-            	lmap.put(ltype.abd_License_Type__c,ltype);
-            	if(license.MUSW__Class__c==ltype.abd_Class__c)
-            		primary = ltype;   
+                                            Optional_12Mo_Add_Ons_Privileges__c,Optional_Not_12Mo_Add_Ons_Privileges__c,Optional_Add_On_Privileges__c,
+                                            Available_Term_Lengths__c, PremisesMustBeIowa__c, Does_Not_Allow__c
+                                            from abd_License_Types__c where Available_Term_Lengths__c includes(:license.abd_Length__c)]){
+                lmap.put(ltype.abd_License_Type__c,ltype);
+                if(license.MUSW__Class__c==ltype.abd_Class__c)
+                    primary = ltype;   
             }
             LicenseTypes lts = new LicenseTypes(primary);
             string opt = primary.Optional_Add_On_Privileges__c;
             if(license.abd_Length__c=='12 months'){
-            	opt+=(';'+primary.Optional_12Mo_Add_Ons_Privileges__c);	
+                opt+=(';'+primary.Optional_12Mo_Add_Ons_Privileges__c); 
             }else{
-            	opt+=(';'+primary.Optional_Not_12Mo_Add_Ons_Privileges__c);
+                opt+=(';'+primary.Optional_Not_12Mo_Add_Ons_Privileges__c);
             }
             if(opt!=null){
-	            for(string s:opt.split(';')){
-	            	if(s!='' && lmap.containsKey(s))
-	            		lts.optional.add(new LicenseType(false,false,lmap.get(s)));	
-	            }
+                for(string s:opt.split(';')){
+                    if(s!='' && lmap.containsKey(s))
+                        lts.optional.add(new LicenseType(false,false,lmap.get(s))); 
+                }
             }
             if(primary.Included_Add_On_Privileges__c!=null){
-	            for(string s:primary.Included_Add_On_Privileges__c.split(';')){
-	            	if(s!='' && lmap.containsKey(s))
-	            		lts.included.add(new LicenseType(true,false,lmap.get(s)));	
-	            }
+                for(string s:primary.Included_Add_On_Privileges__c.split(';')){
+                    if(s!='' && lmap.containsKey(s))
+                        lts.included.add(new LicenseType(true,false,lmap.get(s)));  
+                }
             }
             if (primary.Included_Not_12Mo_Add_Ons_Privileges__c != null && (license.abd_Length__c !='12 months')) {
              for(string s:primary.Included_Not_12Mo_Add_Ons_Privileges__c.split(';')){
@@ -266,14 +265,14 @@ public without sharing class DX_CreateNewApplication {
             }
 
             if(primary.Mandatory_Add_On_Privileges__c!=null){
-	            for(string s:primary.Mandatory_Add_On_Privileges__c.split(';')){
-	            	if(s!='' && lmap.containsKey(s))
-	            		lts.included.add(new LicenseType(true,true,lmap.get(s)));	
-	            }
+                for(string s:primary.Mandatory_Add_On_Privileges__c.split(';')){
+                    if(s!='' && lmap.containsKey(s))
+                        lts.included.add(new LicenseType(true,true,lmap.get(s)));   
+                }
             }
             return lts;
         }catch (Exception ex) {
-        	return new LicenseTypes(string.valueOf(ex.getLineNumber())+' '+ex.getMessage());
+            return new LicenseTypes(string.valueOf(ex.getLineNumber())+' '+ex.getMessage());
         }
     }
      
@@ -357,7 +356,7 @@ public without sharing class DX_CreateNewApplication {
             }
             return lts;
         }catch (Exception ex) {
-            throw new AuraHandledException (ex.getStackTraceString());
+            throw new AuraHandledException (ex.getMessage() + ex.getStackTraceString());
         }
     }
 
@@ -365,19 +364,19 @@ public without sharing class DX_CreateNewApplication {
 
     @AuraEnabled
     public static string getFeeSchedule(string appInfo){
-    	
-    	ApplicationInfo ai = (ApplicationInfo) JSON.deserializeStrict(appInfo,ApplicationInfo.class);
-    	//map<string,FeeSchedule> fsMap = new map<string,FeeSchedule>();
-    	map<string,map<string,decimal>> msmsd = new map<string,map<string,decimal>>();
-    	list<abd_Fee_Schedule_Global__c> lfs = new list<abd_Fee_Schedule_Global__c>();
-    	boolean sunday = ai.selectedLicenseTypes.contains('P-SS');
-    	list<String> lTypes = ai.selectedLicenseTypes.trim().split('[ ]+');
+        
+        ApplicationInfo ai = (ApplicationInfo) JSON.deserializeStrict(appInfo,ApplicationInfo.class);
+        //map<string,FeeSchedule> fsMap = new map<string,FeeSchedule>();
+        map<string,map<string,decimal>> msmsd = new map<string,map<string,decimal>>();
+        list<abd_Fee_Schedule_Global__c> lfs = new list<abd_Fee_Schedule_Global__c>();
+        boolean sunday = ai.selectedLicenseTypes.contains('SS');
+        list<String> lTypes = ai.selectedLicenseTypes.trim().split('[ ]+');
 
 System.debug('ltypes - ' + lTypes + ' source = :' + ai.selectedLicenseTypes + ':');    
 
-    	string primary = lTypes[0];
+        string primary = lTypes[0];
 
-    	// base query
+        // base query
         String lowValueQuery = 'Select Name, abd_Total_Fees__c,Other_Criteria__c,abd_Sunday_Fees__c,abd_License_Type__c from abd_Fee_Schedule_Global__c where abd_Active__c=true ';
         // String highValueQuery = 'Select Name, abd_Total_Fees__c,Other_Criteria__c,abd_Sunday_Fees__c,abd_License_Type__c from abd_Fee_Schedule_Global__c where abd_Active__c=true '; 
 
@@ -426,150 +425,134 @@ System.debug('ltypes - ' + lTypes + ' source = :' + ai.selectedLicenseTypes + ':
 
         System.debug('low side Query');
         system.debug(lowValueQuery);
+        // Calculate fee with current selections.
         Decimal ls_Fee = 0;
-        // Calculate Low Side
         for(abd_Fee_Schedule_Global__c ls:Database.query(lowValueQuery)) {
             System.Debug(ls);
             ls_Fee += ls.abd_Total_Fees__c;
         }
 
-    	string retStr = 'Amount with selections:'+String.valueOf(ls_Fee);  //+ ' HS:' +String.valueOf(hs_Fee);
-    	return retStr;
+        string retStr = String.valueOf(ls_Fee); 
+        return retStr;
     }
     
     @AuraEnabled
     public static boolean isEligible(string AccountId,string LicenseTypes){
-    	// boolean found = false;
-    	// string retString = 'You are ineligible for applying for the following Licenses for this term: ';
-    	if(LicenseTypes!=null && LicenseTypes!=''){
-	    	string[] ltypes = LicenseTypes.split(' ');
+        // boolean found = false;
+        // string retString = 'You are ineligible for applying for the following Licenses for this term: ';
+        if(LicenseTypes!=null && LicenseTypes!=''){
+            string[] ltypes = LicenseTypes.split(' ');
             list<MUSW__License2__c> ll = [Select MUSW__Class__c From MUSW__License2__c where MUSW__Primary_Licensee__c=:AccountId 
                                     and License_Makes_Owner_Ineligible__c=true and abd_License_Type__c IN:ltypes];
             if (ll.size() > 0)
                 return false;
         }
-	   //  	for(MUSW__License2__c l:[Select MUSW__Class__c From MUSW__License2__c where MUSW__Primary_Licensee__c=:AccountId 
-	   //  							and License_Makes_Owner_Ineligible__c=true and abd_License_Type__c IN:ltypes]){
-	   //  		if(found)
-	   //  			retString+=', '	;
-				// retString+=l.MUSW__Class__c;
-				// found=true;				
-	    //     }
+       //   for(MUSW__License2__c l:[Select MUSW__Class__c From MUSW__License2__c where MUSW__Primary_Licensee__c=:AccountId 
+       //                           and License_Makes_Owner_Ineligible__c=true and abd_License_Type__c IN:ltypes]){
+       //       if(found)
+       //           retString+=', ' ;
+                // retString+=l.MUSW__Class__c;
+                // found=true;              
+        //     }
         // }
-    	// if(found)
-    	// 	return retString;
-    	return true;
-    }
-    //Methods for dx_CreateRenewalApplication
-    @AuraEnabled
-    public static string createRenewalApp(Id licenseId){
-        Savepoint sp = Database.setSavepoint();
-        try{
-            Id devRecordTypeId = Schema.SObjectType.MUSW__Application2__c.getRecordTypeInfosByName().get('Renewal Application').getRecordTypeId();
-            MUSW__Application2__c app = new MUSW__Application2__c(abd_Application_Type__c ='License Renewal',recordTypeId=devRecordTypeId,abd_Primary_License__c=licenseId,name='System Number',MUSW__Status__c='Pending',abd_Portal_Processed__c = true);
-        	insert app;
-            
-            return String.valueOf(app.Id);
-        }catch (Exception ex) {
-        	system.debug(ex.getMessage());
-            Database.rollback(sp);
-        	throw new AuraHandledException (ex.getStackTraceString());
-        }
+        // if(found)
+        //  return retString;
+        return true;
     }
 
     // This is the stucture to define the possible, categorized licenses types to list on the portal screen.
     public class LicenseTypes{
-		
-		public LicenseTypes(abd_License_Types__c primary){
-			this.primary = primary;
-			this.optional = new list<LicenseType>();
-			this.included = new list<LicenseType>();
-			
-		}
-		public LicenseTypes(string err){
-			this.error = err;
-		}
-		
-		@AuraEnabled
-		public string error{get;set;}
-		
-		@AuraEnabled
-		public abd_License_Types__c primary{get;set;}
-		
-		@AuraEnabled
-		public list<LicenseType> optional{get;set;}
-		
-		@AuraEnabled
-		public list<LicenseType> included{get;set;}
-	}
-	
+        
+        public LicenseTypes(abd_License_Types__c primary){
+            this.primary = primary;
+            this.optional = new list<LicenseType>();
+            this.included = new list<LicenseType>();
+            
+        }
+        public LicenseTypes(string err){
+            this.error = err;
+        }
+        
+        @AuraEnabled
+        public string error{get;set;}
+        
+        @AuraEnabled
+        public abd_License_Types__c primary{get;set;}
+        
+        @AuraEnabled
+        public list<LicenseType> optional{get;set;}
+        
+        @AuraEnabled
+        public list<LicenseType> included{get;set;}
+    }
+    
 
     // Here is the structure to define the license types within a single category (such as included vs optional)
-	public class LicenseType{
-		
-		public LicenseType(boolean selected, boolean hidden, abd_License_Types__c lt){
-		
-			this.selected = selected;        // Indicator to include this license.
-			this.hidden = hidden;        // 
-			this.ltype = lt;
-		}
-		
-		@AuraEnabled
-		public boolean selected {get;set;}
-		
-		@AuraEnabled
-		public boolean hidden {get;set;}
-		
-		@AuraEnabled
-		public abd_License_Types__c ltype{get;set;}
-	}
-	
-	public class LicenseTypeOption{
-		
-		public LicenseTypeOption(abd_License_Types__c lt){
-		
-			this.name = lt.abd_Class__c;
-			this.ltype = lt.abd_License_Type__c;
+    public class LicenseType{
+        
+        public LicenseType(boolean selected, boolean hidden, abd_License_Types__c lt){
+        
+            this.selected = selected;        // Indicator to include this license.
+            this.hidden = hidden;        // 
+            this.ltype = lt;
+        }
+        
+        @AuraEnabled
+        public boolean selected {get;set;}
+        
+        @AuraEnabled
+        public boolean hidden {get;set;}
+        
+        @AuraEnabled
+        public abd_License_Types__c ltype{get;set;}
+    }
+    
+    public class LicenseTypeOption{
+        
+        public LicenseTypeOption(abd_License_Types__c lt){
+        
+            this.name = lt.abd_Class__c;
+            this.ltype = lt.abd_License_Type__c;
             this.stateIsLocalAuthority = lt.StateIsLocalAuthority__c;
             this.has68MonthRestriction = lt.has68MonthRestriction__c;
             this.premisesMustBeIowa = lt.PremisesMustBeIowa__c;
-			this.lengths = new string[]{};
+            this.lengths = new string[]{};
             this.doesNotAllowTypes = lt.Does_Not_Allow__c;
-			if(name != NONE && lt.Available_Term_Lengths__c.split(';').size() > 1)
-				lengths.add(NONE);
-			for(string s:lt.Available_Term_Lengths__c.split(';')){
-				lengths.add(s);
-			}
-			system.debug(lengths);
-		}
-		
-		@AuraEnabled public string name {get;set;}
-		@AuraEnabled public string ltype {get;set;}
-		@AuraEnabled public string[] lengths {get;set;}
+            if(name != NONE && lt.Available_Term_Lengths__c.split(';').size() > 1)
+                lengths.add(NONE);
+            for(string s:lt.Available_Term_Lengths__c.split(';')){
+                lengths.add(s);
+            }
+            system.debug(lengths);
+        }
+        
+        @AuraEnabled public string name {get;set;}
+        @AuraEnabled public string ltype {get;set;}
+        @AuraEnabled public string[] lengths {get;set;}
         @AuraEnabled public Boolean stateIsLocalAuthority {get;set;}
         @AuraEnabled public Boolean has68MonthRestriction {get;set;}
         @AuraEnabled public Boolean premisesMustBeIowa {get;set;}
-		@AuraEnabled public string doesNotAllowTypes {get;set;}
-	}
-	
-	public class ApplicationInfo{
-		
-		public ApplicationInfo(){}
-		
-		@AuraEnabled
-		public string selectedLicenseTypes{get;set;}
-		
-		@AuraEnabled
-		public string length{get;set;}
-		
-		@AuraEnabled
-		public decimal population{get;set;}
-		
-		@AuraEnabled
-		public decimal sqFt{get;set;}
+        @AuraEnabled public string doesNotAllowTypes {get;set;}
+    }
+    
+    public class ApplicationInfo{
+        
+        public ApplicationInfo(){}
+        
+        @AuraEnabled
+        public string selectedLicenseTypes{get;set;}
+        
+        @AuraEnabled
+        public string length{get;set;}
+        
+        @AuraEnabled
+        public decimal population{get;set;}
+        
+        @AuraEnabled
+        public decimal sqFt{get;set;}
 
         @AuraEnabled
         public string otherCriteria{get;set;}
-	}
-	
+    }
+    
  }

@@ -7,6 +7,7 @@
 	<aura:attribute name="ShowSaveAdd" type="Boolean" description="Show Save and Add another button" default="false"/>
 	<aura:attribute name="SkipLabel" type="String" description="Label of the Skip button" />
 	<aura:attribute name="SaveAddLabel" type="String" description="Label of the Save and Add another"/>
+    <aura:attribute name="NextLabel" type="String" description="Label of the Save and Add another" default="Next"/>
 
     <aura:attribute name="showError" type="Boolean" access="public"/>
     <aura:attribute name="errorMessage" type="String"  access="public"/>
@@ -17,11 +18,15 @@
 	<aura:attribute name="Action" type="String" description="Next Action to perform"   />
 	<aura:attribute name="Navigation" type="dx_cmpNavigation__mdt[]" description="Holds the navigation information" />
 	<aura:attribute name="ActiveCmp" type="String" description="Active component Name" />
-	<aura:attribute name="ActiveCmpCount" type="Integer" description="Nmber of Active components" />
+	<aura:attribute name="ActiveCmpCount" type="Integer" description="Nmber of Active components" default="0" />
 	<aura:attribute name="ActiveLicenseType" type="String" description="Active LicenseType - used to facilitate navigation" />
     <aura:attribute name="AppRecordType" type="String" description="Application Record Type - used to facilitate navigation" />    
     <aura:attribute name="SitePrefix" type="String" description="Site Prefix in case anyone needs it" />    
-    
+    <aura:attribute name="LoadCount" type="Integer" description="temp var to prevent infinite loops" default="0" />
+    <aura:attribute name="MightBeInInit" type="Boolean" description="" default="true" />
+    <aura:attribute name="ComponentFlags" type="Object" description="Holds a nubmer of internal flags"/>
+
+    <aura:attribute name="InitCompleteTriggerFlag" type="Boolean" description="Just a field that is updated to force the re-render to fire"/>
 
     <aura:attribute name="DevRecordId" type="String" description="Development Record Id" default="" />
     <aura:attribute name="DevMode" type="Boolean" description="Development mode flag" default="false" />
@@ -36,25 +41,28 @@
     <aura:handler name="CommitChange" event="c:dx_actionComplete" action="{!c.saveInvoked}" />    
     <aura:handler name="NextOnlyEvent" event="c:dx_actionComplete" action="{!c.nextOnlyInvoked}" />
     <aura:handler name="change" value="{!v.errorMessage}" action="{!c.ErrorMsgChanged}"/>
+    <aura:handler name="change" value="{!v.recordId}" action="{!c.RecordIdChanged}"/>
 
+  	<div class="slds-grid slds-wrap">
 
-  	<div>
-
-  	  	<div class="dx_StatusBarAppSummary" >
+  	  	<div class="dx_StatusBarAppSummary slds-col slds-size--1-of-1" >
     		<c:dx_StatusBarAppSummary aura:id="dx_StatusBarAppSummary" recordId="{!v.recordId}" />
     	</div>
 
 		<aura:If isTrue="{!v.showError}">
-            <div id="error" >
+            <div id="error" class="slds-col slds-size--1-of-1" >
                 <ui:outputRichText value="{!v.errorMessage}" />
             </div>
         </aura:If>
         
-		<div aura:id="stdPageAbs" class="stdPageAbs">{!v.body}</div>
+        <div aura:id="reserved1"  class="noMpbile slds-col slds-size_1-of-12" />
+		<div aura:id="stdPageAbs" class="stdPageAbs slds-col slds-size_10-of-12">{!v.body}</div>
+        <div aura:id="stdHelpSection" class="noMpbile slds-col slds-size_1-of-12" >
+            <c:dx_helptext Context="{!v.ActiveCmp}" Floating="true" /> 
+        </div>
 
-
-		<div  >
-    	   <c:dx_footerButtonsStd ShowNext="{!v.ShowNext}" ShowExitNoSave="{!v.ShowExitNoSave}" ShowSaveExit="{!v.ShowSaveExit}" ShowSkip="{!v.ShowSkip}" ShowSaveAdd="{!v.ShowSaveAdd}" SkipLabel="{!v.SkipLabel}" SaveAddLabel="{!v.SaveAddLabel}" dx_SaveInvoked="{!c.saveInvoked}" dx_NextOnlyInvoked="{!c.nextOnlyInvoked}" />  
+		<div class="slds-col slds-size--1-of-1" >
+    	   <c:dx_footerButtonsStd ShowNext="{!v.ShowNext}" ShowExitNoSave="{!v.ShowExitNoSave}" ShowSaveExit="{!v.ShowSaveExit}" ShowSkip="{!v.ShowSkip}" ShowSaveAdd="{!v.ShowSaveAdd}" SkipLabel="{!v.SkipLabel}" SaveAddLabel="{!v.SaveAddLabel}"  NextLabel="{!v.NextLabel}" dx_SaveInvoked="{!c.saveInvoked}" dx_NextOnlyInvoked="{!c.nextOnlyInvoked}" />  
     	</div>
 
         <div class="slds-spinner_container slds-hide slds-is-fixed" aura:id="spinner">

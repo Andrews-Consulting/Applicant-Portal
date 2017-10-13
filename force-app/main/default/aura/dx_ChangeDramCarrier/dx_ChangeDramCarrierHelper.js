@@ -13,6 +13,7 @@ getApplication: function(component, event){
                     if (state === 'SUCCESS') {
                         var noshow = true;                      // flag for if nothing is shown.
                         component.set("v.app",response.getReturnValue());       // get the data 
+                        component.set("v.isInitComplete",true);
                     }
                     else {      // error or incomplete comes here
                         var errors = response.getError();

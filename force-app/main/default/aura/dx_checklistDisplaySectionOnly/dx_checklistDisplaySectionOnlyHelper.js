@@ -20,6 +20,7 @@
                         });
                         nextAction.fire();
                     }
+                    component.set("v.isInitComplete",true);     // flag initialization is all done
                 } else { // error or incomplete comes here
                     var errors = response.getError();
                     if (errors) {

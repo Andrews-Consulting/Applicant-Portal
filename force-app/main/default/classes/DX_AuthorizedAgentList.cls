@@ -17,6 +17,21 @@ public without sharing class DX_AuthorizedAgentList {
     // ID might be a license id (BTW)
     
     @AuraEnabled
+	public static boolean checkApplication(Id appId){
+		list<MUSW__Application2__c> app = [Select Id,(select id, abd_License_Type__c from License_Applications__r) from MUSW__Application2__c where Id=:appId];
+		set<string> ss = new set<string>{'CB', 'CV', 'SP'};	 
+		if (app.size() > 0) {
+			for(abd_License_Application__c la:app[0].License_Applications__r){
+				if(la.abd_License_Type__c=='SP')
+					return true;
+				if(ss.contains(la.abd_License_Type__c))
+					return false;
+			}
+		}
+		return null;
+	}
+	
+    @AuraEnabled
 	public static AgentInfo[] getAgentList(Id id){
         boolean skip = true;   
         Boolean inState = false;
@@ -26,7 +41,7 @@ public without sharing class DX_AuthorizedAgentList {
             if (app.abd_Premise_State__c == 'IA')
                 inState = true;
 
-    		set<string> ss = new set<string>{'CB', 'CV'}; 
+    		set<string> ss = new set<string>{'CB', 'CV', 'SP'}; 
     		for(abd_License_Application__c la:app.License_Applications__r){
     			if(ss.contains(la.abd_License_Type__c))
     				skip = false;

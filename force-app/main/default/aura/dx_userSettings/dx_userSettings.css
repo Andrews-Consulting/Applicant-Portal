@@ -1,0 +1,15 @@
+.THIS div.ui-widget>div.forceCommunityUserSettings div.row:nth-of-type(n+3),
+.THIS li.profile,
+.THIS li.myAccount,
+.THIS li.CommunityManageConsole,
+.THIS li.CommunityBuilder,
+.THIS li.CommunitySetup,
+.THIS li.contactSupport,
+.THIS div.login,
+.THIS button.cancelbutton,
+.THIS div.row div.message:nth-of-type(3){
+    	display:none;	
+	}
+.THIS a{
+    white-space:nowrap;
+}

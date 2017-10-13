@@ -24,7 +24,7 @@ private class dx_StdPageAbstraction_Test {
 		System.assertNotEquals(null, licenseId);    	
 
 
-    	MUSW__License2__c addon = TestUtils.CreateAddOnLicense(U, clist[0],alist[0], 'P-OS','Outdoor Service',licenseId);
+    	MUSW__License2__c addon = TestUtils.CreateAddOnLicense(U, clist[0],alist[0], 'OS','Outdoor Service',licenseId);
     	Id addOnId = addon.Id;
 		System.assertNotEquals(null, addon);    	
 

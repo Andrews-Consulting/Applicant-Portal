@@ -50,11 +50,10 @@ public without sharing class DX_OwnerForm {
     
     // Update the record - called from Lightning component.  The lightning component handles the validation now. 
 
+
     @AuraEnabled
     public static String upRecordApex(Application_Contact__c owner){
-        system.debug('Owner Update');
         try{
-
         	list<BGCK__Answer__c> answer = [select Id, Name from BGCK__Answer__c where Application__c =: owner.Application__c and BGCK__Question__r.Name='Owner Details' limit 1];
         	if (answer.size() > 0) {
 	        	owner.Answer__c = answer[0].Id;
@@ -63,32 +62,13 @@ public without sharing class DX_OwnerForm {
 	        	Object ansCount = AnsCountRecs[0].get('expr0');
 	        	answer[0].Name = string.valueOf(ansCount) +' related record(s)';
 	        	update answer;
-        	}
-        }catch(exception ex){
+			}
+       	}
+        catch(exception ex){
             throw new AuraHandledException (ex.getMessage());
         }
         
         return null;
     }  
- //   @AuraEnabled
-	// public static Application_Contact__c getOwner(Id id){
-	// 	Application_Contact__c owner;
-	// 	string ownPre = Application_Contact__c.sObjectType.getDescribe().getKeyPrefix();
-	// 	string appPre = MUSW__Application2__c.sObjectType.getDescribe().getKeyPrefix();
-	// 	String idPre = String.valueOf(id).substring(0,3);
-	// 	if(idPre == ownPre){
-	// 		owner = [Select Id,Application__c,Business_Name__c,First_Name__c,Last_Name__c,Address__c,Address_2__c,City__c,State__c,Zip_Code__c,
-	// 				abd_State_of_Incorporation__c,abd_Primary_Owner__c,Position__c,SSN__c,abd_Federal_Gambling_Stamp__c,
-	// 				Date_of_Birth__c,U_S_Citizen__c,abd_Credit_Gift_Loan_Amount__c,abd_Amount_Paid__c,of_Ownership__c
-	// 				from Application_Contact__c where Id=:id];	 
-	// 	}else if(idPre == appPre){
-	// 		owner = new Application_Contact__c(Application__c = id,Business_Name__c='',First_Name__c='',Last_Name__c='',Address__c='',Address_2__c='',City__c='',Zip_Code__c='',
-	// 				abd_Primary_Owner__c=false,Position__c='',SSN__c='');
-	// 	}else{
-	// 		return null;
-	// 	}
-	// 	system.debug(owner);
- //        return owner;
-	// }
-
+ 
 }

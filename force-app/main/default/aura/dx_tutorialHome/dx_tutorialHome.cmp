@@ -8,7 +8,7 @@
 	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
     <div class="slds-grid slds-wrap slds-grid--pull-padded">
     	<div class="slds-col slds-size--1-of-1 skip">
-    		<a  href="javascript:void(0);"><span onclick="{!c.setCookie}">Skip</span></a> tutorials	
+    		<lightning:input type="checkbox" label="Don't show me this page again" name="skip" onchange="{!c.setCookie}" aura:id="skip" checked="false"/>
     	</div>
     	<div class="slds-col slds-size--1-of-1">
 		    <aura:If isTrue="{!v.showError}">

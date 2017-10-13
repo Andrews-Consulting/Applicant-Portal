@@ -1,8 +1,24 @@
 <aura:component extends="c:dx_StdPageAbstraction" implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" access="global">
 
     <aura:set attribute="ActiveCmp" value="dx_PC_RenewalApplication" />     <!-- This drives the navigation and needs to exist in Nav metadata -->
+    <aura:attribute name="renInitComplete" type="Boolean" default="false" />
+    <aura:attribute name="AppInfo" type="Object" />    
 
     <div aura:id="dx_PC_RenewalApplicationDiv">
-        <c:dx_CreateRenewalApplication SaveCompleted="{!c.SaveComplete}" EmptyComponent="{!c.EmptyComponent}" showError="{!v.showError}" errorMessage="{!v.errorMessage}" aura:id="dx_PC_RenewalApplication" recordId="{!v.recordId}"/> 
+        <c:dx_CreateRenewalApplication SaveCompleted="{!c.SaveComplete}" EmptyComponent="{!c.EmptyComponent}" showError="{!v.showError}" errorMessage="{!v.errorMessage}" aura:id="dx_PC_RenewalApplication" recordId="{!v.recordId}" isInitComplete="{! v.renInitComplete}"  AppInfo="{!v.AppInfo}" /> 
+
+        <aura:if isTrue="{! v.renInitComplete}" >
+		    <c:dx_checklistDisplaySectionOnly Section="Ownership Interest Renewals" SaveCompleted="{!c.SaveComplete}" EmptyComponent="{!c.EmptyComponent}" showError="{!v.showError}"  errorMessage="{!v.errorMessage}" aura:id="dx_PC_RenewalApplication" recordId="{!v.recordId}" RecordIdIsApplication="{!v.RecordIdIsApplication}" isInitComplete="{! v.InitCompleteTriggerFlag}"/> 
+
+		    <c:dx_checklistDisplaySectionOnly Section="Criminal History" SaveCompleted="{!c.SaveComplete}" EmptyComponent="{!c.EmptyComponent}" showError="{!v.showError}" errorMessage="{!v.errorMessage}" aura:id="dx_PC_RenewalApplication" recordId="{!v.recordId}" RecordIdIsApplication="{!v.RecordIdIsApplication}" isInitComplete="{! v.InitCompleteTriggerFlag}"/> 
+
+		    <c:dx_checklistDisplaySectionOnly Section="Premises Information" SaveCompleted="{!c.SaveComplete}" EmptyComponent="{!c.EmptyComponent}" showError="{!v.showError}" errorMessage="{!v.errorMessage}" aura:id="dx_PC_RenewalApplication" recordId="{!v.recordId}" RecordIdIsApplication="{!v.RecordIdIsApplication}" isInitComplete="{! v.InitCompleteTriggerFlag}"/> 
+		</aura:if>
+    
+		<!-- If this has a PerformInit method that we need to call after the page is rendered, then set the aura:id=dx_PC_RenewalApplication.  If not, leave the aura:id off -->
+		<c:dx_FeeDisplay AppInfo="{!v.AppInfo}" showError="{!v.showError}" errorMessage="{!v.errorMessage}" />
     </div>
+
+
+
 </aura:component>

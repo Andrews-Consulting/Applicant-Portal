@@ -88,6 +88,7 @@
 .THIS .skip{
 	text-align:right;
 	float:right;
+	padding:5px;
 }
 @-webkit-keyframes fade {
   from {opacity: .4} 

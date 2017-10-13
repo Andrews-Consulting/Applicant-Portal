@@ -1,6 +1,19 @@
 .THIS {}
 
-.THIS .DefaultPresentation {
-	max-width: 75%;
-	max-height: 75%;
+.THIS .HelpTextIconWrapper {
+	min-width: 2rem;
+	max-width: 4rem;
+	text-align: center;
+	position: fixed;
+	background-color: white;
+}
+
+.THIS .HelpTextIconWrapper .slds-icon_container {
+	background-color:black;
+}
+
+.THIS .slds-modal__close,
+.THIS .slds-modal__header,
+.THIS .slds-modal__content {
+	background-color: #bdf0f0;
 }
